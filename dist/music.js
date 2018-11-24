@@ -12,15 +12,15 @@ const ap = new APlayer({
 
 
       {
-        name: "Butter-Fly",
-        artist: '和田光司',
+        name: "思念是一种病",
+        artist: '张震岳;蔡健雅',
         url: 'http://www.ytmp3.cn/down/33644.mp3',
         cover: 'http://img.ytmp3.cn/image/91.jpg',
       },
 
       {
-        name: "思念是一种病",
-        artist: '张震岳;蔡健雅',
+        name: "天亮以后",
+        artist: '胡歌',
         url: 'http://www.ytmp3.cn/down/44304.mp3',
         cover: 'http://img.ytmp3.cn/image/90.jpg',
       },
