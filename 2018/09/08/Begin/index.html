@@ -272,9 +272,9 @@ pace-theme-flash.css" rel="stylesheet">
       
         
         <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
+          <a href="/about" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
             
             关于
           </a>
@@ -282,9 +282,9 @@ pace-theme-flash.css" rel="stylesheet">
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
+          <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
             
             标签
           </a>
@@ -292,9 +292,9 @@ pace-theme-flash.css" rel="stylesheet">
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
+          <a href="/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
             
             分类
           </a>
@@ -302,9 +302,9 @@ pace-theme-flash.css" rel="stylesheet">
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
+          <a href="/archives" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
             
             归档
           </a>
@@ -312,9 +312,9 @@ pace-theme-flash.css" rel="stylesheet">
       
         
         <li class="menu-item menu-item-schedule">
-          <a href="/schedule/" rel="section">
+          <a href="/schedule" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
             
             日程表
           </a>
@@ -474,7 +474,7 @@ pace-theme-flash.css" rel="stylesheet">
 </ol>
 <h2 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h2><p>鄙人是江西上饶的一位无名小卒，现于上海一所双非大学本科在读，现实生活中比较内向、形单影只，但热衷于各种技术，正朝着极客的方向努力。</p>
 <h3 id="Contcat-me："><a href="#Contcat-me：" class="headerlink" title="Contcat me："></a>Contcat me：</h3><ul>
-<li>Email：<a href="mailto:26647978@qq.com" target="_blank" rel="noopener">26647978@qq.com</a></li>
+<li>Email：26647978@qq.com</li>
 <li>QQ：26647879</li>
 <li>VX：LT510087153</li>
 </ul>
@@ -694,7 +694,7 @@ var jiathis_config={
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                <a href="/archives">
               
                   <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
@@ -1053,6 +1053,28 @@ $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
 
   
 

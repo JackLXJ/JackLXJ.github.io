@@ -270,9 +270,9 @@ pace-theme-flash.css" rel="stylesheet">
       
         
         <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
+          <a href="/about" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
             
             关于
           </a>
@@ -280,9 +280,9 @@ pace-theme-flash.css" rel="stylesheet">
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
+          <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
             
             标签
           </a>
@@ -290,9 +290,9 @@ pace-theme-flash.css" rel="stylesheet">
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
+          <a href="/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
             
             分类
           </a>
@@ -300,9 +300,9 @@ pace-theme-flash.css" rel="stylesheet">
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
+          <a href="/archives" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
             
             归档
           </a>
@@ -310,9 +310,9 @@ pace-theme-flash.css" rel="stylesheet">
       
         
         <li class="menu-item menu-item-schedule">
-          <a href="/schedule/" rel="section">
+          <a href="/schedule" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
             
             日程表
           </a>
@@ -500,7 +500,7 @@ pace-theme-flash.css" rel="stylesheet">
 <ol>
 <li>按ESC </li>
 <li>shift+： </li>
-<li><ol start="3">
+<li><ol>
 <li>输入q！   # 不保存退出</li>
 </ol>
 </li>
@@ -601,7 +601,7 @@ pace-theme-flash.css" rel="stylesheet">
 <li>得到目标网站后台管理员的登录密码<figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">sqlmap </span>-u 目标网站 <span class="built_in">--dump</span> -C <span class="string">"username,password"</span> -T <span class="string">"user"</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>–dump：下载数据<br>-C “username,password” 列名</p>
+<p>—dump：下载数据<br>-C “username,password” 列名</p>
 <h3 id="7-3-PHP渗透"><a href="#7-3-PHP渗透" class="headerlink" title="7.3 PHP渗透"></a>7.3 PHP渗透</h3><p>待更新</p>
 <h3 id="7-4-Cookie渗透"><a href="#7-4-Cookie渗透" class="headerlink" title="7.4 Cookie渗透"></a>7.4 Cookie渗透</h3><p>待更新</p>
 <h2 id="八、Metasplooit"><a href="#八、Metasplooit" class="headerlink" title="八、Metasplooit"></a>八、Metasplooit</h2><h3 id="8-1-基本操作"><a href="#8-1-基本操作" class="headerlink" title="8.1 基本操作"></a>8.1 基本操作</h3><ul>
@@ -672,9 +672,9 @@ pace-theme-flash.css" rel="stylesheet">
 </ul>
 <h3 id="8-2-5-用户操作和其他功能"><a href="#8-2-5-用户操作和其他功能" class="headerlink" title="8.2.5 用户操作和其他功能"></a>8.2.5 用户操作和其他功能</h3><ul>
 <li>enumdesktops      窗体</li>
-<li>keyscan_dump      键盘记录–下载</li>
-<li>keyscan_start     键盘记录–开始</li>
-<li>keyscan_stop      键盘记录–停止</li>
+<li>keyscan_dump      键盘记录—下载</li>
+<li>keyscan_start     键盘记录—开始</li>
+<li>keyscan_stop      键盘记录—停止</li>
 <li>uictl             获取键盘鼠标控制权</li>
 <li>record_mic        声音和音频录制</li>
 <li>webscan_chat      查看摄像头接口</li>
@@ -752,7 +752,7 @@ pace-theme-flash.css" rel="stylesheet">
 <p>wifite</p>
 <hr>
 <p>伪造wifi：<br><figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">airbase-ng -a <span class="string">[ap_mac]</span> -c <span class="string">[信道]</span> --essid <span class="string">[wifi名字]</span> wlan0mon</span><br></pre></td></tr></table></figure></p>
-<p><code>`</code><br>echo [ap(wifi名)] &gt;essid.txt<br>airolib-ng essid_db –import essid essid.txt<br>airolib-ng essid_db –stats<br>airolib-ng essid_db –import password ./names.txt<br>airolib-ng essid_db –batch<br>aircrack-ng -r essid_fb /root/wpa-01.cap</p>
+<p>```<br>echo [ap(wifi名)] &gt;essid.txt<br>airolib-ng essid_db —import essid essid.txt<br>airolib-ng essid_db —stats<br>airolib-ng essid_db —import password ./names.txt<br>airolib-ng essid_db —batch<br>aircrack-ng -r essid_fb /root/wpa-01.cap</p>
 
       
     </div>
@@ -940,7 +940,7 @@ var jiathis_config={
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                <a href="/archives">
               
                   <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
@@ -1299,6 +1299,28 @@ $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
 
   
 
