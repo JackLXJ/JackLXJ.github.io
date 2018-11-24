@@ -40,7 +40,7 @@ const ap = new APlayer({
       },
 
        {
-        name: "Butter-Flyy",
+        name: "日落大道",
         artist: '梁博 ',
         url: 'http://www.ytmp3.cn/down/42631.mp3',
         cover: 'https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=2056984611,2592659515&fm=58&bpow=580&bpoh=819',
