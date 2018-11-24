@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/
+pace-theme-flash.css" rel="stylesheet">
+
+
+<!--prettify代码高亮主题css引入-->
+<link href="/plugins/prettify/prettify.css" rel="stylesheet">
+
+<meta name="theme-color" content="#222">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "86c69b95"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="1. 将Spring与Hibernate进行整合1.1 为项目添加Spring的开发支持 在开发的时候一定要先啊添加Spring而不是Hibernate，如果那样的话就热闹了。  1.1.1 创建一个新的web项目SSHDemo1.1.2 添加Spring  configure facets install spring facet next勾上Spring Persistence，在这里面有个o">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用MyEclipse进行SSH项目整合">
+<meta property="og:url" content="http://jacklxj.github.io/2018/09/20/利用MyEclipse进行SSH项目整合/index.html">
+<meta property="og:site_name" content="Zero">
+<meta property="og:description" content="1. 将Spring与Hibernate进行整合1.1 为项目添加Spring的开发支持 在开发的时候一定要先啊添加Spring而不是Hibernate，如果那样的话就热闹了。  1.1.1 创建一个新的web项目SSHDemo1.1.2 添加Spring  configure facets install spring facet next勾上Spring Persistence，在这里面有个o">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-11-24T12:23:20.580Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="利用MyEclipse进行SSH项目整合">
+<meta name="twitter:description" content="1. 将Spring与Hibernate进行整合1.1 为项目添加Spring的开发支持 在开发的时候一定要先啊添加Spring而不是Hibernate，如果那样的话就热闹了。  1.1.1 创建一个新的web项目SSHDemo1.1.2 添加Spring  configure facets install spring facet next勾上Spring Persistence，在这里面有个o">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://jacklxj.github.io/2018/09/20/利用MyEclipse进行SSH项目整合/">
+
+
+
+
+
+  <title>利用MyEclipse进行SSH项目整合 | Zero</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/JackLXJ" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Zero</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+            
+            日程表
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://jacklxj.github.io/2018/09/20/利用MyEclipse进行SSH项目整合/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zero">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/head.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zero">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">利用MyEclipse进行SSH项目整合</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-20T20:20:40+08:00">
+                2018-09-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  5.1k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  26
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-将Spring与Hibernate进行整合"><a href="#1-将Spring与Hibernate进行整合" class="headerlink" title="1. 将Spring与Hibernate进行整合"></a><strong>1. 将Spring与Hibernate进行整合</strong></h2><h3 id="1-1-为项目添加Spring的开发支持"><a href="#1-1-为项目添加Spring的开发支持" class="headerlink" title="1.1 为项目添加Spring的开发支持"></a><strong>1.1 为项目添加Spring的开发支持</strong></h3><blockquote>
+<p>在开发的时候一定要先啊添加Spring而不是Hibernate，如果那样的话就热闹了。</p>
+</blockquote>
+<h4 id="1-1-1-创建一个新的web项目SSHDemo"><a href="#1-1-1-创建一个新的web项目SSHDemo" class="headerlink" title="1.1.1 创建一个新的web项目SSHDemo"></a><strong>1.1.1 创建一个新的web项目SSHDemo</strong></h4><h4 id="1-1-2-添加Spring"><a href="#1-1-2-添加Spring" class="headerlink" title="1.1.2 添加Spring"></a><strong>1.1.2 添加Spring</strong></h4><blockquote>
+<ul>
+<li>configure facets</li>
+<li>install spring facet</li>
+<li>next勾上Spring Persistence，在这里面有个orm开发包，含有Hibernate整合、IBatis整合、JDO等整合。</li>
+</ul>
+</blockquote>
+<h3 id="1-2-添加Hibernate"><a href="#1-2-添加Hibernate" class="headerlink" title="1.2 添加Hibernate"></a><strong>1.2 添加Hibernate</strong></h3><blockquote>
+<ul>
+<li>configure facets</li>
+<li>install Hibernate, 暂时选择Hibernate4.1 facet，如果Hibernate交给了Spring管理，那么Hibernate不再需要HibernateSessionFactory工具类的生成，随后SessionFactory交给了Spring负责管理，但是需要生成hibernate.cfg.xml文件，这个文件不再进行数据库，只进行相关的</li>
+<li>将Create SessionFactory class去掉，√上Create hibernate.cfg.xml file<br>-&gt; next</li>
+<li>打开mysql：windows -&gt; perspective -&gt; open perspective -&gt; other -&gt; database explore -&gt; 之后就可以右键添加自己的数据库了</li>
+<li>在上一步完成之后就可以在配置DB Driver的时候选择mysql了 -&gt; next -&gt; finish</li>
+</ul>
+</blockquote>
+<h3 id="1-3-将Spring和Hibernate进行整合"><a href="#1-3-将Spring和Hibernate进行整合" class="headerlink" title="1.3 将Spring和Hibernate进行整合"></a><strong>1.3 将Spring和Hibernate进行整合</strong></h3><h4 id="1-3-1-修改hibernate-cfg-xml文件"><a href="#1-3-1-修改hibernate-cfg-xml文件" class="headerlink" title="1.3.1 修改hibernate.cfg.xml文件"></a><strong>1.3.1 修改hibernate.cfg.xml文件</strong></h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version='1.0' encoding='UTF-8'?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE hibernate-configuration PUBLIC</span></span><br><span class="line"><span class="meta">          "-//Hibernate/Hibernate Configuration DTD 3.0//EN"</span></span><br><span class="line"><span class="meta">          "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd"&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- Generated by MyEclipse Hibernate Tools.                   --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">hibernate-configuration</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">session-factory</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"dialect"</span>&gt;</span>org.hibernate.dialect.MySQLDialect<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"show_sql"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"format_sql"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">session-factory</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">hibernate-configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="1-3-2-建立一个database-properties文件，用于保存所有数据连接的信息"><a href="#1-3-2-建立一个database-properties文件，用于保存所有数据连接的信息" class="headerlink" title="1.3.2 建立一个database.properties文件，用于保存所有数据连接的信息"></a><strong>1.3.2 建立一个database.properties文件，用于保存所有数据连接的信息</strong></h4><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">db.<span class="attribute">driver</span>=com.mysql.cj.jdbc.Driver</span><br><span class="line">db.<span class="attribute">url</span>=jdbc:mysql://localhost:3306/test?useSSL=true&amp;serverTimezone=UTC&amp;useUnicode=true&amp;characterEncoding=UTF-8</span><br><span class="line">db.<span class="attribute">user</span>=root</span><br><span class="line">db.<span class="attribute">password</span>=123</span><br><span class="line"></span><br><span class="line">pool.<span class="attribute">max</span>=1</span><br><span class="line">pool.<span class="attribute">min</span>=1</span><br><span class="line">pool.<span class="attribute">init</span>=10</span><br><span class="line">pool.<span class="attribute">idle</span>=20</span><br></pre></td></tr></table></figure>
+<h4 id="1-3-3-配置applicationContext-xml文件"><a href="#1-3-3-配置applicationContext-xml文件" class="headerlink" title="1.3.3 配置applicationContext.xml文件"></a><strong>1.3.3 配置applicationContext.xml文件</strong></h4><p>要想将Spring和Hibernate进行整合，那么就需要配置applicationContext.xml文件，以下是常用的配置步骤，每个步骤分别对应后面的代码。</p>
+<blockquote>
+<ul>
+<li>在namespace中勾上context，用于添加Annotation支持</li>
+<li>添加支持Annotation</li>
+<li>通过classpath加载databasse.properties文件</li>
+<li>配置数据库连接池</li>
+<li>配置Hibernate的相关环境，SessionFactory可以打开Session</li>
+<li>事务配置的声明</li>
+<li>定义事务的切入点</li>
+</ul>
+</blockquote>
+<ul>
+<li><strong>添加支持Annotation</strong></li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 配置annotation的支持操作 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">context:annotation-config</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"com.tianxingjian"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>通过classpath加载databasse.properties文件</strong></li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 在本程序中设置要导入的资源文件路径，直接通过classpath加载 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">context:property-placeholder</span> <span class="attr">location</span>=<span class="string">"classpath:database.properties"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>配置数据库连接池</strong></li>
+</ul>
+<figure class="highlight dust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="comment">&lt;!-- 配合数据库连接池 --&gt;</span></span></span><br><span class="line"><span class="xml">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"dataSource"</span> <span class="attr">class</span>=<span class="string">"com.mchange.v2.c3p0.ComboPooledDataSource"</span>&gt;</span></span></span><br><span class="line"><span class="xml">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"driverClass"</span> <span class="attr">value</span>=<span class="string">"$</span></span></span><span class="template-variable">&#123;db.driver&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>/&gt;</span></span></span><br><span class="line"><span class="xml">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"jdbcUrl"</span> <span class="attr">value</span>=<span class="string">"$</span></span></span><span class="template-variable">&#123;db.url&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>/&gt;</span></span></span><br><span class="line"><span class="xml">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"user"</span> <span class="attr">value</span>=<span class="string">"$</span></span></span><span class="template-variable">&#123;db.user&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>/&gt;</span></span></span><br><span class="line"><span class="xml">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"password"</span> <span class="attr">value</span>=<span class="string">"$</span></span></span><span class="template-variable">&#123;db.password&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>/&gt;</span></span></span><br><span class="line"><span class="xml">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"maxPoolSize"</span> <span class="attr">value</span>=<span class="string">"$</span></span></span><span class="template-variable">&#123;pool.max&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>/&gt;</span></span></span><br><span class="line"><span class="xml">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"minPoolSize"</span> <span class="attr">value</span>=<span class="string">"$</span></span></span><span class="template-variable">&#123;pool.min&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>/&gt;</span></span></span><br><span class="line"><span class="xml">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"initialPoolSize"</span> <span class="attr">value</span>=<span class="string">"$</span></span></span><span class="template-variable">&#123;pool.init&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>/&gt;</span></span></span><br><span class="line"><span class="xml">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"maxIdleTime"</span> <span class="attr">value</span>=<span class="string">"$</span></span></span><span class="template-variable">&#123;pool.idle&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>/&gt;</span></span></span><br><span class="line"><span class="xml">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>配置Hibernate的相关环境，SessionFactory可以打开Session</strong></li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 配置Hibernate的相关环境，SessionFactory可以打开Session --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"sessionFactory"</span></span></span><br><span class="line"><span class="tag">		<span class="attr">class</span>=<span class="string">"org.springframework.orm.hibernate4.LocalSessionFactoryBean"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"configLocation"</span></span></span><br><span class="line"><span class="tag">			<span class="attr">value</span>=<span class="string">"classpath:hibernate.cfg.xml"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- 就表示这个项目里面引用数据源关系 --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"dataSource"</span> <span class="attr">ref</span>=<span class="string">"dataSource"</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>事务的配置声明</strong></li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 事务的配置声明 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">tx:annotation-driven</span> <span class="attr">transaction-manager</span>=<span class="string">"transactionManager"</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">tx:advice</span> <span class="attr">id</span>=<span class="string">"txAdvice"</span> <span class="attr">transaction-manager</span>=<span class="string">"transactionManager"</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- 定义一切与服务层有关的方法名称，只要是使用了特定的名称那么就会自动进行处理事务 --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">tx:attributes</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">"insert*"</span> <span class="attr">propagation</span>=<span class="string">"REQUIRED"</span>/&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">"update*"</span> <span class="attr">propagation</span>=<span class="string">"REQUIRED"</span>/&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">"delete*"</span> <span class="attr">propagation</span>=<span class="string">"REQUIRED"</span>/&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">"add*"</span> <span class="attr">propagation</span>=<span class="string">"REQUIRED"</span>/&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">"edit*"</span> <span class="attr">propagation</span>=<span class="string">"REQUIRED"</span>/&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">"change*"</span> <span class="attr">propagation</span>=<span class="string">"REQUIRED"</span>/&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">"login*"</span> <span class="attr">propagation</span>=<span class="string">"REQUIRED"</span>/&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">"get*"</span> <span class="attr">propagation</span>=<span class="string">"REQUIRED"</span> <span class="attr">read-only</span>=<span class="string">"true"</span>/&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">"load*"</span> <span class="attr">propagation</span>=<span class="string">"REQUIRED"</span> <span class="attr">read-only</span>=<span class="string">"true"</span>/&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">"list*"</span> <span class="attr">propagation</span>=<span class="string">"REQUIRED"</span> <span class="attr">read-only</span>=<span class="string">"true"</span>/&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">"*"</span> <span class="attr">propagation</span>=<span class="string">"REQUIRED"</span> <span class="attr">read-only</span>=<span class="string">"true"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">tx:attributes</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">tx:advice</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>定义事务的切入点</strong></li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 定义事务的切入点 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">aop:config</span> <span class="attr">expose-proxy</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">aop:pointcut</span> <span class="attr">expression</span>=<span class="string">"execution(* com.tianxingjian..service.*.*(..))"</span> <span class="attr">id</span>=<span class="string">"pointcut"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">aop:advisor</span> <span class="attr">advice-ref</span>=<span class="string">"txAdvice"</span> <span class="attr">pointcut-ref</span>=<span class="string">"pointcut"</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">aop:config</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong><em>以上就是本次项目中applicationContext.xml文件的相关配置，完整的applicationContext.xml文件的代码如下：</em></strong></p>
+<figure class="highlight dust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span></span><br><span class="line"><span class="xml">	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="line"><span class="xml">	xmlns:p="http://www.springframework.org/schema/p"</span></span><br><span class="line"><span class="xml">	xmlns:tx="http://www.springframework.org/schema/tx"</span></span><br><span class="line"><span class="xml">	xmlns:context="http://www.springframework.org/schema/context"</span></span><br><span class="line"><span class="xml">	xmlns:aop="http://www.springframework.org/schema/aop"</span></span><br><span class="line"><span class="xml">	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd</span></span><br><span class="line"><span class="xml">		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd</span></span><br><span class="line"><span class="xml">		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.1.xsd</span></span><br><span class="line"><span class="xml">		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd"&gt;</span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">	<span class="comment">&lt;!-- 配置annotation的支持操作 --&gt;</span></span></span><br><span class="line"><span class="xml">	<span class="tag">&lt;<span class="name">context:annotation-config</span>/&gt;</span></span></span><br><span class="line"><span class="xml">	<span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"com.tianxingjian"</span>/&gt;</span></span></span><br><span class="line"><span class="xml">	</span></span><br><span class="line"><span class="xml">	<span class="comment">&lt;!-- 在本程序中设置要导入的资源文件路径，直接通过classpath加载 --&gt;</span></span></span><br><span class="line"><span class="xml">	<span class="tag">&lt;<span class="name">context:property-placeholder</span> <span class="attr">location</span>=<span class="string">"classpath:database.properties"</span>/&gt;</span></span></span><br><span class="line"><span class="xml">	</span></span><br><span class="line"><span class="xml">	<span class="comment">&lt;!-- 配合数据库连接池 --&gt;</span></span></span><br><span class="line"><span class="xml">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"dataSource"</span> <span class="attr">class</span>=<span class="string">"com.mchange.v2.c3p0.ComboPooledDataSource"</span>&gt;</span></span></span><br><span class="line"><span class="xml">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"driverClass"</span> <span class="attr">value</span>=<span class="string">"$</span></span></span><span class="template-variable">&#123;db.driver&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>/&gt;</span></span></span><br><span class="line"><span class="xml">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"jdbcUrl"</span> <span class="attr">value</span>=<span class="string">"$</span></span></span><span class="template-variable">&#123;db.url&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>/&gt;</span></span></span><br><span class="line"><span class="xml">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"user"</span> <span class="attr">value</span>=<span class="string">"$</span></span></span><span class="template-variable">&#123;db.user&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>/&gt;</span></span></span><br><span class="line"><span class="xml">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"password"</span> <span class="attr">value</span>=<span class="string">"$</span></span></span><span class="template-variable">&#123;db.password&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>/&gt;</span></span></span><br><span class="line"><span class="xml">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"maxPoolSize"</span> <span class="attr">value</span>=<span class="string">"$</span></span></span><span class="template-variable">&#123;pool.max&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>/&gt;</span></span></span><br><span class="line"><span class="xml">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"minPoolSize"</span> <span class="attr">value</span>=<span class="string">"$</span></span></span><span class="template-variable">&#123;pool.min&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>/&gt;</span></span></span><br><span class="line"><span class="xml">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"initialPoolSize"</span> <span class="attr">value</span>=<span class="string">"$</span></span></span><span class="template-variable">&#123;pool.init&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>/&gt;</span></span></span><br><span class="line"><span class="xml">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"maxIdleTime"</span> <span class="attr">value</span>=<span class="string">"$</span></span></span><span class="template-variable">&#123;pool.idle&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>/&gt;</span></span></span><br><span class="line"><span class="xml">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">	<span class="comment">&lt;!-- 配置Hibernate的相关环境，SessionFactory可以打开Session --&gt;</span></span></span><br><span class="line"><span class="xml">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"sessionFactory"</span></span></span></span><br><span class="line"><span class="xml">		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"&gt;</span></span><br><span class="line"><span class="xml">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"configLocation"</span></span></span></span><br><span class="line"><span class="xml">			value="classpath:hibernate.cfg.xml"&gt;</span></span><br><span class="line"><span class="xml">		<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span></span><br><span class="line"><span class="xml">		<span class="comment">&lt;!-- 就表示这个项目里面引用数据源关系 --&gt;</span></span></span><br><span class="line"><span class="xml">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"dataSource"</span> <span class="attr">ref</span>=<span class="string">"dataSource"</span>/&gt;</span></span></span><br><span class="line"><span class="xml">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span></span><br><span class="line"><span class="xml">	</span></span><br><span class="line"><span class="xml">	<span class="comment">&lt;!-- 配置事务处理，所有的事务都采用AOP的方式，本处只声明SessionFactory要进行事务处控制--&gt;</span></span></span><br><span class="line"><span class="xml">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"transactionManager"</span></span></span></span><br><span class="line"><span class="xml">		class="org.springframework.orm.hibernate4.HibernateTransactionManager"&gt;</span></span><br><span class="line"><span class="xml">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"sessionFactory"</span> <span class="attr">ref</span>=<span class="string">"sessionFactory"</span> /&gt;</span></span></span><br><span class="line"><span class="xml">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span></span><br><span class="line"><span class="xml">	</span></span><br><span class="line"><span class="xml">	<span class="comment">&lt;!-- 事务的配置声明 --&gt;</span></span></span><br><span class="line"><span class="xml">	<span class="tag">&lt;<span class="name">tx:annotation-driven</span> <span class="attr">transaction-manager</span>=<span class="string">"transactionManager"</span> /&gt;</span></span></span><br><span class="line"><span class="xml">	<span class="tag">&lt;<span class="name">tx:advice</span> <span class="attr">id</span>=<span class="string">"txAdvice"</span> <span class="attr">transaction-manager</span>=<span class="string">"transactionManager"</span>&gt;</span></span></span><br><span class="line"><span class="xml">		<span class="comment">&lt;!-- 定义一切与服务层有关的方法名称，只要是使用了特定的名称那么就会自动进行处理事务 --&gt;</span></span></span><br><span class="line"><span class="xml">		<span class="tag">&lt;<span class="name">tx:attributes</span>&gt;</span></span></span><br><span class="line"><span class="xml">			<span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">"insert*"</span> <span class="attr">propagation</span>=<span class="string">"REQUIRED"</span>/&gt;</span></span></span><br><span class="line"><span class="xml">			<span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">"update*"</span> <span class="attr">propagation</span>=<span class="string">"REQUIRED"</span>/&gt;</span></span></span><br><span class="line"><span class="xml">			<span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">"delete*"</span> <span class="attr">propagation</span>=<span class="string">"REQUIRED"</span>/&gt;</span></span></span><br><span class="line"><span class="xml">			<span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">"add*"</span> <span class="attr">propagation</span>=<span class="string">"REQUIRED"</span>/&gt;</span></span></span><br><span class="line"><span class="xml">			<span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">"edit*"</span> <span class="attr">propagation</span>=<span class="string">"REQUIRED"</span>/&gt;</span></span></span><br><span class="line"><span class="xml">			<span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">"change*"</span> <span class="attr">propagation</span>=<span class="string">"REQUIRED"</span>/&gt;</span></span></span><br><span class="line"><span class="xml">			<span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">"login*"</span> <span class="attr">propagation</span>=<span class="string">"REQUIRED"</span>/&gt;</span></span></span><br><span class="line"><span class="xml">			<span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">"get*"</span> <span class="attr">propagation</span>=<span class="string">"REQUIRED"</span> <span class="attr">read-only</span>=<span class="string">"true"</span>/&gt;</span></span></span><br><span class="line"><span class="xml">			<span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">"load*"</span> <span class="attr">propagation</span>=<span class="string">"REQUIRED"</span> <span class="attr">read-only</span>=<span class="string">"true"</span>/&gt;</span></span></span><br><span class="line"><span class="xml">			<span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">"list*"</span> <span class="attr">propagation</span>=<span class="string">"REQUIRED"</span> <span class="attr">read-only</span>=<span class="string">"true"</span>/&gt;</span></span></span><br><span class="line"><span class="xml">			<span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">"*"</span> <span class="attr">propagation</span>=<span class="string">"REQUIRED"</span> <span class="attr">read-only</span>=<span class="string">"true"</span>/&gt;</span></span></span><br><span class="line"><span class="xml">		<span class="tag">&lt;/<span class="name">tx:attributes</span>&gt;</span></span></span><br><span class="line"><span class="xml">	<span class="tag">&lt;/<span class="name">tx:advice</span>&gt;</span></span></span><br><span class="line"><span class="xml">	</span></span><br><span class="line"><span class="xml">	<span class="comment">&lt;!-- 定义事务的切入点 --&gt;</span></span></span><br><span class="line"><span class="xml">	<span class="tag">&lt;<span class="name">aop:config</span> <span class="attr">expose-proxy</span>=<span class="string">"true"</span>&gt;</span></span></span><br><span class="line"><span class="xml">		<span class="tag">&lt;<span class="name">aop:pointcut</span> <span class="attr">expression</span>=<span class="string">"execution(* com.tianxingjian..service.*.*(..))"</span> <span class="attr">id</span>=<span class="string">"pointcut"</span>/&gt;</span></span></span><br><span class="line"><span class="xml">		<span class="tag">&lt;<span class="name">aop:advisor</span> <span class="attr">advice-ref</span>=<span class="string">"txAdvice"</span> <span class="attr">pointcut-ref</span>=<span class="string">"pointcut"</span>/&gt;</span></span></span><br><span class="line"><span class="xml">	<span class="tag">&lt;/<span class="name">aop:config</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="2-编写src代码用于本次测试"><a href="#2-编写src代码用于本次测试" class="headerlink" title="2. 编写src代码用于本次测试"></a><strong>2. 编写src代码用于本次测试</strong></h2><h3 id="2-1-生成News-java的POJO类"><a href="#2-1-生成News-java的POJO类" class="headerlink" title="2.1 生成News.java的POJO类"></a><strong>2.1 生成News.java的POJO类</strong></h3><p>我们利用Annotation的注解方式完成：</p>
+<ul>
+<li>windows -&gt; perspetive -&gt; open perspective -&gt;  database explore -&gt; 右键mysql -&gt; 连接</li>
+<li>找到要处理的表 -&gt; 右键Hibernate reverse -&gt; src为项目的src路径，java package一般为com.tianxingjian.pojo -&gt; √create pojo -&gt; 点击add Hibernate mapping annotations to pojo -&gt; next -&gt; id generator -&gt; native -&gt; next -&gt; 点击表然后native -&gt; finish，生成pojo的时候最好把create abstract class取消掉，生成之后为了便于之后的JUnit测试加上toString方法，完整的News.java代码如下：<br>上述操作完成之后pojo类的映射操作将自动保存在hibernate.cfg.xml文件中，代码如下：</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.tianxingjian.pojo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"><span class="keyword">import</span> javax.persistence.Column;</span><br><span class="line"><span class="keyword">import</span> javax.persistence.Entity;</span><br><span class="line"><span class="keyword">import</span> javax.persistence.GeneratedValue;</span><br><span class="line"><span class="keyword">import</span> javax.persistence.Id;</span><br><span class="line"><span class="keyword">import</span> javax.persistence.Table;</span><br><span class="line"><span class="keyword">import</span> javax.persistence.Temporal;</span><br><span class="line"><span class="keyword">import</span> javax.persistence.TemporalType;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * News entity. <span class="doctag">@author</span> MyEclipse Persistence Tools</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table(name = <span class="meta-string">"news"</span>, catalog = <span class="meta-string">"news_db"</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">News</span> <span class="title">implements</span> <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Fields</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> Integer nid;</span><br><span class="line">	<span class="keyword">private</span> String title;</span><br><span class="line">	<span class="keyword">private</span> Date date;</span><br><span class="line">	<span class="keyword">private</span> String content;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Constructors</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">/** default constructor */</span></span><br><span class="line">	<span class="keyword">public</span> News() &#123;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/** full constructor */</span></span><br><span class="line">	<span class="keyword">public</span> News(String title, Date date, String content) &#123;</span><br><span class="line">		<span class="keyword">this</span>.title = title;</span><br><span class="line">		<span class="keyword">this</span>.date = date;</span><br><span class="line">		<span class="keyword">this</span>.content = content;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Property accessors</span></span><br><span class="line">	<span class="meta">@Id</span></span><br><span class="line">	<span class="meta">@GeneratedValue</span></span><br><span class="line"></span><br><span class="line">	<span class="meta">@Column(name = <span class="meta-string">"nid"</span>, unique = true, nullable = false)</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> Integer getNid() &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.nid;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> void setNid(Integer nid) &#123;</span><br><span class="line">		<span class="keyword">this</span>.nid = nid;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Column(name = <span class="meta-string">"title"</span>, length = 100)</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> String getTitle() &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.title;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> void setTitle(String title) &#123;</span><br><span class="line">		<span class="keyword">this</span>.title = title;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Temporal(TemporalType.DATE)</span></span><br><span class="line">	<span class="meta">@Column(name = <span class="meta-string">"date"</span>, length = 10)</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> Date getDate() &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.date;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> void setDate(Date date) &#123;</span><br><span class="line">		<span class="keyword">this</span>.date = date;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Column(name = <span class="meta-string">"content"</span>, length = 100)</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> String getContent() &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.content;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> void setContent(String content) &#123;</span><br><span class="line">		<span class="keyword">this</span>.content = content;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> String toString() &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">"News [nid="</span> + nid + <span class="string">", title="</span> + title + <span class="string">", date="</span> + date + <span class="string">", content="</span> + content + <span class="string">"]\n"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;mapping <span class="keyword">class</span>=<span class="string">"com.tianxingjian.pojo.News"</span> /&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="2-2-定义INewsDAO-java接口"><a href="#2-2-定义INewsDAO-java接口" class="headerlink" title="2.2 定义INewsDAO.java接口"></a><strong>2.2 定义INewsDAO.java接口</strong></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.tianxingjian.dao;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"><span class="keyword">import</span> com.tianxingjian.pojo.News;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">INewsDAO</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">doCreate</span><span class="params">(News vo)</span> <span class="keyword">throws</span> Exception</span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">doUpdate</span><span class="params">(News vo)</span> <span class="keyword">throws</span> Exception</span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> News <span class="title">getElementById</span><span class="params">(Integer id)</span> <span class="keyword">throws</span> Exception</span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">doRemoveBatch</span><span class="params">(Set&lt;Integer&gt; ids)</span> <span class="keyword">throws</span> Exception</span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> List&lt;News&gt; <span class="title">findAll</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> List&lt;News&gt; <span class="title">findAllSplit</span><span class="params">(String column, String keyWord, </span></span></span><br><span class="line"><span class="function"><span class="params">			Integer currentPage, Integer lineSize)</span> <span class="keyword">throws</span> Exception</span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Integer <span class="title">getAllCount</span><span class="params">(String column, String keyWord)</span> <span class="keyword">throws</span> Exception</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-2-实现NewsDAOImpl-java类"><a href="#2-2-实现NewsDAOImpl-java类" class="headerlink" title="2.2 实现NewsDAOImpl.java类"></a><strong>2.2 实现NewsDAOImpl.java类</strong></h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.tianxingjian.dao.impl;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Iterator;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"><span class="keyword">import</span> javax.<span class="keyword">annotation</span>.Resource;</span><br><span class="line"><span class="keyword">import</span> org.hibernate.Criteria;</span><br><span class="line"><span class="keyword">import</span> org.hibernate.Query;</span><br><span class="line"><span class="keyword">import</span> org.hibernate.SessionFactory;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</span><br><span class="line"><span class="keyword">import</span> com.tianxingjian.dao.INewsDAO;</span><br><span class="line"><span class="keyword">import</span> com.tianxingjian.pojo.News;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NewsDAOImpl</span> <span class="title">implements</span> <span class="title">INewsDAO</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Resource</span></span><br><span class="line">	<span class="keyword">private</span> SessionFactory sessionFactory;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> boolean doCreate(News vo) throws Exception &#123;</span><br><span class="line">		<span class="keyword">return</span> sessionFactory.getCurrentSession().save(vo) != <span class="literal">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> boolean doUpdate(News vo) throws Exception &#123;</span><br><span class="line">		String hql = <span class="string">"update News set title=?, date=?, content=? where nid=?"</span>;</span><br><span class="line">		Query query = <span class="keyword">this</span>.sessionFactory.getCurrentSession().createQuery(hql);</span><br><span class="line">		query.setParameter(<span class="number">0</span>, vo.getTitle());</span><br><span class="line">		query.setParameter(<span class="number">1</span>, vo.getDate());</span><br><span class="line">		query.setParameter(<span class="number">2</span>, vo.getContent());</span><br><span class="line">		query.setParameter(<span class="number">3</span>, vo.getNid());</span><br><span class="line">		<span class="keyword">return</span> query.executeUpdate() &gt; <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> News getElementById(Integer id) throws Exception &#123;</span><br><span class="line">		<span class="keyword">return</span> (News) <span class="keyword">this</span>.sessionFactory.getCurrentSession().<span class="keyword">get</span>(News.<span class="keyword">class</span>, id);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> boolean doRemoveBatch(Set&lt;Integer&gt; ids) throws Exception &#123;</span><br><span class="line">		StringBuffer buffer = new StringBuffer();</span><br><span class="line">		buffer.append(<span class="string">"delete from News where nid in ("</span>);</span><br><span class="line">		Iterator&lt;Integer&gt; iterator = ids.iterator();</span><br><span class="line">		<span class="keyword">while</span> (iterator.hasNext()) &#123;</span><br><span class="line">			buffer.append(iterator.next()).append(<span class="string">","</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		buffer.delete(buffer.length()-<span class="number">1</span>, buffer.length()).append(<span class="string">")"</span>);</span><br><span class="line">		Query query = <span class="keyword">this</span>.sessionFactory.getCurrentSession().createQuery(buffer.toString());</span><br><span class="line">		<span class="keyword">return</span> query.executeUpdate() &gt; <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@SuppressWarnings(<span class="meta-string">"unchecked"</span>)</span></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> List&lt;News&gt; findAll() throws Exception &#123;</span><br><span class="line">		Criteria criteria = <span class="keyword">this</span>.sessionFactory.getCurrentSession().createCriteria(News.<span class="keyword">class</span>);</span><br><span class="line">		<span class="keyword">return</span> criteria.list();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@SuppressWarnings(<span class="meta-string">"unchecked"</span>)</span></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> List&lt;News&gt; findAllSplit(String column, String keyWord, Integer currentPage, Integer lineSize) throws Exception &#123;</span><br><span class="line">		String hql = <span class="string">"from News as n where n."</span> + column + <span class="string">" like ?"</span>;</span><br><span class="line">		Query query = <span class="keyword">this</span>.sessionFactory.getCurrentSession().createQuery(hql);</span><br><span class="line">		query.setParameter(<span class="number">0</span>, <span class="string">"%"</span> + keyWord + <span class="string">"%"</span>);</span><br><span class="line">		query.setFirstResult((currentPage-<span class="number">1</span>)*lineSize);</span><br><span class="line">		query.setMaxResults(lineSize);</span><br><span class="line">		<span class="keyword">return</span> query.list();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> Integer getAllCount(String column, String keyWord) throws Exception &#123;</span><br><span class="line">		String hql = <span class="string">"select count(*) from News as n where n."</span> + column + <span class="string">" like ?"</span>;</span><br><span class="line">		Query query = <span class="keyword">this</span>.sessionFactory.getCurrentSession().createQuery(hql);</span><br><span class="line">		query.setParameter(<span class="number">0</span>, <span class="string">"%"</span> + column + <span class="string">"%"</span>);</span><br><span class="line">		<span class="built_in">Long</span> count = (<span class="built_in">Long</span>) query.uniqueResult();</span><br><span class="line">		<span class="keyword">return</span> count.intValue();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-3-定义业务层INewsService-java接口"><a href="#2-3-定义业务层INewsService-java接口" class="headerlink" title="2.3 定义业务层INewsService.java接口"></a><strong>2.3 定义业务层INewsService.java接口</strong></h3><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">package com.tianxingjian.service;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.<span class="built_in">List</span>;</span><br><span class="line"><span class="keyword">import</span> java.util.<span class="built_in">Map</span>;</span><br><span class="line"><span class="keyword">import</span> java.util.<span class="built_in">Set</span>;</span><br><span class="line"><span class="keyword">import</span> com.tianxingjian.pojo.News;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> interface INewsService &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="built_in">boolean</span> insert(News vo) throws Exception;</span><br><span class="line">	<span class="keyword">public</span> <span class="built_in">boolean</span> update(News vo) throws Exception;</span><br><span class="line">	<span class="keyword">public</span> News get(<span class="built_in">Integer</span> id) throws Exception;</span><br><span class="line">	<span class="keyword">public</span> <span class="built_in">boolean</span> delete(<span class="built_in">Set</span>&lt;<span class="built_in">Integer</span>&gt; ids) throws Exception;</span><br><span class="line">	<span class="keyword">public</span> <span class="built_in">List</span>&lt;News&gt; <span class="built_in">list</span>() throws Exception;</span><br><span class="line">	<span class="keyword">public</span> <span class="built_in">Map</span>&lt;<span class="built_in">String</span>, Object&gt; <span class="built_in">list</span>(<span class="built_in">String</span> column, <span class="built_in">String</span> <span class="built_in">keyWord</span>, </span><br><span class="line">			<span class="built_in">Integer</span> currentPage, <span class="built_in">Integer</span> lineSize) throws Exception;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-4-编写测试程序，用JUnit"><a href="#2-4-编写测试程序，用JUnit" class="headerlink" title="2.4 编写测试程序，用JUnit"></a><strong>2.4 编写测试程序，用JUnit</strong></h3><blockquote>
+<ul>
+<li>点击IServiceImpl</li>
+<li>点击MyEclipse右上角的New图标</li>
+<li>查询Junit Test Case</li>
+<li>将package改为com.tianxingjian.test -&gt; next</li>
+<li>全选 -&gt; finish</li>
+</ul>
+</blockquote>
+<p>使用JUnit进行单个方法的测试：</p>
+<ol>
+<li>选中需要测试的类</li>
+<li>把类进行展开</li>
+<li>把C进行展开</li>
+<li>就可以看到测试类中所有的方法</li>
+<li>点击所需要运行的测试方法然后右键junit运行就行了</li>
+</ol>
+<p><strong><em>注意: 在写hql语句的时候表名应该大写表示对象而不是小写，如下所示</em></strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String hql = "<span class="keyword">update</span> News <span class="keyword">set</span> title=?,<span class="built_in">date</span>=?,<span class="keyword">content</span>=? <span class="keyword">where</span> nid=?<span class="string">";  // 正确</span></span><br><span class="line"><span class="string">String hql = "</span><span class="keyword">update</span> news <span class="keyword">set</span> title=?,<span class="built_in">date</span>=?,<span class="keyword">content</span>=? <span class="keyword">where</span> nid=?<span class="string">";  // 错误</span></span><br></pre></td></tr></table></figure>
+<p>完整JUnit测试代码如下：</p>
+<figure class="highlight d"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.tianxingjian.test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.junit.Assert.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"><span class="keyword">import</span> java.util.HashSet;</span><br><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.ApplicationContext;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.support.ClassPathXmlApplicationContext;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Service;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.tianxingjian.pojo.News;</span><br><span class="line"><span class="keyword">import</span> com.tianxingjian.service.INewsService;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> junit.framework.TestCase;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> INewsServiceTest &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> ApplicationContext ctx;</span><br><span class="line">	<span class="keyword">static</span> &#123;</span><br><span class="line">		ctx = <span class="keyword">new</span> ClassPathXmlApplicationContext(<span class="string">"applicationContext.xml"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">@Test</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> testInsert() &#123;</span><br><span class="line">		INewsService service = ctx.getBean(<span class="string">"newsServiceImpl"</span>, INewsService.<span class="keyword">class</span>);</span><br><span class="line">		News vo = <span class="keyword">new</span> News();</span><br><span class="line">		vo.setTitle(<span class="string">"SSH整合了-"</span> + System.currentTimeMillis());</span><br><span class="line">		vo.setDate(<span class="keyword">new</span> Date());</span><br><span class="line">		vo.setContent(<span class="string">"SSH内容很丰富！"</span>);</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			TestCase.assertEquals(service.insert(vo), <span class="literal">true</span>);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">@Test</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> testUpdate() &#123;</span><br><span class="line">		INewsService service = ctx.getBean(<span class="string">"newsServiceImpl"</span>, INewsService.<span class="keyword">class</span>);</span><br><span class="line">		News vo = <span class="keyword">new</span> News();</span><br><span class="line">		vo.setNid(<span class="number">5</span>);</span><br><span class="line">		vo.setTitle(<span class="string">"准备开始学习了！"</span>);</span><br><span class="line">		vo.setDate(<span class="keyword">new</span> Date());</span><br><span class="line">		vo.setContent(<span class="string">"你高兴么！"</span>);</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			TestCase.assertEquals(service.update(vo), <span class="literal">true</span>);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">@Test</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> testGet() &#123;</span><br><span class="line">		INewsService service = ctx.getBean(<span class="string">"newsServiceImpl"</span>, INewsService.<span class="keyword">class</span>);</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			System.<span class="keyword">out</span>.println(service.get(<span class="number">1</span>));</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">@Test</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> testDelete() &#123;</span><br><span class="line">		INewsService service = ctx.getBean(<span class="string">"newsServiceImpl"</span>, INewsService.<span class="keyword">class</span>);</span><br><span class="line">		Set&lt;Integer&gt; set = <span class="keyword">new</span> HashSet&lt;Integer&gt;();</span><br><span class="line">		set.add(<span class="number">5</span>);</span><br><span class="line">		set.add(<span class="number">4</span>);</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			TestCase.assertEquals(service.<span class="keyword">delete</span>(set), <span class="literal">true</span>);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">@Test</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> testList() &#123;</span><br><span class="line">		INewsService service = ctx.getBean(<span class="string">"newsServiceImpl"</span>, INewsService.<span class="keyword">class</span>);</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			System.<span class="keyword">out</span>.println(service.list());</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">@Test</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> testListStringStringIntegerInteger() &#123;</span><br><span class="line">		INewsService service = ctx.getBean(<span class="string">"newsServiceImpl"</span>, INewsService.<span class="keyword">class</span>);</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			System.<span class="keyword">out</span>.println(service.list(<span class="string">"title"</span>, <span class="string">""</span>, <span class="number">1</span>, <span class="number">3</span>));</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="3-将Spring和Struts2-x进行整合"><a href="#3-将Spring和Struts2-x进行整合" class="headerlink" title="3.将Spring和Struts2.x进行整合"></a><strong>3.将Spring和Struts2.x进行整合</strong></h2><h3 id="3-1-添加Struts2-x的支持"><a href="#3-1-添加Struts2-x的支持" class="headerlink" title="3.1 添加Struts2.x的支持"></a><strong>3.1 添加Struts2.x的支持</strong></h3><blockquote>
+<ul>
+<li>install Struts2.x facet -&gt; next -&gt; next -&gt; √ Spring Plugin -&gt; finish</li>
+</ul>
+</blockquote>
+<h3 id="3-2-为Spring添加监听器，即可在web中使用"><a href="#3-2-为Spring添加监听器，即可在web中使用" class="headerlink" title="3.2 为Spring添加监听器，即可在web中使用"></a><strong>3.2 为Spring添加监听器，即可在web中使用</strong></h3><ul>
+<li>监听器名称：org.springframework.web.context.ContextLoderListen</li>
+</ul>
+<h4 id="3-2-1-在web-xml文件中添加监听器（MyEclipse会自动添加）"><a href="#3-2-1-在web-xml文件中添加监听器（MyEclipse会自动添加）" class="headerlink" title="3.2.1 在web.xml文件中添加监听器（MyEclipse会自动添加）"></a><strong>3.2.1 在web.xml文件中添加监听器（MyEclipse会自动添加）</strong></h4><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;listener&gt;</span><br><span class="line">    &lt;listener-class&gt;org<span class="selector-class">.springframework</span><span class="selector-class">.web</span><span class="selector-class">.context</span><span class="selector-class">.ContextLoaderListener</span>&lt;/listener-class&gt;</span><br><span class="line">  &lt;/listener&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="3-2-2-在web-xml文件中将applicationContext-xml里的配置设置到Web环境之中-将路径的信息设置为applicationContext-xml属性范围（MyEclipse会自动进行配置）"><a href="#3-2-2-在web-xml文件中将applicationContext-xml里的配置设置到Web环境之中-将路径的信息设置为applicationContext-xml属性范围（MyEclipse会自动进行配置）" class="headerlink" title="3.2.2 在web.xml文件中将applicationContext.xml里的配置设置到Web环境之中,将路径的信息设置为applicationContext.xml属性范围（MyEclipse会自动进行配置）"></a><strong>3.2.2 在web.xml文件中将applicationContext.xml里的配置设置到Web环境之中,将路径的信息设置为applicationContext.xml属性范围（MyEclipse会自动进行配置）</strong></h4><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;context-<span class="built_in">param</span>&gt;</span><br><span class="line">    &lt;<span class="built_in">param</span>-name&gt;contextConfigLocation&lt;/<span class="built_in">param</span>-name&gt;</span><br><span class="line">    &lt;<span class="built_in">param</span>-<span class="built_in">value</span>&gt;classpath:applicationContext.xml&lt;/<span class="built_in">param</span>-<span class="built_in">value</span>&gt;</span><br><span class="line">  &lt;/context-<span class="built_in">param</span>&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="3-3-进行Struts的相关配置"><a href="#3-3-进行Struts的相关配置" class="headerlink" title="3.3 进行Struts的相关配置"></a><strong>3.3 进行Struts的相关配置</strong></h3><h4 id="3-3-1-建立struts-properties文件，这个文件是用于设置对象工厂"><a href="#3-3-1-建立struts-properties文件，这个文件是用于设置对象工厂" class="headerlink" title="3.3.1 建立struts.properties文件，这个文件是用于设置对象工厂"></a><strong>3.3.1 建立struts.properties文件，这个文件是用于设置对象工厂</strong></h4><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">struts<span class="selector-class">.i18n</span><span class="selector-class">.encoding</span>=UTF-<span class="number">8</span></span><br><span class="line">struts<span class="selector-class">.custom</span><span class="selector-class">.i118n</span><span class="selector-class">.resource</span>=Messages,Pages</span><br><span class="line">struts.objectFactory=spring</span><br></pre></td></tr></table></figure>
+<h4 id="3-1-2-修改struts-xml文件"><a href="#3-1-2-修改struts-xml文件" class="headerlink" title="3.1.2 修改struts.xml文件"></a><strong>3.1.2 修改struts.xml文件</strong></h4><p>本次只是将SSH进行整合，所以只是简单的配置了name、namespace和extends，在实际开发中，需要在package里进行相关跳转路径的配置</p>
+<figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">package</span> name=<span class="string">"root"</span> namespace=<span class="string">"/"</span> <span class="keyword">extends</span>=<span class="string">"struts-default"</span>&gt;</span><br><span class="line">	</span><br><span class="line">&lt;/<span class="keyword">package</span>&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="3-1-3-编写NewsAction-java程序，用于进行相关的业务操作"><a href="#3-1-3-编写NewsAction-java程序，用于进行相关的业务操作" class="headerlink" title="3.1.3 编写NewsAction.java程序，用于进行相关的业务操作"></a><strong>3.1.3 编写NewsAction.java程序，用于进行相关的业务操作</strong></h4><p>NewsAction.java的完整代码如下：</p>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.tianxingjian.action;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.HashSet;</span><br><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"><span class="keyword">import</span> javax.annotation.Resource;</span><br><span class="line"><span class="keyword">import</span> org.apache.struts2.ServletActionContext;</span><br><span class="line"><span class="keyword">import</span> org.apache.struts2.convention.annotation.Action;</span><br><span class="line"><span class="keyword">import</span> org.apache.struts2.convention.annotation.Namespace;</span><br><span class="line"><span class="keyword">import</span> org.apache.struts2.convention.annotation.ParentPackage;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Repository;</span><br><span class="line"><span class="keyword">import</span> com.opensymphony.xwork2.ActionSupport;</span><br><span class="line"><span class="keyword">import</span> com.tianxingjian.pojo.News;</span><br><span class="line"><span class="keyword">import</span> com.tianxingjian.service.INewsService;</span><br><span class="line"></span><br><span class="line">@Repository</span><br><span class="line">@ParentPackage(<span class="string">"root"</span>)</span><br><span class="line">@Namespace(<span class="string">"/pages/news"</span>)</span><br><span class="line">@Action(value=<span class="string">"NewsAction"</span>)</span><br><span class="line">@SuppressWarnings(<span class="string">"serial"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NewsAction</span> <span class="keyword"><span class="keyword">extends</span> <span class="type">ActionSupport</span></span></span>&#123;</span><br><span class="line">	@Resource</span><br><span class="line">	<span class="keyword">private</span> INewsService <span class="keyword">new</span><span class="type">sService</span>;</span><br><span class="line">	<span class="keyword">private</span> News <span class="keyword">new</span><span class="type">s</span> = <span class="keyword">new</span> <span class="type">News</span>();</span><br><span class="line">	<span class="keyword">public</span> News getNews() &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span><span class="type">s</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> void insert() &#123;</span><br><span class="line">		System.out.println(<span class="string">"【新闻数据增加】数据"</span> + <span class="built_in">this</span>.<span class="keyword">new</span><span class="type">s</span>);</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			System.out.println(<span class="string">"【新闻数据增加】业务调用结果"</span> + <span class="built_in">this</span>.<span class="keyword">new</span><span class="type">sService</span>.insert(<span class="built_in">this</span>.<span class="keyword">new</span><span class="type">s</span>));</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> void update() &#123;</span><br><span class="line">		System.out.println(<span class="string">"【新闻数据修改】数据"</span> + <span class="built_in">this</span>.<span class="keyword">new</span><span class="type">s</span>);</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			System.out.println(<span class="string">"【新闻数据修改】业务调用结果"</span> + <span class="built_in">this</span>.<span class="keyword">new</span><span class="type">sService</span>.update(<span class="built_in">this</span>.<span class="keyword">new</span><span class="type">s</span>));</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> void delete() &#123;</span><br><span class="line">		<span class="keyword">String</span> ids = ServletActionContext.getRequest().getParameter(<span class="string">"ids"</span>);</span><br><span class="line">		System.out.println(<span class="string">"【新闻数据删除】数据"</span> + ids);</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			Set&lt;Integer&gt; <span class="keyword">set</span> = <span class="keyword">new</span> <span class="type">HashSet</span>&lt;Integer&gt;();</span><br><span class="line">			<span class="keyword">String</span> result [] = ids.split(<span class="string">"_"</span>);</span><br><span class="line">			<span class="keyword">for</span> (int x=<span class="number">0</span>; x&lt;result.length; x++) &#123;</span><br><span class="line">				<span class="keyword">set</span>.add(Integer.parseInt(result[x]));</span><br><span class="line">			&#125;</span><br><span class="line">			System.out.println(<span class="string">"【新闻数据删除】业务调用结果"</span> + <span class="built_in">this</span>.<span class="keyword">new</span><span class="type">sService</span>.delete(<span class="keyword">set</span>));</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> void <span class="keyword">get</span>() &#123;</span><br><span class="line">		System.out.println(<span class="string">"【新闻数据取得】数据"</span> + <span class="built_in">this</span>.<span class="keyword">new</span><span class="type">s</span>);</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			System.out.println(<span class="string">"【新闻数据取得】业务调用结果："</span> + <span class="built_in">this</span>.<span class="keyword">new</span><span class="type">sService</span>.<span class="keyword">get</span>(<span class="built_in">this</span>.<span class="keyword">new</span><span class="type">s</span>.getNid()));</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> void list() &#123;</span><br><span class="line">		System.out.println(<span class="string">"【新闻数据查询】数据"</span> + <span class="built_in">this</span>.<span class="keyword">new</span><span class="type">s</span>);</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			System.out.println(<span class="string">"【新闻数据查询】业务调用结果："</span> + <span class="built_in">this</span>.<span class="keyword">new</span><span class="type">sService</span>.list());</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> void listSplit() &#123;</span><br><span class="line">		System.out.println(<span class="string">"【新闻数据查询】数据"</span> + <span class="built_in">this</span>.<span class="keyword">new</span><span class="type">s</span>);</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			System.out.println(<span class="string">"【新闻数据查询】业务调用结果："</span> + <span class="built_in">this</span>.<span class="keyword">new</span><span class="type">sService</span>.list(<span class="string">"title"</span>, <span class="string">""</span>, <span class="number">1</span>, <span class="number">3</span>));</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="3-1-4-启动Tomcat并进行测试（测试时在地址上进行传参）"><a href="#3-1-4-启动Tomcat并进行测试（测试时在地址上进行传参）" class="headerlink" title="3.1.4 启动Tomcat并进行测试（测试时在地址上进行传参）"></a><strong>3.1.4 启动Tomcat并进行测试（测试时在地址上进行传参）</strong></h4><ul>
+<li>启动Tomcat</li>
+<li><p>访问地址：</p>
+<blockquote>
+<ul>
+<li>添加地址：<a href="http://localhost:8080/SSHDemo/pages/news/NewsAction!insert.action?news.title=&quot;今天好心情！&quot;&amp;news.content=&quot;是的呢！今天好心情啊！！！&quot;" target="_blank" rel="noopener">http://localhost:8080/SSHDemo/pages/news/NewsAction!insert.action?news.title=&quot;今天好心情！&quot;&amp;news.content=&quot;是的呢！今天好心情啊！！！&quot;</a></li>
+<li>更新地址：<a href="http://localhost:8080/SSHDemo/pages/news/NewsAction!update.action?news.nid=5&amp;news.title=&quot;今天好心情！&quot;&amp;news.content=&quot;是的呢！今天好心情啊！！！&quot;" target="_blank" rel="noopener">http://localhost:8080/SSHDemo/pages/news/NewsAction!update.action?news.nid=5&amp;news.title=&quot;今天好心情！&quot;&amp;news.content=&quot;是的呢！今天好心情啊！！！&quot;</a></li>
+<li>删除地址：<a href="http://localhost:8080/SSHDemo/pages/news/NewsAction!delete.action?ids=&quot;6_7&quot;" target="_blank" rel="noopener">http://localhost:8080/SSHDemo/pages/news/NewsAction!delete.action?ids=&quot;6_7&quot;</a></li>
+<li>查询全部：<a href="http://localhost:8080/SSHDemo/pages/news/NewsAction!list.action" target="_blank" rel="noopener">http://localhost:8080/SSHDemo/pages/news/NewsAction!list.action</a></li>
+<li>分页查询：<a href="http://localhost:8080/SSHDemo/pages/news/NewsAction!listSplit.action" target="_blank" rel="noopener">http://localhost:8080/SSHDemo/pages/news/NewsAction!listSplit.action</a></li>
+<li>根据id查询：<a href="http://localhost:8080/SSHDemo/pages/news/NewsAction!get.action?news.nid=6" target="_blank" rel="noopener">http://localhost:8080/SSHDemo/pages/news/NewsAction!get.action?news.nid=6</a></li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong><em>在运行的时候有可能会出现以下几个错误：</em></strong></p>
+</li>
+</ul>
+<ol>
+<li><p>java.lang.NoSuchMethodError:antlr.collections.AST.getLine()_**<br>解决方案：这个错误的产生原因是Hibernate和Struts中都存在antrl的文件，只需要将低版本的jar文件进行移除就可以了。<br>操作：window -&gt; preference -&gt; lib -&gt; struts2.1 -&gt; core -&gt; 取消antrl的jar文件 -&gt; apply -&gt; 出来后重新刷新如果依然有错就将strutss2进行remove build path然后重新添加</p>
+</li>
+<li><p>Caused by: java.lang.ClassNotFoundException: com.mchange.v2.ser.Indirector<br>解决方案：在官网下载一个mchange-commons-java的jar文件，然后build path并添加到lib中，这样就能配置到项目中了，错误也就消失了，想这种错误都是缺少jar包，只需要下载并配置即可解决</p>
+</li>
+</ol>
+<hr>
+<h2 id="4-HibernateDaoSupport支持类"><a href="#4-HibernateDaoSupport支持类" class="headerlink" title="4. HibernateDaoSupport支持类"></a><strong>4. HibernateDaoSupport支持类</strong></h2><pre><code>以上实现的SSH整合是在Spring3.x被迫形成的，因为从最早的Spring2和现在的Spring4都会提供一个HibernateDaoSupport类，利用这个类结合HibernateTemplate操作模板就可以轻松地实现，HibernateDaoSupport类里面提供的一系列的操作方法还可以简化Hibernate的编写难度。
+在org.springframework.orm.hibernate4.support.HibernateDaoSupport里提供有如下方法：
+    |- 构造方法：public HibernateDaoSupport();
+    |- 设置Hibernate操作模板：public final void setHibernateTemplate(HibernateTemplate hibernateTemplate);
+    |- 取得Hibernate操作模板：public final HibernateTemplate getHibernateTemplate();
+如果要想使用这个操作则需要清楚HibernateTemplate的定义，有如下一些方法：
+    |- 构造方法：public HibernateTemplate();
+    |- 设置SessionFactory：public void setSessionFactory(SessionFactory sessionFactory);
+同时在HibernateTemplate中提供有一些列的简化Hibernate操作的方法。
+</code></pre><h3 id="4-1-利用HibernateDaoSupport实现操作"><a href="#4-1-利用HibernateDaoSupport实现操作" class="headerlink" title="4.1 利用HibernateDaoSupport实现操作"></a><strong>4.1 利用HibernateDaoSupport实现操作</strong></h3><h4 id="4-1-1-修改applicationContext-xml文件"><a href="#4-1-1-修改applicationContext-xml文件" class="headerlink" title="4.1.1 修改applicationContext.xml文件"></a><strong>4.1.1 修改applicationContext.xml文件</strong></h4><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean <span class="built_in">id</span>=<span class="string">"hibernateTemplate"</span> <span class="built_in">class</span>=<span class="string">"org.springframework.orm.hibernate4.HibernateTemplate"</span>&gt; </span><br><span class="line">		&lt;<span class="keyword">property</span> <span class="built_in">name</span>=<span class="string">"sessionFactory"</span> <span class="keyword">ref</span>=<span class="string">"sessionFactory"</span>/&gt;</span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="4-1-2-定义NewsDaoImpl子类的时候使用这个操作"><a href="#4-1-2-定义NewsDaoImpl子类的时候使用这个操作" class="headerlink" title="4.1.2 定义NewsDaoImpl子类的时候使用这个操作"></a><strong>4.1.2 定义NewsDaoImpl子类的时候使用这个操作</strong></h4><ul>
+<li>extends HibernateDaoSupport</li>
+<li>不再使用SessionFactory，而是使用HibernateTemplate</li>
+</ul>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">NewsDAOImpl</span><span class="params">(HibernateTemplate ht)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>.setHibernateTemplate(ht);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line"><span class="comment">//	@Resource</span></span><br><span class="line"><span class="comment">//	private SessionFactory sessionFactory;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>然后将处理方法中的this.sessionFactory改为super.getHibernateTemplate……</li>
+<li>更改后的NewsDaoImpl.java类如下：</li>
+</ul>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.tianxingjian.dao.impl;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Iterator;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"><span class="keyword">import</span> org.hibernate.Query;</span><br><span class="line"><span class="keyword">import</span> org.hibernate.criterion.DetachedCriteria;</span><br><span class="line"><span class="keyword">import</span> org.hibernate.criterion.Restrictions;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.orm.hibernate4.HibernateTemplate;</span><br><span class="line"><span class="keyword">import</span> org.springframework.orm.hibernate4.support.HibernateDaoSupport;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</span><br><span class="line"><span class="keyword">import</span> com.tianxingjian.dao.INewsDAO;</span><br><span class="line"><span class="keyword">import</span> com.tianxingjian.pojo.News;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NewsDAOImpl</span> <span class="keyword">extends</span> <span class="title">HibernateDaoSupport</span> <span class="keyword">implements</span> <span class="title">INewsDAO</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">NewsDAOImpl</span><span class="params">(HibernateTemplate ht)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>.setHibernateTemplate(ht);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line"><span class="comment">//	@Resource</span></span><br><span class="line"><span class="comment">//	private SessionFactory sessionFactory;</span></span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">doCreate</span><span class="params">(News vo)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">super</span>.getHibernateTemplate().save(vo) != <span class="keyword">null</span>;</span><br><span class="line"><span class="comment">//		return sessionFactory.getCurrentSession().save(vo) != null;</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">doUpdate</span><span class="params">(News vo)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">		String hql = <span class="string">"update News set title=?, date=?, content=? where nid=?"</span>;</span><br><span class="line"><span class="comment">//		Query query = super.getHibernateTemplate().createQuery(hql);</span></span><br><span class="line">		Query query = <span class="keyword">super</span>.getHibernateTemplate().getSessionFactory().getCurrentSession().createQuery(hql);</span><br><span class="line">		query.setParameter(<span class="number">0</span>, vo.getTitle());</span><br><span class="line">		query.setParameter(<span class="number">1</span>, vo.getDate());</span><br><span class="line">		query.setParameter(<span class="number">2</span>, vo.getContent());</span><br><span class="line">		query.setParameter(<span class="number">3</span>, vo.getNid());</span><br><span class="line">		<span class="keyword">return</span> query.executeUpdate() &gt; <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> <span class="function">News <span class="title">getElementById</span><span class="params">(Integer id)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">super</span>.getHibernateTemplate().get(News.class, id);</span><br><span class="line"><span class="comment">//		 return (News) this.sessionFactory.getCurrentSession().get(News.class, id);</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">doRemoveBatch</span><span class="params">(Set&lt;Integer&gt; ids)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">		StringBuffer buffer = <span class="keyword">new</span> StringBuffer();</span><br><span class="line">		buffer.append(<span class="string">"delete from News where nid in ("</span>);</span><br><span class="line">		Iterator&lt;Integer&gt; iterator = ids.iterator();</span><br><span class="line">		<span class="keyword">while</span> (iterator.hasNext()) &#123;</span><br><span class="line">			buffer.append(iterator.next()).append(<span class="string">","</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		buffer.delete(buffer.length()<span class="number">-1</span>, buffer.length()).append(<span class="string">")"</span>);</span><br><span class="line">		Query query = <span class="keyword">super</span>.getHibernateTemplate().getSessionFactory().getCurrentSession().createQuery(buffer.toString());</span><br><span class="line"><span class="comment">//		 Query query = this.sessionFactory.getCurrentSession().createQuery(buffer.toString());</span></span><br><span class="line">		<span class="keyword">return</span> query.executeUpdate() &gt; <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@SuppressWarnings</span>(<span class="string">"unchecked"</span>)</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> <span class="function">List <span class="title">findAll</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">		DetachedCriteria dc = DetachedCriteria.forClass(News.class);</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">super</span>.getHibernateTemplate().findByCriteria(dc);</span><br><span class="line"><span class="comment">//		Criteria criteria = this.sessionFactory.getCurrentSession().createCriteria(News.class);</span></span><br><span class="line"><span class="comment">//		return criteria.list();</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@SuppressWarnings</span>(<span class="string">"unchecked"</span>)</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> <span class="function">List <span class="title">findAllSplit</span><span class="params">(String column, String keyWord, Integer currentPage, Integer lineSize)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">		DetachedCriteria dc = DetachedCriteria.forClass(News.class);</span><br><span class="line">		dc.add(Restrictions.ilike(column, <span class="string">"%"</span> + keyWord + <span class="string">"%"</span>));</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">super</span>.getHibernateTemplate().findByCriteria(dc, (currentPage<span class="number">-1</span>)*lineSize, lineSize);</span><br><span class="line"><span class="comment">//		String hql = "from News as n where n." + column + " like ?";</span></span><br><span class="line"><span class="comment">//		Query query = this.sessionFactory.getCurrentSession().createQuery(hql);</span></span><br><span class="line"><span class="comment">//		query.setParameter(0, "%" + keyWord + "%");</span></span><br><span class="line"><span class="comment">//		query.setFirstResult((currentPage-1)*lineSize);</span></span><br><span class="line"><span class="comment">//		query.setMaxResults(lineSize);</span></span><br><span class="line"><span class="comment">//		return query.list();</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> <span class="function">Integer <span class="title">getAllCount</span><span class="params">(String column, String keyWord)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">		String hql = <span class="string">"select count(*) from News as n where n."</span> + column + <span class="string">" like ?"</span>;</span><br><span class="line">		Long count = (Long) <span class="keyword">super</span>.getHibernateTemplate().find(hql, <span class="string">"%"</span> + keyWord + <span class="string">"%"</span>).get(<span class="number">0</span>);</span><br><span class="line"><span class="comment">//		Query query = this.sessionFactory.getCurrentSession().createQuery(hql);</span></span><br><span class="line"><span class="comment">//		query.setParameter(0, "%" + column + "%");</span></span><br><span class="line"><span class="comment">//		Long count = (Long) query.uniqueResult();</span></span><br><span class="line">		<span class="function"><span class="keyword">return</span> count.<span class="title">intValue</span><span class="params">()</span></span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="4-2-HibernateDaoSupport使用总结"><a href="#4-2-HibernateDaoSupport使用总结" class="headerlink" title="4.2 HibernateDaoSupport使用总结"></a><strong>4.2 HibernateDaoSupport使用总结</strong></h3><pre><code>使用HibernateDaoSupport的时候感觉似乎也并没有简单什么， 以上是两种操作方式，分别是使用SessionFactory和HibernateDaoSupport，这两个种基本都差不多，即在实际开发中这两种方法可根据自己的喜好来使用。
+</code></pre><h2 id="5-使用MyEclipse进行SSH项目整合总结"><a href="#5-使用MyEclipse进行SSH项目整合总结" class="headerlink" title="5. 使用MyEclipse进行SSH项目整合总结"></a><strong>5. 使用MyEclipse进行SSH项目整合总结</strong></h2><pre><code>以上便是此次利用MyEclipse进行SSH项目整合总结，感觉今天的学习效率很低，一天下来只是学了这个部分的内容，而且并不是说今天之后就被完全吸收，在之后的学习过程中还是需要不断的进行反反复复的温习。
+学习时间：2018-07-17
+</code></pre>
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:18px;">-------------━┳━　━┳━ 本文结束<i class="fa fa-paw"></i>感谢您的阅读 ━┳━　━┳━-------------</div>
+    
+</div>
+      
+    </div>
+
+
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/09/20/利用MyEclipse进行SSH项目整合/">利用MyEclipse进行SSH项目整合</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 Zero 的个人博客">Zero</a></p>
+  <p><span>发布时间:</span>2018年09月20日 - 20:09</p>
+  <p><span>最后更新:</span>2018年11月24日 - 20:11</p>
+  <p><span>原始链接:</span><a href="/2018/09/20/利用MyEclipse进行SSH项目整合/" title="利用MyEclipse进行SSH项目整合">http://jacklxj.github.io/2018/09/20/利用MyEclipse进行SSH项目整合/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://jacklxj.github.io/2018/09/20/利用MyEclipse进行SSH项目整合/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+
+      
+    </div>
+
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/wechatpay.png" alt="Zero 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/alipay.png" alt="Zero 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/14/Lingo解决优化问题/" rel="next" title="Lingo解决优化问题">
+                <i class="fa fa-chevron-left"></i> Lingo解决优化问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/23/Kali/" rel="prev" title="Kali">
+                Kali <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div id="gitalk-container"></div>
+
+
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/uploads/head.png" alt="Zero">
+            
+              <p class="site-author-name" itemprop="name">Zero</p>
+              <p class="site-description motion-element" itemprop="description">Jack of all trades and master of none.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/JackLXJ" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:26647879@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://wpa.qq.com/msgrd?v=3&uin=26647879&site=qq&menu=yes" target="_blank" title="qq">
+                      
+                        <i class="fa fa-fw fa-globe"></i>qq</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://y.qq.com/portal/profile.html#stat=y_new.top.user_pic" target="_blank" title="music">
+                      
+                        <i class="fa fa-fw fa-globe"></i>music</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-将Spring与Hibernate进行整合"><span class="nav-number">1.</span> <span class="nav-text">1. 将Spring与Hibernate进行整合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-为项目添加Spring的开发支持"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 为项目添加Spring的开发支持</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-1-创建一个新的web项目SSHDemo"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1.1 创建一个新的web项目SSHDemo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-2-添加Spring"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.1.2 添加Spring</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-添加Hibernate"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 添加Hibernate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-将Spring和Hibernate进行整合"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 将Spring和Hibernate进行整合</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-1-修改hibernate-cfg-xml文件"><span class="nav-number">1.3.1.</span> <span class="nav-text">1.3.1 修改hibernate.cfg.xml文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-2-建立一个database-properties文件，用于保存所有数据连接的信息"><span class="nav-number">1.3.2.</span> <span class="nav-text">1.3.2 建立一个database.properties文件，用于保存所有数据连接的信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-3-配置applicationContext-xml文件"><span class="nav-number">1.3.3.</span> <span class="nav-text">1.3.3 配置applicationContext.xml文件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-编写src代码用于本次测试"><span class="nav-number">2.</span> <span class="nav-text">2. 编写src代码用于本次测试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-生成News-java的POJO类"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 生成News.java的POJO类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-定义INewsDAO-java接口"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 定义INewsDAO.java接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-实现NewsDAOImpl-java类"><span class="nav-number">2.3.</span> <span class="nav-text">2.2 实现NewsDAOImpl.java类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-定义业务层INewsService-java接口"><span class="nav-number">2.4.</span> <span class="nav-text">2.3 定义业务层INewsService.java接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-编写测试程序，用JUnit"><span class="nav-number">2.5.</span> <span class="nav-text">2.4 编写测试程序，用JUnit</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-将Spring和Struts2-x进行整合"><span class="nav-number">3.</span> <span class="nav-text">3.将Spring和Struts2.x进行整合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-添加Struts2-x的支持"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 添加Struts2.x的支持</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-为Spring添加监听器，即可在web中使用"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 为Spring添加监听器，即可在web中使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-1-在web-xml文件中添加监听器（MyEclipse会自动添加）"><span class="nav-number">3.2.1.</span> <span class="nav-text">3.2.1 在web.xml文件中添加监听器（MyEclipse会自动添加）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-2-在web-xml文件中将applicationContext-xml里的配置设置到Web环境之中-将路径的信息设置为applicationContext-xml属性范围（MyEclipse会自动进行配置）"><span class="nav-number">3.2.2.</span> <span class="nav-text">3.2.2 在web.xml文件中将applicationContext.xml里的配置设置到Web环境之中,将路径的信息设置为applicationContext.xml属性范围（MyEclipse会自动进行配置）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-进行Struts的相关配置"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 进行Struts的相关配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-1-建立struts-properties文件，这个文件是用于设置对象工厂"><span class="nav-number">3.3.1.</span> <span class="nav-text">3.3.1 建立struts.properties文件，这个文件是用于设置对象工厂</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-2-修改struts-xml文件"><span class="nav-number">3.3.2.</span> <span class="nav-text">3.1.2 修改struts.xml文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-3-编写NewsAction-java程序，用于进行相关的业务操作"><span class="nav-number">3.3.3.</span> <span class="nav-text">3.1.3 编写NewsAction.java程序，用于进行相关的业务操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-4-启动Tomcat并进行测试（测试时在地址上进行传参）"><span class="nav-number">3.3.4.</span> <span class="nav-text">3.1.4 启动Tomcat并进行测试（测试时在地址上进行传参）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-HibernateDaoSupport支持类"><span class="nav-number">4.</span> <span class="nav-text">4. HibernateDaoSupport支持类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-利用HibernateDaoSupport实现操作"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 利用HibernateDaoSupport实现操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-1-修改applicationContext-xml文件"><span class="nav-number">4.1.1.</span> <span class="nav-text">4.1.1 修改applicationContext.xml文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-2-定义NewsDaoImpl子类的时候使用这个操作"><span class="nav-number">4.1.2.</span> <span class="nav-text">4.1.2 定义NewsDaoImpl子类的时候使用这个操作</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-HibernateDaoSupport使用总结"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 HibernateDaoSupport使用总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-使用MyEclipse进行SSH项目整合总结"><span class="nav-number">5.</span> <span class="nav-text">5. 使用MyEclipse进行SSH项目整合总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zero</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+    <i class="fa fa-user-md"></i>
+    <span id="busuanzi_container_site_pv">
+      本站总访问量<span id="busuanzi_value_site_pv"></span>次
+    </span>
+  </div>
+
+ 
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">本站共11.4k字</span>
+</div>
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--prettify代码高亮脚本引入-->
+<script src="/plugins/prettify/prettify.js"></script>
+<script type="text/javascript">
+$(window).load(function(){
+$('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+ prettyPrint();
+})
+</script>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 访问总量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: 'a22cf34e389580514647',
+          clientSecret: '4fb159dd5362d7a3c4c98d565abcad8d53014004',
+          repo: 'JackLXJ.github.io',
+          owner: 'JackLXJ',
+          admin: ['JackLXJ'],
+          id: location.pathname,
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+
+  <link rel="stylesheet" href="/dist/APlayer.min.css">
+  <div id="aplayer"></div>
+  <script type="text/javascript" src="/dist/APlayer.min.js"></script>
+  <script type="text/javascript" src="/dist/music.js"></script>
+  
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+
+<!--崩溃欺骗-->
+<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
