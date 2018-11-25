@@ -180,7 +180,7 @@ pace-theme-flash.css" rel="stylesheet">
 <meta property="og:image" content="https://gss0.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/8644ebf81a4c510f657b535d6d59252dd42aa53e.jpg">
 <meta property="og:image" content="https://gss0.baidu.com/9fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/8694a4c27d1ed21b4c479fa2a06eddc450da3fee.jpg">
 <meta property="og:image" content="https://gss0.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/2e2eb9389b504fc221d10142e8dde71191ef6def.jpg">
-<meta property="og:updated_time" content="2018-11-25T11:22:26.884Z">
+<meta property="og:updated_time" content="2018-11-25T12:48:59.350Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo+Github建站">
 <meta name="twitter:description" content="前言gitHub是一个面向开源及私有软件项目的托管平台，也是版本控制库因为只支持git 作为唯一的版本库格式进行托管，故名gitHub。此后，2018年6月4日，微软宣布，通过75亿美元的股票交易收购代码托管平台GitHub。Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。 官网：Github：htt">
@@ -503,6 +503,7 @@ pace-theme-flash.css" rel="stylesheet">
 <blockquote>
 <p>以下的搭建过程是针对小白所实现的，例如github仓库的创建、环境变量的配置、git终端等一些基础操作都有较为详细的说明。由于鄙人语言功底不行，如果有拗口、错别字、歧义或者不解的地方可在文章末端或右方的Gitalk留言，博主看到会第一时间解释，在此谢过。</p>
 </blockquote>
+<hr>
 <h2 id="一、搭建环境"><a href="#一、搭建环境" class="headerlink" title="一、搭建环境"></a>一、搭建环境</h2><h3 id="环境介绍："><a href="#环境介绍：" class="headerlink" title="环境介绍："></a>环境介绍：</h3><ol>
 <li>windows系统。系统根据自己的需要准备即可，mac、linux皆可，本文以windows系统环境下搭建为例。</li>
 <li><a href="https://git-scm.com/" target="_blank" rel="noopener">git</a>。安装之后方便使用各种命令，还能够更好的clone github仓库。</li>
@@ -514,6 +515,7 @@ pace-theme-flash.css" rel="stylesheet">
 <h4 id="node-js的安装："><a href="#node-js的安装：" class="headerlink" title="node.js的安装："></a>node.js的安装：</h4><p>node.js的安装和Git的安装如出一辙，同样的操作下载node.js并安装即可，安装好后我们在cmd终端使用<code>node -v</code>命令，如出现<code>v10.13.0</code>类似输出，则说明已经成功安装。<br>node.js下载：<a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a><br><img src="https://gss0.baidu.com/9fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/b999a9014c086e068f8d8a0c0f087bf40ad1cb54.jpg" width="500"></p>
 <h4 id="github注册"><a href="#github注册" class="headerlink" title="github注册"></a>github注册</h4><p>进入github的注册页面：<a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a><br><img src="https://gss0.baidu.com/-Po3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/9358d109b3de9c82caa8b3c86181800a18d843a3.jpg" width="500"></p>
 <p>然后根据流程填写相应的信息即可。</p>
+<hr>
 <h2 id="二、博客搭建"><a href="#二、博客搭建" class="headerlink" title="二、博客搭建"></a>二、博客搭建</h2><h3 id="创建仓库并部署"><a href="#创建仓库并部署" class="headerlink" title="创建仓库并部署"></a>创建仓库并部署</h3><p>注册了github之后，我们需要创建一个仓库来存储我们的网站源码，创建的仓库名也就是我们博客访问的url地址，该url是采用子域名的方式，其一般形式为：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">XXX<span class="selector-class">.github</span><span class="selector-class">.io</span></span><br></pre></td></tr></table></figure></p>
 <p> 上面的XXX一般代表着你注册时的github用户名，所以在你注册之后该仓库名一般是固定的，仓库的创建及部署流程如下：</p>
 <ul>
@@ -557,6 +559,7 @@ pace-theme-flash.css" rel="stylesheet">
 <ul>
 <li>OK，至此，你已经基本完成了网站的建设，可以说是万事具备，只欠东风了。一个基本的Hexo博客框架已经完成了，我们需要导入自己的喜欢的主题即可正常使用了，主题的引入操作如下。</li>
 </ul>
+<hr>
 <h2 id="三、主题引入"><a href="#三、主题引入" class="headerlink" title="三、主题引入"></a>三、主题引入</h2><p>Hexo中有很多很多很多的主题（一个、两个、三个。。。 Σ( ° △ °|||)︴ 好吧，我不知道有多少个，因为他会被许多的大神更新着，如果好奇的话自行了解即可），其主题官网为：<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a>，你可以在此观摩并使用任意一个来作为你博客的主题，但据统计，绝大多数使用hexo+github来搭建博客的都是使用NexT，它的“精于心，简于形”的简单美受到了许多人的青睐，所以以下将以NexT为例来作为我们主题的引入，当然，你也可以去阅读<a href="http://theme-next.iissnan.com/" target="_blank" rel="noopener">NexT的主题文档</a>。</p>
 <p>在Hexo主题页面ctrl+F并输入next查找到NexT主题，然后点击进入到NexT主题的github页面，该页面存储了NexT主题的源码，我们需要将其下载下来为己所用。在前面我们已经提到了git的最为方便之处就是可以随意clone github的资源，在这个操作就可以显露出来了 ┗|｀O′|┛ 嗷~~ ┗|｀O′|┛ 嗷~~ ┗|｀O′|┛ 嗷~~。</p>
 <p>根据如下图所示复制出该主题的仓库链接：<br><img src="https://gss0.baidu.com/-Po3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/f31fbe096b63f624d0bb73448a44ebf81b4ca397.jpg" width="500"></p>
@@ -567,6 +570,7 @@ pace-theme-flash.css" rel="stylesheet">
 <p>随后我们来到站点的根目录下，即<code>E:\ZerosBlog\XXX.github.io</code>，打开git终端，完成如下三步走命令</p>
 <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">hexo</span> clean  <span class="comment"># 清除缓存</span></span><br><span class="line">heo g   <span class="comment"># 生成静态资源</span></span><br><span class="line">hexo d  <span class="comment"># 部署至github</span></span><br></pre></td></tr></table></figure>
 <p>在以上命令执行过程中，可能会遇到一个登陆表单的突然出现，我们只需要根据自己github注册时所填的信息进行登陆即可，命令执行完成之后我们的站点已经完成了部署并请求<code>https://XXX.github.io/</code>即可访问到自己的网站了，如下图所示：<br><img src="https://gss0.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/2e2eb9389b504fc221d10142e8dde71191ef6def.jpg" width="500"></p>
+<hr>
 <h2 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h2><p>以上的搭建过程是针对小白所实现的，例如github仓库的创建、环境变量的配置、git终端等一些基础操作都有较为详细的说明。由于鄙人语言功底不行，如果有拗口、错别字、歧义或者不解的地方可在文章末端或右方的Gitalk留言，博主看到会第一时间解释，在此谢过。</p>
 <p>至此，已经完成了博客的搭建，但是我们左看看、右看看，不管怎么看都似乎显得有点单调，在之后将会介绍Hexo的基本命令和博客的美化，可以引入一些插件，比如像Gitalk在线聊天、APlayer、字数统计等一些插件。</p>
 <p>OK，结束了。</p>
@@ -600,7 +604,7 @@ pace-theme-flash.css" rel="stylesheet">
   <p><span>本文标题:</span><a href="/2018/09/10/Hexo-Github建站/">Hexo+Github建站</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Zero 的个人博客">Zero</a></p>
   <p><span>发布时间:</span>2018年09月10日 - 14:09</p>
-  <p><span>最后更新:</span>2018年11月25日 - 19:11</p>
+  <p><span>最后更新:</span>2018年11月25日 - 20:11</p>
   <p><span>原始链接:</span><a href="/2018/09/10/Hexo-Github建站/" title="Hexo+Github建站">http://jacklxj.github.io/2018/09/10/Hexo-Github建站/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://jacklxj.github.io/2018/09/10/Hexo-Github建站/" aria-label="复制成功！"></i></span>
   </p>
@@ -804,7 +808,7 @@ var jiathis_config={
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -815,7 +819,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -826,7 +830,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -938,7 +942,7 @@ var jiathis_config={
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">本站共14.4k字</span>
+  <span class="post-count">本站共18.5k字</span>
 </div>
 
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>

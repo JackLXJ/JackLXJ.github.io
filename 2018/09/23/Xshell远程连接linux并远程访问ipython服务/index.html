@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/
+pace-theme-flash.css" rel="stylesheet">
+
+
+<!--prettify代码高亮主题css引入-->
+<link href="/plugins/prettify/prettify.css" rel="stylesheet">
+
+<meta name="theme-color" content="#222">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "86c69b95"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="安装,Python,Ubuntu,Linux,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前言如今，人工智能、深度学习等高深知识逐渐融入大家的视野，为了跟上技术的潮流不被out，也想打算开始深度学习。而据说如今深度学习最好的环境是Python + Jupyter notebook + Tensorflow了，为此首先需要搭建一个这么个环境，以便开始深度学习之旅。此外，若能搭建一个自己的深度学习服务器再好不过了，所以本文将从以下三个部分的内容进行介绍：  环境准备 Xshell远程连接U">
+<meta name="keywords" content="安装,Python,Ubuntu,Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Xshell远程连接linux并远程访问ipython服务">
+<meta property="og:url" content="http://jacklxj.github.io/2018/09/23/Xshell远程连接linux并远程访问ipython服务/index.html">
+<meta property="og:site_name" content="Zero">
+<meta property="og:description" content="前言如今，人工智能、深度学习等高深知识逐渐融入大家的视野，为了跟上技术的潮流不被out，也想打算开始深度学习。而据说如今深度学习最好的环境是Python + Jupyter notebook + Tensorflow了，为此首先需要搭建一个这么个环境，以便开始深度学习之旅。此外，若能搭建一个自己的深度学习服务器再好不过了，所以本文将从以下三个部分的内容进行介绍：  环境准备 Xshell远程连接U">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://ws3.sinaimg.cn/bmiddle/9150e4e5gy1fxklkcjfp8j20c80c80sx.jpg">
+<meta property="og:image" content="https://gss0.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/c995d143ad4bd11352793d7557afa40f4afb05c4.jpg">
+<meta property="og:image" content="https://gss0.baidu.com/94o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/37d3d539b6003af3aa185627382ac65c1138b6d3.jpg">
+<meta property="og:image" content="https://ss0.baidu.com/73x1bjeh1BF3odCf/it/u=1767287260,2111886590&fm=85&s=CA03E00315D37DE986D8C5700300D073">
+<meta property="og:image" content="https://gss0.baidu.com/94o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/7dd98d1001e9390191a0077976ec54e737d196d3.jpg">
+<meta property="og:image" content="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1598723784,1130004174&fm=11&gp=0.jpg">
+<meta property="og:image" content="https://gss0.baidu.com/94o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/9825bc315c6034a88e4032c6c6134954082376d3.jpg">
+<meta property="og:image" content="https://gss0.baidu.com/-vo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/d788d43f8794a4c2786d6d6c03f41bd5ad6e392e.jpg">
+<meta property="og:image" content="https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/2cf5e0fe9925bc3192e98bdf53df8db1ca1370c5.jpg">
+<meta property="og:image" content="https://gss0.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/377adab44aed2e73cf740c6b8a01a18b86d6fadc.jpg">
+<meta property="og:image" content="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2709137771,173445446&fm=27&gp=0.jpg">
+<meta property="og:updated_time" content="2018-11-25T17:29:35.035Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Xshell远程连接linux并远程访问ipython服务">
+<meta name="twitter:description" content="前言如今，人工智能、深度学习等高深知识逐渐融入大家的视野，为了跟上技术的潮流不被out，也想打算开始深度学习。而据说如今深度学习最好的环境是Python + Jupyter notebook + Tensorflow了，为此首先需要搭建一个这么个环境，以便开始深度学习之旅。此外，若能搭建一个自己的深度学习服务器再好不过了，所以本文将从以下三个部分的内容进行介绍：  环境准备 Xshell远程连接U">
+<meta name="twitter:image" content="https://ws3.sinaimg.cn/bmiddle/9150e4e5gy1fxklkcjfp8j20c80c80sx.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://jacklxj.github.io/2018/09/23/Xshell远程连接linux并远程访问ipython服务/">
+
+
+
+
+
+  <title>Xshell远程连接linux并远程访问ipython服务 | Zero</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/JackLXJ" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Zero</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            日程表
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://jacklxj.github.io/2018/09/23/Xshell远程连接linux并远程访问ipython服务/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zero">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/head.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zero">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Xshell远程连接linux并远程访问ipython服务</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-23T01:24:30+08:00">
+                2018-09-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  4k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  14
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>如今，人工智能、深度学习等高深知识逐渐融入大家的视野，为了跟上技术的潮流不被out，也想打算开始深度学习。而据说如今深度学习最好的环境是Python + Jupyter notebook + Tensorflow了，为此首先需要搭建一个这么个环境，以便开始深度学习之旅。此外，若能搭建一个自己的深度学习服务器再好不过了，所以本文将从以下三个部分的内容进行介绍：</p>
+<ul>
+<li>环境准备</li>
+<li>Xshell远程连接Ubuntu</li>
+<li>Jupyter notebook服务器的配置及远程访问</li>
+<li>远程环境的测试</li>
+</ul>
+<p>OK，话不多说，开始进入正轨吧。(#`O′)</p>
+<p><img src="https://ws3.sinaimg.cn/bmiddle/9150e4e5gy1fxklkcjfp8j20c80c80sx.jpg" width="200"></p>
+<hr>
+<h2 id="一、环境准备"><a href="#一、环境准备" class="headerlink" title="一、环境准备"></a>一、环境准备</h2><h3 id="环境介绍"><a href="#环境介绍" class="headerlink" title="环境介绍"></a>环境介绍</h3><ul>
+<li>准备两台计算机，一个作为服务端，一个作为客户端。</li>
+<li>服务端：Linux系统（<a href="https://www.ubuntu.com/download/desktop" target="_blank" rel="noopener">Ubuntu</a>）<br><a href="https://baike.baidu.com/item/ubuntu/155795?fr=aladdin" target="_blank" rel="noopener">官方介绍</a>：Ubuntu（友帮拓、优般图、乌班图）是一个以桌面应用为主的开源GNU/Linux操作系统，Ubuntu 是基于Debian GNU/Linux，支持x86、amd64（即x64）和ppc架构，由全球化的专业开发团队（Canonical Ltd）打造的。<br>Linux系统区别于windows系统最大的区别是其主要是利用终端 Shell 命令来进行一系列的操作，所以在实际使用过程中常常用来搭建服务器，该系统搭建在VMware虚拟机中。</li>
+<li>客户端：Windows10系统<br>这个大家再熟悉不过了，就不介绍了。</li>
+<li><a href="https://www.anaconda.com/download/" target="_blank" rel="noopener">Anaconda</a><br><a href="https://baike.baidu.com/item/anaconda/20407441?fr=aladdin" target="_blank" rel="noopener">官方介绍</a>：Anaconda指的是一个开源的Python发行版本，其包含了conda、Python等180多个科学包及其依赖项。<br>所以说，当我们下载了Anaconda之后就不必要再下载Python其他包了，其内部集成了大量大Python工具，其中就包括我们这篇文章的主角Jupyter notebook。</li>
+<li><a href="https://xshell.en.softonic.com/?ex=BB-682.0" target="_blank" rel="noopener">Xshell</a><br>这个就没什么好说的了，它主要是一种远程连接的工具，使用它之后我们就可以通过ssh协议来远程连接Ubuntu系统了，而且它常常与远程文件传输工具Xftp配套使用。</li>
+</ul>
+<h3 id="软件下载"><a href="#软件下载" class="headerlink" title="软件下载"></a>软件下载</h3><p>这里给大家两种方式进行下载，一个是官网下载，一个是鄙人的网盘下载，大家根据自己的方便下载即可。</p>
+<p>官网：</p>
+<ul>
+<li>Anaconda：<a href="https://www.anaconda.com/download/，于服务端下载" target="_blank" rel="noopener">https://www.anaconda.com/download/，于服务端下载</a></li>
+<li>Xshell：<a href="https://xshell.en.softonic.com/?ex=BB-682.0，于客户端下载" target="_blank" rel="noopener">https://xshell.en.softonic.com/?ex=BB-682.0，于客户端下载</a></li>
+<li>Ubuntu：<a href="https://www.ubuntu.com/download/desktop，于服务端下载" target="_blank" rel="noopener">https://www.ubuntu.com/download/desktop，于服务端下载</a></li>
+<li>VMware：<a href="https://www.vmware.com/，于服务端下载" target="_blank" rel="noopener">https://www.vmware.com/，于服务端下载</a></li>
+</ul>
+<p>网盘：</p>
+<ul>
+<li>Anaconda：<a href="https://pan.baidu.com/s/1k8JdX5vo62j_I1jAy3Airw，" target="_blank" rel="noopener">https://pan.baidu.com/s/1k8JdX5vo62j_I1jAy3Airw，</a> 密码：<code>bhfv</code>，于服务端下载</li>
+<li>Xshell：<a href="https://pan.baidu.com/s/1KKqsFrhbPUM2Yc_Jukm5sw，" target="_blank" rel="noopener">https://pan.baidu.com/s/1KKqsFrhbPUM2Yc_Jukm5sw，</a> 密码：<code>fi0y</code>，于客户端下载</li>
+<li>Ubuntu：<a href="https://pan.baidu.com/s/1Zwz1GGlEtlStnS-5OFsecQ，" target="_blank" rel="noopener">https://pan.baidu.com/s/1Zwz1GGlEtlStnS-5OFsecQ，</a> 密码：<code>50yw</code>，于服务端下载</li>
+<li>VMware：<a href="https://pan.baidu.com/s/1-h0HLJGrXbJjwzfU5I2rww，" target="_blank" rel="noopener">https://pan.baidu.com/s/1-h0HLJGrXbJjwzfU5I2rww，</a> 密码：<code>hjnq</code>，于服务端下载</li>
+</ul>
+<h3 id="VMware下安装Ubuntu"><a href="#VMware下安装Ubuntu" class="headerlink" title="VMware下安装Ubuntu"></a>VMware下安装Ubuntu</h3><font color="red">注意：以下内容都是在服务端计算机中进行配置</font>
+
+<p>在VMware虚拟机下安装Ubuntu系统虽然有点步骤，但是并不复杂。在综合考虑到时间成本与其给大家带来的价值的关系下，博主就用文字描述了，暂时不贴图了。但是你不必担心，关键步骤还是会贴图说明的 ( ﹁ ﹁ ) ~→。</p>
+<ul>
+<li><p>在服务端下载好VMware及Ubuntu之后。首先打开VMware你会发现他会让你输入VMware秘钥，以下将给出几个目前有效的秘钥，当你使用的时候也许已经失效了，你可以自行百度查找秘钥：</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">FF31K-AHZD1-H8ETZ<span class="number">-8</span>WWEZ-WUUVA</span><br><span class="line">CV7T2<span class="number">-6</span>WY5Q<span class="number">-48</span>EWP-ZXY7X-QGUWD</span><br><span class="line">ZY5H0-D3Y8K-M89EZ-AYPEG-MYUA8</span><br><span class="line">ZC5XK-A6E0M<span class="number">-080</span>XQ<span class="number">-04</span>ZZG-YF08D</span><br><span class="line">ZY5H0-D3Y8K-M89EZ-AYPEG-MYUA8</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>输入秘钥之后 ，进入到了VMware的页面了，为了缩短文章的字数，博主还是使用windows自带的mspaint来绘制一个流程图来为大家介绍下Ubuntu的安装吧，尽量简洁明了：<br><img src="https://gss0.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/c995d143ad4bd11352793d7557afa40f4afb05c4.jpg" width="600"></p>
+</li>
+</ul>
+<p>原本以为制作这个流程图用不了多少时间，结果却用了20分钟，但是如此一来思路清晰、逻辑性强，值了（好吧，不吹自己了，还有很大的提升空间），w(ﾟДﾟ)w。好了，至此Ubuntu就已经安装好了，如果有卡壳的地方可在文章末留言或者左侧的Gitalk留言。</p>
+<h3 id="Ubuntu下Anaconda的安装"><a href="#Ubuntu下Anaconda的安装" class="headerlink" title="Ubuntu下Anaconda的安装"></a>Ubuntu下Anaconda的安装</h3><p>在VMware下安装好Ubuntu后，虽然Ubuntu内自带了Python，但是其版本是2.7的，而且许多常用的包并没用集成，所以我们还需要安装Anaconda。</p>
+<p>根据以上Anaconda的下载方式下载Anaconda，进入到其目录之下（或者<code>cd</code>操作），然后打开终端，执行如下命令进行安装：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">bash</span> <span class="selector-tag">Anaconda3-5</span><span class="selector-class">.3</span><span class="selector-class">.1-Linux-x86_64</span><span class="selector-class">.sh</span>    # 不要盲目的复制粘贴，根据自己所下载的<span class="selector-tag">Anaconda</span>版本执行</span><br></pre></td></tr></table></figure></p>
+<p>执行之后会有一些列诸如同意协议之类的问题，我们默认即可（直接Enter，或者yes），直到出现Anaconda环境变量配置的显示，我们需要选择将其加入到环境变量中去。<br>一系列操作之后，我们关闭终端然后在重新打开终端，然后在终端分别执行<code>conda list</code>、<code>python</code>命令，如果你的终端界面出现类似以下输出，则恭喜你说明你已经完成了anaconda的安装。<br><img src="https://gss0.baidu.com/94o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/37d3d539b6003af3aa185627382ac65c1138b6d3.jpg" width="600"></p>
+<p>而如果你的终端输错报错（未找到<code>conda</code>命令之类的）或者Python版本为2.7，那就说明你以上操作中未将Anaconda加入到环境变量，所以你需要手动配置Anaconda的环境变量，操作如下：<br><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># 打开环境变量的配置文件，从这里我们就可以看出Linux和Windows下的操作的区别了</span></span><br><span class="line"><span class="meta"># windows一般是通过界面的形式进行设置，而Linux下则大多数通过终端并使用vim进行配置</span></span><br><span class="line">sudo vim gedit /root/.bashrc</span><br></pre></td></tr></table></figure></p>
+<p>打开文件之后我们需要在文件末尾添加如下内容<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">export</span> <span class="attribute">PATH</span>=<span class="string">"XXX:<span class="variable">$PATH</span>"</span>   # XXX为你的Anaconda的bin目录，例如我的是/home/lxj/anaconda3/bin</span><br></pre></td></tr></table></figure></p>
+<p>然后保存，在终端输入source ~/.bashrc进行更新即可完成Anaconda环境变量的配置，不出意外的话再次分别执行<code>Python</code>、<code>conda list</code>命令之后你会看见正确的输出了。</p>
+<blockquote>
+<p>补充：这里需要说明一下，以上的操作是使用Vim进行文件编辑的，他不同于windows下的记事本等，而是通过特定的操作来对文件进行编辑。对于熟悉Vim操作的应该会理解以上Anaconda环境变量的配置，然而如果是对Vim比较陌生的朋友可能会卡壳，所以在这里简单介绍一些vim的操作。</p>
+<blockquote>
+<p>在终端使用vim命令之后将会进入到vim的界面，此时的界面是不允许modify任何内容的，只允许read only。此时我们输入i将会进入到vim的编辑模式，现在就能对该文件进行修改了。<br>文件内容修改完成之后，我们需要退出该vim编辑模式，vim 的退出常用的有以下几种（首先输入Esc键）：</p>
+<ol>
+<li>q! -&gt; 不保存文件修改并退出</li>
+<li>wq -&gt; 保存文件的修改并退出</li>
+<li>wq! -&gt; 有时候我们需要root权限才能编辑文件，使用该命令之后就能够强制修改并退出<br>对于以上Anaconda环境变量的配置，vim的熟悉至此就足够了，但是顺便介绍一下其他常用的命令供大家参考，也是记录一下方便以后的回顾：</li>
+<li>read模式下双击d -&gt; 删除当行内容</li>
+<li>Ctrl+b -&gt; 内容向前移动一页</li>
+<li>ctrl+f -&gt; 内容向后移动爷爷</li>
+<li>shift+g -&gt; 鼠标指针定位到最后<br>常用的就是以上一些了，其他的操作有需要的话在来看看。</li>
+</ol>
+</blockquote>
+</blockquote>
+<font color="red">注意：以上内容都是在服务端计算机中进行配置</font>
+
+<p>好了，好了，好了。至此，我们已经完成了环境的搭建，接下来我们将介绍如何使用Xshell远程连接Ubuntu操作，拿好你的小板凳快快做好。</p>
+<p><img src="https://ss0.baidu.com/73x1bjeh1BF3odCf/it/u=1767287260,2111886590&fm=85&s=CA03E00315D37DE986D8C5700300D073"></p>
+<hr>
+<h2 id="二、Xshell远程连接Ubuntu"><a href="#二、Xshell远程连接Ubuntu" class="headerlink" title="二、Xshell远程连接Ubuntu"></a>二、Xshell远程连接Ubuntu</h2><font color="red">注意：以下内容都是在客户端计算机中进行配置</font>
+
+<p>安装好Anaconda之后，我们需要通过Xshell使用Xshell来远程连接我们的Ubuntu系统，此时我们的目标需要转移至客户端了。<br>首先在以上软件下载中根据链接下载Xshell，之后Windows傻瓜式安装好Xshell（顺便把Xftp安装下，与Xshell配套使用的，虽然在本文中使用不到）。之后的操作会有几个坑，但是不必担心，博主会带你一个一个的填掉 o(*≧▽≦)ツ┏━┓。</p>
+<p>坑一：连接失败<br>我们双击打开Xshell，并点击<code>文件</code>并新建，然后根据如下图进行操作：<br><img src="https://gss0.baidu.com/94o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/7dd98d1001e9390191a0077976ec54e737d196d3.jpg" width="600"> </p>
+<blockquote>
+<p>补充，上方中的主机属性是填Ubuntu的ip地址，该地址可在Ubuntu的终端执行ifconfig（windows是ipconfig）命令得到。</p>
+</blockquote>
+<p>以上信息填写完之后在出现的界面输入自己Ubuntu下的用户登录密码即可。<br>执行之后你花发现连接失败，此时需要检查一下Ubuntu是否与客户端处于同一网段下，可以将Ubuntu设置成桥接模式（右键Ubuntu虚拟机然后进行设置），之后再次检查一下客户端（Windows10）是否能够ping通服务端（Ubuntu），在客户端的cmd中执行如下：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ping</span> <span class="selector-tag">XXX</span><span class="selector-class">.XXX</span><span class="selector-class">.XXX</span><span class="selector-class">.XXX</span>    # <span class="selector-tag">XXX</span><span class="selector-class">.XXX</span><span class="selector-class">.XXX</span><span class="selector-class">.XXX</span>为服务端的<span class="selector-tag">ip</span></span><br></pre></td></tr></table></figure></p>
+<p>在以上操作之后，一般就能ping通了，如果失败了则在Ubuntu终端下执行<code>sudo wfw disable</code>命令关闭防火墙。</p>
+<p>坑二：连接失败 (ノへ￣、)</p>
+<p>在如上操作之后，我们再次尝试重新连接。我们可以发现依然连接失败，显示拒绝连接之类的信息。这是因为Xshell是通过ssh协议来连接Ubuntu的，但是Ubuntu默认是没有开启ssh服务的，所以我们需要在其终端执行如下命令来开启ssh服务：<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo<span class="built_in"> service </span>ssh restart</span><br></pre></td></tr></table></figure></p>
+<p>之后我们再次尝试连接。</p>
+<p>坑三：连接失败 (ノへ￣、) (ノへ￣、)</p>
+<p>一般来讲，这个时候依然是连接失败，此时我们需要安装在Ubuntu下安装ssh服务，执行以下命令进行安装：<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="builtin-name">get</span> install openssh-server</span><br></pre></td></tr></table></figure></p>
+<p>待其安装好后，我们再再再次连接Ubunut。</p>
+<p>OK，以上坑踩过之后也该连接成功了吧。的确此时你将成功连接到Ubuntu了，之后Xshell将打开一个终端，这个终端就是Ubuntu下的终端了，也就是说我们可以使用该终端控制Ubuntu了，并对其进行Shell操作。ヽ(✿ﾟ▽ﾟ)ノ<br><img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1598723784,1130004174&fm=11&gp=0.jpg" width="200"></p>
+<hr>
+<h2 id="三、Jupyter-notebook服务器的配置及远程访问"><a href="#三、Jupyter-notebook服务器的配置及远程访问" class="headerlink" title="三、Jupyter notebook服务器的配置及远程访问"></a>三、Jupyter notebook服务器的配置及远程访问</h2><p>由于我们在之前已经安装过了Anaconda，所以此时的Ubuntu就已经集成了<code>ipython</code> as well as （秀一下英语，虽然很烂）<code>jupyter-notebook</code>，对此，将通过Xshell远程连接Ubuntu来搭建Jupyter notebook的服务器，并对其进行远程访问。</p>
+<ul>
+<li>在终端中启动ipython或者python，然后执行以下命令<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">from IPython<span class="selector-class">.lib</span> import passwd</span><br><span class="line"><span class="function"><span class="title">passwd</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>上述命令执行之后将会在终端显示设置密码，比如在这我们将密码设置成：123，之后enter并确认即可。</p>
+<font color="red">注意：这里的密码是暗文的形式，输入之后不会显示的，还有此时你输入的密码需要记住，因为我们待会远程访问jupyter notebook服务器的时候需要用到该密码进行登录</font>
+
+<p>密码输入之后，我们将会看到有一个较长字符串，该字符串是上述密码的加密形式，我们需要将其复制下来，在之后的ipython_notebook_config.py文件的设置中需要使用，操作结果如下图所示：<br><img src="https://gss0.baidu.com/94o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/9825bc315c6034a88e4032c6c6134954082376d3.jpg" width="600"></p>
+<ul>
+<li>随后为了方便上述加密密码字符串的记录，我们在此开启另一个终端（这也是Xshell的方便所在），然后使用如下命令创建一个服务器名，比如，在此我们将该名字设置为：XXX<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ipython<span class="built_in"> profile </span>create txj</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>在上述服务器名创建完成之后，将在终端输出两个py文件（ipython_config.py、ipython_kernel_config.py）路径，之后使用如下cd命令我们进入到.ipython路径<br><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> <span class="string">.ipython/</span></span><br></pre></td></tr></table></figure></p>
+<p>操作图示如下：<br><img src="https://gss0.baidu.com/-vo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/d788d43f8794a4c2786d6d6c03f41bd5ad6e392e.jpg" width="600"></p>
+<ul>
+<li>进入<code>.ipython</code>目录之后使用<code>ls</code>命令将会列出上述创建的两个py文件所在，但是我们需要再额外创建一个py配置文件并对其进行设置，在这里我们使用vim来进行操作，关于vim的使用，上述的Anaconda环境配置过程中已经介绍了，遗忘的朋友可以返回看一看再熟悉一下。熟悉之后我们完成如下步骤：<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> .ipython/profile_txj     # 终端进入.ipython路径</span><br><span class="line"><span class="keyword">vim</span> ipython_notebook_config.<span class="keyword">py</span>   # 使用<span class="keyword">vim</span>进行创建ipython_notebook_config.<span class="keyword">py</span>并对其进行编辑</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>进入到vim环境之后我们在ipython_nnotebook_config.py文件中编辑如下内容：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">c = get_config()</span><br><span class="line">c.IPKernelApp.pyalb = <span class="string">"inline"</span></span><br><span class="line">c.NotebookApp.ip = <span class="string">"*"</span></span><br><span class="line">c.NotebookApp.open_browser = <span class="keyword">False</span></span><br><span class="line">c.NotebookApp.allow_root = <span class="keyword">True</span></span><br><span class="line">c.NotebookApp.password = <span class="string">u"加密后的密码"</span>    <span class="comment"># 这里我们需要使用上述加密后的密码，在另一个终端可见</span></span><br><span class="line">c.NotebookApp.port = <span class="number">8888</span>   <span class="comment"># 在这里，我们需要设置一个jupyter-notebook的端口，尽量设置的少见点，以免造成端口冲突</span></span><br></pre></td></tr></table></figure></p>
+<p>编辑好后，<code>wq</code>命令保存并退出。</p>
+<ul>
+<li>在上述一切操作完成之后，我们现在来开启该服务器，新建一个终端并执行如下命令<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">jupyter </span>notebook --<span class="built_in">config</span>=你的ipython_notebook_config.py文件路径    </span><br><span class="line"><span class="comment"># 例如/home/lxj/.ipython/profile_XXX/ipython_notebook_config.py</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>在上述命令执行之后，如果出现如下图片所示内容，则说明我们的服务端已经正常启动<br><img src="https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/2cf5e0fe9925bc3192e98bdf53df8db1ca1370c5.jpg" width="600"></p>
+<p><img src="https://gss0.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/377adab44aed2e73cf740c6b8a01a18b86d6fadc.jpg" width="600"></p>
+<ul>
+<li>在服务端启动完成之后，我们在客户端打开浏览器，访问<code>XXX.XXX.XXX.XXX:8888</code>（ubuntu的ip加开放的端口）试试，看看能否正常请求。如果随后出现一个如上所示的Jupyter notebook的登录页面，那么恭喜你，至此Jupyter notebook服务器配置完成，并能够远程访问了。在表单中输入你所设置的密码（上面第一步设置的密码，123）即可开始你的深度学习之旅了。</li>
+</ul>
+<p>以上就是Jupyter notebook服务器的配置及远程访问的内容了，但是能否正常使用<code>requests、numpy、pandas、matplotlib、Tensorflow</code>呢，我们下面将通过几个简单的例子来对其进行测试。<br><img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2709137771,173445446&fm=27&gp=0.jpg"></p>
+<hr>
+<h2 id="四、远程环境的测试"><a href="#四、远程环境的测试" class="headerlink" title="四、远程环境的测试"></a>四、远程环境的测试</h2><p>通过上述的操作，我们已经完成了远程操作。但是保险起见，我们对其进行验证，看看anaconda下的第三方包能否正常使用。为此，我们通过以下几个案例来进行验证：</p>
+<ul>
+<li>百度及其子链接的简单爬虫（requests， BeautifulSoup）</li>
+<li>数据可视化操作（pandas，numpy，matplotlib，skimage）</li>
+<li>机器学习之鸢尾花的分类预测（sklearn， numpy）</li>
+</ul>
+<h3 id="4-1-简单爬虫"><a href="#4-1-简单爬虫" class="headerlink" title="4.1 简单爬虫"></a>4.1 简单爬虫</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_page</span><span class="params">(url, headers)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> requests.get(url).text</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    baidu_url = <span class="string">"https://www.baidu.com"</span></span><br><span class="line">    baidu_soup = BeautifulSoup(get_page(baidu_url), <span class="string">"lxml"</span>)</span><br><span class="line">    son_links = [biaoqian_a.attrs[<span class="string">"href"</span>] <span class="keyword">for</span> biaoqian_a <span class="keyword">in</span> baidu_soup.find_all(<span class="string">"a"</span>)]</span><br><span class="line">    <span class="keyword">for</span> index, son_link <span class="keyword">in</span> enumerate(son_links):</span><br><span class="line">        print(<span class="string">"正在请求第&#123;&#125;个页面"</span>.format(str(index)))</span><br><span class="line">        print(get_page(son_link))</span><br></pre></td></tr></table></figure>
+<h3 id="4-2-数据可视化"><a href="#4-2-数据可视化" class="headerlink" title="4.2 数据可视化"></a>4.2 数据可视化</h3><figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">% matplot inline</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="title">from</span> amtplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> skimage</span><br><span class="line"></span><br><span class="line"><span class="title">x</span> = np.random.uniform(<span class="number">1</span>, <span class="number">100</span>, <span class="number">100</span>)</span><br><span class="line"><span class="title">y</span> = np.random.uniform(<span class="number">1</span>, <span class="number">100</span>, <span class="number">100</span>)</span><br><span class="line"><span class="title">plt</span>.plot(x, y)</span><br><span class="line"><span class="title">plt</span>.show()</span><br><span class="line"></span><br><span class="line"><span class="type">XXXXXXXX</span></span><br></pre></td></tr></table></figure>
+<h3 id="4-3-支持向量机下的鸢尾花的识别"><a href="#4-3-支持向量机下的鸢尾花的识别" class="headerlink" title="4.3 支持向量机下的鸢尾花的识别"></a>4.3 支持向量机下的鸢尾花的识别</h3><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">XXXX</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>通过上述的演示，已经完成了windows10下使用xshell远程连接linux系统以及远程访问jupyter-notebook服务，并通过几个小例子来对其进行验证说明可以正常使用linux下的anaconda。虽然msi computer不支持在本机安装linux系统，但是我们依然可以在另一台computer中安装并远程进行访问，而且其中的优势也是显而易见的：</p>
+<ul>
+<li>并不像以前那样虚拟机和物理机都在同一台computer中运行，而是将其中一台computer作为linux服务器，然后使用xshell对其进行远程操作，在一定程度上减小其压力。</li>
+<li>方便了各个进程之间的管理且易于操作</li>
+<li>。。。。。。</li>
+</ul>
+<hr>
+<div style="text-align: right">2018-09-10,By Zero</div>
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:18px;">-------------━┳━　━┳━ 本文结束<i class="fa fa-paw"></i>感谢您的阅读 ━┳━　━┳━-------------</div>
+    
+</div>
+      
+    </div>
+
+
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/09/23/Xshell远程连接linux并远程访问ipython服务/">Xshell远程连接linux并远程访问ipython服务</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 Zero 的个人博客">Zero</a></p>
+  <p><span>发布时间:</span>2018年09月23日 - 01:09</p>
+  <p><span>最后更新:</span>2018年11月26日 - 01:11</p>
+  <p><span>原始链接:</span><a href="/2018/09/23/Xshell远程连接linux并远程访问ipython服务/" title="Xshell远程连接linux并远程访问ipython服务">http://jacklxj.github.io/2018/09/23/Xshell远程连接linux并远程访问ipython服务/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://jacklxj.github.io/2018/09/23/Xshell远程连接linux并远程访问ipython服务/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+
+      
+    </div>
+
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/wechatpay.png" alt="Zero 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/alipay.png" alt="Zero 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/安装/" rel="tag"># 安装</a>
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+            <a href="/tags/Ubuntu/" rel="tag"># Ubuntu</a>
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/20/利用MyEclipse进行SSH项目整合/" rel="next" title="利用MyEclipse进行SSH项目整合">
+                <i class="fa fa-chevron-left"></i> 利用MyEclipse进行SSH项目整合
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/23/Kali/" rel="prev" title="Kali">
+                Kali <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div id="gitalk-container"></div>
+
+
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/uploads/head.png" alt="Zero">
+            
+              <p class="site-author-name" itemprop="name">Zero</p>
+              <p class="site-description motion-element" itemprop="description">Jack of all trades and master of none.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/JackLXJ" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:26647879@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://wpa.qq.com/msgrd?v=3&uin=26647879&site=qq&menu=yes" target="_blank" title="qq">
+                      
+                        <i class="fa fa-fw fa-globe"></i>qq</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://y.qq.com/portal/profile.html#stat=y_new.top.user_pic" target="_blank" title="music">
+                      
+                        <i class="fa fa-fw fa-globe"></i>music</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、环境准备"><span class="nav-number">2.</span> <span class="nav-text">一、环境准备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#环境介绍"><span class="nav-number">2.1.</span> <span class="nav-text">环境介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软件下载"><span class="nav-number">2.2.</span> <span class="nav-text">软件下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VMware下安装Ubuntu"><span class="nav-number">2.3.</span> <span class="nav-text">VMware下安装Ubuntu</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ubuntu下Anaconda的安装"><span class="nav-number">2.4.</span> <span class="nav-text">Ubuntu下Anaconda的安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、Xshell远程连接Ubuntu"><span class="nav-number">3.</span> <span class="nav-text">二、Xshell远程连接Ubuntu</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、Jupyter-notebook服务器的配置及远程访问"><span class="nav-number">4.</span> <span class="nav-text">三、Jupyter notebook服务器的配置及远程访问</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、远程环境的测试"><span class="nav-number">5.</span> <span class="nav-text">四、远程环境的测试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-简单爬虫"><span class="nav-number">5.1.</span> <span class="nav-text">4.1 简单爬虫</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-数据可视化"><span class="nav-number">5.2.</span> <span class="nav-text">4.2 数据可视化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-支持向量机下的鸢尾花的识别"><span class="nav-number">5.3.</span> <span class="nav-text">4.3 支持向量机下的鸢尾花的识别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zero</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+    <i class="fa fa-user-md"></i>
+    <span id="busuanzi_container_site_pv">
+      本站总访问量<span id="busuanzi_value_site_pv"></span>次
+    </span>
+  </div>
+
+ 
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">本站共18.5k字</span>
+</div>
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--prettify代码高亮脚本引入-->
+<script src="/plugins/prettify/prettify.js"></script>
+<script type="text/javascript">
+$(window).load(function(){
+$('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+ prettyPrint();
+})
+</script>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 访问总量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: 'a22cf34e389580514647',
+          clientSecret: '4fb159dd5362d7a3c4c98d565abcad8d53014004',
+          repo: 'JackLXJ.github.io',
+          owner: 'JackLXJ',
+          admin: ['JackLXJ'],
+          id: location.pathname,
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+
+
+  <link rel="stylesheet" href="/dist/APlayer.min.css">
+  <div id="aplayer"></div>
+  <script type="text/javascript" src="/dist/APlayer.min.js"></script>
+  <script type="text/javascript" src="/dist/music.js"></script>
+  
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+
+<!--崩溃欺骗-->
+<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
