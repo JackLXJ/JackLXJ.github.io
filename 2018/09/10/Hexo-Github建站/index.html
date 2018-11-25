@@ -180,7 +180,7 @@ pace-theme-flash.css" rel="stylesheet">
 <meta property="og:image" content="https://gss0.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/8644ebf81a4c510f657b535d6d59252dd42aa53e.jpg">
 <meta property="og:image" content="https://gss0.baidu.com/9fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/8694a4c27d1ed21b4c479fa2a06eddc450da3fee.jpg">
 <meta property="og:image" content="https://gss0.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/2e2eb9389b504fc221d10142e8dde71191ef6def.jpg">
-<meta property="og:updated_time" content="2018-11-25T11:03:35.764Z">
+<meta property="og:updated_time" content="2018-11-25T11:22:26.884Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo+Github建站">
 <meta name="twitter:description" content="前言gitHub是一个面向开源及私有软件项目的托管平台，也是版本控制库因为只支持git 作为唯一的版本库格式进行托管，故名gitHub。此后，2018年6月4日，微软宣布，通过75亿美元的股票交易收购代码托管平台GitHub。Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。 官网：Github：htt">
@@ -504,12 +504,12 @@ pace-theme-flash.css" rel="stylesheet">
 <p>以下的搭建过程是针对小白所实现的，例如github仓库的创建、环境变量的配置、git终端等一些基础操作都有较为详细的说明。由于鄙人语言功底不行，如果有拗口、错别字、歧义或者不解的地方可在文章末端或右方的Gitalk留言，博主看到会第一时间解释，在此谢过。</p>
 </blockquote>
 <h2 id="一、搭建环境"><a href="#一、搭建环境" class="headerlink" title="一、搭建环境"></a>一、搭建环境</h2><h3 id="环境介绍："><a href="#环境介绍：" class="headerlink" title="环境介绍："></a>环境介绍：</h3><ol>
-<li>windows系统。系统根据自己的需要准备即可，mac、linux皆可，本文是在windows系统下搭建。</li>
+<li>windows系统。系统根据自己的需要准备即可，mac、linux皆可，本文以windows系统环境下搭建为例。</li>
 <li><a href="https://git-scm.com/" target="_blank" rel="noopener">git</a>。安装之后方便使用各种命令，还能够更好的clone github仓库。</li>
 <li><a href="https://nodejs.org/en/" target="_blank" rel="noopener">node.js</a>。一个Javascript运行环境，网站的搭建必须建立在这个框架之上。</li>
 <li><a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a>。使用命令可以直接将Hexo生成的静态资源存储到Github上，然后使用自己的github账户即可访问。</li>
 </ol>
-<h3 id="安装："><a href="#安装：" class="headerlink" title="安装："></a>安装：</h3><h4 id="Git的安装："><a href="#Git的安装：" class="headerlink" title="Git的安装："></a>Git的安装：</h4><p>你可在git官网中根据自己的需要进行下载：<a href="https://git-scm.com/。打开之后你将看到如下内容：" target="_blank" rel="noopener">https://git-scm.com/。打开之后你将看到如下内容：</a><br><img src="https://gss0.baidu.com/-vo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/b90e7bec54e736d1daf6c64f96504fc2d4626994.jpg" width="500"></p>
+<h3 id="安装："><a href="#安装：" class="headerlink" title="安装："></a>安装：</h3><h4 id="Git的安装："><a href="#Git的安装：" class="headerlink" title="Git的安装："></a>Git的安装：</h4><p>你可在git官网中根据自己的需要进行下载：<a href="https://git-scm.com/" target="_blank" rel="noopener">https://git-scm.com/</a>。打开之后你将看到如下内容：<br><img src="https://gss0.baidu.com/-vo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/b90e7bec54e736d1daf6c64f96504fc2d4626994.jpg" width="500"></p>
 <p>将其下载到指定的磁盘，然后傻瓜式安装即可。安装好后打开cmd终端，执行<code>git --version</code>，若出现<code>git version 2.19.2.windows.1</code>之类的输出则说明已经成功安装。</p>
 <h4 id="node-js的安装："><a href="#node-js的安装：" class="headerlink" title="node.js的安装："></a>node.js的安装：</h4><p>node.js的安装和Git的安装如出一辙，同样的操作下载node.js并安装即可，安装好后我们在cmd终端使用<code>node -v</code>命令，如出现<code>v10.13.0</code>类似输出，则说明已经成功安装。<br>node.js下载：<a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a><br><img src="https://gss0.baidu.com/9fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/b999a9014c086e068f8d8a0c0f087bf40ad1cb54.jpg" width="500"></p>
 <h4 id="github注册"><a href="#github注册" class="headerlink" title="github注册"></a>github注册</h4><p>进入github的注册页面：<a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a><br><img src="https://gss0.baidu.com/-Po3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/9358d109b3de9c82caa8b3c86181800a18d843a3.jpg" width="500"></p>
@@ -546,7 +546,7 @@ pace-theme-flash.css" rel="stylesheet">
 <ul>
 <li>以上的node_modules文件生成之后，我们需要配置一下Hexo的环境变量，以便在cmd中可以直接执行后续博客操作的命令。进入到node_module文件夹下的bin目录，然后复制该bin目录的路径，如下：<br><img src="https://gss0.baidu.com/-Po3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/242dd42a2834349bc0fedfc2c4ea15ce37d3bef9.jpg" width="500"></li>
 </ul>
-<p>后面的添加环境变量的操作比较简单，所以就描述一些流程，就不贴图了。如果有遇到问题的可联系鄙人。后续操作描述如下：1. ctrl+D切换到桌面。2. 右键此电脑，打开属性。3. 点击左侧的高级系统设置。 4. 点击环境变量。5. 在用户变脸或者系统变量中找到Path并双击它（推荐用户变量）6. 双击之后点击新建，然后将以上的复制的bin目录粘贴至此。6. 然后一步一步的确定、确定、确定。OK，完成了，是不是很简单 (*￣rǒ￣)。</p>
+<p>后面的添加环境变量的操作比较简单，所以就描述一些流程，就不贴图了。如果有遇到问题的可联系鄙人。后续操作描述如下：1. ctrl+D切换到桌面。2. 右键此电脑，打开属性。3. 点击左侧的高级系统设置。 4. 点击环境变量。5. 在用户变量或者系统变量中找到Path并双击它（推荐更改用户变量）6. 双击之后点击新建，然后将以上的复制的bin目录粘贴至此。6. 然后一步一步的确定、确定、确定。OK，完成了，是不是很简单 (*￣rǒ￣)。</p>
 <p><img src="http://g.hiphotos.baidu.com/image/pic/item/78310a55b319ebc4092170d98926cffc1e171610.jpg" width="150"></p>
 <p>在以上操作完成之后，win+r，打开cmd终端，然后执行<code>Hexo -v</code>，若出现如下类似信息，则说明你的Hexo已经成功配置环境变量。<br><img src="https://gss0.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/7aec54e736d12f2e48bb1f2742c2d5628535683f.jpg" width="500"></p>
 <ul>
@@ -557,7 +557,7 @@ pace-theme-flash.css" rel="stylesheet">
 <ul>
 <li>OK，至此，你已经基本完成了网站的建设，可以说是万事具备，只欠东风了。一个基本的Hexo博客框架已经完成了，我们需要导入自己的喜欢的主题即可正常使用了，主题的引入操作如下。</li>
 </ul>
-<h2 id="三、主题引入"><a href="#三、主题引入" class="headerlink" title="三、主题引入"></a>三、主题引入</h2><p>Hexo中有很多很多很多的主题（一个、两个、三个。。。 Σ( ° △ °|||)︴ 好吧，我不知道有多少个，因为他会被许多的大神更新着，如果好奇的话自行了解即可），其主题官网为：<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a>，你可以在此观摩并使用任意一个来作为你博客的主题，但据统计，绝大多数使用hexo+github来搭建博客的都是使用NexT，它的简单美受到了许多人的青睐，所以以下将以NexT为例来作为我们主题的引入，当然，你也可以去阅读<a href="http://theme-next.iissnan.com/" target="_blank" rel="noopener">NexT的主题文档</a>。</p>
+<h2 id="三、主题引入"><a href="#三、主题引入" class="headerlink" title="三、主题引入"></a>三、主题引入</h2><p>Hexo中有很多很多很多的主题（一个、两个、三个。。。 Σ( ° △ °|||)︴ 好吧，我不知道有多少个，因为他会被许多的大神更新着，如果好奇的话自行了解即可），其主题官网为：<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a>，你可以在此观摩并使用任意一个来作为你博客的主题，但据统计，绝大多数使用hexo+github来搭建博客的都是使用NexT，它的“精于心，简于形”的简单美受到了许多人的青睐，所以以下将以NexT为例来作为我们主题的引入，当然，你也可以去阅读<a href="http://theme-next.iissnan.com/" target="_blank" rel="noopener">NexT的主题文档</a>。</p>
 <p>在Hexo主题页面ctrl+F并输入next查找到NexT主题，然后点击进入到NexT主题的github页面，该页面存储了NexT主题的源码，我们需要将其下载下来为己所用。在前面我们已经提到了git的最为方便之处就是可以随意clone github的资源，在这个操作就可以显露出来了 ┗|｀O′|┛ 嗷~~ ┗|｀O′|┛ 嗷~~ ┗|｀O′|┛ 嗷~~。</p>
 <p>根据如下图所示复制出该主题的仓库链接：<br><img src="https://gss0.baidu.com/-Po3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/f31fbe096b63f624d0bb73448a44ebf81b4ca397.jpg" width="500"></p>
 <p>复制好该链接后我们进入<code>E:\ZerosBlog\XXX.github.io\themes</code>文件夹下，右键点击<code>git bash here</code>进入git终端，并执行如下命令，其中链接为你上一步所复制的内容<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone http<span class="variable">s:</span>//github.<span class="keyword">com</span>/theme-<span class="keyword">next</span>/hexo-theme-<span class="keyword">next</span>.git</span><br></pre></td></tr></table></figure></p>
