@@ -176,7 +176,7 @@ pace-theme-flash.css" rel="stylesheet">
 <meta property="og:image" content="https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/2cf5e0fe9925bc3192e98bdf53df8db1ca1370c5.jpg">
 <meta property="og:image" content="https://gss0.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/377adab44aed2e73cf740c6b8a01a18b86d6fadc.jpg">
 <meta property="og:image" content="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2709137771,173445446&fm=27&gp=0.jpg">
-<meta property="og:updated_time" content="2018-11-25T17:39:26.791Z">
+<meta property="og:updated_time" content="2018-11-26T11:13:56.204Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Xshell远程连接linux并远程访问ipython服务（深度学习环境的搭建）">
 <meta name="twitter:description" content="前言如今，人工智能、深度学习等高深知识逐渐融入大家的视野，为了跟上技术的潮流，不被时代所淘汰、out、出局，博主也想打算开始深度学习。而据说如今深度学习最好的环境是Python + Jupyter notebook + Tensorflow了，为此首先需要搭建一个这么个环境，以便开始深度学习之旅。此外，若能搭建一个自己的深度学习服务器再好不过了，所以本文将从以下三个部分的内容进行介绍：  环境准备">
@@ -624,7 +624,7 @@ pace-theme-flash.css" rel="stylesheet">
 <li>。。。。。。</li>
 </ul>
 <hr>
-<div style="text-align: right">2018-09-10,By Zero</div>
+<div style="text-align: right">2018-09-23,By Zero</div>
       
     </div>
     
@@ -655,7 +655,7 @@ pace-theme-flash.css" rel="stylesheet">
   <p><span>本文标题:</span><a href="/2018/09/23/Xshell远程连接linux并远程访问ipython服务/">Xshell远程连接linux并远程访问ipython服务（深度学习环境的搭建）</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Zero 的个人博客">Zero</a></p>
   <p><span>发布时间:</span>2018年09月23日 - 01:09</p>
-  <p><span>最后更新:</span>2018年11月26日 - 01:11</p>
+  <p><span>最后更新:</span>2018年11月26日 - 19:11</p>
   <p><span>原始链接:</span><a href="/2018/09/23/Xshell远程连接linux并远程访问ipython服务/" title="Xshell远程连接linux并远程访问ipython服务（深度学习环境的搭建）">http://jacklxj.github.io/2018/09/23/Xshell远程连接linux并远程访问ipython服务/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://jacklxj.github.io/2018/09/23/Xshell远程连接linux并远程访问ipython服务/" aria-label="复制成功！"></i></span>
   </p>
@@ -1187,18 +1187,22 @@ $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
 
   <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
   <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-   <script type="text/javascript">
-        var gitalk = new Gitalk({
-          clientID: 'a22cf34e389580514647',
-          clientSecret: '4fb159dd5362d7a3c4c98d565abcad8d53014004',
-          repo: 'JackLXJ.github.io',
-          owner: 'JackLXJ',
-          admin: ['JackLXJ'],
-          id: location.pathname,
-          distractionFreeMode: 'true'
-        })
-        gitalk.render('gitalk-container')           
-       </script>
+
++ <script src="/js/src/md5.min.js"></script>
+
+  <script type="text/javascript">
+    var gitalk = new Gitalk({
+      clientID: 'a22cf34e389580514647',
+      clientSecret: '4fb159dd5362d7a3c4c98d565abcad8d53014004',
+      repo: 'JackLXJ.github.io',
+      owner: 'JackLXJ',
+      admin: ['JackLXJ'],
+-     id: location.pathname,
++     id: md5(location.pathname),
+      distractionFreeMode: 'true'
+    })
+    gitalk.render('gitalk-container')
+  </script>
 
 
 
