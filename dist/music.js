@@ -19,6 +19,34 @@ const ap = new APlayer({
       },
 
       {
+        name: "再见",
+        artist: '张震岳',
+        url: 'http://www.ytmp3.cn/down/52597.mp3',
+        cover: 'https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=1160507874,2254484419&fm=58&bpow=400&bpoh=600',
+      },
+
+      {
+        name: "一直很安静",
+        artist: '阿桑',
+        url: 'http://other.web.ri01.sycdn.kuwo.cn/resource/n1/77/11/3555673158.mp3',
+        cover: 'https://ss0.baidu.com/73t1bjeh1BF3odCf/it/u=2296410578,3535043621&fm=85&s=B9E0C91749564FCE00C9D5D30100E0B1',
+      },
+
+      {
+        name: "莫失莫忘",
+        artist: '仙剑奇侠传',
+        url: 'http://other.web.ri01.sycdn.kuwo.cn/resource/n1/61/35/2205285863.mp3',
+        cover: 'https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3449701003,2937896730&fm=58&bpow=1024&bpoh=1024',
+      },      
+
+      {
+        name: "太多",
+        artist: '陈冠蒲',
+        url: 'http://other.web.rc01.sycdn.kuwo.cn/resource/n1/44/39/1967700312.mp3',
+        cover: 'https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=442147624,3641144126&fm=58&bpow=1080&bpoh=1505',
+      },
+
+      {
         name: "天亮以后",
         artist: '胡歌',
         url: 'http://www.ytmp3.cn/down/44304.mp3',
