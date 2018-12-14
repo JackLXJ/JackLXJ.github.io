@@ -155,17 +155,17 @@ pace-theme-flash.css" rel="stylesheet">
 
 
 
-<meta name="description" content="总共是三台电脑A、B、CB可以pingAC，AC不能pingB，AC可以互ping 3.①：模型变换法对存在异方差性的模型进行适当的变量交换，使之成为满足同方差假定的模型，其前提是合理确定异方差性的具体形式。②：加权最小二乘法（WLS）对原模型进行加权，使之成为一个新的不存在异方差性的模型，然后采用最小二乘法估计其参数③：模型的对数变换对数变换使所测量的变量尺度缩小，进而缩小原变量差异的倍数，对数">
+<meta name="description" content="以下内容为博主学习《Kali Linux渗透测试的艺术》一书所记录的笔记，有点凌乱、还未整理，有时间再来弄。  一、换源并安装open-vm-tools1.1 打开sources.list文件1leafpad /etc/apt/sources.list 1.2 在文件中添加如下内容1234deb http://mirrors.edu.cn/kali sana main non-free cont">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Kali">
-<meta property="og:url" content="http://jacklxj.github.io/2018/11/23/Kali/index.html">
+<meta property="og:title" content="Kali基本操作">
+<meta property="og:url" content="http://jacklxj.github.io/2018/09/28/Kali/index.html">
 <meta property="og:site_name" content="Zero">
-<meta property="og:description" content="总共是三台电脑A、B、CB可以pingAC，AC不能pingB，AC可以互ping 3.①：模型变换法对存在异方差性的模型进行适当的变量交换，使之成为满足同方差假定的模型，其前提是合理确定异方差性的具体形式。②：加权最小二乘法（WLS）对原模型进行加权，使之成为一个新的不存在异方差性的模型，然后采用最小二乘法估计其参数③：模型的对数变换对数变换使所测量的变量尺度缩小，进而缩小原变量差异的倍数，对数">
+<meta property="og:description" content="以下内容为博主学习《Kali Linux渗透测试的艺术》一书所记录的笔记，有点凌乱、还未整理，有时间再来弄。  一、换源并安装open-vm-tools1.1 打开sources.list文件1leafpad /etc/apt/sources.list 1.2 在文件中添加如下内容1234deb http://mirrors.edu.cn/kali sana main non-free cont">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-23T07:09:59.912Z">
+<meta property="og:updated_time" content="2018-12-14T13:07:26.005Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Kali">
-<meta name="twitter:description" content="总共是三台电脑A、B、CB可以pingAC，AC不能pingB，AC可以互ping 3.①：模型变换法对存在异方差性的模型进行适当的变量交换，使之成为满足同方差假定的模型，其前提是合理确定异方差性的具体形式。②：加权最小二乘法（WLS）对原模型进行加权，使之成为一个新的不存在异方差性的模型，然后采用最小二乘法估计其参数③：模型的对数变换对数变换使所测量的变量尺度缩小，进而缩小原变量差异的倍数，对数">
+<meta name="twitter:title" content="Kali基本操作">
+<meta name="twitter:description" content="以下内容为博主学习《Kali Linux渗透测试的艺术》一书所记录的笔记，有点凌乱、还未整理，有时间再来弄。  一、换源并安装open-vm-tools1.1 打开sources.list文件1leafpad /etc/apt/sources.list 1.2 在文件中添加如下内容1234deb http://mirrors.edu.cn/kali sana main non-free cont">
 
 
 
@@ -195,13 +195,13 @@ pace-theme-flash.css" rel="stylesheet">
 
 
 
-  <link rel="canonical" href="http://jacklxj.github.io/2018/11/23/Kali/">
+  <link rel="canonical" href="http://jacklxj.github.io/2018/09/28/Kali/">
 
 
 
 
 
-  <title>Kali | Zero</title>
+  <title>Kali基本操作 | Zero</title>
   
 
 
@@ -349,7 +349,7 @@ pace-theme-flash.css" rel="stylesheet">
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://jacklxj.github.io/2018/11/23/Kali/">
+    <link itemprop="mainEntityOfPage" href="http://jacklxj.github.io/2018/09/28/Kali/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zero">
@@ -366,7 +366,7 @@ pace-theme-flash.css" rel="stylesheet">
 
         
         
-          <h1 class="post-title" itemprop="name headline">Kali</h1>
+          <h1 class="post-title" itemprop="name headline">Kali基本操作</h1>
         
 
         <div class="post-meta">
@@ -378,8 +378,8 @@ pace-theme-flash.css" rel="stylesheet">
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-23T13:54:02+08:00">
-                2018-11-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-28T13:54:02+08:00">
+                2018-09-28
               </time>
             
 
@@ -415,7 +415,7 @@ pace-theme-flash.css" rel="stylesheet">
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3.6k
+                  3.3k
                 </span>
               
 
@@ -431,7 +431,7 @@ pace-theme-flash.css" rel="stylesheet">
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  14
+                  13
                 </span>
               
             </div>
@@ -452,20 +452,10 @@ pace-theme-flash.css" rel="stylesheet">
       
 
       
-        <p>总共是三台电脑A、B、C<br>B可以pingAC，AC不能pingB，AC可以互ping</p>
-<p>3.<br>①：模型变换法<br>对存在异方差性的模型进行适当的变量交换，使之成为满足同方差假定的模型，其前提是合理确定异方差性的具体形式。<br>②：加权最小二乘法（WLS）<br>对原模型进行加权，使之成为一个新的不存在异方差性的模型，然后采用最小二乘法估计其参数<br>③：模型的对数变换<br>对数变换使所测量的变量尺度缩小，进而缩小原变量差异的倍数，对数变换后的模型的残差<br>$e_i$表示相对误差，其比绝对误差有较小的差异，进而降低异方差的影响。</p>
-<ul>
-<li>第一个他将区间分为0-$\frac{1}{2}$和$\frac{1}{2}$其实只是为了让解答过程更加清晰一些而已，没有实际的意义。你完全可以也可以从$\frac{1}{3}、\frac{1}{4}$分开。</li>
-<li>第二个同敛散问题你要观察，$\int_\frac{1}{2}^1\frac{\sqrt[m]{ln^2(1-x)}}{\sqrt[n]{x}}dx$、$\int_{\frac{1}{2}}^1{\sqrt[m]{ln^2(1-x)}}dx$，第二个积分中的被积函数的分母在这个区间内是一个有界的形式，而分子中的$ln(1-x)$在$x=1$的时候是无界的，所以只考虑分子就行了，他们同敛散。</li>
-<li>后面的小于的话你构造一个新的函数然后求导就行了。</li>
-</ul>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Ilg3gGewQ5U" frameborder="0" allowfullscreen></iframe>
-
-
-
-
-
-<h1 id="Kali渗透"><a href="#Kali渗透" class="headerlink" title="Kali渗透"></a><center>Kali渗透</center></h1><h2 id="一、换源并安装open-vm-tools"><a href="#一、换源并安装open-vm-tools" class="headerlink" title="一、换源并安装open-vm-tools"></a>一、换源并安装open-vm-tools</h2><h3 id="1-1-打开sources-list文件"><a href="#1-1-打开sources-list文件" class="headerlink" title="1.1 打开sources.list文件"></a>1.1 打开sources.list文件</h3><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">leafpad /etc/apt/sources.<span class="built_in">list</span></span><br></pre></td></tr></table></figure>
+        <blockquote>
+<p>以下内容为博主学习《Kali Linux渗透测试的艺术》一书所记录的笔记，有点凌乱、还未整理，有时间再来弄。</p>
+</blockquote>
+<h2 id="一、换源并安装open-vm-tools"><a href="#一、换源并安装open-vm-tools" class="headerlink" title="一、换源并安装open-vm-tools"></a>一、换源并安装open-vm-tools</h2><h3 id="1-1-打开sources-list文件"><a href="#1-1-打开sources-list文件" class="headerlink" title="1.1 打开sources.list文件"></a>1.1 打开sources.list文件</h3><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">leafpad /etc/apt/sources.<span class="built_in">list</span></span><br></pre></td></tr></table></figure>
 <h3 id="1-2-在文件中添加如下内容"><a href="#1-2-在文件中添加如下内容" class="headerlink" title="1.2 在文件中添加如下内容"></a>1.2 在文件中添加如下内容</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deb <span class="string">http:</span><span class="comment">//mirrors.edu.cn/kali sana main non-free contrib</span></span><br><span class="line">deb <span class="string">http:</span><span class="comment">//mirrors.edu.cn/kali-security/sana/updates main contrib non-free</span></span><br><span class="line">deb-src <span class="string">http:</span><span class="comment">//mirrors.ustc.edu.cn/kali-security/sana/updates main contrib non-free</span></span><br><span class="line">deb <span class="string">http:</span><span class="comment">//mirrors.ustc.edu.cn/kali kali-rolling main non-free</span></span><br></pre></td></tr></table></figure>
 <h3 id="1-3-更新并安装"><a href="#1-3-更新并安装" class="headerlink" title="1.3 更新并安装"></a>1.3 更新并安装</h3><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-<span class="built_in">get</span> <span class="keyword">update</span></span><br><span class="line">apt-<span class="built_in">get</span> install <span class="keyword">open</span>-<span class="keyword">vm</span>-tools-desktop fuse</span><br></pre></td></tr></table></figure>
 <h2 id="二、安装中文输入"><a href="#二、安装中文输入" class="headerlink" title="二、安装中文输入"></a>二、安装中文输入</h2><h3 id="2-1-下载搜狗"><a href="#2-1-下载搜狗" class="headerlink" title="2.1 下载搜狗"></a>2.1 下载搜狗</h3><p>在pinyin.sogou.com/linux中下载搜狗</p>
@@ -822,8 +812,8 @@ pace-theme-flash.css" rel="stylesheet">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/28/渗透攻击/" rel="next" title="渗透攻击">
-                <i class="fa fa-chevron-left"></i> 渗透攻击
+              <a href="/2018/09/23/Xshell远程连接linux并远程访问ipython服务/" rel="next" title="Xshell远程连接linux并远程访问Jupyter notebook服务（机器学习环境的搭建）">
+                <i class="fa fa-chevron-left"></i> Xshell远程连接linux并远程访问Jupyter notebook服务（机器学习环境的搭建）
               </a>
             
           </div>
@@ -832,8 +822,8 @@ pace-theme-flash.css" rel="stylesheet">
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/11/26/本站须知/" rel="prev" title="本站须知">
-                本站须知 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/10/12/WIFI破解/" rel="prev" title="WIFI破解">
+                WIFI破解 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -955,7 +945,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -966,7 +956,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1027,7 +1017,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Kali渗透"><span class="nav-number">1.</span> <span class="nav-text">Kali渗透</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、换源并安装open-vm-tools"><span class="nav-number">1.1.</span> <span class="nav-text">一、换源并安装open-vm-tools</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-打开sources-list文件"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1 打开sources.list文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-在文件中添加如下内容"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.2 在文件中添加如下内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-更新并安装"><span class="nav-number">1.1.3.</span> <span class="nav-text">1.3 更新并安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、安装中文输入"><span class="nav-number">1.2.</span> <span class="nav-text">二、安装中文输入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-下载搜狗"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1 下载搜狗</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-安装"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2 安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、美化kali"><span class="nav-number">1.3.</span> <span class="nav-text">三、美化kali</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#四、局域网断网攻击"><span class="nav-number">1.3.1.</span> <span class="nav-text">四、局域网断网攻击</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-欺骗"><span class="nav-number">1.3.2.</span> <span class="nav-text">4.1 欺骗</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-攻击"><span class="nav-number">1.3.3.</span> <span class="nav-text">4.2 攻击</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-1-瘫痪对方的电脑"><span class="nav-number">1.3.3.1.</span> <span class="nav-text">4.2.1 瘫痪对方的电脑</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-2-劫持对方的请求（账号，密码之类的）"><span class="nav-number">1.3.3.2.</span> <span class="nav-text">4.2.2 劫持对方的请求（账号，密码之类的）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-4-嗅探对方的浏览图片"><span class="nav-number">1.3.3.3.</span> <span class="nav-text">4.2.4 嗅探对方的浏览图片</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、https账号、密码获取"><span class="nav-number">1.4.</span> <span class="nav-text">五、https账号、密码获取</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-准备工作"><span class="nav-number">1.4.1.</span> <span class="nav-text">5.1 准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-1-Vim：文本编辑器"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">5.1.1 Vim：文本编辑器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-2-开启ssh："><span class="nav-number">1.4.1.2.</span> <span class="nav-text">5.1.2 开启ssh：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-3-sslstrip工具"><span class="nav-number">1.4.1.3.</span> <span class="nav-text">5.1.3 sslstrip工具</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-截取账号及密码"><span class="nav-number">1.4.2.</span> <span class="nav-text">5.2 截取账号及密码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、回话劫持，登录目标站点"><span class="nav-number">1.5.</span> <span class="nav-text">六、回话劫持，登录目标站点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-工具准备"><span class="nav-number">1.5.1.</span> <span class="nav-text">6.1 工具准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-过程（方法一）"><span class="nav-number">1.5.2.</span> <span class="nav-text">6.2 过程（方法一）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-3-过程（方法二）"><span class="nav-number">1.5.3.</span> <span class="nav-text">6.3 过程（方法二）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#七、SQLMAP注入，ASP、PHP网站渗透"><span class="nav-number">1.6.</span> <span class="nav-text">七、SQLMAP注入，ASP、PHP网站渗透</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1-科普"><span class="nav-number">1.6.1.</span> <span class="nav-text">7.1 科普</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-1-1-ASP"><span class="nav-number">1.6.1.1.</span> <span class="nav-text">7.1.1 ASP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-1-2-PHP"><span class="nav-number">1.6.1.2.</span> <span class="nav-text">7.1.2 PHP</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-ASP渗透"><span class="nav-number">1.6.2.</span> <span class="nav-text">7.2 ASP渗透</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-PHP渗透"><span class="nav-number">1.6.3.</span> <span class="nav-text">7.3 PHP渗透</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-4-Cookie渗透"><span class="nav-number">1.6.4.</span> <span class="nav-text">7.4 Cookie渗透</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#八、Metasplooit"><span class="nav-number">1.7.</span> <span class="nav-text">八、Metasplooit</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-1-基本操作"><span class="nav-number">1.7.1.</span> <span class="nav-text">8.1 基本操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-远程控制软件"><span class="nav-number">1.7.2.</span> <span class="nav-text">8.2 远程控制软件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#8-2-1-实现过程"><span class="nav-number">1.7.2.1.</span> <span class="nav-text">8.2.1 实现过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-2-2-木马基本功能"><span class="nav-number">1.7.2.2.</span> <span class="nav-text">8.2.2 木马基本功能</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-3-文件管理功能"><span class="nav-number">1.7.3.</span> <span class="nav-text">8.2.3 文件管理功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-4-网络及系统操作"><span class="nav-number">1.7.4.</span> <span class="nav-text">8.2.4 网络及系统操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-5-用户操作和其他功能"><span class="nav-number">1.7.5.</span> <span class="nav-text">8.2.5 用户操作和其他功能</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#九、安卓渗透"><span class="nav-number">1.8.</span> <span class="nav-text">九、安卓渗透</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#9-1-实现过程"><span class="nav-number">1.8.1.</span> <span class="nav-text">9.1 实现过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-2-常见操作"><span class="nav-number">1.8.2.</span> <span class="nav-text">9.2 常见操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十、Fluxion"><span class="nav-number">1.9.</span> <span class="nav-text">十、Fluxion</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#10-1-Fluxion下载"><span class="nav-number">1.9.1.</span> <span class="nav-text">10.1 Fluxion下载</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十一、密码破解"><span class="nav-number">1.10.</span> <span class="nav-text">十一、密码破解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十二、Hydra"><span class="nav-number">1.11.</span> <span class="nav-text">十二、Hydra</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十三、无线破解"><span class="nav-number">1.12.</span> <span class="nav-text">十三、无线破解</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、换源并安装open-vm-tools"><span class="nav-number">1.</span> <span class="nav-text">一、换源并安装open-vm-tools</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-打开sources-list文件"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 打开sources.list文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-在文件中添加如下内容"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 在文件中添加如下内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-更新并安装"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 更新并安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、安装中文输入"><span class="nav-number">2.</span> <span class="nav-text">二、安装中文输入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-下载搜狗"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 下载搜狗</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-安装"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、美化kali"><span class="nav-number">3.</span> <span class="nav-text">三、美化kali</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#四、局域网断网攻击"><span class="nav-number">3.1.</span> <span class="nav-text">四、局域网断网攻击</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-欺骗"><span class="nav-number">3.2.</span> <span class="nav-text">4.1 欺骗</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-攻击"><span class="nav-number">3.3.</span> <span class="nav-text">4.2 攻击</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-1-瘫痪对方的电脑"><span class="nav-number">3.3.1.</span> <span class="nav-text">4.2.1 瘫痪对方的电脑</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-2-劫持对方的请求（账号，密码之类的）"><span class="nav-number">3.3.2.</span> <span class="nav-text">4.2.2 劫持对方的请求（账号，密码之类的）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-4-嗅探对方的浏览图片"><span class="nav-number">3.3.3.</span> <span class="nav-text">4.2.4 嗅探对方的浏览图片</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、https账号、密码获取"><span class="nav-number">4.</span> <span class="nav-text">五、https账号、密码获取</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-准备工作"><span class="nav-number">4.1.</span> <span class="nav-text">5.1 准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-1-Vim：文本编辑器"><span class="nav-number">4.1.1.</span> <span class="nav-text">5.1.1 Vim：文本编辑器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-2-开启ssh："><span class="nav-number">4.1.2.</span> <span class="nav-text">5.1.2 开启ssh：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-3-sslstrip工具"><span class="nav-number">4.1.3.</span> <span class="nav-text">5.1.3 sslstrip工具</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-截取账号及密码"><span class="nav-number">4.2.</span> <span class="nav-text">5.2 截取账号及密码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、回话劫持，登录目标站点"><span class="nav-number">5.</span> <span class="nav-text">六、回话劫持，登录目标站点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-工具准备"><span class="nav-number">5.1.</span> <span class="nav-text">6.1 工具准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-过程（方法一）"><span class="nav-number">5.2.</span> <span class="nav-text">6.2 过程（方法一）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-3-过程（方法二）"><span class="nav-number">5.3.</span> <span class="nav-text">6.3 过程（方法二）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#七、SQLMAP注入，ASP、PHP网站渗透"><span class="nav-number">6.</span> <span class="nav-text">七、SQLMAP注入，ASP、PHP网站渗透</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1-科普"><span class="nav-number">6.1.</span> <span class="nav-text">7.1 科普</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-1-1-ASP"><span class="nav-number">6.1.1.</span> <span class="nav-text">7.1.1 ASP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-1-2-PHP"><span class="nav-number">6.1.2.</span> <span class="nav-text">7.1.2 PHP</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-ASP渗透"><span class="nav-number">6.2.</span> <span class="nav-text">7.2 ASP渗透</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-PHP渗透"><span class="nav-number">6.3.</span> <span class="nav-text">7.3 PHP渗透</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-4-Cookie渗透"><span class="nav-number">6.4.</span> <span class="nav-text">7.4 Cookie渗透</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#八、Metasplooit"><span class="nav-number">7.</span> <span class="nav-text">八、Metasplooit</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-1-基本操作"><span class="nav-number">7.1.</span> <span class="nav-text">8.1 基本操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-远程控制软件"><span class="nav-number">7.2.</span> <span class="nav-text">8.2 远程控制软件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#8-2-1-实现过程"><span class="nav-number">7.2.1.</span> <span class="nav-text">8.2.1 实现过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-2-2-木马基本功能"><span class="nav-number">7.2.2.</span> <span class="nav-text">8.2.2 木马基本功能</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-3-文件管理功能"><span class="nav-number">7.3.</span> <span class="nav-text">8.2.3 文件管理功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-4-网络及系统操作"><span class="nav-number">7.4.</span> <span class="nav-text">8.2.4 网络及系统操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-5-用户操作和其他功能"><span class="nav-number">7.5.</span> <span class="nav-text">8.2.5 用户操作和其他功能</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#九、安卓渗透"><span class="nav-number">8.</span> <span class="nav-text">九、安卓渗透</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#9-1-实现过程"><span class="nav-number">8.1.</span> <span class="nav-text">9.1 实现过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-2-常见操作"><span class="nav-number">8.2.</span> <span class="nav-text">9.2 常见操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十、Fluxion"><span class="nav-number">9.</span> <span class="nav-text">十、Fluxion</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#10-1-Fluxion下载"><span class="nav-number">9.1.</span> <span class="nav-text">10.1 Fluxion下载</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十一、密码破解"><span class="nav-number">10.</span> <span class="nav-text">十一、密码破解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十二、Hydra"><span class="nav-number">11.</span> <span class="nav-text">十二、Hydra</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十三、无线破解"><span class="nav-number">12.</span> <span class="nav-text">十三、无线破解</span></a></li></ol></div>
             
 
           </div>
@@ -1078,7 +1068,7 @@ var jiathis_config={
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">本站共27.4k字</span>
+  <span class="post-count">本站共27.5k字</span>
 </div>
 
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
