@@ -2115,7 +2115,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff5cff;
+  background: #6f3c09;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3014,19 +3014,6 @@ pre {
   transition-timing-function: ease-in-out;
   transition-delay: 0s;
 }
-.post-more-link .btn {
-  position: relative;
-  border: 2px solid #000;
-  border-radius: 2px;
-  padding: 0 10px;
-  font-weight: bold;
-  background: transparent;
-  transition: all 0.5s ease;
-}
-.post-more-link .btn:hover {
-  background: #000;
-  color: #eee;
-}
 .posts-expand .post-body img {
   margin: 0 auto;
 }
@@ -3051,9 +3038,8 @@ span#inline-black {
   color: #0477ab;
   text-decoration: underline;
 }
-#sidebar {
-  background: "https://gitee.com/uploads/images/2017/1204/123336_34c00425_1449449.jpeg";
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+@media (max-width: 767px) {
+  #live2dcanvas {
+    display: none;
+  }
 }
