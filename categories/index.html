@@ -149,6 +149,8 @@ pace-theme-flash.css" rel="stylesheet">
 
 
 
+  
+
 
   <link rel="alternate" href="/atom.xml" title="Zero" type="application/atom+xml">
 
@@ -381,6 +383,9 @@ pace-theme-flash.css" rel="stylesheet">
 
 
           
+
+  
+   <div id="gitalk-container"></div>
 
   
 
@@ -722,6 +727,24 @@ pace-theme-flash.css" rel="stylesheet">
 
 
 
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+  <script src="/js/src/md5.min.js"></script>
+
+  <script type="text/javascript">
+    var gitalk = new Gitalk({
+      clientID: 'a22cf34e389580514647',
+      clientSecret: '4fb159dd5362d7a3c4c98d565abcad8d53014004',
+      repo: 'JackLXJ.github.io',
+      owner: 'JackLXJ',
+      admin: ['JackLXJ'],
+      id: md5(location.pathname),
+      distractionFreeMode: 'true'
+    })
+    gitalk.render('gitalk-container')
+  </script>
 
 
 
