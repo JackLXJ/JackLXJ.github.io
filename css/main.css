@@ -1557,6 +1557,14 @@ pre .javascript .function {
 .post-button {
   margin-top: 40px;
 }
+.post-button .btn {
+  color: #555;
+  font-size: 14px;
+  background: 0 0;
+  border-radius: 0;
+  line-height: 2;
+  margin: 0 4px 8px 4px;
+}
 .posts-expand .post-tags {
   margin-top: 40px;
   text-align: center;
@@ -2115,7 +2123,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #cfff6b;
+  background: #e863a2;
 }
 .links-of-blogroll {
   font-size: 13px;
