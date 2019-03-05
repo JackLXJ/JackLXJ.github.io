@@ -96,6 +96,7 @@
 </blockquote>
 <h2 id="一、换源并安装open-vm-tools"><a href="#一、换源并安装open-vm-tools" class="headerlink" title="一、换源并安装open-vm-tools"></a>一、换源并安装open-vm-tools</h2><h3 id="1-1-打开sources-list文件"><a href="#1-1-打开sources-list文件" class="headerlink" title="1.1 打开sources.list文件"></a>1.1 打开sources.list文件</h3><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">leafpad /etc/apt/sources.<span class="built_in">list</span></span><br></pre></td></tr></table></figure>
 <h3 id="1-2-在文件中添加如下内容"><a href="#1-2-在文件中添加如下内容" class="headerlink" title="1.2 在文件中添加如下内容"></a>1.2 在文件中添加如下内容</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deb <span class="string">http:</span><span class="comment">//mirrors.edu.cn/kali sana main non-free contrib</span></span><br><span class="line">deb <span class="string">http:</span><span class="comment">//mirrors.edu.cn/kali-security/sana/updates main contrib non-free</span></span><br><span class="line">deb-src <span class="string">http:</span><span class="comment">//mirrors.ustc.edu.cn/kali-security/sana/updates main contrib non-free</span></span><br><span class="line">deb <span class="string">http:</span><span class="comment">//mirrors.ustc.edu.cn/kali kali-rolling main non-free</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <h3 id="1-3-更新并安装"><a href="#1-3-更新并安装" class="headerlink" title="1.3 更新并安装"></a>1.3 更新并安装</h3><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-<span class="built_in">get</span> <span class="keyword">update</span></span><br><span class="line">apt-<span class="built_in">get</span> install <span class="keyword">open</span>-<span class="keyword">vm</span>-tools-desktop fuse</span><br></pre></td></tr></table></figure>
 <h2 id="二、安装中文输入"><a href="#二、安装中文输入" class="headerlink" title="二、安装中文输入"></a>二、安装中文输入</h2><h3 id="2-1-下载搜狗"><a href="#2-1-下载搜狗" class="headerlink" title="2.1 下载搜狗"></a>2.1 下载搜狗</h3><p>在pinyin.sogou.com/linux中下载搜狗</p>
 <h3 id="2-2-安装"><a href="#2-2-安装" class="headerlink" title="2.2 安装"></a>2.2 安装</h3><p>终端进入上方文件路径，执行如下：<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">解决依赖：apt-<span class="builtin-name">get</span> install -f</span><br><span class="line">安装：dpkg -i 包名</span><br></pre></td></tr></table></figure></p>
@@ -397,9 +398,9 @@
   </div>
       <footer class="post-footer">
         
-        <nav class="post-nav"><a class="prev" href="/2018/10/12/WIFI破解/">
+        <nav class="post-nav"><a class="prev" href="/2018/09/28/Kali基本操作/">
         <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">WIFI破解</span>
+        <span class="prev-text nav-default">Kali基本操作</span>
         <span class="prev-text nav-mobile">上一篇</span>
       </a>
     <a class="next" href="/2018/09/26/本站须知/">
