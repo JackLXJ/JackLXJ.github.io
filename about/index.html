@@ -207,6 +207,22 @@ pace-theme-flash.css" rel="stylesheet">
 
 
 
+<script>
+    
+    window.onload = function(){
+        var path = 'https://muzimz.cn'; //这里要改成你博客的地址
+        var localhostItem = String(window.location).split(path)[1];
+        var LiNode = document.querySelectorAll('#menu > li > a')
+        
+        for(var i = 0; i< LiNode.length;i++){
+            var item = String(LiNode[i].href).split(path)[1];
+            if(item == localhostItem && item != undefined){
+                LiNode[i].setAttribute('style','border-bottom:1px solid black');
+            }
+        }
+    };
+
+</script>
   <title>About | 木子</title>
   
 
@@ -717,6 +733,8 @@ pace-theme-flash.css" rel="stylesheet">
   
 
 
+  
+
 
 
 
@@ -755,6 +773,11 @@ pace-theme-flash.css" rel="stylesheet">
   
   
     <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
   
 
 

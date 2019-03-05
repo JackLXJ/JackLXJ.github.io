@@ -203,6 +203,22 @@ pace-theme-flash.css" rel="stylesheet">
 
 
 
+<script>
+    
+    window.onload = function(){
+        var path = 'https://muzimz.cn'; //这里要改成你博客的地址
+        var localhostItem = String(window.location).split(path)[1];
+        var LiNode = document.querySelectorAll('#menu > li > a')
+        
+        for(var i = 0; i< LiNode.length;i++){
+            var item = String(LiNode[i].href).split(path)[1];
+            if(item == localhostItem && item != undefined){
+                LiNode[i].setAttribute('style','border-bottom:1px solid black');
+            }
+        }
+    };
+
+</script>
   <title>Kali基本操作 | 木子</title>
   
 
@@ -894,8 +910,8 @@ pace-theme-flash.css" rel="stylesheet">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/28/Kali基本操作/" rel="next" title="Kali基本操作">
-                <i class="fa fa-chevron-left"></i> Kali基本操作
+              <a href="/2018/09/26/本站须知/" rel="next" title="本站须知">
+                <i class="fa fa-chevron-left"></i> 本站须知
               </a>
             
           </div>
@@ -904,8 +920,8 @@ pace-theme-flash.css" rel="stylesheet">
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/10/12/WIFI破解/" rel="prev" title="WIFI破解">
-                WIFI破解 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/09/28/Kali基本操作/" rel="prev" title="Kali基本操作">
+                Kali基本操作 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -1221,6 +1237,8 @@ pace-theme-flash.css" rel="stylesheet">
   
 
 
+  
+
 
 
 
@@ -1259,6 +1277,11 @@ pace-theme-flash.css" rel="stylesheet">
   
   
     <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
   
 
 

@@ -202,6 +202,22 @@ pace-theme-flash.css" rel="stylesheet">
 
 
 
+<script>
+    
+    window.onload = function(){
+        var path = 'https://muzimz.cn'; //这里要改成你博客的地址
+        var localhostItem = String(window.location).split(path)[1];
+        var LiNode = document.querySelectorAll('#menu > li > a')
+        
+        for(var i = 0; i< LiNode.length;i++){
+            var item = String(LiNode[i].href).split(path)[1];
+            if(item == localhostItem && item != undefined){
+                LiNode[i].setAttribute('style','border-bottom:1px solid black');
+            }
+        }
+    };
+
+</script>
   <title>分类: 白帽子 | 木子</title>
   
 
@@ -439,7 +455,7 @@ pace-theme-flash.css" rel="stylesheet">
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2018/09/28/Kali基本操作/" itemprop="url">
+            <a class="post-title-link" href="/2018/09/28/Kali/" itemprop="url">
               
                 <span itemprop="name">Kali基本操作</span>
               
@@ -465,7 +481,7 @@ pace-theme-flash.css" rel="stylesheet">
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2018/09/28/Kali/" itemprop="url">
+            <a class="post-title-link" href="/2018/09/28/Kali基本操作/" itemprop="url">
               
                 <span itemprop="name">Kali基本操作</span>
               
@@ -728,6 +744,8 @@ pace-theme-flash.css" rel="stylesheet">
   
 
 
+  
+
 
 
 
@@ -766,6 +784,11 @@ pace-theme-flash.css" rel="stylesheet">
   
   
     <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
   
 
 

@@ -225,6 +225,22 @@ pace-theme-flash.css" rel="stylesheet">
 
 
 
+<script>
+    
+    window.onload = function(){
+        var path = 'https://muzimz.cn'; //这里要改成你博客的地址
+        var localhostItem = String(window.location).split(path)[1];
+        var LiNode = document.querySelectorAll('#menu > li > a')
+        
+        for(var i = 0; i< LiNode.length;i++){
+            var item = String(LiNode[i].href).split(path)[1];
+            if(item == localhostItem && item != undefined){
+                LiNode[i].setAttribute('style','border-bottom:1px solid black');
+            }
+        }
+    };
+
+</script>
   <title>WIFI破解 | 木子</title>
   
 
@@ -757,7 +773,7 @@ https://baike.baidu.com/item/%E6%AC%BA%E9%AA%97%E7%9A%84%E8%89%BA%E6%9C%AF/10253
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/28/Kali/" rel="next" title="Kali基本操作">
+              <a href="/2018/09/28/Kali基本操作/" rel="next" title="Kali基本操作">
                 <i class="fa fa-chevron-left"></i> Kali基本操作
               </a>
             
@@ -1084,6 +1100,8 @@ https://baike.baidu.com/item/%E6%AC%BA%E9%AA%97%E7%9A%84%E8%89%BA%E6%9C%AF/10253
   
 
 
+  
+
 
 
 
@@ -1122,6 +1140,11 @@ https://baike.baidu.com/item/%E6%AC%BA%E9%AA%97%E7%9A%84%E8%89%BA%E6%9C%AF/10253
   
   
     <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
   
 
 
