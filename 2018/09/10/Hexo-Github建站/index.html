@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+  <head><meta name="generator" content="Hexo 3.8.0"><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+<meta name="theme-color" content="#f8f5ec">
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="Hexo+Github建站"><meta name="keywords" content="Hexo, git, node.js, 网站建设, Aaron Li"><link rel="alternate" href="/atom.xml" title="Aaron Li"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.10.2">
+<link rel="canonical" href="muzimz.cn/2018/09/10/Hexo-Github建站/">
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css"><link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css">
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.10.2">
+
+<script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":true};
+</script>
+
+    <title>Hexo+Github建站 - Aaron Li</title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Aaron Li</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">首页
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Aaron Li</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            首页
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">Hexo+Github建站
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-09-10
+        </span><span class="post-category">
+            <a href="/categories/网站建设/">网站建设</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一、搭建环境"><span class="toc-text">一、搭建环境</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#环境介绍："><span class="toc-text">环境介绍：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装："><span class="toc-text">安装：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Git的安装："><span class="toc-text">Git的安装：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#node-js的安装："><span class="toc-text">node.js的安装：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#github注册"><span class="toc-text">github注册</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、博客搭建"><span class="toc-text">二、博客搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建仓库并部署"><span class="toc-text">创建仓库并部署</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hexo博客框架的搭建"><span class="toc-text">Hexo博客框架的搭建</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、主题引入"><span class="toc-text">三、主题引入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、总结"><span class="toc-text">四、总结</span></a></li></ol>
+    </div>
+  </div><div class="post-content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>gitHub是一个面向开源及私有软件项目的托管平台，也是版本控制库因为只支持git 作为唯一的版本库格式进行托管，故名gitHub。此后，2018年6月4日，微软宣布，通过75亿美元的股票交易收购代码托管平台GitHub。<br>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
+<p>官网：<br>Github：<a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a><br>Hexo：<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/</a></p>
+<blockquote>
+<p>以上摘自官方解释</p>
+</blockquote>
+<p>作为一位Coder，一直想找个安静的地方沉淀一下自己，记录自己学习的过程并分享所走过的坑。网上也有各种各样的建站方法，例如<a href="https://cn.wordpress.org/" target="_blank" rel="noopener">WordPress</a>、<a href="http://www.emlog.net/" target="_blank" rel="noopener">emlog</a>、<a href="http://typecho.org/" target="_blank" rel="noopener">Typecho</a>等等平台。但是绝大多数的平台的使用都避免不了备案等一系列的困扰，对于懒癌患者来说无疑是一大痛病，通过海量信息的层层筛选，鄙人最终发现Hexo+Github能够很好的满足大多数人的要求，既简单又美观，使用它来搭建属于自己的个人博客再好不过了。如果你有也有建站的想法的话，那么以下内容将记录了我搭建过程所走的坑，或许能够帮助到你，久而久之，你还会发现其中还有很多有意思的美化操作。</p>
+<hr>
+<blockquote>
+<p>以下的搭建过程是针对小白所实现的，例如github仓库的创建、环境变量的配置、git终端等一些基础操作都有较为详细的说明。由于鄙人语言功底不行，如果有拗口、错别字、歧义或者不解的地方可在文章末端或右方的Gitalk留言，博主看到会第一时间解释，在此谢过。</p>
+</blockquote>
+<hr>
+<h2 id="一、搭建环境"><a href="#一、搭建环境" class="headerlink" title="一、搭建环境"></a>一、搭建环境</h2><h3 id="环境介绍："><a href="#环境介绍：" class="headerlink" title="环境介绍："></a>环境介绍：</h3><ol>
+<li>windows系统。系统根据自己的需要准备即可，mac、linux皆可，本文以windows系统环境下搭建为例。</li>
+<li><a href="https://git-scm.com/" target="_blank" rel="noopener">git</a>。安装之后方便使用各种命令，还能够更好的clone github仓库。</li>
+<li><a href="https://nodejs.org/en/" target="_blank" rel="noopener">node.js</a>。一个Javascript运行环境，网站的搭建必须建立在这个框架之上。</li>
+<li><a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a>。使用命令可以直接将Hexo生成的静态资源存储到Github上，然后使用自己的github账户即可访问。</li>
+</ol>
+<h3 id="安装："><a href="#安装：" class="headerlink" title="安装："></a>安装：</h3><h4 id="Git的安装："><a href="#Git的安装：" class="headerlink" title="Git的安装："></a>Git的安装：</h4><p>你可在git官网中根据自己的需要进行下载：<a href="https://git-scm.com/" target="_blank" rel="noopener">https://git-scm.com/</a>。打开之后你将看到如下内容：<br><img src="https://gss0.baidu.com/-vo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/b90e7bec54e736d1daf6c64f96504fc2d4626994.jpg" width="500"></p>
+<p>将其下载到指定的磁盘，然后傻瓜式安装即可。安装好后打开cmd终端，执行<code>git --version</code>，若出现<code>git version 2.19.2.windows.1</code>之类的输出则说明已经成功安装。</p>
+<h4 id="node-js的安装："><a href="#node-js的安装：" class="headerlink" title="node.js的安装："></a>node.js的安装：</h4><p>node.js的安装和Git的安装如出一辙，同样的操作下载node.js并安装即可，安装好后我们在cmd终端使用<code>node -v</code>命令，如出现<code>v10.13.0</code>类似输出，则说明已经成功安装。<br>node.js下载：<a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a><br><img src="https://gss0.baidu.com/9fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/b999a9014c086e068f8d8a0c0f087bf40ad1cb54.jpg" width="500"></p>
+<h4 id="github注册"><a href="#github注册" class="headerlink" title="github注册"></a>github注册</h4><p>进入github的注册页面：<a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a><br><img src="https://gss0.baidu.com/-Po3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/9358d109b3de9c82caa8b3c86181800a18d843a3.jpg" width="500"></p>
+<p>然后根据流程填写相应的信息即可。</p>
+<hr>
+<h2 id="二、博客搭建"><a href="#二、博客搭建" class="headerlink" title="二、博客搭建"></a>二、博客搭建</h2><h3 id="创建仓库并部署"><a href="#创建仓库并部署" class="headerlink" title="创建仓库并部署"></a>创建仓库并部署</h3><p>注册了github之后，我们需要创建一个仓库来存储我们的网站源码，创建的仓库名也就是我们博客访问的url地址，该url是采用子域名的方式，其一般形式为：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">XXX<span class="selector-class">.github</span><span class="selector-class">.io</span></span><br></pre></td></tr></table></figure></p>
+<p> 上面的XXX一般代表着你注册时的github用户名，所以在你注册之后该仓库名一般是固定的，仓库的创建及部署流程如下：</p>
+<ul>
+<li>进入个人github主页之后点击<code>New repository</code>来创建仓库，如下：<br><img src="https://gss0.baidu.com/-vo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/3b292df5e0fe9925b1eb231739a85edf8cb17195.jpg" width="400"></li>
+<li>之后按照如下内容进行创建<br><img src="https://gss0.baidu.com/7Po3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/a71ea8d3fd1f4134b010b039281f95cad1c85e55.jpg" width="500"></li>
+<li>完成以上操作之后，你就已经成功创建好了自己的仓库。这时我们需要利用git命令来生成秘钥。鼠标右键桌面选择<code>git bash here</code>，然后在git终端执行以下命令：<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ssh-keygen</span> <span class="selector-tag">-t</span> <span class="selector-tag">rsa</span> <span class="selector-tag">-C</span> <span class="selector-tag">XXX</span>@<span class="keyword">XXX</span>.<span class="keyword">com</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>其中<code>XXX@XXX.com</code>指的是你注册github时候使用的邮箱，在命令执行的时候回有一些yes、no的选择，直接默认回车即可，最终你将会看到类似如下内容：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Your identification has been saved <span class="keyword">in</span> <span class="regexp">/c/</span>Users<span class="regexp">/you/</span>.ssh/id_rsa.</span><br><span class="line">Your <span class="keyword">public</span> key has been saved <span class="keyword">in</span> <span class="regexp">/c/</span>Users<span class="regexp">/you/</span>.ssh/id_rsa.pub.</span><br><span class="line">The key fingerprint <span class="string">is:</span></span><br><span class="line"><span class="string">xx:</span><span class="string">xx:</span><span class="string">xx:</span><span class="string">xx:</span><span class="string">xx:</span><span class="string">xx:</span><span class="string">xx:</span><span class="string">xx:</span><span class="string">xx:</span><span class="string">xx:</span><span class="string">xx:</span><span class="string">xx:</span><span class="string">xx:</span><span class="string">xx:</span><span class="string">xx:</span>xx your_email<span class="meta">@example</span>.com</span><br></pre></td></tr></table></figure></p>
+<p>之后你将在<code>c/Users/you/.ssh/id_rsa.pub</code>路径文件看到生成的秘钥对，这个文件我们暂且打开，之后复制粘贴会用到。</p>
+<blockquote>
+<p>补充：打开git bash here之后我们首先需要配置一下个人信息，在git终端分别配置自己的用户名和邮箱。命令如下：<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>--global user.name XXX   # XXX表示你github注册时的用户名</span><br><span class="line">git<span class="built_in"> config </span>--global user.email XXX  # XXX表示你github注册时的邮箱</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<ul>
+<li><p>之后我们需要将ssh key添加到我们的github账户。在个人github主页找到settings，然后点击SSH and GPG keys，之后再出现的页面的中点击<code>New SSH key</code>，随后根据如下图操作进行添加ssh key：<br><img src="https://gss0.baidu.com/7Po3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/a71ea8d3fd1f4134b010b039281f95cad1c85e55.jpg" width="500"></p>
+</li>
+<li><p>打开<code>git bash here</code>，执行<code>ssh -T git@github.com</code>，之后会出现一系列的问题，我们只需要回答yes即可，最终会输出如下类似内容：</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hi username! You<span class="symbol">'ve</span> successfully authenticated</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>OK，完成以上流程后，你的本机就可以连接github了。</p>
+</li>
+</ul>
+<p><img src="http://b.hiphotos.baidu.com/image/pic/item/2934349b033b5bb5c8f35e343cd3d539b700bcd7.jpg" width="150"></p>
+<h3 id="Hexo博客框架的搭建"><a href="#Hexo博客框架的搭建" class="headerlink" title="Hexo博客框架的搭建"></a>Hexo博客框架的搭建</h3><p>在完成以上操作后，我们就可以来使用Hexo了，你可通过如下操作来进行。</p>
+<ul>
+<li>在以上操作的基础上，我们首先安装一下hexo。根据自己的需要在磁盘中创建一个名为Hexo文件夹，为了更好的管理文件，鄙人是在E盘的根目录中创建改文件夹的。之后进入该文件并在当前路径下打开<code>git bash here</code>，依次运行如下命令来进行创建：<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> hexo-cli -g</span><br><span class="line">npm <span class="keyword">install</span> hexo <span class="comment">--save</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>执行完成之后，你会发现在该目录之下会有个<code>node_modules</code>文件夹生成，如此一来，你就已经安装好了Hexo，离终点又近了一点 (*￣rǒ￣)</p>
+<ul>
+<li>以上的node_modules文件生成之后，我们需要配置一下Hexo的环境变量，以便在cmd中可以直接执行后续博客操作的命令。进入到node_module文件夹下的bin目录，然后复制该bin目录的路径，如下：<br><img src="https://gss0.baidu.com/-Po3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/242dd42a2834349bc0fedfc2c4ea15ce37d3bef9.jpg" width="500"></li>
+</ul>
+<p>后面的添加环境变量的操作比较简单，所以就描述一些流程，就不贴图了。如果有遇到问题的可联系鄙人。后续操作描述如下：1. ctrl+D切换到桌面。2. 右键此电脑，打开属性。3. 点击左侧的高级系统设置。 4. 点击环境变量。5. 在用户变量或者系统变量中找到Path并双击它（推荐更改用户变量）6. 双击之后点击新建，然后将以上的复制的bin目录粘贴至此。6. 然后一步一步的确定、确定、确定。OK，完成了，是不是很简单 (*￣rǒ￣)。</p>
+<p><img src="http://g.hiphotos.baidu.com/image/pic/item/78310a55b319ebc4092170d98926cffc1e171610.jpg" width="150"></p>
+<p>在以上操作完成之后，win+r，打开cmd终端，然后执行<code>Hexo -v</code>，若出现如下类似信息，则说明你的Hexo已经成功配置环境变量。<br><img src="https://gss0.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/7aec54e736d12f2e48bb1f2742c2d5628535683f.jpg" width="500"></p>
+<ul>
+<li>随后，我们需要创建我们的博客站点的主目录，你可使用我推荐的方式进行创建，当然你也可以根据自己的喜好方式进行创建。首先在E盘的根目录下创建ZerosBlog文件夹（自定义），然后进入该文件夹并创建XXX.github.io文件夹（该文件夹名必须与你之前创建的github仓库名一致，固定），进入到该目录右键点击<code>git bash here</code>来打开git终端，之后在该终端下根据如下命令一步步进行操作：</li>
+</ul>
+<p>初始化hexo：<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">hexo init</span></span><br></pre></td></tr></table></figure></p>
+<p>自动安装网站所需组件：<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span></span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>OK，至此，你已经基本完成了网站的建设，可以说是万事具备，只欠东风了。一个基本的Hexo博客框架已经完成了，我们需要导入自己的喜欢的主题即可正常使用了，主题的引入操作如下。</li>
+</ul>
+<hr>
+<h2 id="三、主题引入"><a href="#三、主题引入" class="headerlink" title="三、主题引入"></a>三、主题引入</h2><p>Hexo中有很多很多很多的主题（一个、两个、三个。。。 Σ( ° △ °|||)︴ 好吧，我不知道有多少个，因为他会被许多的大神更新着，如果好奇的话自行了解即可），其主题官网为：<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a>，你可以在此观摩并使用任意一个来作为你博客的主题，但据统计，绝大多数使用hexo+github来搭建博客的都是使用NexT，它的“精于心，简于形”的简单美受到了许多人的青睐，所以以下将以NexT为例来作为我们主题的引入，当然，你也可以去阅读<a href="http://theme-next.iissnan.com/" target="_blank" rel="noopener">NexT的主题文档</a>。</p>
+<p>在Hexo主题页面ctrl+F并输入next查找到NexT主题，然后点击进入到NexT主题的github页面，该页面存储了NexT主题的源码，我们需要将其下载下来为己所用。在前面我们已经提到了git的最为方便之处就是可以随意clone github的资源，在这个操作就可以显露出来了 ┗|｀O′|┛ 嗷~~ ┗|｀O′|┛ 嗷~~ ┗|｀O′|┛ 嗷~~。</p>
+<p>根据如下图所示复制出该主题的仓库链接：<br><img src="https://gss0.baidu.com/-Po3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/f31fbe096b63f624d0bb73448a44ebf81b4ca397.jpg" width="500"></p>
+<p>复制好该链接后我们进入<code>E:\ZerosBlog\XXX.github.io\themes</code>文件夹下，右键点击<code>git bash here</code>进入git终端，并执行如下命令，其中链接为你上一步所复制的内容<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone http<span class="variable">s:</span>//github.<span class="keyword">com</span>/theme-<span class="keyword">next</span>/hexo-theme-<span class="keyword">next</span>.git</span><br></pre></td></tr></table></figure></p>
+<p>如果你累了的话可以喝口茶，稍等片刻之后就会在该目录之下成功下载NexT主题了。<br><img src="http://n.sinaimg.cn/sinacn/w580h498/20180304/1532-fxipenm7751606.jpg" width="150"></p>
+<p>下载NexT主题后，我们需要配置来达到使用该主题的目的，该配置文件是属于站点的，其路径为<code>E:\ZerosBlog\XXX.github.io\_config.yml</code>，我们用文本编辑器（notepad、notepad++、sublime text、Vim……）打开它，然后ctrl+f输入theme查找到theme属性，然后将值改为next，如下所示：<br><img src="https://gss0.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/8644ebf81a4c510f657b535d6d59252dd42aa53e.jpg"></p>
+<p>在NexT中已经为我们准备了四种博客样式，其配置文件在主题的配置文件中，即<code>E\ZerosBlog\XXX.github.io\themes\next\_config.yml</code>文件，我们用文本编辑器（notepad、notepad++、sublime text、Vim……）打开它，然后ctrl+F输入scheme查找到如下内容：<br><img src="https://gss0.baidu.com/9fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/8694a4c27d1ed21b4c479fa2a06eddc450da3fee.jpg"><br>可以看见总共有四种主题<code>Muse、Mist、Pisces、Gemini</code>，你可以根据自己的喜好选择其中一种，然后将其他三种注释即可，ctrl+s保存然后退出</p>
+<p>随后我们来到站点的根目录下，即<code>E:\ZerosBlog\XXX.github.io</code>，打开git终端，完成如下三步走命令</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">hexo</span> clean  <span class="comment"># 清除缓存</span></span><br><span class="line">heo g   <span class="comment"># 生成静态资源</span></span><br><span class="line">hexo d  <span class="comment"># 部署至github</span></span><br></pre></td></tr></table></figure>
+<p>在以上命令执行过程中，可能会遇到一个登陆表单的突然出现，我们只需要根据自己github注册时所填的信息进行登陆即可，命令执行完成之后我们的站点已经完成了部署并请求<code>https://XXX.github.io/</code>即可访问到自己的网站了，如下图所示：<br><img src="https://gss0.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/2e2eb9389b504fc221d10142e8dde71191ef6def.jpg" width="500"></p>
+<hr>
+<h2 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h2><p>以上的搭建过程是针对小白所实现的，例如github仓库的创建、环境变量的配置、git终端等一些基础操作都有较为详细的说明。由于鄙人语言功底不行，如果有拗口、错别字、歧义或者不解的地方可在文章末端或右方的Gitalk留言，博主看到会第一时间解释，在此谢过。</p>
+<p>至此，已经完成了博客的搭建，但是我们左看看、右看看，不管怎么看都似乎显得有点单调，在之后将会介绍Hexo的基本命令和博客的美化，可以引入一些插件，比如像Gitalk在线聊天、APlayer、字数统计等一些插件。</p>
+<p>OK，结束了。</p>
+<div style="text-align: right">2018-09-10,By Zero</div>
+      </div>
+      <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="muzimz.cn">Aaron Li</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="muzimz.cn/2018/09/10/Hexo-Github建站/">muzimz.cn/2018/09/10/Hexo-Github建站/</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/Hexo/">Hexo</a>
+            <a href="/tags/git/">git</a>
+            <a href="/tags/node-js/">node.js</a>
+            <a href="/tags/网站建设/">网站建设</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2018/09/13/Lingo安装/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Lingo安装</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    <a class="next" href="/2018/09/08/Begin/">
+        <span class="next-text nav-default">Begin</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"></div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+        <a href="https://github.com/ahonn" class="iconfont icon-github" title="github"></a>
+        <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    </div><div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2015 - 2019<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Aaron Li</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
+  <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.10.2"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
