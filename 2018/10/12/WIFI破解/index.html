@@ -161,14 +161,14 @@ pace-theme-flash.css" rel="stylesheet">
 <meta name="keywords" content="Kali,Fluxion,wifi,airmon-ng">
 <meta property="og:type" content="article">
 <meta property="og:title" content="WIFI破解">
-<meta property="og:url" content="http://jacklxj.github.io/2018/10/12/WIFI破解/index.html">
+<meta property="og:url" content="muzimz.cn/2018/10/12/WIFI破解/index.html">
 <meta property="og:site_name" content="Aaron Li">
 <meta property="og:description" content="免责申明正如《Metasploit渗透测试指南》一书所述：  不要进行恶意的攻击 不要做傻事 在没有获得书面授权时，不要攻击任何目标 考虑你的行为将会带来的后果 如果你干了些非法的事情，天网恢恢疏而不漏，你总会被抓到牢里的  任何具有一定侵略性的网络攻击行为都属于非法操作。本文中所有的内容是在自家寝室进行，所攻击的wifi也是自家寝室内的，该文仅供学习，切勿用于非法操作，一切后果由使用者本人负责。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ww4.sinaimg.cn/bmiddle/006APoFYjw1fa506lcjg8j30b40b4aat.jpg">
 <meta property="og:image" content="http://pjq6e477y.bkt.clouddn.com/1.jpg">
 <meta property="og:image" content="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1504001096,2238756502&fm=26&gp=0.jpg">
-<meta property="og:image" content="http://jacklxj.github.io/uploads/wifi破解/2.jpg">
+<meta property="og:image" content="/uploads/wifi破解/2.jpg">
 <meta property="og:image" content="http://pjq6e477y.bkt.clouddn.com/3.jpg">
 <meta property="og:image" content="http://pjq6e477y.bkt.clouddn.com/5.jpg">
 <meta property="og:image" content="http://pjq6e477y.bkt.clouddn.com/6.jpg">
@@ -219,7 +219,7 @@ pace-theme-flash.css" rel="stylesheet">
 
 
 
-  <link rel="canonical" href="http://jacklxj.github.io/2018/10/12/WIFI破解/">
+  <link rel="canonical" href="muzimz.cn/2018/10/12/WIFI破解/">
 
 
 
@@ -405,7 +405,7 @@ pace-theme-flash.css" rel="stylesheet">
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://jacklxj.github.io/2018/10/12/WIFI破解/">
+    <link itemprop="mainEntityOfPage" href="muzimz.cn/2018/10/12/WIFI破解/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Aaron Li">
@@ -551,7 +551,7 @@ pace-theme-flash.css" rel="stylesheet">
 <h3 id="Kali安装及基本配置"><a href="#Kali安装及基本配置" class="headerlink" title="Kali安装及基本配置"></a>Kali安装及基本配置</h3><h4 id="Kali安装"><a href="#Kali安装" class="headerlink" title="Kali安装"></a>Kali安装</h4><p>目前主要使用的渗透工具主要有两种，一个是Backtrack，另一个是Kali，两者在使用上来讲并无差别，在本文中使用的是Kali Linux系统。</p>
 <p>Kali官网及下载地址：<a href="https://www.kali.org/" target="_blank" rel="noopener">https://www.kali.org/</a></p>
 <p>在官网下载好Kali Linux iso镜像文件之后，我们需要将其进行安装，一般有U盘安装、虚拟机安装、双系统等方式。本文只介绍VMware虚拟机中安装Kali的方式，有其他需要的朋友可自行查找相关资料。</p>
-<p>Kali的安装总的来说和Ubuntu的安装并无一二，安装kali可暂且移步：<a href="https://jacklxj.github.io/2018/09/23/Xshell%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5linux%E5%B9%B6%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AEipython%E6%9C%8D%E5%8A%A1/">Xshell远程连接linux并远程访问Jupyter notebook服务（深度学习环境的搭建）</a>，如下所示部分：<br><img src="http://pjq6e477y.bkt.clouddn.com/1.jpg" width="400"></p>
+<p>Kali的安装总的来说和Ubuntu的安装并无一二，安装kali可暂且移步：<a href="https://jacklxj.github.io/2018/09/23/Xshell%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5linux%E5%B9%B6%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AEipython%E6%9C%8D%E5%8A%A1/" target="_blank" rel="noopener">Xshell远程连接linux并远程访问Jupyter notebook服务（深度学习环境的搭建）</a>，如下所示部分：<br><img src="http://pjq6e477y.bkt.clouddn.com/1.jpg" width="400"></p>
 <p>在这里值得一说的是，在Kali安装的最后一步中，会有两个选择，一个是<code>手动输入设备</code>，另一个是<code>/dev/sda</code>，在这里我们务必选择<code>/dev/sda</code>，选择之后待其自动重启即可使用。</p>
 <h4 id="Kali的基本配置"><a href="#Kali的基本配置" class="headerlink" title="Kali的基本配置"></a>Kali的基本配置</h4><blockquote>
 <p>该部分内容以后有时间单独成文记录。</p>
@@ -681,8 +681,8 @@ https://baike.baidu.com/item/%E6%AC%BA%E9%AA%97%E7%9A%84%E8%89%BA%E6%9C%AF/10253
   <p><span>文章作者:</span><a href="/" title="访问 Aaron Li 的个人博客">Aaron Li</a></p>
   <p><span>发布时间:</span>2018年10月12日 - 19:10</p>
   <p><span>最后更新:</span>2019年02月03日 - 00:02</p>
-  <p><span>原始链接:</span><a href="/2018/10/12/WIFI破解/" title="WIFI破解">http://jacklxj.github.io/2018/10/12/WIFI破解/</a>
-    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://jacklxj.github.io/2018/10/12/WIFI破解/" aria-label="复制成功！"></i></span>
+  <p><span>原始链接:</span><a href="/2018/10/12/WIFI破解/" title="WIFI破解">muzimz.cn/2018/10/12/WIFI破解/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="muzimz.cn/2018/10/12/WIFI破解/" aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
