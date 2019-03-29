@@ -913,8 +913,8 @@ pace-theme-flash.css" rel="stylesheet">
         
 
         
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>已经有两个多月没有记录了，最近一直在忙于复习408、线代，还有kaggle的学习，原本打算暂时不再更新文章的，但是最近收到不少了类似像教务处通知、竞赛确认、务必查收等社工邮件亦或短信，是在是可恶至极，所以就再来水一篇文章吧。之后Zero搜索下相关新闻咨询，发现类似诈骗案件的报道还真不少，一大叠一大叠的层出不穷，令人遗憾的是有不少用户抵抗不了自己的好奇心从而咬住了攻击者的“鱼钩”，故而给对方有了可乘之机。<br><img src="http://pjq6e477y.bkt.clouddn.com/1.png" width="600"></p>
-<p>Zero最近同样收到了不少这种邮件，比如昨天下午收到的这封：<br><img src="http://pjq6e477y.bkt.clouddn.com/2.png" width="600"></p>
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>已经有两个多月没有记录了，最近一直在忙于复习408、线代，还有kaggle的学习，原本打算暂时不再更新文章的，但是最近收到不少了类似像教务处通知、竞赛确认、务必查收等社工邮件亦或短信，是在是可恶至极，所以就再来水一篇文章吧。之后Zero搜索下相关新闻咨询，发现类似诈骗案件的报道还真不少，一大叠一大叠的层出不穷，令人遗憾的是有不少用户抵抗不了自己的好奇心从而咬住了攻击者的“鱼钩”，故而给对方有了可乘之机。<br><img src="https://tuili.muzimz.cn/Tuili/uploads/images/blog_images/shentougongji/1.png" width="600"></p>
+<p>Zero最近同样收到了不少这种邮件，比如昨天下午收到的这封：<br><img src="https://tuili.muzimz.cn/Tuili/uploads/images/blog_images/shentougongji/2.png" width="600"></p>
 <p>虽然类似这种现象很是常见，但是万变不离其宗，攻击者主要是利用社会工程学 + 人们对事物的好奇心理来实行攻击。你的兴趣爱好、个人情感甚至是你的某一篇朋友圈等信息对于他们来说就富含了极大的价值，他们往往能够从中洞察一些别样的信息，也许这些不起眼的信息正是他成功攻击的关键。</p>
 <p>所以说，在日常生活中，加强我们的网络安全意识是有必要的，不要天真的以为这些离你还很远，等到来临的那一刻恐怕就为时已晚了。在之前的文章中，已经介绍了无线wifi的入侵，可见：<a href="https://jacklxj.github.io/2018/12/14/WIFI%E7%A0%B4%E8%A7%A3/" target="_blank" rel="noopener">Wifi破解</a><br>本文主要介绍以下一些常见的攻击手段，希望能对读者有所帮助：</p>
 <ul>
@@ -1188,7 +1188,7 @@ pace-theme-flash.css" rel="stylesheet">
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://muzimz.cn/2018/09/28/Kali/">
+    <link itemprop="mainEntityOfPage" href="https://muzimz.cn/2018/09/28/Kali基本操作/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="木子">
@@ -1207,7 +1207,7 @@ pace-theme-flash.css" rel="stylesheet">
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/28/Kali/" itemprop="url">Kali基本操作</a></h1>
+                <a class="post-title-link" href="/2018/09/28/Kali基本操作/" itemprop="url">Kali基本操作</a></h1>
         
 
         <div class="post-meta">
@@ -1314,14 +1314,16 @@ pace-theme-flash.css" rel="stylesheet">
         
 
         
-          <blockquote>
-<p>以下内容为博主学习《Kali Linux渗透测试的艺术》一书所记录的笔记，有点凌乱、还未整理，有时间再来弄。</p>
-</blockquote>
-<h2 id="一、换源并安装open-vm-tools"><a href="#一、换源并安装open-vm-tools" class="headerlink" title="一、换源并安装open-vm-tools"></a>一、换源并安装open-vm-tools</h2><h3 id="1-1-打开sources-list文件"><a href="#1-1-打开sources-list文件" class="headerlink" title="1.1 打开sources.list文件"></a>1.1 打开sources.list文件</h3><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">leafpad /etc/apt/sources.<span class="built_in">list</span></span><br></pre></td></tr></table></figure>
-<h3 id="1-2-在文件中添加如下内容"><a href="#1-2-在文件中添加如下内容" class="headerlink" title="1.2 在文件中添加如下内容"></a>1.2 在文件中添加如下内容</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deb <span class="string">http:</span><span class="comment">//mirrors.edu.cn/kali sana main non-free contrib</span></span><br><span class="line">deb <span class="string">http:</span><span class="comment">//mirrors.edu.cn/kali-security/sana/updates main contrib non-free</span></span><br><span class="line">deb-src <span class="string">http:</span><span class="comment">//mirrors.ustc.edu.cn/kali-security/sana/updates main contrib non-free</span></span><br><span class="line">deb <span class="string">http:</span><span class="comment">//mirrors.ustc.edu.cn/kali kali-rolling main non-free</span></span><br></pre></td></tr></table></figure>
+          
+          
+以下内容为博主学习《Kali Linux渗透测试的艺术》一书所记录的笔记，有点凌乱、还未整理，有时间再来弄。
+
+一、换源并安装open-vm-tools1.1 打开sources.list文件1leafpad /etc/apt/sources.list
+1.2 在文件中添加如下内容1234deb 
+          ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/09/28/Kali/#more" rel="contents">
+            <a class="btn" href="/2018/09/28/Kali基本操作/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
