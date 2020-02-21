@@ -399,7 +399,7 @@ pace-theme-flash.css" rel="stylesheet">
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://muzimz.cn/2019/05/06/攻硕 — 决战TJLog4（4.29-5.05）/">
+    <link itemprop="mainEntityOfPage" href="https://muzimz.cn/2020/01/10/ElasticSearch、kibana、logstash/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="木子">
@@ -418,7 +418,7 @@ pace-theme-flash.css" rel="stylesheet">
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/06/攻硕 — 决战TJLog4（4.29-5.05）/" itemprop="url">攻硕 — 决战TJLog4（4.29-5.05）</a></h1>
+                <a class="post-title-link" href="/2020/01/10/ElasticSearch、kibana、logstash/" itemprop="url">ElasticSearch、kibana、logstash</a></h1>
         
 
         <div class="post-meta">
@@ -430,8 +430,8 @@ pace-theme-flash.css" rel="stylesheet">
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-06T22:43:35+08:00">
-                2019-05-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-10T23:20:51+08:00">
+                2020-01-10
               </time>
             
 
@@ -453,8 +453,8 @@ pace-theme-flash.css" rel="stylesheet">
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/攻硕/" itemprop="url" rel="index">
-                    <span itemprop="name">攻硕</span>
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
                   </a>
                 </span>
 
@@ -484,7 +484,7 @@ pace-theme-flash.css" rel="stylesheet">
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2.1k
+                  4.9k
                 </span>
               
 
@@ -500,7 +500,7 @@ pace-theme-flash.css" rel="stylesheet">
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  8
+                  20
                 </span>
               
             </div>
@@ -525,24 +525,16 @@ pace-theme-flash.css" rel="stylesheet">
         
 
         
-          <blockquote>
-<font color="orange">我们总是喜欢拿“顺其自然”来敷衍人生道路上的荆棘坎坷，却很少承认，真正的顺其自然，其实是竭尽所能之后的不强求，而非两手一摊的不作为。</font>
-<font color="orange"><div style="text-align: right">—— 瑞卡斯Ricas</div></font>
-
-
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Elasticsearch是什么？既然它是英文的，我们不妨借助有道从<code>Elasticsearch</code>这几个字母出发来看看其字面上所表达的意思吧。其分为elastic和search两个独立的单词，既然如此，我们无脑有道一波，得到的解释如下：<br>从有道的解释来看，我们可以简单的对其理解为：<font color="red">Elasticsearch是及其具有弹性的、灵活的、像松紧带一样的且可供搜寻检索的一款工具。</font>o(*≧▽≦)ツ┏━┓</p>
+<p>百度百科对其解释如下：</p>
+<blockquote>
+<p>ElasticSearch是一个基于Lucene的搜索服务器。它提供了一个分布式多用户能力的全文搜索引擎，基于RESTful web接口。Elasticsearch是用Java语言开发的，并作为Apache许可条款下的开放源码发布，是一种流行的企业级搜索引擎。ElasticSearch用于云计算中，能够达到实时搜索，稳定，可靠，快速，安装使用方便。官方客户端在Java、.NET（C#）、PHP、Python、Apache、Groovy、Ruby和许多其他语言中都是可用的。根据DB-Engines的排名显示，Elasticsearch是最受欢迎的企业搜索引擎，其次是Apache Solr，也是基于Lucene。</p>
 </blockquote>
-<p>现在是2019年5月6日，距离2020考研还有<strong><font color="red">230</font></strong>天。这是Log的第四周，长达五天小长假的五一节已经过去了，五一基本上是这个学期最长的假期了，在此之后基本上就要迎接期末的到来了。这个假期总的来说不是那么尽如人意，在英语方面花了大量的时间，尤其是在单词（《恋练有词》）上的学习，以致于这周都没时间放在408上。之后通过知乎了解到前学长学姐对韦林课程的负面评价之后，心中有了些许小小的波动。可见：<a href="https://www.zhihu.com/question/306959786/answer/559746952" target="_blank" rel="noopener">如何评价朱伟以及他的韦林？</a>。自身在逐渐学习2019年版《恋练有词》这门课程时，也和大多数知乎上的答主感同身受，所以后期的打算是《恋练有词》会继续跟下去，但是可能会进一步加快进度，否则没有太多时间留给数学和专业课。</p>
-<p>当然，上帝为你关上一扇门的同时也会为你打开一扇窗。虽然在单词上面不是很满意，但是在英语阅读理解上面却自我感觉有了不小的提高，这进一步增强了对英语的信心。以前的自己在做阅读理解的过程中总是会有文章逻辑理不清、长难句读不懂、二选一完美避开正确选项等问题，对待阅读常常会有一种恐惧心理。但现在对待阅读理解的态度的确有了一个较大的逆转，会以一种积极向上的态度去学习，甚至发现阅读理解也有其中的乐趣可言，而并非想象中的那么枯燥乏味。在这段阅读理解的学习过程中，也总结出了适合自己的做题方法：</p>
-<ul>
-<li>先快速阅读五道题，明白题目问的是什么，然后尝试着得到本篇文章中心论点（关键词），时间允许的话快速扫描一下选项，观察是否存在共同点</li>
-<li>带着题干中总结出的关键词快速阅读全文中每个段落的首尾句，然后尽力理清作者的写作思路以及态度，得到全文的中心论据（主要是讲的一个什么东西），并且对文章的结构加以短暂的分析，比如说：全文是总分的形式还是总分总，首段是不是按照以例子来引出中心论据的套路等</li>
-<li>在以上两步完成的情况下，接着就是剑鞘直击题目了，通过常用的定位方法以及前两步骤对文章的了解应该可以快速在文章中得到对应题目的定位了。</li>
-<li>定位好之后就是逐个比较，如果确定了那就一锤定音直击正确选项，如果不确定就需要回到原文不断的比较排除，最终根据自认为可信度最高的选项走。</li>
-</ul>
-<p>当然，我也明白：方法是死的人是活的，在确定了适合自己方法之后，还是需要一定的题量支持，不断的去强化自己并加以总结以完善自己的做题方式，朝着更高的正确率前进。</p>
+<p>从如上信息我们可以得知，Elasticsearch是一款实时、分布式存储的搜索引擎，在实际开发过程中，我们常常会把数据放在Elasticsearch搜索引擎中，然后从引擎中去实际需要的数据。而且在实际搜索过程中，我们也会有许多的Api支持来对数据进行检索，比如排序、条件查询等，其中在Elasticsearch中最为强大之处就是他的模糊检索功能。讲到这，可能有些Mysql经验但没接触过Elasticsearch的朋友可能会有个疑问，Mysql大法不是无敌么，其中的<code>like</code>语句不能模糊查询么？<code>where and</code>不能条件检索么？<code>orderby</code>不能对数据进行排序么？我随随便便就信手拈来一个Sql语句不就能实现业务的需求么：</p>
+<center><img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=21287732,2992447167&fm=26&gp=0.jpg"></center>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/05/06/攻硕 — 决战TJLog4（4.29-5.05）/#more" rel="contents">
+            <a class="btn" href="/2020/01/10/ElasticSearch、kibana、logstash/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -603,7 +595,7 @@ pace-theme-flash.css" rel="stylesheet">
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://muzimz.cn/2019/04/29/攻硕 — 决战TJLog3（4.22-4.28）/">
+    <link itemprop="mainEntityOfPage" href="https://muzimz.cn/2020/01/03/一文入门Docker容器技术/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="木子">
@@ -622,7 +614,7 @@ pace-theme-flash.css" rel="stylesheet">
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/04/29/攻硕 — 决战TJLog3（4.22-4.28）/" itemprop="url">攻硕 — 决战TJLog3（4.22-4.28）</a></h1>
+                <a class="post-title-link" href="/2020/01/03/一文入门Docker容器技术/" itemprop="url">一文入门Docker容器技术</a></h1>
         
 
         <div class="post-meta">
@@ -634,8 +626,8 @@ pace-theme-flash.css" rel="stylesheet">
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-29T23:29:11+08:00">
-                2019-04-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-03T22:36:25+08:00">
+                2020-01-03
               </time>
             
 
@@ -657,8 +649,8 @@ pace-theme-flash.css" rel="stylesheet">
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/攻硕/" itemprop="url" rel="index">
-                    <span itemprop="name">攻硕</span>
+                  <a href="/categories/Docker/" itemprop="url" rel="index">
+                    <span itemprop="name">Docker</span>
                   </a>
                 </span>
 
@@ -688,7 +680,7 @@ pace-theme-flash.css" rel="stylesheet">
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3.4k
+                  2.3k
                 </span>
               
 
@@ -704,7 +696,7 @@ pace-theme-flash.css" rel="stylesheet">
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  13
+                  9
                 </span>
               
             </div>
@@ -729,25 +721,11 @@ pace-theme-flash.css" rel="stylesheet">
         
 
         
-          <blockquote>
-<font color="orange">总有一天你将破蛹而出，成长得比热门期待的还要美丽。</font>
-<font color="orange">但这个过程会很痛，会很辛苦，有时候还会觉得灰心。</font>
-<font color="orange">面对着汹涌而来的现实，觉得自己渺小无力。</font>
-<font color="orange">但这，也是生命的一部分。做好现在你能做的，然后，一切都会好的。</font>
-<font color="orange">我们都将孤独的长大，不要害怕。</font>
-<font color="orange"><div style="text-align: right">—— 寂地 《踮脚张望的时光》</div></font>
-
-
-</blockquote>
-<p>现在是2019年4月29日，距离2020考研还有<strong><font color="red">237</font></strong>天。这是Log的第三周，上周学校举行了运动会，所以除了周末之外，多放了一天假 ┗|｀O′|┛ 嗷~~，所以复习的进度稍微推进了一点。不过很遗憾，和往年一样，这次的运动会我并没有参加任何的项目，但同时这也警醒了我，在复习期间需要一定运动的支持，才能进一步提高复习的效率，毕竟毛泽东同志说过：“身体的革命的本钱“。所以，在后期复习期间会添加一个晨跑的环节，时间定在<code>5:50am - 6:20am</code>，没有特殊情况下希望自己能说到做到，不要给懒惰滋生的机会。另外，后天就是五一劳动节了，总共会有五天的小长假，意味着这周基本上都是在五一中度过了，这么长的假期相当来之不易，所以需要好好规划下这周的任务。</p>
-<h2 id="Log内容"><a href="#Log内容" class="headerlink" title="Log内容"></a>Log内容</h2><ul>
-<li>本周复习状况</li>
-<li>下周复习计划</li>
-<li>解释说明</li>
-</ul>
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>相信点进这篇文章的Coder，不管是在各大技术论坛上、技术交流群，亦或招聘网上，应该都有见到过Doker容器技术的面孔，随着社会节奏的加快以及迫于生活的压力，在计算机技术日新月异的今天，真正能够沉下心来学习一门技术的时间真的不多。为了不让新型冠状病毒迅速蔓延，全国人民都居家隔离，趁着这段空闲的时间，我也该是时候把过去学习时所积累的笔记沉淀一下了。本文主要是从是什么、为什么、怎么做的角度来介绍Docker容器技术得入门，能让初次接触Docker容器技术的朋友更快的使用Docker。</p>
+<center><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1581752085473&di=c4c4e3eda8cba3ae95fde0488ba1e44a&imgtype=0&src=http%3A%2F%2Fimg2018.cnblogs.com%2Fblog%2F1813823%2F201911%2F1813823-20191121223145795-1635208897.png"></center>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/04/29/攻硕 — 决战TJLog3（4.22-4.28）/#more" rel="contents">
+            <a class="btn" href="/2020/01/03/一文入门Docker容器技术/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -808,7 +786,7 @@ pace-theme-flash.css" rel="stylesheet">
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://muzimz.cn/2019/04/21/攻硕 — 决战TJLog2（4.15-4.21）/">
+    <link itemprop="mainEntityOfPage" href="https://muzimz.cn/2019/10/01/Spring Boot如何学习？/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="木子">
@@ -827,7 +805,7 @@ pace-theme-flash.css" rel="stylesheet">
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/04/21/攻硕 — 决战TJLog2（4.15-4.21）/" itemprop="url">攻硕 — 决战TJLog2（4.15-4.21）</a></h1>
+                <a class="post-title-link" href="/2019/10/01/Spring Boot如何学习？/" itemprop="url">Spring Boot如何学习？</a></h1>
         
 
         <div class="post-meta">
@@ -839,8 +817,8 @@ pace-theme-flash.css" rel="stylesheet">
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-21T21:33:23+08:00">
-                2019-04-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-01T21:56:35+08:00">
+                2019-10-01
               </time>
             
 
@@ -862,8 +840,8 @@ pace-theme-flash.css" rel="stylesheet">
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/攻硕/" itemprop="url" rel="index">
-                    <span itemprop="name">攻硕</span>
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
                   </a>
                 </span>
 
@@ -893,7 +871,7 @@ pace-theme-flash.css" rel="stylesheet">
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3.3k
+                  16.6k
                 </span>
               
 
@@ -909,7 +887,7 @@ pace-theme-flash.css" rel="stylesheet">
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  11
+                  78
                 </span>
               
             </div>
@@ -934,21 +912,21 @@ pace-theme-flash.css" rel="stylesheet">
         
 
         
-          <blockquote>
-<font color="orange">志向是天才的幼苗，经过热爱劳动的双手培育，在肥田沃土里将成长为粗壮的大树。不热爱劳动，不进行自我教育，志向这棵幼苗也会连根枯死。确定个人志向，选好专业，这是幸福的源泉。</font>
-<font color="orange"><div style="text-align: right">—— 苏霍姆林斯基</div></font>
-
-
+          <h1 id="Spring-Boot如何学习？"><a href="#Spring-Boot如何学习？" class="headerlink" title="Spring Boot如何学习？"></a>Spring Boot如何学习？</h1><p><img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2551084964,3275034231&fm=26&gp=0.jpg"></p>
+<h2 id="1、Spring-Boot-简介"><a href="#1、Spring-Boot-简介" class="headerlink" title="1、Spring Boot 简介"></a>1、Spring Boot 简介</h2><blockquote>
+<p>简化Spring应用开发的一个框架；</p>
+<p>整个Spring技术栈的一个大整合；</p>
+<p>J2EE开发的一站式解决方案；</p>
 </blockquote>
-<p>现在是2019年4月22日，距离2020考研还有<strong><font color="red">244</font></strong>天。这是Log的第二周，和往常一样，过着三点一线的生活，只不过这周的食欲不是很好，什么都不太想吃。此外，最近最大的变化就是对时间越来越敏感了，眼睛一睁一闭，一天就过去了，时间溜得贼快，感觉一天下来还没完成多少任务就已经结束了。</p>
-<h2 id="Log内容"><a href="#Log内容" class="headerlink" title="Log内容"></a>Log内容</h2><ul>
-<li>本周复习状况</li>
-<li>下周复习计划</li>
-<li>《绅探》一、二集分享</li>
-</ul>
+<h2 id="2、微服务"><a href="#2、微服务" class="headerlink" title="2、微服务"></a>2、微服务</h2><p>2014，martin fowler</p>
+<p>微服务：架构风格（服务微化）</p>
+<p>一个应用应该是一组小型服务；可以通过HTTP的方式进行互通；</p>
+<p>单体应用：ALL IN ONE</p>
+<p>微服务：每一个功能元素最终都是一个可独立替换和独立升级的软件单元；</p>
+<p><a href="https://martinfowler.com/articles/microservices.html#MicroservicesAndSoa" target="_blank" rel="noopener">详细参照微服务文档</a></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/04/21/攻硕 — 决战TJLog2（4.15-4.21）/#more" rel="contents">
+            <a class="btn" href="/2019/10/01/Spring Boot如何学习？/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1009,7 +987,7 @@ pace-theme-flash.css" rel="stylesheet">
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://muzimz.cn/2019/04/15/攻硕 — 决战TJLog1（4.8-4.14）/">
+    <link itemprop="mainEntityOfPage" href="https://muzimz.cn/2019/08/03/基于SpringData Es对Elasticsearch进行操作/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="木子">
@@ -1028,7 +1006,7 @@ pace-theme-flash.css" rel="stylesheet">
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/04/15/攻硕 — 决战TJLog1（4.8-4.14）/" itemprop="url">攻硕 — 决战TJLog1（4.8-4.14）</a></h1>
+                <a class="post-title-link" href="/2019/08/03/基于SpringData Es对Elasticsearch进行操作/" itemprop="url">基于SpringData Es对Elasticsearch进行操作</a></h1>
         
 
         <div class="post-meta">
@@ -1040,8 +1018,8 @@ pace-theme-flash.css" rel="stylesheet">
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-15T23:16:33+08:00">
-                2019-04-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-03T09:31:23+08:00">
+                2019-08-03
               </time>
             
 
@@ -1063,217 +1041,8 @@ pace-theme-flash.css" rel="stylesheet">
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/攻硕/" itemprop="url" rel="index">
-                    <span itemprop="name">攻硕</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  4.2k
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  14
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-
-        
-
-        
-          <blockquote>
-<font color="orange">与其用华丽的外衣装饰自己，不如用知识武装自己。</font>
-<font color="orange"><div style="text-align: right">—— 马克思</div></font>
-
-
-
-</blockquote>
-<p>现在是2019年4月15日，距离2020考研还有<strong><font color="red">251</font></strong>天。自大一开始我就已经打算选择走上考研这条路，真正开始准备考研是在大三上学期，当时大部分精力主要用来倒腾Python和Java，只有一小部分时间放在学习408专业课，庆幸的是经过半年的时间已经成功把《数据结构》、《计算机组成原理》、《操作系统》、《计算机网络》四门专业课匆匆的过了一遍。在学习专业课的过程中主要使用的是教材外加王道4本辅导书，倘若书上的知识点有点晦涩难懂的话，就会选择王道配套的视频进行补充。使用的教材和辅导书如下：</p>
-<ol>
-<li>《数据结构》严蔚敏 清华大学出版社 </li>
-<li>《计算机组成原理》唐朔飞 高等教育出版社 </li>
-<li>《计算机操作系统(修订版)》汤子瀛 西安电子科技大学出版社 </li>
-<li>《计算机网络(第五版)》谢希仁 电子工业出版社 </li>
-<li>《2019年数据结构考研复习指导》王道论坛 电子工业出版社</li>
-<li>《2019年计算机组成原理考研复习指导》 王道论坛 电子工业出版社</li>
-<li>《2019年操作系统考研复习指导》 王道论坛 电子工业出版社</li>
-<li>《2019年计算机网络考研复习指导》 王道论坛 电子工业出版社</li>
-</ol>
-<p>在进行第一轮专业课学习的时候，主要是集中在基本概念以及理论知识的理解，并没有通过大量的习题来进行巩固。另外，由于当时王道2020年的辅导书还没有出版，所以辅导书使用的图书馆的馆藏书。通过一轮专业课的学习下来，第一感觉就是理论知识太多，由于自己又是跨考生，再加上江湖有着408变态难的传言，所以当时的内心多少还是有点崩溃。但是换个角度来想，还有一年的时间供自己复习，所以不到最后一刻不要轻言放弃。</p>
-<p>“逝者如斯夫，不舍昼夜。”，时间一分一秒的流逝，离考研的日子越来越近，自己的压力越来越大，内心越来越焦虑。为了更加坚定自己的目标，为了有个更好的学习环境，为了更好的记录考研的历程，所以从现在开始打算每周一在这打卡，主要是记录上一周的学习情况，以及可能会分享一些其他个人日常。由于周一的课比较多，任务相对来讲比较繁重，只有一些琐碎的时间可供个人支配，所以将每周的学习日志于周一更新。正如《超兽武装》中火麟飞说过这么一句话：“每个人都有彷徨的时候，彷徨并不可怕，可怕的是在彷徨中不做抉择。因为一旦有抉择，就不会再彷徨，就会按照既定的方向去行事。”，是的，既然选择了考研这条路，希望自己能够坚持下去，不为自己做出的决定而感到遗憾。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/04/15/攻硕 — 决战TJLog1（4.8-4.14）/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-
-    <div>
-      
-    </div>
-
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://muzimz.cn/2019/02/13/12306自动化抢票/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="木子">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/head.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="木子">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/02/13/12306自动化抢票/" itemprop="url">12306自动化抢票</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-13T09:56:43+08:00">
-                2019-02-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/爬虫/" itemprop="url" rel="index">
-                    <span itemprop="name">爬虫</span>
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
                   </a>
                 </span>
 
@@ -1319,7 +1088,7 @@ pace-theme-flash.css" rel="stylesheet">
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  5
+                  7
                 </span>
               
             </div>
@@ -1342,20 +1111,217 @@ pace-theme-flash.css" rel="stylesheet">
       
 
         
-          <div class="out-img-topic">
-            <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1551010930&di=d4e64aa2873478012a6cc48c8a2fd162&imgtype=jpg&er=1&src=http%3A%2F%2Fn1.itc.cn%2Fimg8%2Fwb%2Frecom%2F2015%2F12%2F01%2F144895860447016510.png" class="img-topic">
+
+        
+          <h1 id="基于SpringData-Es对Elasticsearch进行操作"><a href="#基于SpringData-Es对Elasticsearch进行操作" class="headerlink" title="基于SpringData Es对Elasticsearch进行操作"></a>基于SpringData Es对Elasticsearch进行操作</h1><h2 id="基本环境的搭建"><a href="#基本环境的搭建" class="headerlink" title="基本环境的搭建"></a>基本环境的搭建</h2><ul>
+<li>首先需要搭建Elasticsearch集群（参考如上，es1 es2 es3）<blockquote>
+<p>注意：这里在docker中创建elasticsearch容器的过程中，需要指定一定大小的<code>ES_JAVA_OPTS=&quot;-Xms256m -Xmx256m&quot;</code>值，否则后面在执行导入mysql数据表中数据到es索引库中会产生问题，建议设置为<code>750m</code>，将数据导入到索引库之后即可重新创建es1，将值设定为<code>256m</code>即可</p>
+</blockquote>
+</li>
+<li>创建changgou-service-search-api<br>在pom.xml文件引入相关的依赖</li>
+</ul>
+<p><img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1062140215,59502734&fm=26&gp=0.jpg"></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/03/基于SpringData Es对Elasticsearch进行操作/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
           </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+
+    <div>
+      
+    </div>
+
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://muzimz.cn/2019/07/02/阿里数学预赛答卷/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="木子">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/head.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="木子">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/02/阿里数学预赛答卷/" itemprop="url">阿里数学预赛答卷</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-02T19:25:39+08:00">
+                2019-07-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  346
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+
         
 
         
-          <h2 id="瞎扯"><a href="#瞎扯" class="headerlink" title="瞎扯"></a>瞎扯</h2><p>不知不觉，这年也算是过完了。</p>
-<p>于我而言，现在的春节似乎已经没有了幼时所应该感受到的乐趣。蓦然回首，往事历历在目，仍记得幼时的伙伴常常聚在一起玩卡牌、捡鞭炮、拜年….如今，这一切的一切都已成浮云，或许是因为我们感受到了生活、学习等带来的压力，在压力袭来的同时我们一步步的成长着，现在的我们必须学会某些事、承担某些事，所以幼时的无忧无虑现在是那么的奢侈。</p>
-<p><img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=567216776,4167239058&fm=26&gp=0.jpg"></p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>春节之后，大多数亲戚朋友都需要为了生活而奔波而远离家乡，前段时间有亲戚因购买不到南昌-深圳的车票而焦灼着。众所周知，12306的防爬措施是做的很极致的，曾经自己也尝试着使用python来写一个12306的抢票程序，耐于目前自己的能力以及时间受限，在验证过程中始终通过不了，而自己又没有足够的经济条件来使用打码平台，所以就尝试去github上搜索下相关12306抢票项目。果不其然，在github上就有这么一款12306抢票神器，使用之后然我欲罢不能，经过四天的努力终于帮亲戚抢到了3张南昌-深圳的车票。</p>
-<p>前人栽树，后人乘凉。基于该神器的强大，所以想通过该文章记录一下使用方式，也方便后来者的较快的了解该项目，项目github仓库：<a href="https://github.com/pjialin/py12306" target="_blank" rel="noopener">https://github.com/pjialin/py12306</a>，在此，也感谢作者的用心良苦，希望这个工具能够帮助到大家。        </p>
+          
+          阿里数学预赛答卷**第一题**A题问：小明打算在这家店铺买一款250块的耳机和一款600块的音响，怎么买划算？答：由题意可知，店铺优惠券每单可叠加使用，全场优惠券每单限一张，对于该问题我们主要分两种情况讨论：
+
+第一种：两种商品一单购买
+
+使用凑单：
+
+设订单总价为W,凑单价为p,店铺优惠券数为n 
+          ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/02/13/12306自动化抢票/#more" rel="contents">
+            <a class="btn" href="/2019/07/02/阿里数学预赛答卷/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1407,7 +1373,7 @@ pace-theme-flash.css" rel="stylesheet">
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1455,7 +1421,7 @@ pace-theme-flash.css" rel="stylesheet">
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1466,7 +1432,7 @@ pace-theme-flash.css" rel="stylesheet">
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1477,7 +1443,7 @@ pace-theme-flash.css" rel="stylesheet">
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1567,7 +1533,7 @@ pace-theme-flash.css" rel="stylesheet">
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">52.4k</span>
+    <span title="Site words total count">97.9k</span>
   
 </div>
 
@@ -1598,7 +1564,7 @@ pace-theme-flash.css" rel="stylesheet">
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">本站共52.4k字</span>
+  <span class="post-count">本站共97.9k字</span>
 </div>
 
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>

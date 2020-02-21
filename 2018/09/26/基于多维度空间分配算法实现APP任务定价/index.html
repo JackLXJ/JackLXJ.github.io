@@ -1,0 +1,2012 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/
+pace-theme-flash.css" rel="stylesheet">
+
+
+
+<meta name="theme-color" content="#222">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "86c69b95"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/uploads/head.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/uploads/head.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/uploads/head.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="随写,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="木子" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="摘要&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;本文是针对“拍照赚钱”APP任务定价问题进行分析，并采用多维度空间任务定价模型、会员抉择概率模型、项目总收益模型、入包威胁矩阵模型等对不同情况下的任务进行合理定价。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;针对问题一：首先对使用Geoq平台对任务以及会员数据进行定位，在">
+<meta name="keywords" content="随写">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于多维度空间分配算法实现APP任务定价">
+<meta property="og:url" content="https://muzimz.cn/2018/09/26/基于多维度空间分配算法实现APP任务定价/index.html">
+<meta property="og:site_name" content="木子">
+<meta property="og:description" content="摘要&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;本文是针对“拍照赚钱”APP任务定价问题进行分析，并采用多维度空间任务定价模型、会员抉择概率模型、项目总收益模型、入包威胁矩阵模型等对不同情况下的任务进行合理定价。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;针对问题一：首先对使用Geoq平台对任务以及会员数据进行定位，在">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/810a19d8bc3eb135850a6e72aa1ea8d3fc1f442e.jpg">
+<meta property="og:image" content="https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/bba1cd11728b471077702505cfcec3fdfd032398.jpg">
+<meta property="og:image" content="https://gss0.baidu.com/7Po3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/9a504fc2d56285356a280be89cef76c6a6ef632b.jpg">
+<meta property="og:image" content="https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/359b033b5bb5c9ea4b81db2ad939b6003bf3b38d.jpg">
+<meta property="og:image" content="https://gss0.baidu.com/9fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/64380cd7912397dd5392c0cd5582b2b7d1a28714.jpg">
+<meta property="og:image" content="https://gss0.baidu.com/94o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/79f0f736afc3793102c056e0e7c4b74542a9114a.jpg">
+<meta property="og:image" content="https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/3c6d55fbb2fb43162bb4aab32ca4462308f7d354.jpg">
+<meta property="og:image" content="https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/a71ea8d3fd1f4134a1db42b3291f95cad0c85e0a.jpg">
+<meta property="og:image" content="https://gss0.baidu.com/-vo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/03087bf40ad162d9e7d453d01ddfa9ec8b13cdc7.jpg">
+<meta property="og:image" content="https://gss0.baidu.com/94o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/bd3eb13533fa828b0619ac2ff11f4134960a5ac7.jpg">
+<meta property="og:image" content="https://gss0.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/78310a55b319ebc45b7747558e26cffc1f1716ea.jpg">
+<meta property="og:image" content="https://gss0.baidu.com/-vo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/a686c9177f3e67096454743337c79f3df9dc55a1.jpg">
+<meta property="og:image" content="https://gss0.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/35a85edf8db1cb1375115edfd154564e93584b85.jpg">
+<meta property="og:image" content="https://gss0.baidu.com/-vo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/faedab64034f78f052e8ea3d75310a55b2191c18.jpg">
+<meta property="og:image" content="https://gss0.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/0ff41bd5ad6eddc400bcfb3535dbb6fd536633a0.jpg">
+<meta property="og:image" content="https://gss0.baidu.com/94o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/2934349b033b5bb5193d6f303ad3d539b700bc12.jpg">
+<meta property="og:image" content="https://gss0.baidu.com/9fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/024f78f0f736afc30b4e70abbf19ebc4b64512b9.jpg">
+<meta property="og:image" content="https://gss0.baidu.com/9fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/7af40ad162d9f2d3f5f066caa4ec8a136327cc36.jpg">
+<meta property="og:image" content="https://gss0.baidu.com/-Po3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/b03533fa828ba61eabf15c024c34970a304e59fb.jpg">
+<meta property="og:image" content="https://gss0.baidu.com/7Po3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/8d5494eef01f3a29e2515ae39425bc315c607c06.jpg">
+<meta property="og:image" content="https://gss0.baidu.com/-vo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/e61190ef76c6a7eff34ddf08f0faaf51f3de66b0.jpg">
+<meta property="og:image" content="https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/241f95cad1c8a786ff2607c36b09c93d71cf50ea.jpg">
+<meta property="og:image" content="https://gss0.baidu.com/-Po3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/b3119313b07eca808609742a9d2397dda04483eb.jpg">
+<meta property="og:updated_time" content="2020-02-21T03:25:01.489Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="基于多维度空间分配算法实现APP任务定价">
+<meta name="twitter:description" content="摘要&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;本文是针对“拍照赚钱”APP任务定价问题进行分析，并采用多维度空间任务定价模型、会员抉择概率模型、项目总收益模型、入包威胁矩阵模型等对不同情况下的任务进行合理定价。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;针对问题一：首先对使用Geoq平台对任务以及会员数据进行定位，在">
+<meta name="twitter:image" content="https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/810a19d8bc3eb135850a6e72aa1ea8d3fc1f442e.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://muzimz.cn/2018/09/26/基于多维度空间分配算法实现APP任务定价/">
+
+
+
+
+
+<script>
+    
+    window.onload = function(){
+        var path = 'https://muzimz.cn'; //这里要改成你博客的地址
+        var localhostItem = String(window.location).split(path)[1];
+        var LiNode = document.querySelectorAll('#menu > li > a')
+        
+        for(var i = 0; i< LiNode.length;i++){
+            var item = String(LiNode[i].href).split(path)[1];
+            if(item == localhostItem && item != undefined){
+                LiNode[i].setAttribute('style','border-bottom:1px solid black');
+            }
+        }
+    };
+
+</script>
+  <title>基于多维度空间分配算法实现APP任务定价 | 木子</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/JackLXJ" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">木子</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+            
+            日程表
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://muzimz.cn/2018/09/26/基于多维度空间分配算法实现APP任务定价/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="木子">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/head.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="木子">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">基于多维度空间分配算法实现APP任务定价</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-26T23:36:30+08:00">
+                2018-09-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/随写/" itemprop="url" rel="index">
+                    <span itemprop="name">随写</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  10.1k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  38
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a><center>摘要</center></h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本文是针对“拍照赚钱”APP任务定价问题进行分析，并采用多维度空间任务定价模型、会员抉择概率模型、项目总收益模型、入包威胁矩阵模型等对不同情况下的任务进行合理定价。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>针对问题一：</strong>首先对使用Geoq平台对任务以及会员数据进行定位，在这些数据中发现有部分的异常数据。在对异常数据进行删除处理之后使用任务-会员空间分布模型对其进行合理分配，从而进行数据整合操作，进而使用Python中的Matplotlib工具绘制多功能图来分析任务定价的规律以及部分任务未完成的原因，最终对任务定价数据进行指数拟合。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>针对问题二：</strong>在该问题中需要制定新的任务定价方案并与原方案进行比较。在完成任务一的前提下，我们首先使用Matlab工具并结合矩阵相关知识对任务-会员进行再次空间分配，之后使用Z-Score对数据进行标准化，进而逐步构建多维度空间任务定价模型、护院抉择概率模型、项目总收益模型来制定新的方案。我们得到结论：任务完成度提高了 $12.005\%$，项目实际收益提高了 $18.3875\%$，总值为 $42964$。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>针对问题三：</strong>在考虑对任务进行打包的情况下，我们考虑到了会员信誉值和预定任务限额对任务定价的影响，对此构建入包威胁矩阵模型来对各项任务进行打包并将多维度空间任务定价模型进行有话啊，最终基于打包方案的优化模型制定新的方案，求解后得到结论：任务完成率再次提高了 $9.341\%$，收益率提高了 $13.641\%$，实际收益总值提高至 $45163$。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>针对问题四：</strong></p>
+<p><strong>关键词：</strong> 拟合、Geoq、Z-Score、Python、Matlab、入包威胁。</p>
+<a id="more"></a>
+<h2 id="一、问题重述"><a href="#一、问题重述" class="headerlink" title="**一、问题重述**"></a><center>**一、问题重述**</center></h2><h3 id="1-1-问题引言"><a href="#1-1-问题引言" class="headerlink" title="1.1 问题引言"></a><strong>1.1 问题引言</strong></h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;随着互联网领域的快速发展以及人们对科学技术的不断创新，最近一款称为“拍照赚钱”的服务模式正在逐渐融入到人们的生活中。“拍照赚钱”是移动互联网下的一种新型的自助式服务模式。用户通过下载APP并且注册成为APP的会员之后，就可以在APP平台上领取需要拍照的任务（比如上超市去检查某种商品的上架情况），进而赚取APP对任务所标定的酬金。而这种基于移动互联网的自助式劳务众包平台相对于传统的市场调查方式来说，不仅为企业提供各种商业检查和信息搜集渠道，而且有效地保证了调查数据真实性，缩短了调查的周期，进而可以大大节省人力、物力、财力。因此APP成为该平台运行的核心，而会员接受任务的可能性主要由任务价格决定，故APP中的任务定价是核心要素，而且对于公司的来说起到一个决定性作用。如果任务定价不合理，有的任务就会无人问津，而导致商品检查的失败。相反，若能通过以往数据来对其进行合理性的建模从而确定任务的定价则会取得不凡的结果。</p>
+<h3 id="1-2-题目数据及信息说明"><a href="#1-2-题目数据及信息说明" class="headerlink" title="1.2 题目数据及信息说明"></a><strong>1.2 题目数据及信息说明</strong></h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;建模命题组给出的附件一是一个已结束项目的任务数据，其中包含了每个任务的所在地的经纬度、任务的标价以及任务的完成情况（“1”表示完成，“0”表示未完成）；附件二则是会员的信息数据，其中包含了会员所在地的经纬度、预定任务的限额、预定任务的时间和会员所对应的信誉值，而信誉值往往是通过以往的任务完成情况所直接决定的，所以理论上说会员对应的信誉值越大，越优先开始挑选任务，其配额也就越大（任务分配时实际上是根据预订限额所占比例进行配发）；附件三是一个新的检查项目任务数据，其中只有任务所在地的经纬度数据，我们要做的是通过给出的数据来建立一个或若干个模型，进而将此模型应用在这些新项目上从而给平台公司提供一个比较优秀的决策。</p>
+<h3 id="1-3-提出问题"><a href="#1-3-提出问题" class="headerlink" title="1.3 提出问题"></a><strong>1.3 提出问题</strong></h3><ul>
+<li>研究附件一中项目的任务定价规律，分析任务未完成的原因。</li>
+<li>为附件一中的项目设计新的任务定价方案，并和原方案进行比较。</li>
+<li>实际情况下，多个任务可能因为位置比较集中，导致用户会争相选择，一种考虑是将这些任务联合在一起打包发布。在这种考虑下，如何修改前面的定价模型，对最终的任务完成情况又有什么影响？</li>
+<li>4.对附件三中的新项目给出你的任务定价方案，并评价该方案的实施效果。</li>
+</ul>
+<h2 id="二、问题分析"><a href="#二、问题分析" class="headerlink" title="**二、问题分析**"></a><center>**二、问题分析**</center></h2><h3 id="2-1-问题的总体分析及思维导图"><a href="#2-1-问题的总体分析及思维导图" class="headerlink" title="2.1 问题的总体分析及思维导图"></a><strong>2.1 问题的总体分析及思维导图</strong></h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;APP平台中任务定价的设计问题就是通过已完成任务的数据来合理有效的预测未完成任务的执行情况，并使得最终所有任务完成的总价格尽可能大，从而实现APP平台的最大价值率。对此，首先我们需要通过附录一和附录二中的数据来确定影响任务定价的可能相关因素以及分析最终未完成任务的可能原因，以便为后期的建模提供较优的铺垫；然后，在问题二中，我们需要在完成问题一的情况下，对该项目的任务设计一个新的定价方案并建立较优的数学模型，然后可以通过此模型来比较该新的设计方案与原方案的完成情况，进而总结改进之后方案的优点；此外，在问题三中，命题组提到多个集中的任务可能会对用户的选择造成影响，所以我们需要对之前的设计方案进一步通过将这些集中任务进行联合打包发布的方式来对模型进行优化，进而分析最终任务的完成情况；最后在问题四中，我们需要对通过前三问得出的模型来对附录三中的待定任务进行估价并且评价方案的实施效果。</p>
+<h3 id="2-2-问题的具体分析"><a href="#2-2-问题的具体分析" class="headerlink" title="2.2 问题的具体分析"></a><strong>2.2 问题的具体分析</strong></h3><h4 id="2-2-1-问题一"><a href="#2-2-1-问题一" class="headerlink" title="2.2.1 问题一"></a><strong>2.2.1 问题一</strong></h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;常言有道：具体问题具体分析。对于问题一来讲，我们可以将任务定价的影响因素归于两个方面，一种是已知提供的因素，另一种则是未知潜在的因素。在未知潜在的因素中有任务本身所对应的初始价值以及公司发布任务所在时间点的经营状况等方面因素决定，然而这些因素所决定的条件及信息我们无从得知，因此在这里我们在该论文中不做分析。而在已知提供的因素中，我们主要可以从命题组给出的附录中出发。在给出的附录一和附录二中，我们可以发现其中具有分析价值的数据，对此我们将影响任务的定价初步归因于任务的地理位置、会员所在地的集中程度、任务发布时间以及任务发布地的经济状况四个因素，后期我们也是从这四个因素出发来确定四个因素与任务定价的真正关系。而任务未完成的原因主要从任务定价的合理性、任务的竞争力两个方向进行分析。</p>
+<h4 id="2-2-2-问题二"><a href="#2-2-2-问题二" class="headerlink" title="2.2.2 问题二"></a><strong>2.2.2 问题二</strong></h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;“拍照赚钱”APP的任务定价是一种任务发布者（APP平台）与任务接受者（平台会员）之间所进行的互利模式，PP平台希望在成本一定的情况下使得任务的完成率尽可能的提高，而APP会员则需要在满足某种条件要求下追求收益尽可能大。从实际出发，一份任务理论上可以分配给多个使其相互竞争，而一个会员亦可接受多份任务，这两者在初始阶段是一种“多对多”的关系。而最终的情况是一个任务只能分配给一个会员，而一个会员依然可以接受多份任务，这是一种“多对一”的关系。</p>
+<h4 id="2-2-3-问题三"><a href="#2-2-3-问题三" class="headerlink" title="2.2.3 问题三"></a><strong>2.2.3 问题三</strong></h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在本问中，提到实际情况下多个任务可能会因为位置比较集中而导致用户会争相选择，为此我们需要采用一种打包方式来对原方案进行优化。在采用任务打包方案之后之后虽然能够提高平台的任务发布效率，但是我们必须首先解决以下两个问题：</p>
+<ul>
+<li><p>制订一个合理的方案来对任务进行打包从而进一步提高任务的完成率，即每个打包任务簇中的任务数需要确定。</p>
+</li>
+<li><p>任务簇中的任务数的确定由哪些因素决定 </p>
+</li>
+</ul>
+<h4 id="2-2-4-问题四"><a href="#2-2-4-问题四" class="headerlink" title="2.2.4 问题四"></a><strong>2.2.4 问题四</strong></h4><h2 id="三、模型假设"><a href="#三、模型假设" class="headerlink" title="**三、模型假设**"></a><center>**三、模型假设**</center></h2><ul>
+<li>公司的在一定时间段内的经济状况保持水平。</li>
+<li>附件中任务的实际定价在进行任务-会员分配时保持不变。</li>
+<li>会员在完成任务过程中，不考虑有特殊情况从而导致会员终止任务的进行。</li>
+<li>会员的信誉值和预定任务的限额近似满足二维高斯分布。</li>
+</ul>
+<h2 id="四、符号说明"><a href="#四、符号说明" class="headerlink" title="**四、符号说明**"></a><center>**四、符号说明**</center></h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">符号</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$D_{ik}$</td>
+<td style="text-align:center">任务 $i$ 与会员 $k$ 的距离，单位千米(km)</td>
+</tr>
+<tr>
+<td style="text-align:center">$R$</td>
+<td style="text-align:center">地球的半径，单位千米(km)</td>
+</tr>
+<tr>
+<td style="text-align:center">$P_i$</td>
+<td style="text-align:center">任务 $i$ 的定价</td>
+</tr>
+<tr>
+<td style="text-align:center">$E^{(\delta)}$</td>
+<td style="text-align:center">某一城市的GDP所对应的经济系数</td>
+</tr>
+<tr>
+<td style="text-align:center">$C_i$</td>
+<td style="text-align:center">会员的信誉值</td>
+</tr>
+<tr>
+<td style="text-align:center">$\rho_i$</td>
+<td style="text-align:center">任务 $i$ 领域内的会员密度</td>
+</tr>
+<tr>
+<td style="text-align:center">$Q_i$</td>
+<td style="text-align:center">任务 $i$ 领域内会员的竞争度</td>
+</tr>
+<tr>
+<td style="text-align:center">$M_k$</td>
+<td style="text-align:center">会员 $k$ 预定任务的限额</td>
+</tr>
+<tr>
+<td style="text-align:center">$\theta_i$</td>
+<td style="text-align:center">任务 $i$ 的经度值</td>
+</tr>
+<tr>
+<td style="text-align:center">$\varphi_i$</td>
+<td style="text-align:center">任务 $i$ 的纬度值</td>
+</tr>
+<tr>
+<td style="text-align:center">$\theta_k$</td>
+<td style="text-align:center">会员 $k$ 的经度值</td>
+</tr>
+<tr>
+<td style="text-align:center">$\varphi_k$</td>
+<td style="text-align:center">会员 $k$ 的纬度值</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>说明：</strong>表中未提到的符号会在正文中作出解释。</p>
+<h2 id="五、模型的建立与求解"><a href="#五、模型的建立与求解" class="headerlink" title="**五、模型的建立与求解**"></a><center>**五、模型的建立与求解**</center></h2><h3 id="5-1-任务定价规律及未完成分析——问题一"><a href="#5-1-任务定价规律及未完成分析——问题一" class="headerlink" title="5.1 任务定价规律及未完成分析——问题一"></a><strong>5.1 任务定价规律及未完成分析——问题一</strong></h3><h4 id="5-1-1-任务定价规律分析"><a href="#5-1-1-任务定价规律分析" class="headerlink" title="5.1.1 任务定价规律分析"></a><strong>5.1.1 任务定价规律分析</strong></h4><h5 id="5-1-1-1-数据的整体定位"><a href="#5-1-1-1-数据的整体定位" class="headerlink" title="5.1.1.1 数据的整体定位"></a><strong>5.1.1.1 数据的整体定位</strong></h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;首先我们需要对所有数据中的经纬度信息来进行定位，以便于我们后续的相关分析。在这里，我们选择使用智能GeoQ平台来对附录一和附录二中的数据进行定位以便我们后续的分析，一下是定位之后得到的结果图示：</p>
+<center class="half">
+    <img src="https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/810a19d8bc3eb135850a6e72aa1ea8d3fc1f442e.jpg" width="300">  <img src="https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/bba1cd11728b471077702505cfcec3fdfd032398.jpg" width="300">
+</center>
+
+<center>图二：附件一定位蓝黑版&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;图三：附件二定位蓝黑板</center>
+
+<center class="half">
+    <img src="https://gss0.baidu.com/7Po3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/9a504fc2d56285356a280be89cef76c6a6ef632b.jpg" width="300">  <img src="https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/359b033b5bb5c9ea4b81db2ad939b6003bf3b38d.jpg" width="300">
+</center>
+
+<center>图四：附件一定位彩色版&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;图五：附件二定位彩色版</center>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;从定位之后的图示来看，我们可以不难发现以下两个结论：1.该数据主要收集于广东省的佛山市、广州市、东莞市、深圳市四个城市，后续我们也是针对这四个地区进行分析。2.这些数据中含有特殊值，这里我们将其视为异常值，需要进行特别处理。</p>
+<h5 id="5-1-1-2-数据的预处理"><a href="#5-1-1-2-数据的预处理" class="headerlink" title="5.1.1.2 数据的预处理"></a><strong>5.1.1.2 数据的预处理</strong></h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;从我们所总结的因素出发，由于四个因素所在不同的附录之中，所以我们需要将这两个附录文件进行整合。首先通过附录一中的经纬度数据来确定任务的发布位置，然后由Python中的pandas和numpy两个工具包来对两个附录中的数据进行整合，进而完成该数据的预处理模块。</p>
+<h6 id="5-1-1-2-1-附件一数据的预处理"><a href="#5-1-1-2-1-附件一数据的预处理" class="headerlink" title="5.1.1.2.1 附件一数据的预处理"></a><strong>5.1.1.2.1 附件一数据的预处理</strong></h6><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在附件一中，其内含有任务的相关经纬度数据，由于我们在分析任务定价的过程中，将任务发布的地理位置作为主要因素之一，故我们需要确定发布任务的位置与任务所在城市中心之间的距离，以此来具体确认任务定价与任务地理位置的关系。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我们要想计算出任务点与中心位置的距离，则首先需要知道中心位置的经纬度。而由上述的数据定位可知，所有数据整体在佛山、广州、深圳、东莞四个城市中，据资料显示，这是个城市中心的经纬度如下所示：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">城市</th>
+<th style="text-align:center">经度</th>
+<th style="text-align:center">纬度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">广州</td>
+<td style="text-align:center">113.27</td>
+<td style="text-align:center">23.13</td>
+</tr>
+<tr>
+<td style="text-align:center">佛山</td>
+<td style="text-align:center">113.12</td>
+<td style="text-align:center">23.02</td>
+</tr>
+<tr>
+<td style="text-align:center">深圳</td>
+<td style="text-align:center">114.05</td>
+<td style="text-align:center">22.55</td>
+</tr>
+<tr>
+<td style="text-align:center">东莞</td>
+<td style="text-align:center">113.75</td>
+<td style="text-align:center">23.05</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;既然现在已知城市中心以及所有任务点的经纬度信息，我们即可通过以下式子计算出所有任务点与中心之间的距离：</p>
+<script type="math/tex; mode=display">
+D_{ij} = R*arccos[sin{\varphi_i}sin{\varphi_j}+cos{\varphi _i}cos{\varphi_j}cos(\theta_i-\theta_j)]</script><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">符号</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$D_{ij}$</td>
+<td style="text-align:center">任务 $i$ 与城市中心 $j$ 的距离，单位千米(km)   </td>
+</tr>
+<tr>
+<td style="text-align:center">$R$</td>
+<td style="text-align:center">地球的半径，单位千米(km)</td>
+</tr>
+<tr>
+<td style="text-align:center">$\theta_i$</td>
+<td style="text-align:center">任务 $i$ 的经度值</td>
+</tr>
+<tr>
+<td style="text-align:center">$\varphi_i$</td>
+<td style="text-align:center">任务 $i$ 的纬度值</td>
+</tr>
+<tr>
+<td style="text-align:center">$\theta_j$</td>
+<td style="text-align:center">城市 $j$ 的经度值</td>
+</tr>
+<tr>
+<td style="text-align:center">$\varphi_j$</td>
+<td style="text-align:center">城市 $j$ 的纬度值</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;为此，我们就能由以下相关程序处理附件一中的数据：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">append_length</span><span class="params">(file_path, jing_value2, wei_value2, file_name, encoding)</span>:</span></span><br><span class="line">    df1 = pd.read_csv(file_path, encoding=encoding)</span><br><span class="line">    length = []</span><br><span class="line">    <span class="keyword">for</span> index1, each_data1 <span class="keyword">in</span> df1.iterrows():</span><br><span class="line">        jing_value1 = each_data1[<span class="string">"任务gps经度"</span>]</span><br><span class="line">        wei_value1 = each_data1[<span class="string">"任务gps 纬度"</span>]</span><br><span class="line">        distance = int(<span class="number">6371</span> * np.arccos(np.sin(wei_value1)*np.sin(wei_value2)+np.cos(wei_value1)*np.cos(wei_value2)*np.cos(jing_value1-jing_value2)))</span><br><span class="line">        length.append(distance)</span><br><span class="line">    df1[<span class="string">"与中心距离"</span>] = length</span><br><span class="line">    df1.to_csv(file_name, index=<span class="keyword">False</span>)</span><br></pre></td></tr></table></figure>
+<h6 id="5-1-1-2-2-附件二数据的预处理"><a href="#5-1-1-2-2-附件二数据的预处理" class="headerlink" title="5.1.1.2.2 附件二数据的预处理"></a><strong>5.1.1.2.2 附件二数据的预处理</strong></h6><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在附录二中的会员数据里，我们发现其中的经纬度数据信息在同一字段中，为了分析的方便，我们首先使用pandas将该添加对应的经度和纬度两个字段，相关核心代码如下，完整代码可见附录：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">deal_column</span><span class="params">(data_path, sheet)</span>:</span></span><br><span class="line">    data = pd.ExcelFile(data_path)</span><br><span class="line">    df = data.parse(sheet)</span><br><span class="line">    locations = df[<span class="string">"会员位置(GPS)"</span>]</span><br><span class="line">    location_jing = [location.split(<span class="string">" "</span>)[<span class="number">1</span>] <span class="keyword">for</span> location <span class="keyword">in</span> locations]</span><br><span class="line">    location_wei = [location.split(<span class="string">" "</span>)[<span class="number">0</span>] <span class="keyword">for</span> location <span class="keyword">in</span> locations]</span><br><span class="line">    df[<span class="string">"会员gps经度"</span>] = location_jing</span><br><span class="line">    df[<span class="string">"会员gps纬度"</span>] = location_wei</span><br><span class="line">    df.to_csv(d + <span class="string">"/after_deal.csv"</span>, index=<span class="keyword">False</span>)</span><br></pre></td></tr></table></figure>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;处理之后的部分数据如下图所示：</p>
+<center>
+![部分会员数据图](https://gss0.baidu.com/-Po3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/d50735fae6cd7b89fde87a4b032442a7d8330e75.jpg)
+</center>
+
+<center>图一：会员数据处理后的部分数据</center>
+
+
+
+<h6 id="5-1-1-2-3-数据异常值的处理"><a href="#5-1-1-2-3-数据异常值的处理" class="headerlink" title="5.1.1.2.3 数据异常值的处理"></a><strong>5.1.1.2.3 数据异常值的处理</strong></h6><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在上述操作中，我们发现附录一和附录二中含有异常值，我们需要针对进行异常值进行特殊处理，否则将会对我们后面的模型造成影响。要想具体确认每个经纬度所对应的具体位置，我们需要借助于GPSspg的相关操作。为此，我们首先将附件一和附件二中的各个位置的经纬度提取出来然后进行具体定位，最后导入到新的文件中,具体定位后的部分数据如下图所示：</p>
+<center>
+<img src="https://gss0.baidu.com/9fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/64380cd7912397dd5392c0cd5582b2b7d1a28714.jpg">
+</center>
+
+<center>图六：具体定位部分数据</center>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;通过文件中的数据可以发现，除了上述分析的佛山市、深圳市、广州市、东莞市之外还掺杂了其他地区的数据，例如清远市、中山市、别行政、惠州市等。经统计发现总共含有20个异常数据，它们的编号分别是A0297、A0751、B0005、B0006、B0007、B0022、B0033、B0039、B0048、B0082、B0135、B0136、B0472、B1077、B1585、B1627、B1708、B1727、B1820、B1822。它们的编号和具体数据内容可如图五、图六所示：</p>
+<center class="half">
+    <img src="https://gss0.baidu.com/94o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/79f0f736afc3793102c056e0e7c4b74542a9114a.jpg" width="300">  <img src="https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/3c6d55fbb2fb43162bb4aab32ca4462308f7d354.jpg" width="300">
+</center>
+
+<center>图七：附件一中的异常数据&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;图八：附件二中的异常数据</center>
+
+
+
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;为了不影响后面模型的精度，这里我们将这些异常数据进行直接进行删除即可，删除的部分核心代码如下所示：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">delete_data</span><span class="params">(data_path, sheet)</span>:</span></span><br><span class="line">    df = pd.read_csv(data_path)</span><br><span class="line">    groups = df.groupby(<span class="string">"城市"</span>)</span><br><span class="line">    error_group = pd.DataFrame(columns=[<span class="string">"会员编号"</span>,<span class="string">"会员位置(GPS)"</span>,<span class="string">"预订任务限额"</span>,<span class="string">"预订任务开始时间"</span>,<span class="string">"信誉值"</span>,<span class="string">"会员gps经度"</span>,<span class="string">"会员gps纬度"</span>,<span class="string">"详细地址"</span>,<span class="string">"城市"</span>])</span><br><span class="line">    true_group = pd.DataFrame(columns=[<span class="string">"会员编号"</span>,<span class="string">"会员位置(GPS)"</span>,<span class="string">"预订任务限额"</span>,<span class="string">"预订任务开始时间"</span>,<span class="string">"信誉值"</span>,<span class="string">"会员gps经度"</span>,<span class="string">"会员gps纬度"</span>,<span class="string">"详细地址"</span>,<span class="string">"城市"</span>])</span><br><span class="line">    <span class="keyword">for</span> city, group <span class="keyword">in</span> groups:</span><br><span class="line">        <span class="keyword">if</span> city <span class="keyword">not</span> <span class="keyword">in</span> [<span class="string">"佛山市"</span>、<span class="string">"广州市"</span>、<span class="string">"深圳市"</span>、<span class="string">"东莞市"</span>]:</span><br><span class="line">            error_group = pd.concat([error_group, group])</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            true_group = pd.concat([true_group, group])</span><br><span class="line">    error_group.to_csv(<span class="string">"error_data.csv"</span>, index=<span class="keyword">False</span>)</span><br><span class="line">    true_group.to_csv(<span class="string">"true_data.csv"</span>, index=<span class="keyword">False</span>)</span><br></pre></td></tr></table></figure>
+<h6 id="5-1-1-2-4-数据的整合"><a href="#5-1-1-2-4-数据的整合" class="headerlink" title="5.1.1.2.4 数据的整合"></a><strong>5.1.1.2.4 数据的整合</strong></h6><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;由之前对任务定价的分析可知，我们需要将会员数据与任务数据进行整合，从而进一步分析公司在对任务定价的时候是否考虑到会员的相关因素。在此，我们将两个附件的数据进行整合操作的依据是在一定区域范围之内所含有的会员数目，并以此求相关会员信息的均值来对定价进行分析。我们可以通过以下公式进行计算：</p>
+<script type="math/tex; mode=display">
+D_{ik} = R*arccos[sin{\varphi_i}*sin{\varphi_k}+cos{\varphi_ i}cos{\varphi_k}cos(\theta_i-\theta_k)]</script><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">符号</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$D_{ij}$</td>
+<td style="text-align:center">任务 $i$ 与会员 $k$ 的距离，单位千米(km)</td>
+</tr>
+<tr>
+<td style="text-align:center">$R$</td>
+<td style="text-align:center">地球的半径，单位千米(km)</td>
+</tr>
+<tr>
+<td style="text-align:center">$\theta_i$</td>
+<td style="text-align:center">任务 $i$ 的经度值</td>
+</tr>
+<tr>
+<td style="text-align:center">$\varphi_i$</td>
+<td style="text-align:center">任务 $i$ 的纬度值</td>
+</tr>
+<tr>
+<td style="text-align:center">$\theta_k$</td>
+<td style="text-align:center">会员 $k$ 的经度值</td>
+</tr>
+<tr>
+<td style="text-align:center">$\varphi_k$</td>
+<td style="text-align:center">会员 $k$ 的纬度值</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;通过上述距离公式，我们可以借助numpy工具计算每个任务在与会员之间的距离是否在我们规定的范围之内，从而将附件二中的有效数据合并到附件一中，即在附件一中添加四个字段：会员预定任务的限额、会员所在地的集中程度、任务发布时间以及任务发布地的经济状况。其中前三个因素可以在附录一中进行算法提取，而为了分析问题的全面性，这里多考虑到了任务发布地区的经济状况因素，虽然在本题中并未给出该方面的数据，但是我们可以通过查找相关资料进行了解从而进行综合性分析。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;通过上述的分析，我们在这规定若任务与会员之间的距离小于 $r$ ，则我们将该会员的数据录入到对应的任务中，即:</p>
+<script type="math/tex; mode=display">r>D_{ik} = R*arccos[sin{\varphi_i}*sin{\varphi_k}+cos{\varphi_ i}cos{\varphi_k}cos(\theta_i-\theta_k)]</script><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;结合实际情况与各个数据的经纬度的联系，我们在对数据进行整合的时候取 $r=500km$ 。由于该部分的核心代码较长，出于对论文可读性的考虑，此部分的代码不在此处进行展示，读者可在附录中进行浏览。整合之后的部分相关数据如下：</p>
+<center>
+<img src="https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/a71ea8d3fd1f4134a1db42b3291f95cad0c85e0a.jpg">
+</center>
+
+<h5 id="5-1-1-3-定价规律可视化及分析"><a href="#5-1-1-3-定价规律可视化及分析" class="headerlink" title="5.1.1.3 定价规律可视化及分析"></a><strong>5.1.1.3 定价规律可视化及分析</strong></h5><h6 id="5-1-1-3-1-任务的地点位置对定价的影响分析"><a href="#5-1-1-3-1-任务的地点位置对定价的影响分析" class="headerlink" title="5.1.1.3.1 任务的地点位置对定价的影响分析"></a><strong>5.1.1.3.1 任务的地点位置对定价的影响分析</strong></h6><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;为了分析出任务点位置对任务定价的具体影响，我们需要将上述预处理之后的附件一中的数据进行可视化从而得到任务位置对任务定价的影响。为此我们将任务 $i$ 定为 $P_i$ ，将任务点与城市中心的距离定为 $D_{ij}$，通过这两个数据便可绘制两者之间的关系图。此处，我们不妨使用散点图将每个数据点在直角坐标系中表示出来，从而分析任务定价随着任务位置之间的大致趋势，进而选择恰当的函数来对数据点进行拟合。除此之外，为了避免城市的不同而对任务价格的影响，我们分别绘制广州、佛山、深圳、东莞的定价位置散点图。基于这种分析，我们使用matplotlib工具绘制出的散点图以及程序的核心代码如下：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">def draw_scatter(file_path, color, marker, city, image_path):</span><br><span class="line">    df = pd.read_csv(file_path)</span><br><span class="line">    p = df[<span class="string">"任务标价"</span>]</span><br><span class="line">    d = df[<span class="string">"与中心距离"</span>]</span><br><span class="line">    plt.scatter(d/100, p, <span class="attribute">s</span>=10, <span class="attribute">c</span>=color, <span class="attribute">alpha</span>=0.6, <span class="attribute">marker</span>=marker)</span><br><span class="line">    plt.title(<span class="string">"&#123;&#125;任务位置与定价的关系"</span>.format(city), <span class="attribute">fontproperties</span>=font)</span><br><span class="line">    plt.xlabel(<span class="string">"Distance/x100km"</span>)</span><br><span class="line">    plt.ylabel(<span class="string">"Price"</span>)</span><br><span class="line">    plt.savefig(image_path)</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
+<center class="half">
+    <img src="https://gss0.baidu.com/-vo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/03087bf40ad162d9e7d453d01ddfa9ec8b13cdc7.jpg" width="300">  <img src="https://gss0.baidu.com/94o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/bd3eb13533fa828b0619ac2ff11f4134960a5ac7.jpg" width="300">
+</center>
+
+<center class="half">
+    <img src="https://gss0.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/78310a55b319ebc45b7747558e26cffc1f1716ea.jpg" width="300">  <img src="https://gss0.baidu.com/-vo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/a686c9177f3e67096454743337c79f3df9dc55a1.jpg" width="300">
+</center>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;从上面的任务定价与任务位置之间的散点图中不难发现，深圳、广州、东莞、佛山整体呈现一种 “上疏下密，右疏左密”的形式。故于此，我们可以得到以下结论：距市中心越进的任务，APP平台对其任务定价相对比较低,定价在65~75之间；而距市中心越远的任务，APP平台对其任务定价相对较高，定价在76~86之间。此外，随着距离的增大，定价的价格增长的幅度整体在逐渐增大。对此，我们将这两种模型近似拟合为一个指数回归模型。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;所以，根据上面所述，我们不妨建立一个关于任务点位置对任务定价的影响的模型，为了模型进行的精确性以及拟合效果的良好度，这里我们利用WPSExcel中的散点指数拟合模型进行拟合，且该模型满足以下关系式：</p>
+<script type="math/tex; mode=display">
+P_i=66.892*e^{3^{-5D_{ij}}}</script><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;至此，我们已经求解出任务位置与定价的数学模型，而为了确认该模型的拟合程度，我们需要引入拟合优度值 $r^2$ 来进一步验证该模型。</p>
+<script type="math/tex; mode=display">
+r^2=1-\frac{\sum_{i=0}^m(P_i-P_c)}{\sum_{i=0}^m(P_i-\overline P)}</script><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;通过科学计算可得知拟合优度 $r^2$=0.7317295，该值近似为1可知，该模型的拟合具有比较好的效果。于此，我们可以确认任务的位置与任务的定价存在较大的关系，即距市中心越进的任务，APP平台对其任务定价相对比较低,定价在65~75之间；而距市中心越远的任务，APP平台对其任务定价相对较高，定价在76~86之间。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;通过结合现实来讲，存在这种定价规律主要存在以下原因：</p>
+<ul>
+<li>在距城市中心较近处，具有较大的人口密度且较为发达，完成任务的可能性较大，所以公司为了提高任务的完成率需要增大会员对任务的渴求欲，任务的价格普遍较低。</li>
+<li>在距城市中心较远处，地理位置比较偏僻且周围环境相对比较恶劣，完成任务的可能性比较小，所以公司进行提高任务定价的方式来诱导会员完成任务。</li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;随后，通过我们上面所描述，任务点的经纬度与城市中心满足以下关系：</p>
+<script type="math/tex; mode=display">
+D_{ij} = R*arccos[sin_{\varphi i}sin_{\varphi j}+cos_{\varphi i}cos_{\varphi j}cos(\theta_i-\theta_j)]</script><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;所以，最终我们将任务的定价与任务的经纬度的关系模型定义如下：</p>
+<script type="math/tex; mode=display">
+P_i=66.892*e^{3^{-5R*arccos[sin_{\varphi i}sin_{\varphi j}+cos_{\varphi i}cos_{\varphi j}cos(\theta_i-\theta_j)]}}</script><h6 id="5-1-1-3-2-任务发布地的经济状况"><a href="#5-1-1-3-2-任务发布地的经济状况" class="headerlink" title="5.1.1.3.2 任务发布地的经济状况"></a><strong>5.1.1.3.2 任务发布地的经济状况</strong></h6><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;除了任务距城市中心的距离对任务的定价造成影响之外，城市的经济状况也会对其产生一定的影响。而为分析此种影响，我们需要对以上所述的四个城市的经济状况有所了解。据资料显示，四个城市的GDP以及变化率如下所示：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">城市</th>
+<th style="text-align:center">GDP</th>
+<th style="text-align:center">变化情况</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">深圳</td>
+<td style="text-align:center">19492.60亿</td>
+<td style="text-align:center">增长：9.38%</td>
+</tr>
+<tr>
+<td style="text-align:center">广州</td>
+<td style="text-align:center">19610.94亿</td>
+<td style="text-align:center">增长：8.34%</td>
+</tr>
+<tr>
+<td style="text-align:center">佛山</td>
+<td style="text-align:center">8003.92亿</td>
+<td style="text-align:center">增长：7.16%</td>
+</tr>
+<tr>
+<td style="text-align:center">东莞</td>
+<td style="text-align:center">6275.06亿</td>
+<td style="text-align:center">增长：6.69%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;之后，我们通过matplotlib来绘制四个城市的任务平均价格关系图，相关程序及图示结果如下所示：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_mean_price</span><span class="params">(file_path)</span>:</span></span><br><span class="line">    df = pd.read_csv(file_path)</span><br><span class="line">    p = df[<span class="string">"任务标价"</span>]</span><br><span class="line">    mean_price = np.mean(p)</span><br><span class="line">    <span class="keyword">return</span> mean_price</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    files = [parent_path + <span class="string">"/newdata/cleaneddata/final_data1_sz.csv"</span>, parent_path + <span class="string">"/newdata/cleaneddata/final_data1_gz.csv"</span>, parent_path + <span class="string">"/newdata/cleaneddata/final_data1_fs.csv"</span>, parent_path + <span class="string">"/newdata/cleaneddata/final_data1_dg.csv"</span>]</span><br><span class="line">    price_ls = [get_mean_price(each_file) <span class="keyword">for</span> each_file <span class="keyword">in</span> files]    </span><br><span class="line">    plt.barh(np.arange(<span class="number">4</span>), price_ls, height=<span class="number">0.7</span>, color=<span class="string">"lightskyblue"</span>)</span><br><span class="line">    plt.xlabel(<span class="string">"Price"</span>)</span><br><span class="line">    plt.ylabel(<span class="string">"Cities"</span>)</span><br><span class="line">    plt.title(<span class="string">"城市与任务定价的关系"</span>, fontproperties=font)</span><br><span class="line">    plt.yticks(np.arange(<span class="number">4</span>), [<span class="string">"深圳"</span>, <span class="string">"广州"</span>, <span class="string">"佛山"</span>, <span class="string">"东莞"</span>], rotation=<span class="number">45</span>, size=<span class="number">8</span>)</span><br><span class="line">    <span class="keyword">for</span> x, value <span class="keyword">in</span> enumerate(price_ls):</span><br><span class="line">        plt.text(y=x, x=value, s=<span class="string">"&#123;&#125;"</span>.format(value), ha=<span class="string">"center"</span>, )</span><br><span class="line">    plt.savefig(parent_path + <span class="string">"/images/city_price.jpg"</span>)</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
+<center>
+    <img src="https://gss0.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/35a85edf8db1cb1375115edfd154564e93584b85.jpg">
+</center>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;从图中我们可以了解到，东莞与佛山的任务定价相对较高，而广州和深圳的任务定价相对较低。这与上述各个城市的经济状况正好呈现一种相反的趋势，这种趋势理解为城市的经济状况与任务定价成负相关。</p>
+<h6 id="5-1-1-3-3-会员所在地的集中程度"><a href="#5-1-1-3-3-会员所在地的集中程度" class="headerlink" title="5.1.1.3.3 会员所在地的集中程度"></a><strong>5.1.1.3.3 会员所在地的集中程度</strong></h6><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;从实际出发，公司在给任务进行定价的时候，一般会考虑到一定区域内会员的分布密度，且在分布密度较小的区域内公司会提高任务的定价，以此来吸引更多的会员，从而提高APP平台访问的用户量，进而使公司的利益最大化。为此，我们同样需要由整合之后的数据来分析会员集中度对任务定价的影响，最终实现的效果图如下所示：</p>
+<center>
+<img src="https://gss0.baidu.com/-vo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/faedab64034f78f052e8ea3d75310a55b2191c18.jpg">
+</center>回溯胡
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;由上图我们可以看出，结果与我们料想的如出一辙。会员的集中度与任务的定价整体存在某种负相关关系。
+
+#### **5.1.2 任务未完成原因分析**
+
+##### **5.1.2.1 任务未完成数据处理**
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在进行分析任务未完成原因分析时，首先我们需要对任务未完成的数据进行处理，该处理部分我们主要通过任务未完成任务数据的提取来进行。相关处理核心代码如下：
+
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">def split_yes_no(file_name1, file_name2):</span><br><span class="line">    df = pd.read_csv(data_path6, <span class="attribute">encoding</span>=<span class="string">"gbk"</span>)</span><br><span class="line">    <span class="keyword">for</span> status,<span class="built_in"> group </span><span class="keyword">in</span> df.groupby(<span class="string">"任务执行情况"</span>):</span><br><span class="line">        <span class="keyword">if</span> status == 0:</span><br><span class="line">            group.to_csv(file_name1, <span class="attribute">index</span>=<span class="literal">False</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            group.to_csv(file_name2, <span class="attribute">index</span>=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在分解之后，我们发现未完成的任务数据有313组，后面我们将针对这313组的数据进行原因分析。
+
+##### **5.1.2.2 任务的定价过低**
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;首先，我们不难发现，若公司对一组任务的定价过低，则定价很大可能不足以引起会员的接单欲望。所以，任务的定价过低很有可能是造成任务未完成的原因之一。
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;通过对数据的观察我们可以发现，任务的定价皆在65~85之间。为此，我们将任务分为四个定价区间，即65~69、70~74、75~79、80~85四个数据区域。通过此分析，我们可以绘制数据的散点图以及他们的相关统计图，相关核心代码以及结果图示如下：
+
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">def draw_no_scatter():</span><br><span class="line">    df = pd.read_csv(parent_path + <span class="string">"/newdata/no.csv"</span>)</span><br><span class="line">    plt.scatter(np.arange(313), df[<span class="string">"任务标价"</span>], <span class="attribute">s</span>=20, <span class="attribute">c</span>=<span class="string">"red"</span>, <span class="attribute">alpha</span>=0.6, <span class="attribute">marker</span>=<span class="string">"*"</span>)</span><br><span class="line">    plt.title(<span class="string">"任务未完成数据的价格分布"</span>)</span><br><span class="line">    plt.xlabel(<span class="string">"Mission"</span>)</span><br><span class="line">    plt.ylabel(<span class="string">"Price"</span>)</span><br><span class="line">    plt.savefig(parent_path + <span class="string">"/images/no_price.jpg"</span>)</span><br><span class="line">    plt.show()</span><br><span class="line">def draw_no_bar():</span><br><span class="line">    df = pd.read_csv(parent_path + <span class="string">"/newdata/no.csv"</span>)</span><br><span class="line">    df1 = df[(65 &lt;= df[<span class="string">"任务标价"</span>]) &amp; (df[<span class="string">"任务标价"</span>] &lt; 70)]</span><br><span class="line">    df2 = df[(70 &lt;= df[<span class="string">"任务标价"</span>]) &amp; (df[<span class="string">"任务标价"</span>] &lt; 75)]</span><br><span class="line">    df3 = df[(75 &lt;= df[<span class="string">"任务标价"</span>]) &amp; (df[<span class="string">"任务标价"</span>] &lt; 80)]</span><br><span class="line">    df4 = df[(80 &lt;= df[<span class="string">"任务标价"</span>]) &amp; (df[<span class="string">"任务标价"</span>] &lt; 85)]</span><br><span class="line">    data_len = [len(df1), len(df2), len(df3), len(df4)]</span><br><span class="line">    plt.barh(np.arange(4), data_len, <span class="attribute">height</span>=0.6, <span class="attribute">alpha</span>=0.7, <span class="attribute">color</span>=<span class="string">"yellowgreen"</span>)</span><br><span class="line">    plt.ylabel(<span class="string">"Price Region"</span>)</span><br><span class="line">    plt.xlabel(<span class="string">"Num"</span>)</span><br><span class="line">    plt.title(<span class="string">"未完成价格条形图"</span>)</span><br><span class="line">    plt.yticks(np.arange(4), [<span class="string">"65-69"</span>, <span class="string">"70-74"</span>, <span class="string">"75-79"</span>, <span class="string">"80-85"</span>], <span class="attribute">rotation</span>=45, <span class="attribute">size</span>=13)</span><br><span class="line">    <span class="keyword">for</span> x, value <span class="keyword">in</span> enumerate(data_len):</span><br><span class="line">        plt.text(<span class="attribute">y</span>=x, <span class="attribute">x</span>=value, <span class="attribute">s</span>=<span class="string">"&#123;&#125;"</span>.format(value), <span class="attribute">ha</span>=<span class="string">"center"</span>)</span><br><span class="line">    plt.savefig(parent_path+<span class="string">"/images/price_bar.jpg"</span>)</span><br><span class="line">    plt.show()</span><br><span class="line">    </span><br><span class="line">    plt.pie(<span class="attribute">x</span>=data_len, labels=[<span class="string">"65-69"</span>, <span class="string">"70-74"</span>, <span class="string">"75-79"</span>, <span class="string">"80-85"</span>], <span class="attribute">autopct</span>=<span class="string">"%.0f%%"</span>, <span class="attribute">shadow</span>=<span class="literal">True</span>, <span class="attribute">radius</span>=1.2)</span><br><span class="line">    plt.legend([<span class="string">"65-69"</span>, <span class="string">"70-74"</span>, <span class="string">"75-79"</span>, <span class="string">"80-85"</span>], <span class="attribute">loc</span>=<span class="string">"best"</span>)</span><br><span class="line">    plt.title(<span class="string">"未完成价格饼图"</span>)</span><br><span class="line">    plt.savefig(parent_path+<span class="string">"/images/price_pie.jpg"</span>)</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
+
+<center>
+<img src="https://gss0.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/0ff41bd5ad6eddc400bcfb3535dbb6fd536633a0.jpg" width="200"><img src="https://gss0.baidu.com/94o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/2934349b033b5bb5193d6f303ad3d539b700bc12.jpg" width="200"><img src="https://gss0.baidu.com/9fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/024f78f0f736afc30b4e70abbf19ebc4b64512b9.jpg" width="200">
+</center>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;通过以上图的显示，我们在散点图中可以明显的看出任务定价在65-75的区间内明显占据绝大部分。从条形图和饼图中我们也能看出其所占比例之大。为此，我们可以确定之前的结论，即公司对任务定价过低的时候，不足以勾起会员完成任务的欲望，也就是说会员完成任务的可能性极小。</p>
+<h5 id="5-1-2-3-任务发布位置较远"><a href="#5-1-2-3-任务发布位置较远" class="headerlink" title="5.1.2.3 任务发布位置较远"></a><strong>5.1.2.3 任务发布位置较远</strong></h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在原因一的分析中，除了任务定价在65-75之间之外，还有23组的任务的定价相对来说是比较高的。那么既然如此，会员未完成任务的原因是什么呢？为此，我们在这需要分析任务是否离城市中心的距离较远，从而导致会员完成任务的难度增大。</p>
+<h4 id="5-1-3-问题一总结"><a href="#5-1-3-问题一总结" class="headerlink" title="5.1.3 问题一总结"></a><strong>5.1.3 问题一总结</strong></h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;通过以上模块的分析，我们得出公司对任务定价主要从任务点位置、任务发布地的经济状况、会员预定任务限额、信誉值、集中度所决定。而任务未完成的原因主要是任务的定价较低以及任务较远导致。</p>
+<h3 id="5-2-多维度定价方案对项目的效益——问题二"><a href="#5-2-多维度定价方案对项目的效益——问题二" class="headerlink" title="5.2 多维度定价方案对项目的效益——问题二"></a><strong>5.2 多维度定价方案对项目的效益——问题二</strong></h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;“拍照赚钱”APP的任务定价是一种任务发布者（APP平台）与任务接受者（平台会员）之间所进行的互利模式，PP平台希望在成本一定的情况下使得任务的完成率尽可能的提高，而APP会员则需要在满足某种条件要求下追求收益尽可能大。在问题二中，要求为项目设计新的任务定价方案，则需要考虑以下几个方面：</p>
+<ul>
+<li>该项目的总收益由两个因素决定，一是任务的实际定价，二是任务的实际完成情况。</li>
+<li>站在公司的角度考虑，任务的定价是由平台根据相关数据而定的，而任务的定价在问题一中我们已做分析，影响任务定价的因素有该区域会员的信誉值、会员预定任务限额、会员与任务之间的距离、该区域的经济发展状况以及会员的集中密度。</li>
+<li>站在会员的角度分析，任务的完成率由会员根据实际情况而定，而对任务完成率的影响因素主要有，任务的价格、会员与任务之间的距离以及该任务的竞争程度。</li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;除此之外，从实际出发，一份任务理论上可以分配给多个使其相互竞争，而一个会员亦可接受多份任务，这两者在初始阶段是一种“多对多”的关系。而最终的情况是一个任务只能分配给一个会员，而一个会员依然可以接受多份任务，这是一种“多对一”的关系。通过以上对该问题的分析，我们可以构建项目-会员-任务之间的关系图：</p>
+<center><img src="https://gss0.baidu.com/9fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/7af40ad162d9f2d3f5f066caa4ec8a136327cc36.jpg" width="600"></center>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;通过上述的分析，对此本文主要从以下四个步骤进行解决该问题：</p>
+<p>Step1. 确定任务-会员空间分配算法<br>Step2. 由问题一分析出的多因素对任务定价造成的影响，建立出多维度空间任务定价模型。<br>Step3. 对任务完成度进行分析并构建会员抉择概率模型。<br>Step4. 通过上述模型的构建最终确定能够体现出新方案效果的项目总收益模型。<br>Step5. 使用Matlab、Python、Lingo三种编程语言来对模型进行求解并总结新方案的优势。</p>
+<h4 id="5-2-1-模型构建"><a href="#5-2-1-模型构建" class="headerlink" title="5.2.1 模型构建"></a><strong>5.2.1 模型构建</strong></h4><h5 id="5-2-2-1-任务-会员空间分配"><a href="#5-2-2-1-任务-会员空间分配" class="headerlink" title="5.2.2.1 任务-会员空间分配"></a><strong>5.2.2.1 任务-会员空间分配</strong></h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;首先，我们需要一个算法来对任务、会员之间进行合理的分配，以便后续模型的构建。出于体现出全国大学生数学建模竞赛的创新性，以下给出该任务-会员空间分配算法的实现流程图：</p>
+<center>
+<img src="https://gss0.baidu.com/-Po3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/b03533fa828ba61eabf15c024c34970a304e59fb.jpg" width="600">
+</center>
+
+<p><strong>任务-会员距离矩阵:</strong><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用 $x_i$ 表示第 $i(i=1,2,\cdots,n)$ 个任务，$y_j$ 表示第 $k(k=1,2,\cdots,m)$ 个会员。以任务为节点，任务与每位会员之间的距离为对应的权重，为此构建该城市的任务-会员距离矩阵 $L^{(\delta)} (\delta=1,2,3,4)$，如下所示：</p>
+<script type="math/tex; mode=display">
+    \begin{align}
+        L^{(\delta)}
+        &=(D_{ik}^{(\delta)})_{n\times m} \\
+        &=\left(
+    \begin{matrix}
+        D_{11}^{(\delta)} & D_{12}^{(\delta)} & D_{13}^{(\delta)} & \cdots & D_{1m}^{(\delta)}\\
+        D_{21}^{(\delta)} & D_{22}^{(\delta)} & D_{23}^{(\delta)} & \cdots & D_{2m}^{(\delta)}\\
+        D_{31}^{(\delta)} & D_{32}^{(\delta)} & D_{33}^{(\delta)} & \cdots & D_{3m}^{(\delta)}\\
+        \vdots & \vdots & \vdots & \ddots & \vdots\\
+        D_{n1}^{(\delta)} & D_{n2}^{(\delta)} & D_{n3}^{(\delta)} & \cdots & D_{nm}^{(\delta)}\\
+    \end{matrix} 
+\right)
+    \end{align}</script><script type="math/tex; mode=display">
+        D_{ik}^{(\delta)} = R*arccos[sin{\varphi_i}*sin{\varphi_k}+cos{\varphi_ i}cos{\varphi_k}cos(\theta_i-\theta_k)]</script><h5 id="5-2-2-2-多维度空间任务定价模型"><a href="#5-2-2-2-多维度空间任务定价模型" class="headerlink" title="5.2.2.2 多维度空间任务定价模型"></a><strong>5.2.2.2 多维度空间任务定价模型</strong></h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;通过问题一的分析，我们已经知道了多因素对任务定价产生的影响规律，主要体现在以下多个方面：</p>
+<ul>
+<li>在以某个任务为中心的一定区域内，若该区域中的会员信誉值较小时，则该任务的定价普遍较低。</li>
+<li>随着会员离任务的距离逐渐增大，则任务的定价普遍按照一定的波动规律有所提高。</li>
+<li>若城市的经济状况较为发达，则该城市的任务定价相对较低。</li>
+<li>如若会员的集中密度逐渐增大，则任务的定价按照一定趋势有所下降。</li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在上一模块中，我们已经通过任务-会员空间分配模型分别对任务分配了相对应的会员量，并将其距离数据存储于矩阵 $L_\delta$ 中，但为了避免影响其他因素之间复杂的相关性以及给模型求解带来一定的难度，我们首先需要使用 $Z-score^{[1]}$模型对矩阵中数据进行归一化处理：</p>
+<script type="math/tex; mode=display">
+D_{ik}^{(\delta)*}=\frac{D_{ik}^{(\delta)}-\mu}{\sigma}</script><script type="math/tex; mode=display">
+\sigma=\sqrt{\frac{1}{n\times m}\sum_{i=1}^{n}\sum_{k=1}^m(D_{ik}^{(\delta)}-\mu)^2}</script><script type="math/tex; mode=display">
+\mu = \frac{1}{n\times m}\sum_{i=1}^{n}\sum_{k=1}^mD_{ik}^{(\delta)},\</script><script type="math/tex; mode=display">
+    L^{(\delta)*} = (D_{ik}^{(\delta)*})_{n\times m}</script><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;同理，我们可以对矩阵中所对应会员的信誉值做归一化处理。通过上述分析，为此，我们可以构建多维度空间任务定价模型：</p>
+<script type="math/tex; mode=display">
+P_{i}=\frac{K}{E^{(\delta)}}\sqrt[a]{(K_1\frac{\overline{C_i}}{\rho_i})^a+(K_2\frac{\overline{D_i}}{\rho_i})^a} + \xi</script><script type="math/tex; mode=display">
+\overline{C_i}=\frac{1}{m}\sum_{k=1}^mc_k,\ \overline{D_i}=\frac{1}{m}\sum_{k=1}^{m}D_{ik}</script><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;其中，$\overline{C_i}$ 表示该任务点所在领域内会员信誉期望值，$\overline{D_i}$ 表示任务点所在领域内会员位置期望值，$E^{(\delta)}$表示任务所在城市的经济系数，$\rho_i$ 表示任务所在领域内会员密度值，$K,K_1,K_2$ 表示价格与多维度因素之间的比例系数，$\xi$ 表示该方案的容错误差值。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;同时，我们可以通过上述四个城市的GDP（国内生产总值）来确定该模型的经济系数 $E^{(\delta)}$：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">城市</th>
+<th style="text-align:center">深圳</th>
+<th style="text-align:center">广东</th>
+<th style="text-align:center">佛山</th>
+<th style="text-align:center">东莞</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$E^{(\delta)}$</td>
+<td style="text-align:center">1.949260</td>
+<td style="text-align:center">1.961094</td>
+<td style="text-align:center">0.800392</td>
+<td style="text-align:center">0.627506</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;最终，确定的多维度空间任务定价模型如下：</p>
+<script type="math/tex; mode=display">
+P_{i}=\frac{K}{E^{(\delta)}}\sqrt[a]{(K_1\frac{1}{m\rho_i}\sum_{k=1}^mc_k)^a+(K_2\frac{1}{m\rho_i}\sum_{k=1}^mD_{ik})^a} + \xi</script><h5 id="5-2-2-3-会员抉择概率模型"><a href="#5-2-2-3-会员抉择概率模型" class="headerlink" title="5.2.2.3 会员抉择概率模型"></a><strong>5.2.2.3 会员抉择概率模型</strong></h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;同样，在上述的分析中，我们已经把影响任务完成度的因素归结于任务的定价、任务位置、任务竞争度。且这三种因素的影响如下：</p>
+<ul>
+<li>若某一任务的定价较高时，任务对会员的吸引度较大，该任务被完成的概率也随之增大。</li>
+<li>从实际出发，若任务离会员越远，任务对会员的吸引度越小，该任务被完成的概率也随之减小。</li>
+<li>若一任务的会员竞争度较大，即该会员被较多的会员相中，相应的任务被完成的概率较高。</li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;首先，任务完成与否是由会员对任务所能获得期待的效益决定，当该效益值达到一定的阈值时，我们可以认为该任务被领域内的会员完成的概率较高，对此，我们应该建立该任务-会员吸引度模型：</p>
+<script type="math/tex; mode=display">
+A=\lambda\frac{P_iQ_i}{\overline{D_{i}}}</script><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;其中，$Q_i$ 表示任务的竞争度，在这里我们可以将上述任务-会员矩阵中每行的会员数。根据实际情况，我们认为若一个任务的定价小于70，归一化后的距离大于0.8，被相中的会员数小于3，我们任务该任务完成的概率为0，其所对应的任务对会员的吸引度为 $A_1\leq10$；同样若某个任务的定价大于80，归一化后的距离小于0.2，被相中的会员数大于8，我们认为该任务被完成的概率为1，其所对应的任务吸引度为 $A_1\geq90$。根据上述信息，我们可以确定 $\lambda$ 的值：</p>
+<script type="math/tex; mode=display">
+\lambda=\frac{1}{2}(\frac{A_1 \overline{D_i^1}}{P_i^1Q_i^1}+\frac{A_2 \overline{D_i^2}}{P_i^2Q_i^2})</script><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;经计算，$\lambda=0.042634$。对此，我们可以确定任务-会员吸引度模型最终为：</p>
+<script type="math/tex; mode=display">
+    A = 
+        \begin{cases}
+            A_1, & P_i<70,Q_i<3,\overline{D_i}>0.8\\
+           0.042634\frac{P_iQ_i}{\overline{D_{i}}}, & others\\
+            A_2, & P_i>80,Q_i>8,\overline{D_i}<0.2\\
+        \end{cases}</script><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;根据任务-会员吸引度模型，我们可以建立出会员抉择概率模型：</p>
+<script type="math/tex; mode=display">
+    Z_i = 
+        \begin{cases}
+            0, & 0.042634\frac{P_iQ_i}{\overline{D_{i}}}<10\\
+           0.042634\frac{P_iQ_i}{100\times\overline{D_{i}}}, & 10\leq0.042634\frac{P_iQ_i}{\overline{D_{i}}}<90\\
+            1, & 0.042634\frac{P_iQ_i}{\overline{D_{i}}}\geq90\\
+        \end{cases}</script><script type="math/tex; mode=display">
+其中，P_{i}=\frac{K}{E^{(\delta)}}\sqrt[a]{(K_1\frac{1}{m\rho_i}\sum_{k=1}^mc_k)^a+(K_2\frac{1}{m\rho_i}\sum_{k=1}^mD_{ik})^a} + \xi</script><h5 id="5-2-2-4-项目总收益模型"><a href="#5-2-2-4-项目总收益模型" class="headerlink" title="5.2.2.4 项目总收益模型"></a><strong>5.2.2.4 项目总收益模型</strong></h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我们已经分析得到项目的总收益是由任务定价以及任务的完成情况而定，而在上面我们确定了任务多维度空间任务定价模型和会员抉择概率模型，由此，我们可以构建出项目总收益模型，以分析出新方案的实施效果，项目的总收益根据会员抉择概率模型可分为三个部分：不可能收益、绝对收益、概率收益。其一般式如下：</p>
+<script type="math/tex; mode=display">
+\begin{align}
+W^{(\delta)}&=\sum_{i=1}^nP_iZ_i=W_1+W_2+W_3 \\
+&=0+\sum_1^lP_i+\sum_{i=l}^nP_iZ_i
+\end{align}</script><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;之后，将上述的任务多维度空间定价模型和会员抉择概率模型代入其中，可最终确定项目总收益模型：</p>
+<script type="math/tex; mode=display">
+\begin{align}
+W^{(\delta)}&=\sum_{i=1}^l(\frac{K}{E^{(\delta)}}\sqrt[a]{(K_1\frac{1}{m\rho_i}\sum_{k=1}^mc_k)^a+(K_2\frac{1}{m\rho_i}\sum_{k=1}^mD_{ik})^a} + \xi) \\
+&+\sum_{i=l}^n 0.042634\frac{Q_i}{\overline{D_{i}}}(\frac{K}{E^{(\delta)}}\sqrt[a]{(K_1\frac{1}{m\rho_i}\sum_{k=1}^mc_k)^a+(K_2\frac{1}{m\rho_i}\sum_{k=1}^mD_{ik})^a} + \xi)^2
+\end{align}</script><h4 id="5-2-2-模型求解"><a href="#5-2-2-模型求解" class="headerlink" title="5.2.2 模型求解"></a><strong>5.2.2 模型求解</strong></h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;首先，我们需要通过上述的任务-会员分配算法对任务、会员之间进行分配，部分程序代码和分配结果如下：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[a, b] = <span class="built_in">size</span>(data1_dg_jing);</span><br><span class="line">[c, d] = <span class="built_in">size</span>(data2_dg_jing);</span><br><span class="line">mt_data = <span class="built_in">zeros</span>(a,c);</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>:a</span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">1</span>:c</span><br><span class="line">        mt_data(<span class="built_in">i</span>,<span class="built_in">j</span>) = <span class="number">6371</span>*<span class="built_in">acos</span>(<span class="built_in">sin</span>(data1_dg_wei(<span class="built_in">i</span>))*<span class="built_in">sin</span>(data2_dg_wei(<span class="built_in">j</span>))+<span class="built_in">cos</span>(data1_dg_wei(<span class="built_in">i</span>))*<span class="built_in">cos</span>(data2_dg_wei(<span class="built_in">j</span>))*<span class="built_in">cos</span>(data1_dg_jing(<span class="built_in">i</span>)-data2_dg_jing(<span class="built_in">j</span>)));</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">normalized_data = zscore(mt_data);</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>:a</span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">1</span>:c</span><br><span class="line">        <span class="keyword">if</span> normalized_data(<span class="built_in">i</span>,<span class="built_in">j</span>) &gt; <span class="number">0</span></span><br><span class="line">            normalized_data(<span class="built_in">i</span>,<span class="built_in">j</span>) = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<center><img src="https://gss0.baidu.com/7Po3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/8d5494eef01f3a29e2515ae39425bc315c607c06.jpg"></center>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;通过上述对任务-会员进行分配之后，我们可以使用Matlab进行网格搜索来确定各个需要的系数值，最终我们可以将多维度空间任务定价模型定义如下：</p>
+<script type="math/tex; mode=display">
+P_{i}=\frac{0.6359}{E^{(\delta)}}\sqrt{(3.8374\frac{1}{m\rho_i}\sum_{k=1}^mc_k)^2+(5.6913\frac{1}{m\rho_i}\sum_{k=1}^mD_{ik})^2} \pm5</script><script type="math/tex; mode=display">
+E^{(\delta)}=1.949260,1.961094,0.800392,0.627506</script><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;而会员抉择概率模型我们在上面已经进行分析，其与任务定价、距离、竞争有关，对此我们同样可以确定最终的会员抉择概率模型并进一步求解项目总收益模型：</p>
+<script type="math/tex; mode=display">
+\begin{align}
+W^{(\delta)}&=\sum_{i=1}^l(\frac{0.6359}{E^{(\delta)}}\sqrt{(3.8374\frac{\overline{C_{i}}}{\rho_i})^2+(5.6913\frac{\overline{D_{i}}}{\rho_i})^2} \pm 5) \\
+&+\sum_{i=l}^n 0.042634\frac{Q_i}{\overline{D_{i}}}(\frac{0.6359}{E^{(\delta)}}\sqrt{(3.8374\frac{\overline{C_i}}{\rho_i})^2+(5.6913\frac{\overline{D_i}}{\rho_i}} \pm 5)^2
+\end{align}</script><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;其对应的优化模型如下：</p>
+<script type="math/tex; mode=display">
+max \ \sum_{\delta=1}^4 W^{(\delta)} \\
+s.t.\begin{cases}
+            min(C_1,C_2,\cdots,C_i)\leq\overline{C_i} \leq max(C_1,C_2,\cdots,C_i)\\
+            min(D_1,D_2,\cdots,D_i)\leq\overline{D_i} \leq max(D_1,D_2,\cdots,D_i)\\
+          i=1,2,\cdots,n\\
+        \end{cases}</script><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;对于该最优化模型，我们使用Lingo对其进行求解，之后使用新方案对附件一中的任务数据进行处理，最终获得的结果部分如下所示：</p>
+<center><img src="https://gss0.baidu.com/-vo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/e61190ef76c6a7eff34ddf08f0faaf51f3de66b0.jpg"></center>
+
+<h4 id="5-2-3-模型求解分析与问题总结"><a href="#5-2-3-模型求解分析与问题总结" class="headerlink" title="5.2.3 模型求解分析与问题总结"></a><strong>5.2.3 模型求解分析与问题总结</strong></h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;通过上述的模型构建以及模型求解，我们制订了任务定价的新方案，而且对于新方案，其优势可以由以下几个方面总结：</p>
+<ul>
+<li><p>在任务完成方面，原方案中含有313个未完成任务，而在使用新方案之后任务未完成数减少到213个，其任务完成率从 $62.425\%$ 提高到了 $74.430\%$，新方案对任务完成情况的优化程度为 $12.005\%$。</p>
+</li>
+<li><p>在项目实际收益方面，原方案的实际收益为 $36291$，新方案的实际收益为 $42964$，收益率提高了 $18.3875\%$。</p>
+</li>
+<li><p>在项目的理想收益方面，原方案该项目的理想收益为 $57552.5$，而在使用了新方案之后，该项目的理想收益是 $54319$。</p>
+</li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;综上所述，我们所制订的新方案一方面能够让APP平台的收益有个较大的提高，另一方面同时能够使会员的收入有所增多，即在APP平台和会员之间实现了双赢的效果，在双方获利的同时还有利于之间的长期合作。</p>
+<h3 id="5-3-基于打包方案的优化——问题三"><a href="#5-3-基于打包方案的优化——问题三" class="headerlink" title="5.3 基于打包方案的优化——问题三"></a><strong>5.3 基于打包方案的优化——问题三</strong></h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在本问中，提到实际情况下多个任务可能会因为位置比较集中而导致用户会争相选择，为此我们需要采用一种打包方式来对原方案进行优化。在采用任务打包方案之后之后虽然能够提高平台的任务发布效率，但是我们必须首先解决以下两个问题：</p>
+<ul>
+<li><p>制订一个合理的方案来对任务进行打包从而进一步提高任务的完成率，即每个打包任务簇中的任务数需要确定。</p>
+</li>
+<li><p>任务簇中的任务数的确定由哪些因素决定 </p>
+</li>
+</ul>
+<h4 id="5-3-1-基于打包方案的优化模型建立及求解"><a href="#5-3-1-基于打包方案的优化模型建立及求解" class="headerlink" title="5.3.1 基于打包方案的优化模型建立及求解"></a><strong>5.3.1 基于打包方案的优化模型建立及求解</strong></h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在问题二的多维度空间任务定价模型、会员抉择概率模型、项目收益模型中，他们之间是一种环环相扣的关系。而打包任务定价模型是建立在多位度空间任务定价模型的基础上的，所以我们优化的主要模型是多维度空间任务定价模型，继而改变打包任务的定价来体现出优化方案的优势。</p>
+<p>1） 会员信誉值及预定任务限额分析</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;结合实际情况，从APP平台的角度分析，打包任务的任务数是由该打包区域中的所有会员的信誉值和预定任务的限额所决定。为此，我们需要进一步分析会员信誉值和预定任务限额的分布规律。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;要想了解会员预定任务的限额以及信誉值对任务定价的影响，我们首先需要用matplotlib绘图工具分别绘制以下两种因素对定价的影响：</p>
+<center>
+    <img src="https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/241f95cad1c8a786ff2607c36b09c93d71cf50ea.jpg" width="300"><img src="https://gss0.baidu.com/-Po3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/b3119313b07eca808609742a9d2397dda04483eb.jpg" width="300">
+</center>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;由上述图示我们可以知道，数据点主要集中在图示的左下端部分，即在会员信誉值及预定任务额较低的时候，任务的定价普遍较低；反之，任务定价相对较高。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;为了避免影响其他因素之间复杂的相关性以及给模型求解带来一定的难度，我们首先需要对会员信誉值 $Q_k$ 和预定任务限额 $M_k$ 进行标准化处理：</p>
+<script type="math/tex; mode=display">
+Q_{k}^*=\frac{Q_{k}-\mu}{\sigma}</script><script type="math/tex; mode=display">
+\sigma=\sqrt{\frac{1}{ m}\sum_{k=1}^m(Q_{k}-\mu)^2},\ \ \mu = \frac{1}{m}\sum_{k=1}^mQ_{k}</script><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;通过统计我们发现，会员信誉值和预定任务限额呈现一种“中间高，两头低”的特征。对此，我们认为会员的信誉值和预定任务限额满足<strong>二维高斯分布</strong>$^{[2]}$，其概率密度函数如下所示：</p>
+<script type="math/tex; mode=display">
+f(Q_k^*,M_k^*)=\frac{1}{2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}}e^{-\frac{1}{2(1-\rho^2)}(\frac{(Q_k^*-\mu_1)^2}{\sigma_1^2}+\frac{2\rho(Q_k*-\mu_1)(M_k^*-\mu_2)}{\sigma_1\sigma_2}+\frac{(M_k^*-\mu_2)^2}{\sigma_2^2})}</script><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;其中，$\mu_1,\mu_2,\sigma_1,\sigma_2,\rho$ 都是常数，我们把该分布记作 $N(\mu_1,\mu_2,\sigma_1,\sigma_2,\rho)$。</p>
+<p>2）打包方案任务定价模型</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在确定了会员信誉值和预定任务限额的分布以及对任务定价影响规律之后，我们需要建立打包方案的任务定价模型。当概率 $f(Q_k^<em>,M_k^</em>)$ 达到一定值时，我们可以认为该会员对任务的影响较大，即某任务簇中的任务数较多，入包的可能性较大，对此，我们先建立一个任务入包威胁矩阵模型</p>
+<script type="math/tex; mode=display">
+J=(R_{i})_{a\times b}</script><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;其中，$a$ 表示最终打包的任务簇数，$b$ 表示附件二中的任务数，而 $R_i$ 表示该任务簇中是否包含了 $R_i(i=1,2,\cdots,n)$，在这里为0-1值，具体表示如下：</p>
+<script type="math/tex; mode=display">
+    R_i = 
+        \begin{cases}
+            0, & \frac{1}{n}\sum_{i=1}^nf_i(Q_k^*,M_k^*) > 0.8 \\
+            1, & others \\
+        \end{cases}</script><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;最终，确定的打包任务定价模型以及完成概率模型为：</p>
+<script type="math/tex; mode=display">
+P_{i}=\frac{l(R_i)K}{aE^{(\delta)}}\sqrt{(K_1\frac{1}{m\rho_i}\sum_{k=1}^mc_k)^2+(K_2\frac{1}{m\rho_i}\sum_{k=1}^mD_{ik})^2} + \xi</script><script type="math/tex; mode=display">
+    Z_i = 
+        \begin{cases}
+            0, & 0.042634\frac{P_i(Q_i+M_i)f(Q_i,M_i)}{(a+b)\overline{D_{i}}}<10\\
+           0.042634\frac{P_i(Q_i+M_i)f(Q_i,M_i)}{(a+b)\overline{D_{i}}}, & others\\
+            1, & 0.042634\frac{P_i(Q_i+M_i)f(Q_i,M_i)}{(a+b)\overline{D_{i}}}\geq90\\
+        \end{cases}</script><h4 id="5-3-2-问题总结及分析"><a href="#5-3-2-问题总结及分析" class="headerlink" title="5.3.2 问题总结及分析"></a><strong>5.3.2 问题总结及分析</strong></h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;同问题二，我们最终可以求解出打包方案的实际收益总值为 $45163$，未完成的任务数为 $174$ 个，项目的理想收益为 $51974$。相对问题二中未使用打包方案而言，任务完成率提高了 $9.341\%$，收益率提高了 $13.641\%$。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;通过上述结果显示，我们可以得出结论：制订打包方案在一定程度上不仅能够提高APP平台任务的效率，同时还能够提高自身的效益。</p>
+<h3 id="5-4-问题四"><a href="#5-4-问题四" class="headerlink" title="5.4 问题四"></a><strong>5.4 问题四</strong></h3><h2 id="六、模型的改进"><a href="#六、模型的改进" class="headerlink" title="**六、模型的改进**"></a><center>**六、模型的改进**</center></h2><h2 id="六、模型评价及推广"><a href="#六、模型评价及推广" class="headerlink" title="**六、模型评价及推广**"></a><center>**六、模型评价及推广**</center></h2><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="**参考文献**"></a><center>**参考文献**</center></h2><p>[1]潘斌，于晶贤，衣娜. 数学建模教程[M]. 化学工业出版社，2017.<br>[2]韩中庚. 数学建模方法及其应用[M]. 高等教育出版社，2017.</p>
+<h2 id="附录"><a href="#附录" class="headerlink" title="**附录**"></a><center>**附录**</center></h2><h3 id="附录一：数据处理程序文件"><a href="#附录一：数据处理程序文件" class="headerlink" title="附录一：数据处理程序文件"></a>附录一：数据处理程序文件</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">import numpy as np</span><br><span class="line"><span class="keyword">from</span> matplotlib import pyplot as plt</span><br><span class="line">import os</span><br><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">d = os.path.dirname(__file__)</span><br><span class="line">parent_path = os.path.dirname(d)</span><br><span class="line">data_path1 = parent_path + <span class="string">"/problems/附件一：已结束项目任务数据.xls"</span></span><br><span class="line">data_path2 = parent_path + <span class="string">"/problems/附件二：会员信息数据.xls"</span></span><br><span class="line">data_path3 = parent_path + <span class="string">"/newdata/after_deal.csv"</span></span><br><span class="line">data_path4 = parent_path + <span class="string">"/newdata/data1.csv"</span></span><br><span class="line">data_path5 = parent_path + <span class="string">"/newdata/data2.csv"</span></span><br><span class="line">data_path6 = parent_path + <span class="string">"/newdata/true_data1.csv"</span></span><br><span class="line">data_path7 = parent_path + <span class="string">"/newdata/true_data2.csv"</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def deal_column(data_path, sheet):</span><br><span class="line">    data = pd.ExcelFile(data_path)</span><br><span class="line">    df = data.parse(sheet)</span><br><span class="line">    locations = df[<span class="string">"会员位置(GPS)"</span>]</span><br><span class="line">    location_jing = [location.split(<span class="string">" "</span>)[1] <span class="keyword">for</span> location <span class="keyword">in</span> locations]</span><br><span class="line">    location_wei = [location.split(<span class="string">" "</span>)[0] <span class="keyword">for</span> location <span class="keyword">in</span> locations]</span><br><span class="line">    df[<span class="string">"会员gps经度"</span>] = location_jing</span><br><span class="line">    df[<span class="string">"会员gps纬度"</span>] = location_wei</span><br><span class="line">    df.to_csv(d + <span class="string">"/after_deal.csv"</span>, <span class="attribute">index</span>=<span class="literal">False</span>)</span><br><span class="line">         </span><br><span class="line"></span><br><span class="line">def create_city1(data_path, path_name):</span><br><span class="line">    df = pd.ExcelFile(data_path).parse(<span class="string">"t_tasklaunch"</span>)</span><br><span class="line">    cities = [each[<span class="string">"详细地址"</span>][3:6] <span class="keyword">for</span> index, each <span class="keyword">in</span> df.iterrows()]</span><br><span class="line">    df[<span class="string">"城市"</span>] = cities</span><br><span class="line">    df.to_csv(path_name, <span class="attribute">index</span>=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def create_city2(data_path, path_name):</span><br><span class="line">    df = pd.read_csv(data_path, <span class="attribute">encoding</span>=<span class="string">"gbk"</span>)</span><br><span class="line">    cities = [each[<span class="string">"详细地址"</span>][3:6] <span class="keyword">for</span> index, each <span class="keyword">in</span> df.iterrows()]</span><br><span class="line">    df[<span class="string">"城市"</span>] = cities</span><br><span class="line">    df.to_csv(path_name, <span class="attribute">index</span>=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def delete_data1(data_path, error_file, true_file):</span><br><span class="line">    df = pd.read_csv(data_path, <span class="attribute">encoding</span>=<span class="string">"gbk"</span>)</span><br><span class="line">    groups = df.groupby(<span class="string">"城市"</span>)</span><br><span class="line">    error_group = pd.DataFrame(columns=[<span class="string">"任务号码"</span>,<span class="string">"任务gps 纬度"</span>,<span class="string">"任务gps经度"</span>,<span class="string">"任务标价"</span>,<span class="string">"任务执行情况"</span>,<span class="string">"详细地址"</span>,<span class="string">"城市"</span>])</span><br><span class="line">    true_group = pd.DataFrame(columns=[<span class="string">"任务号码"</span>,<span class="string">"任务gps 纬度"</span>,<span class="string">"任务gps经度"</span>,<span class="string">"任务标价"</span>,<span class="string">"任务执行情况"</span>,<span class="string">"详细地址"</span>,<span class="string">"城市"</span>])</span><br><span class="line">    <span class="keyword">for</span> city,<span class="built_in"> group </span><span class="keyword">in</span> groups:</span><br><span class="line">        <span class="keyword">if</span> city <span class="keyword">not</span> <span class="keyword">in</span> [<span class="string">"佛山市"</span>,<span class="string">"广州市"</span>,<span class="string">"深圳市"</span>,<span class="string">"东莞市"</span>]:</span><br><span class="line">            error_group = pd.concat([error_group, group])</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            true_group = pd.concat([true_group, group])</span><br><span class="line">    error_group.to_csv(error_file, <span class="attribute">index</span>=<span class="literal">False</span>)</span><br><span class="line">    true_group.to_csv(true_file, <span class="attribute">index</span>=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def delete_data2(data_path, error_file, true_file):</span><br><span class="line">    df = pd.read_csv(data_path)</span><br><span class="line">    groups = df.groupby(<span class="string">"城市"</span>)</span><br><span class="line">    error_group = pd.DataFrame(columns=[<span class="string">"会员编号"</span>,<span class="string">"会员位置(GPS)"</span>,<span class="string">"预订任务限额"</span>,<span class="string">"预订任务开始时间"</span>,<span class="string">"信誉值"</span>,<span class="string">"会员gps经度"</span>,<span class="string">"会员gps纬度"</span>,<span class="string">"详细地址"</span>,<span class="string">"城市"</span>])</span><br><span class="line">    true_group = pd.DataFrame(columns=[<span class="string">"会员编号"</span>,<span class="string">"会员位置(GPS)"</span>,<span class="string">"预订任务限额"</span>,<span class="string">"预订任务开始时间"</span>,<span class="string">"信誉值"</span>,<span class="string">"会员gps经度"</span>,<span class="string">"会员gps纬度"</span>,<span class="string">"详细地址"</span>,<span class="string">"城市"</span>])</span><br><span class="line">    <span class="keyword">for</span> city,<span class="built_in"> group </span><span class="keyword">in</span> groups:</span><br><span class="line">        <span class="keyword">if</span> city <span class="keyword">not</span> <span class="keyword">in</span> [<span class="string">"佛山市"</span>,<span class="string">"广州市"</span>,<span class="string">"深圳市"</span>,<span class="string">"东莞市"</span>]:</span><br><span class="line">            error_group = pd.concat([error_group, group])</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            true_group = pd.concat([true_group, group])</span><br><span class="line">    error_group.to_csv(error_file, <span class="attribute">index</span>=<span class="literal">False</span>)</span><br><span class="line">    true_group.to_csv(true_file, <span class="attribute">index</span>=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># delete_data1(data_path4, parent_path+"/newdata/error_data1.csv", parent_path+"/newdata/true_data1.csv")</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def append_length(file_path, jing_value2, wei_value2, file_name, encoding):</span><br><span class="line">    df1 = pd.read_csv(file_path, <span class="attribute">encoding</span>=encoding)</span><br><span class="line">    length = []</span><br><span class="line">    <span class="keyword">for</span> index1, each_data1 <span class="keyword">in</span> df1.iterrows():</span><br><span class="line">        jing_value1 = each_data1[<span class="string">"任务gps经度"</span>]</span><br><span class="line">        wei_value1 = each_data1[<span class="string">"任务gps 纬度"</span>]</span><br><span class="line">        distance = int(6371 * np.arccos(np.sin(wei_value1)*np.sin(wei_value2)+np.cos(wei_value1)*np.cos(wei_value2)*np.cos(jing_value1-jing_value2)))</span><br><span class="line">        length.append(distance)</span><br><span class="line">    df1[<span class="string">"与中心距离"</span>] = length</span><br><span class="line">    df1.to_csv(file_name, <span class="attribute">index</span>=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># append_length(parent_path + "/newdata/cleaneddata/data1_gz.csv", 113.27, 23.13, parent_path + "/newdata/cleaneddata/final_data1_gz.csv", "gbk")</span></span><br><span class="line"><span class="comment"># append_length(parent_path + "/newdata/cleaneddata/data1_fs.csv", 113.12, 23.02, parent_path + "/newdata/cleaneddata/final_data1_fs.csv", "gbk")</span></span><br><span class="line"><span class="comment"># append_length(parent_path + "/newdata/cleaneddata/data1_dg.csv", 113.75, 23.05, parent_path + "/newdata/cleaneddata/final_data1_dg.csv", "gbk")</span></span><br><span class="line"><span class="comment"># append_length(parent_path + "/newdata/cleaneddata/data1_sz.csv", 114.05, 22.55, parent_path + "/newdata/cleaneddata/final_data1_sz.csv", "gbk")</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def split_data(file_path, file1, file2, file3,file4, encoding):</span><br><span class="line">    df = pd.read_csv(file_path, <span class="attribute">encoding</span>=encoding)</span><br><span class="line">    groups = df.groupby(<span class="string">"城市"</span>)</span><br><span class="line">    <span class="keyword">for</span> city,<span class="built_in"> group </span><span class="keyword">in</span> groups:</span><br><span class="line">        <span class="keyword">if</span> city == <span class="string">"广州市"</span>:</span><br><span class="line">            group.to_csv(file1, <span class="attribute">index</span>=<span class="literal">False</span>)</span><br><span class="line">        <span class="keyword">if</span> city == <span class="string">"佛山市"</span>:</span><br><span class="line">            group.to_csv(file2, <span class="attribute">index</span>=<span class="literal">False</span>)</span><br><span class="line">        <span class="keyword">if</span> city == <span class="string">"深圳市"</span>:</span><br><span class="line">            group.to_csv(file3, <span class="attribute">index</span>=<span class="literal">False</span>)</span><br><span class="line">        <span class="keyword">if</span> city == <span class="string">"东莞市"</span>:</span><br><span class="line">            group.to_csv(file4, <span class="attribute">index</span>=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#split_data(data_path6, parent_path + "/newdata/cleaneddata/data1_gz.csv", parent_path + "/newdata/cleaneddata/data1_fs.csv", parent_path + "/newdata/cleaneddata/data1_sz.csv", parent_path + "/newdata/cleaneddata/data1_dg.csv", "gbk")</span></span><br><span class="line"><span class="comment">#split_data(data_path7, parent_path + "/newdata/cleaneddata/data2_gz.csv", parent_path + "/newdata/cleaneddata/data2_fs.csv", parent_path + "/newdata/cleaneddata/data2_sz.csv",  parent_path + "/newdata/cleaneddata/data2_dg.csv", "utf-8")</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def concat_data_tool(file_path1, file_path2):</span><br><span class="line">    df1 = pd.read_csv(file_path1, <span class="attribute">encoding</span>=<span class="string">"gbk"</span>)</span><br><span class="line">    df2 = pd.read_csv(file_path2, <span class="attribute">encoding</span>=<span class="string">"utf-8"</span>)</span><br><span class="line">    concat_data = []</span><br><span class="line">    <span class="keyword">for</span> index1, each_data1 <span class="keyword">in</span> df1.iterrows():</span><br><span class="line">        jing_value1 = each_data1[<span class="string">"任务gps经度"</span>]</span><br><span class="line">        wei_value1 = each_data1[<span class="string">"任务gps 纬度"</span>]</span><br><span class="line">        d_data = []</span><br><span class="line">        <span class="keyword">for</span> index2, each_data2 <span class="keyword">in</span> df2.iterrows():</span><br><span class="line">            jing_value2 = each_data2[<span class="string">"会员gps经度"</span>]</span><br><span class="line">            wei_value2 = each_data2[<span class="string">"会员gps纬度"</span>]</span><br><span class="line">            distance = int(6371 * np.arccos(np.sin(wei_value1)*np.sin(wei_value2)+np.cos(wei_value1)*np.cos(wei_value2)*np.cos(jing_value1-jing_value2)))</span><br><span class="line">            <span class="keyword">if</span> distance &lt; 500:</span><br><span class="line">                d_data.append(index2)</span><br><span class="line">        concat_data.append(d_data)</span><br><span class="line">    return concat_data</span><br><span class="line"></span><br><span class="line">def concat_data(data_path1, data_path2, data_list, file_name):</span><br><span class="line">    df1 = pd.read_csv(data_path1, <span class="attribute">encoding</span>=<span class="string">"gbk"</span>)</span><br><span class="line">    df2 = pd.read_csv(data_path2, <span class="attribute">encoding</span>=<span class="string">"utf-8"</span>)</span><br><span class="line">    datas = []</span><br><span class="line">    <span class="keyword">for</span> indexs <span class="keyword">in</span> data_list:</span><br><span class="line">        temp_df = df2.iloc[indexs, :]</span><br><span class="line">        mean_df = np.mean(temp_df)</span><br><span class="line">        mean_df[<span class="string">"会员集中度"</span>] = len(indexs)</span><br><span class="line">        datas.append([mean_df[<span class="string">"信誉值"</span>], mean_df[<span class="string">"预订任务限额"</span>], mean_df[<span class="string">"会员集中度"</span>]])</span><br><span class="line">    concat_df = df1.join(pd.DataFrame(datas, columns=[<span class="string">"信誉值"</span>,<span class="string">"预定任务限额"</span>,<span class="string">"会员集中度"</span>]))</span><br><span class="line">    concat_df.to_csv(file_name, <span class="attribute">index</span>=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#if __name__ == "__main__":</span></span><br><span class="line"><span class="comment">#   concat_d = concat_data_tool(data_path6, data_path7)</span></span><br><span class="line"><span class="comment">#    concat_data(data_path6, data_path7, concat_d, parent_path + "/newdata/concat_data.csv")</span></span><br><span class="line"></span><br><span class="line">def split_yes_no(file_name1, file_name2):</span><br><span class="line">    df = pd.read_csv(data_path6, <span class="attribute">encoding</span>=<span class="string">"gbk"</span>)</span><br><span class="line">    <span class="keyword">for</span> status,<span class="built_in"> group </span><span class="keyword">in</span> df.groupby(<span class="string">"任务执行情况"</span>):</span><br><span class="line">        <span class="keyword">if</span> status == 0:</span><br><span class="line">            group.to_csv(file_name1, <span class="attribute">index</span>=<span class="literal">False</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            group.to_csv(file_name2, <span class="attribute">index</span>=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line">split_yes_no(parent_path+<span class="string">"/newdata/no.csv"</span>, parent_path+<span class="string">"/newdata/yes.csv"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">""</span><span class="string">"</span></span><br><span class="line"><span class="string">    data = []</span></span><br><span class="line"><span class="string">    for index2, each_data2 in df2.iterrows():</span></span><br><span class="line"><span class="string">        jing_value2 = each_data2["</span>会员gps经度<span class="string">"]</span></span><br><span class="line"><span class="string">        wei_value2 = each_data2["</span>会员gps纬度<span class="string">"]</span></span><br><span class="line"><span class="string">        R = [[],[]]</span></span><br><span class="line"><span class="string">        for index1, each_data1 in df1.iterrows():</span></span><br><span class="line"><span class="string">            jing_value1 = each_data1["</span>任务gps经度<span class="string">"]</span></span><br><span class="line"><span class="string">            wei_value1 = each_data1["</span>任务gps 纬度<span class="string">"]</span></span><br><span class="line"><span class="string">            distance = int(6371 * np.arccos(np.sin(wei_value1)*np.sin(wei_value2)+np.cos(wei_value1)*np.cos(wei_value2)*np.cos(jing_value1-jing_value2)))</span></span><br><span class="line"><span class="string">            R[0].append(each_data1["</span>任务号码<span class="string">"])</span></span><br><span class="line"><span class="string">            R[1].append(distance)</span></span><br><span class="line"><span class="string">        print(index2)</span></span><br><span class="line"><span class="string">        a = R[0]</span></span><br><span class="line"><span class="string">        b = R[1]</span></span><br><span class="line"><span class="string">        data.append([index2, a[b.index(np.min(b))], np.min(R[1]), df2.iloc[index2]["</span>预订任务限额<span class="string">"], int(df2.iloc[index2]["</span>预订任务开始时间<span class="string">"].split("</span>:<span class="string">")[0])*3600 + int(df2.iloc[index2]["</span>预订任务开始时间<span class="string">"].split("</span>:<span class="string">")[1])*60 + int(df2.iloc[index2]["</span>预订任务开始时间<span class="string">"].split("</span>:<span class="string">")[2])])        </span></span><br><span class="line"><span class="string">    print("</span>*<span class="string">"*100)</span></span><br><span class="line"><span class="string">    print(np.array(data))</span></span><br><span class="line"><span class="string">    print(len(data))</span></span><br><span class="line"><span class="string">    calc_data = pd.DataFrame(data, columns=["</span>会员编号<span class="string">", "</span>任务编号<span class="string">", "</span>两者距离<span class="string">", "</span>预定任务限额<span class="string">", "</span>预定任务时间<span class="string">"])</span></span><br><span class="line"><span class="string">    mean_data = []</span></span><br><span class="line"><span class="string">    for index, group in calc_data.groupby("</span>任务编号<span class="string">"):</span></span><br><span class="line"><span class="string">        print([index] + list(np.mean(group.iloc[:,1:])))</span></span><br><span class="line"><span class="string">        mean_data.append([index] + list(np.mean(group.iloc[:,1:])))</span></span><br><span class="line"><span class="string">    mean_df = pd.DataFrame(mean_data, columns=["</span>任务编号<span class="string">", "</span>两者距离<span class="string">", "</span>预定任务限额<span class="string">", "</span>预定任务时间<span class="string">"])</span></span><br><span class="line"><span class="string">    sort_mean_df = mean_df.sort_values(by="</span>任务编号<span class="string">", ascending=True)</span></span><br><span class="line"><span class="string">    real_data = df1.join(sort_mean_df)</span></span><br><span class="line"><span class="string">    real_data.to_csv(data_file)</span></span><br><span class="line"><span class="string">"</span><span class="string">""</span></span><br><span class="line"><span class="comment"># concat_data(parent_path + "/newdata/cleaneddata/data1_gz.csv", parent_path + "/newdata/cleaneddata/data2_gz.csv", parent_path + "/newdata/cleaneddata/data_gz.csv")</span></span><br></pre></td></tr></table></figure>
+<h3 id="附录二：数据可视化程序文件"><a href="#附录二：数据可视化程序文件" class="headerlink" title="附录二：数据可视化程序文件"></a>附录二：数据可视化程序文件</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> matplotlib.font_manager <span class="keyword">import</span> FontProperties</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib <span class="keyword">as</span> mpl</span><br><span class="line"></span><br><span class="line">mpl.rcParams[<span class="string">'font.sans-serif'</span>] = [<span class="string">'SimHei'</span>]</span><br><span class="line">mpl.rcParams[<span class="string">'axes.unicode_minus'</span>] = <span class="keyword">False</span></span><br><span class="line"></span><br><span class="line">font = FontProperties(fname=<span class="string">r"C:\windows\fonts\simsun.ttc"</span>, size=<span class="number">10</span>)</span><br><span class="line">d = os.path.dirname(__file__)</span><br><span class="line">parent_path = os.path.dirname(d)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">draw_scatter</span><span class="params">(file_path, color, marker, city, image_path)</span>:</span></span><br><span class="line">    df = pd.read_csv(file_path)</span><br><span class="line">    p = df[<span class="string">"任务标价"</span>]</span><br><span class="line">    d = df[<span class="string">"与中心距离"</span>]</span><br><span class="line">    plt.scatter(d/<span class="number">100</span>, p, s=<span class="number">10</span>, c=color, alpha=<span class="number">0.6</span>, marker=marker)</span><br><span class="line">    plt.title(<span class="string">"&#123;&#125;任务位置与定价的关系"</span>.format(city), fontproperties=font)</span><br><span class="line">    plt.xlabel(<span class="string">"Distance/x100km"</span>)</span><br><span class="line">    plt.ylabel(<span class="string">"Price"</span>)</span><br><span class="line">    plt.savefig(image_path)</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line"><span class="comment"># draw_scatter(parent_path + "/newdata/cleaneddata/final_data1_gz.csv", "red", "o", "广州市", parent_path + "/images/scatter_gz.jpg")</span></span><br><span class="line"><span class="comment"># draw_scatter(parent_path + "/newdata/cleaneddata/final_data1_sz.csv", "red", "o", "深圳市", parent_path + "/images/scatter_sz.jpg")</span></span><br><span class="line"><span class="comment"># draw_scatter(parent_path + "/newdata/cleaneddata/final_data1_fs.csv", "red", "o", "佛山市", parent_path + "/images/scatter_fs.jpg")</span></span><br><span class="line"><span class="comment"># draw_scatter(parent_path + "/newdata/cleaneddata/final_data1_dg.csv", "red", "o", "东莞市", parent_path + "/images/scatter_dg.jpg")</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_mean_price</span><span class="params">(file_path)</span>:</span></span><br><span class="line">    df = pd.read_csv(file_path)</span><br><span class="line">    p = df[<span class="string">"任务标价"</span>]</span><br><span class="line">    mean_price = np.mean(p)</span><br><span class="line">    <span class="keyword">return</span> mean_price</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">draw_price_</span><span class="params">(file_path, column, color, marker, title, xlabel, image_path)</span>:</span></span><br><span class="line">    df = pd.read_csv(file_path)</span><br><span class="line">    p = df[<span class="string">"任务标价"</span>]</span><br><span class="line">    d = df[column]</span><br><span class="line">    plt.scatter(d/<span class="number">100</span>, p, s=<span class="number">10</span>, c=color, alpha=<span class="number">0.6</span>, marker=marker)</span><br><span class="line">    plt.title(<span class="string">"&#123;&#125;与定价的关系"</span>.format(title), fontproperties=font)</span><br><span class="line">    plt.xlabel(xlabel)</span><br><span class="line">    plt.ylabel(<span class="string">"Price"</span>)</span><br><span class="line">    plt.savefig(image_path)</span><br><span class="line">    plt.show()  </span><br><span class="line"></span><br><span class="line"><span class="comment"># draw_price_(parent_path + "/newdata/concat_data.csv", "信誉值", "red", "*", "信誉值", "Credibility", parent_path + "/images/credit_price.jpg")</span></span><br><span class="line"><span class="comment"># draw_price_(parent_path + "/newdata/concat_data.csv", "预定任务限额", "red", "*", "预定任务限额", "Num", parent_path + "/images/num_price.jpg")</span></span><br><span class="line"><span class="comment"># draw_price_(parent_path + "/newdata/concat_data.csv", "会员集中度", "red", "*", "会员集中度", "Density", parent_path + "/images/density_price.jpg")</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">draw_no_scatter</span><span class="params">()</span>:</span></span><br><span class="line">    df = pd.read_csv(parent_path + <span class="string">"/newdata/no.csv"</span>)</span><br><span class="line">    plt.scatter(np.arange(<span class="number">313</span>), df[<span class="string">"任务标价"</span>], s=<span class="number">20</span>, c=<span class="string">"red"</span>, alpha=<span class="number">0.6</span>, marker=<span class="string">"*"</span>)</span><br><span class="line">    plt.title(<span class="string">"任务未完成数据的价格分布"</span>)</span><br><span class="line">    plt.xlabel(<span class="string">"Mission"</span>)</span><br><span class="line">    plt.ylabel(<span class="string">"Price"</span>)</span><br><span class="line">    plt.savefig(parent_path + <span class="string">"/images/no_price.jpg"</span>)</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line"><span class="comment"># draw_no_price()</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">draw_no_bar</span><span class="params">()</span>:</span></span><br><span class="line">    df = pd.read_csv(parent_path + <span class="string">"/newdata/no.csv"</span>)</span><br><span class="line">    df1 = df[(<span class="number">65</span> &lt;= df[<span class="string">"任务标价"</span>]) &amp; (df[<span class="string">"任务标价"</span>] &lt; <span class="number">70</span>)]</span><br><span class="line">    df2 = df[(<span class="number">70</span> &lt;= df[<span class="string">"任务标价"</span>]) &amp; (df[<span class="string">"任务标价"</span>] &lt; <span class="number">75</span>)]</span><br><span class="line">    df3 = df[(<span class="number">75</span> &lt;= df[<span class="string">"任务标价"</span>]) &amp; (df[<span class="string">"任务标价"</span>] &lt; <span class="number">80</span>)]</span><br><span class="line">    df4 = df[(<span class="number">80</span> &lt;= df[<span class="string">"任务标价"</span>]) &amp; (df[<span class="string">"任务标价"</span>] &lt; <span class="number">85</span>)]</span><br><span class="line">    data_len = [len(df1), len(df2), len(df3), len(df4)]</span><br><span class="line">    plt.barh(np.arange(<span class="number">4</span>), data_len, height=<span class="number">0.6</span>, alpha=<span class="number">0.7</span>, color=<span class="string">"yellowgreen"</span>)</span><br><span class="line">    plt.ylabel(<span class="string">"Price Region"</span>)</span><br><span class="line">    plt.xlabel(<span class="string">"Num"</span>)</span><br><span class="line">    plt.title(<span class="string">"未完成价格条形图"</span>)</span><br><span class="line">    plt.yticks(np.arange(<span class="number">4</span>), [<span class="string">"65-69"</span>, <span class="string">"70-74"</span>, <span class="string">"75-79"</span>, <span class="string">"80-85"</span>], rotation=<span class="number">45</span>, size=<span class="number">13</span>)</span><br><span class="line">    <span class="keyword">for</span> x, value <span class="keyword">in</span> enumerate(data_len):</span><br><span class="line">        plt.text(y=x, x=value, s=<span class="string">"&#123;&#125;"</span>.format(value), ha=<span class="string">"center"</span>)</span><br><span class="line">    plt.savefig(parent_path+<span class="string">"/images/price_bar.jpg"</span>)</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line"><span class="comment"># draw_no_bar()</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">draw_no_pie</span><span class="params">()</span>:</span></span><br><span class="line">    df = pd.read_csv(parent_path + <span class="string">"/newdata/no.csv"</span>)</span><br><span class="line">    df1 = df[(<span class="number">65</span> &lt;= df[<span class="string">"任务标价"</span>]) &amp; (df[<span class="string">"任务标价"</span>] &lt; <span class="number">70</span>)]</span><br><span class="line">    df2 = df[(<span class="number">70</span> &lt;= df[<span class="string">"任务标价"</span>]) &amp; (df[<span class="string">"任务标价"</span>] &lt; <span class="number">75</span>)]</span><br><span class="line">    df3 = df[(<span class="number">75</span> &lt;= df[<span class="string">"任务标价"</span>]) &amp; (df[<span class="string">"任务标价"</span>] &lt; <span class="number">80</span>)]</span><br><span class="line">    df4 = df[(<span class="number">80</span> &lt;= df[<span class="string">"任务标价"</span>]) &amp; (df[<span class="string">"任务标价"</span>] &lt; <span class="number">85</span>)]</span><br><span class="line">    data_len = [len(df1), len(df2), len(df3), len(df4)]</span><br><span class="line">    plt.pie(x=data_len, labels=[<span class="string">"65-69"</span>, <span class="string">"70-74"</span>, <span class="string">"75-79"</span>, <span class="string">"80-85"</span>], autopct=<span class="string">"%.0f%%"</span>, shadow=<span class="keyword">True</span>, radius=<span class="number">1.2</span>)</span><br><span class="line">    plt.legend([<span class="string">"65-69"</span>, <span class="string">"70-74"</span>, <span class="string">"75-79"</span>, <span class="string">"80-85"</span>], loc=<span class="string">"best"</span>)</span><br><span class="line">    plt.title(<span class="string">"未完成价格饼图"</span>)</span><br><span class="line">    plt.savefig(parent_path+<span class="string">"/images/price_pie.jpg"</span>)</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line"><span class="comment"># draw_no_pie()</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">draw_xin_xian</span><span class="params">(column)</span>:</span></span><br><span class="line">    df = pd.read_csv(parent_path + <span class="string">"/newdata/true_data2.csv"</span>)</span><br><span class="line">    column_data = sorted(df[column])</span><br><span class="line">    numbers = len(column_data) </span><br><span class="line">    plt.plot(range(numbers), column_data)</span><br><span class="line">    <span class="comment"># plt.bar(range(numbers), column_data)</span></span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line">draw_xin_xian(<span class="string">"信誉值"</span>)    </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">if __name__ == "__main__":</span></span><br><span class="line"><span class="string">    files = [parent_path + "/newdata/cleaneddata/final_data1_sz.csv", parent_path + "/newdata/cleaneddata/final_data1_gz.csv", parent_path + "/newdata/cleaneddata/final_data1_fs.csv", parent_path + "/newdata/cleaneddata/final_data1_dg.csv"]</span></span><br><span class="line"><span class="string">    price_ls = [get_mean_price(each_file) for each_file in files]    </span></span><br><span class="line"><span class="string">    plt.barh(np.arange(4), price_ls, height=0.7, color="lightskyblue")</span></span><br><span class="line"><span class="string">    plt.xlabel("Price")</span></span><br><span class="line"><span class="string">    plt.ylabel("Cities")</span></span><br><span class="line"><span class="string">    plt.title("城市与任务定价的关系", fontproperties=font)</span></span><br><span class="line"><span class="string">    plt.yticks(np.arange(4), ["深圳", "广州", "佛山", "东莞"], rotation=45, size=8)</span></span><br><span class="line"><span class="string">    for x, value in enumerate(price_ls):</span></span><br><span class="line"><span class="string">        plt.text(y=x, x=value, s="&#123;&#125;".format(value), ha="center", )</span></span><br><span class="line"><span class="string">    plt.savefig(parent_path + "/images/city_price.jpg")</span></span><br><span class="line"><span class="string">    plt.show()</span></span><br><span class="line"><span class="string">"""</span></span><br></pre></td></tr></table></figure>
+<h3 id="附录三：任务-会员分配模型处理文件"><a href="#附录三：任务-会员分配模型处理文件" class="headerlink" title="附录三：任务-会员分配模型处理文件"></a>附录三：任务-会员分配模型处理文件</h3><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">[a, b] = <span class="built_in">size</span>(data1_dg_jing);</span><br><span class="line">[c, d] = <span class="built_in">size</span>(data2_dg_jing);</span><br><span class="line">mt_data = <span class="built_in">zeros</span>(a,c);</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>:a</span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">1</span>:c</span><br><span class="line">        mt_data(<span class="built_in">i</span>,<span class="built_in">j</span>) = <span class="number">6371</span>*<span class="built_in">acos</span>(<span class="built_in">sin</span>(data1_dg_wei(<span class="built_in">i</span>))*<span class="built_in">sin</span>(data2_dg_wei(<span class="built_in">j</span>))+<span class="built_in">cos</span>(data1_dg_wei(<span class="built_in">i</span>))*<span class="built_in">cos</span>(data2_dg_wei(<span class="built_in">j</span>))*<span class="built_in">cos</span>(data1_dg_jing(<span class="built_in">i</span>)-data2_dg_jing(<span class="built_in">j</span>)));</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">normalized_data = zscore(mt_data);</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>:a</span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">1</span>:c</span><br><span class="line">        <span class="keyword">if</span> normalized_data(<span class="built_in">i</span>,<span class="built_in">j</span>) &gt; <span class="number">-1</span></span><br><span class="line">            normalized_data(<span class="built_in">i</span>,<span class="built_in">j</span>) = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">new_data = <span class="built_in">zeros</span>(a, <span class="number">3</span>);</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>:a</span><br><span class="line">    cols = <span class="built_in">find</span>(normalized_data(<span class="built_in">i</span>,:) &lt; <span class="number">0</span>);</span><br><span class="line">    mean_dg_xin = <span class="built_in">mean</span>(data2_dg_xin(cols));</span><br><span class="line">    mean_dg_xian = <span class="built_in">mean</span>(data2_dg_xian(cols));</span><br><span class="line">    [temp, dg_rho] = <span class="built_in">size</span>(cols);</span><br><span class="line">    new_data(<span class="built_in">i</span>, <span class="number">1</span>) = mean_dg_xin;</span><br><span class="line">    new_data(<span class="built_in">i</span>,<span class="number">2</span>) = mean_dg_xian;</span><br><span class="line">    new_data(<span class="built_in">i</span>,<span class="number">3</span>) = dg_rho;</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:18px;">-------------━┳━　━┳━ 本文结束<i class="fa fa-paw"></i>感谢您的阅读 ━┳━　━┳━-------------</div>
+    
+</div>
+      
+    </div>
+
+
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>版权描述:</span>创作不易，尊重作者，欢迎转载，转载请保留原文链接及作者于醒目之处。</p>
+  <p><span>本文标题:</span><a href="/2018/09/26/基于多维度空间分配算法实现APP任务定价/">基于多维度空间分配算法实现APP任务定价</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 木子 的个人博客">木子</a></p>
+  <p><span>发布时间:</span>2018年09月26日 - 23:09</p>
+  <p><span>最后更新:</span>2020年02月21日 - 11:02</p>
+  <p><span>原始链接:</span><a href="/2018/09/26/基于多维度空间分配算法实现APP任务定价/" title="基于多维度空间分配算法实现APP任务定价">https://muzimz.cn/2018/09/26/基于多维度空间分配算法实现APP任务定价/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://muzimz.cn/2018/09/26/基于多维度空间分配算法实现APP任务定价/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+
+      
+    </div>
+
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/wechatpay.png" alt="木子 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/alipay.png" alt="木子 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/随写/" rel="tag"><i class="fa fa-tag"></i> 随写</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/26/本站须知/" rel="next" title="本站须知">
+                <i class="fa fa-chevron-left"></i> 本站须知
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/28/Kali基本操作/" rel="prev" title="Kali基本操作">
+                Kali基本操作 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!--MOB SHARE BEGIN-->
+<div class="-mob-share-ui-button -mob-share-open">分享</div>
+<div class="-mob-share-ui" -mob-share-ui-theme="" -mob-share-ui-theme-slide-bottom="" style="display: none">
+<ul class="-mob-share-list">
+    <li class="-mob-share-weixin"><p>微信</p></li>
+    <li class="-mob-share-qzone"><p>QQ空间</p></li>
+    <li class="-mob-share-weibo"><p>新浪微博</p></li>
+    <li class="-mob-share-facebook"><p>Facebook</p></li>
+    <li class="-mob-share-twitter"><p>Twitter</p></li>
+    <li class="-mob-share-pocket"><p>Pocket</p></li>
+    <li class="-mob-share-tumblr"><p>Tumblr</p></li>
+    <li class="-mob-share-google"><p>Google+</p></li>
+    <li class="-mob-share-linkedin"><p>Linkedin</p></li>
+    <li class="-mob-share-qq"><p>QQ好友</p></li>
+    <li class="-mob-share-tencentweibo"><p>腾讯微博</p></li>
+    <li class="-mob-share-renren"><p>人人网</p></li>
+    <li class="-mob-share-douban"><p>豆瓣</p></li>
+    <li class="-mob-share-youdao"><p>有道云笔记</p></li>
+    <li class="-mob-share-instapaper"><p>Instapaper</p></li>
+</ul>
+<div class="-mob-share-close">取消</div>
+</div>
+<div class="-mob-share-ui-bg"></div>
+<script id="-mob-share" src="http://f1.webshare.mob.com/code/mob-share.js?appkey="></script>
+<!--MOB SHARE END-->
+      
+    </div>
+    
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+   <div id="gitalk-container"></div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/uploads/head.png" alt="木子">
+            
+              <p class="site-author-name" itemprop="name">木子</p>
+              <p class="site-description motion-element" itemprop="description">Jack of all trades and master of none.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/JackLXJ" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:26647879@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://wpa.qq.com/msgrd?v=3&uin=26647879&site=qq&menu=yes" target="_blank" title="QQ">
+                      
+                        <i class="fa fa-fw fa-qq"></i>QQ</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://y.qq.com/portal/profile.html#stat=y_new.top.user_pic" target="_blank" title="music">
+                      
+                        <i class="fa fa-fw fa-music"></i>music</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、问题重述"><span class="nav-number">2.</span> <span class="nav-text">**一、问题重述**</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-问题引言"><span class="nav-number">2.1.</span> <span class="nav-text">1.1 问题引言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-题目数据及信息说明"><span class="nav-number">2.2.</span> <span class="nav-text">1.2 题目数据及信息说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-提出问题"><span class="nav-number">2.3.</span> <span class="nav-text">1.3 提出问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、问题分析"><span class="nav-number">3.</span> <span class="nav-text">**二、问题分析**</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-问题的总体分析及思维导图"><span class="nav-number">3.1.</span> <span class="nav-text">2.1 问题的总体分析及思维导图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-问题的具体分析"><span class="nav-number">3.2.</span> <span class="nav-text">2.2 问题的具体分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-1-问题一"><span class="nav-number">3.2.1.</span> <span class="nav-text">2.2.1 问题一</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-2-问题二"><span class="nav-number">3.2.2.</span> <span class="nav-text">2.2.2 问题二</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-3-问题三"><span class="nav-number">3.2.3.</span> <span class="nav-text">2.2.3 问题三</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-4-问题四"><span class="nav-number">3.2.4.</span> <span class="nav-text">2.2.4 问题四</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、模型假设"><span class="nav-number">4.</span> <span class="nav-text">**三、模型假设**</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、符号说明"><span class="nav-number">5.</span> <span class="nav-text">**四、符号说明**</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、模型的建立与求解"><span class="nav-number">6.</span> <span class="nav-text">**五、模型的建立与求解**</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-任务定价规律及未完成分析——问题一"><span class="nav-number">6.1.</span> <span class="nav-text">5.1 任务定价规律及未完成分析——问题一</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-1-任务定价规律分析"><span class="nav-number">6.1.1.</span> <span class="nav-text">5.1.1 任务定价规律分析</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#5-1-1-1-数据的整体定位"><span class="nav-number">6.1.1.1.</span> <span class="nav-text">5.1.1.1 数据的整体定位</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-1-1-2-数据的预处理"><span class="nav-number">6.1.1.2.</span> <span class="nav-text">5.1.1.2 数据的预处理</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#5-1-1-2-1-附件一数据的预处理"><span class="nav-number">6.1.1.2.1.</span> <span class="nav-text">5.1.1.2.1 附件一数据的预处理</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#5-1-1-2-2-附件二数据的预处理"><span class="nav-number">6.1.1.2.2.</span> <span class="nav-text">5.1.1.2.2 附件二数据的预处理</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#5-1-1-2-3-数据异常值的处理"><span class="nav-number">6.1.1.2.3.</span> <span class="nav-text">5.1.1.2.3 数据异常值的处理</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#5-1-1-2-4-数据的整合"><span class="nav-number">6.1.1.2.4.</span> <span class="nav-text">5.1.1.2.4 数据的整合</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-1-1-3-定价规律可视化及分析"><span class="nav-number">6.1.1.3.</span> <span class="nav-text">5.1.1.3 定价规律可视化及分析</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#5-1-1-3-1-任务的地点位置对定价的影响分析"><span class="nav-number">6.1.1.3.1.</span> <span class="nav-text">5.1.1.3.1 任务的地点位置对定价的影响分析</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#5-1-1-3-2-任务发布地的经济状况"><span class="nav-number">6.1.1.3.2.</span> <span class="nav-text">5.1.1.3.2 任务发布地的经济状况</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#5-1-1-3-3-会员所在地的集中程度"><span class="nav-number">6.1.1.3.3.</span> <span class="nav-text">5.1.1.3.3 会员所在地的集中程度</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-1-2-3-任务发布位置较远"><span class="nav-number">6.1.1.4.</span> <span class="nav-text">5.1.2.3 任务发布位置较远</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-3-问题一总结"><span class="nav-number">6.1.2.</span> <span class="nav-text">5.1.3 问题一总结</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-多维度定价方案对项目的效益——问题二"><span class="nav-number">6.2.</span> <span class="nav-text">5.2 多维度定价方案对项目的效益——问题二</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-1-模型构建"><span class="nav-number">6.2.1.</span> <span class="nav-text">5.2.1 模型构建</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#5-2-2-1-任务-会员空间分配"><span class="nav-number">6.2.1.1.</span> <span class="nav-text">5.2.2.1 任务-会员空间分配</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-2-2-2-多维度空间任务定价模型"><span class="nav-number">6.2.1.2.</span> <span class="nav-text">5.2.2.2 多维度空间任务定价模型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-2-2-3-会员抉择概率模型"><span class="nav-number">6.2.1.3.</span> <span class="nav-text">5.2.2.3 会员抉择概率模型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-2-2-4-项目总收益模型"><span class="nav-number">6.2.1.4.</span> <span class="nav-text">5.2.2.4 项目总收益模型</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-2-模型求解"><span class="nav-number">6.2.2.</span> <span class="nav-text">5.2.2 模型求解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-3-模型求解分析与问题总结"><span class="nav-number">6.2.3.</span> <span class="nav-text">5.2.3 模型求解分析与问题总结</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-基于打包方案的优化——问题三"><span class="nav-number">6.3.</span> <span class="nav-text">5.3 基于打包方案的优化——问题三</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-1-基于打包方案的优化模型建立及求解"><span class="nav-number">6.3.1.</span> <span class="nav-text">5.3.1 基于打包方案的优化模型建立及求解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-2-问题总结及分析"><span class="nav-number">6.3.2.</span> <span class="nav-text">5.3.2 问题总结及分析</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-4-问题四"><span class="nav-number">6.4.</span> <span class="nav-text">5.4 问题四</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、模型的改进"><span class="nav-number">7.</span> <span class="nav-text">**六、模型的改进**</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、模型评价及推广"><span class="nav-number">8.</span> <span class="nav-text">**六、模型评价及推广**</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文献"><span class="nav-number">9.</span> <span class="nav-text">**参考文献**</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附录"><span class="nav-number">10.</span> <span class="nav-text">**附录**</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#附录一：数据处理程序文件"><span class="nav-number">10.1.</span> <span class="nav-text">附录一：数据处理程序文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#附录二：数据可视化程序文件"><span class="nav-number">10.2.</span> <span class="nav-text">附录二：数据可视化程序文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#附录三：任务-会员分配模型处理文件"><span class="nav-number">10.3.</span> <span class="nav-text">附录三：任务-会员分配模型处理文件</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      <div align="center"><a href="http://www.amazingcounters.com"><img border="0" src="http://cc.amazingcounters.com/counter.php?i=3229922&c=9690079" alt="AmazingCounters.com"></a></div>
+
+
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">木子</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">97.9k</span>
+  
+</div>
+
+
+  <div class="powered-by">
+    <i class="fa fa-user-md"></i>
+
+    <span id="busuanzi_container_site_uv">
+      The site's UV:<span id="busuanzi_value_site_uv"></span>
+    </span>
+
+    <span id="busuanzi_container_site_pv">
+      The site's PV:<span id="busuanzi_value_site_pv"></span>
+    </span>
+  </div>
+
+ 
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">本站共97.9k字</span>
+</div>
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+  <script src="/js/src/md5.min.js"></script>
+
+  <script type="text/javascript">
+    var gitalk = new Gitalk({
+      clientID: 'a22cf34e389580514647',
+      clientSecret: '4fb159dd5362d7a3c4c98d565abcad8d53014004',
+      repo: 'JackLXJ.github.io',
+      owner: 'JackLXJ',
+      admin: ['JackLXJ'],
+      id: md5(location.pathname),
+      distractionFreeMode: 'true'
+    })
+    gitalk.render('gitalk-container')
+  </script>
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+
+
+  <link rel="stylesheet" href="/dist/APlayer.min.css">
+  <div id="aplayer"></div>
+  <script type="text/javascript" src="/dist/APlayer.min.js"></script>
+  <script type="text/javascript" src="/dist/music.js"></script>
+  
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+
+<!--崩溃欺骗-->
+<!-- <script type="text/javascript" src="/js/src/crash_cheat.js"></script> -->

@@ -1,0 +1,1576 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/
+pace-theme-flash.css" rel="stylesheet">
+
+
+
+<meta name="theme-color" content="#222">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "86c69b95"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/uploads/head.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/uploads/head.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/uploads/head.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Java,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="木子" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="前言Elasticsearch是什么？既然它是英文的，我们不妨借助有道从Elasticsearch这几个字母出发来看看其字面上所表达的意思吧。其分为elastic和search两个独立的单词，既然如此，我们无脑有道一波，得到的解释如下：从有道的解释来看，我们可以简单的对其理解为：Elasticsearch是及其具有弹性的、灵活的、像松紧带一样的且可供搜寻检索的一款工具。o(*≧▽≦)ツ┏━┓ 百度">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ElasticSearch、kibana、logstash">
+<meta property="og:url" content="https://muzimz.cn/2020/01/10/ElasticSearch、kibana、logstash/index.html">
+<meta property="og:site_name" content="木子">
+<meta property="og:description" content="前言Elasticsearch是什么？既然它是英文的，我们不妨借助有道从Elasticsearch这几个字母出发来看看其字面上所表达的意思吧。其分为elastic和search两个独立的单词，既然如此，我们无脑有道一波，得到的解释如下：从有道的解释来看，我们可以简单的对其理解为：Elasticsearch是及其具有弹性的、灵活的、像松紧带一样的且可供搜寻检索的一款工具。o(*≧▽≦)ツ┏━┓ 百度">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=21287732,2992447167&fm=26&gp=0.jpg">
+<meta property="og:image" content="http://img4.mukewang.com/5afc1f4800018b1205000265.jpg">
+<meta property="og:updated_time" content="2020-02-21T03:29:40.366Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ElasticSearch、kibana、logstash">
+<meta name="twitter:description" content="前言Elasticsearch是什么？既然它是英文的，我们不妨借助有道从Elasticsearch这几个字母出发来看看其字面上所表达的意思吧。其分为elastic和search两个独立的单词，既然如此，我们无脑有道一波，得到的解释如下：从有道的解释来看，我们可以简单的对其理解为：Elasticsearch是及其具有弹性的、灵活的、像松紧带一样的且可供搜寻检索的一款工具。o(*≧▽≦)ツ┏━┓ 百度">
+<meta name="twitter:image" content="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=21287732,2992447167&fm=26&gp=0.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://muzimz.cn/2020/01/10/ElasticSearch、kibana、logstash/">
+
+
+
+
+
+<script>
+    
+    window.onload = function(){
+        var path = 'https://muzimz.cn'; //这里要改成你博客的地址
+        var localhostItem = String(window.location).split(path)[1];
+        var LiNode = document.querySelectorAll('#menu > li > a')
+        
+        for(var i = 0; i< LiNode.length;i++){
+            var item = String(LiNode[i].href).split(path)[1];
+            if(item == localhostItem && item != undefined){
+                LiNode[i].setAttribute('style','border-bottom:1px solid black');
+            }
+        }
+    };
+
+</script>
+  <title>ElasticSearch、kibana、logstash | 木子</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/JackLXJ" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">木子</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+            
+            日程表
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://muzimz.cn/2020/01/10/ElasticSearch、kibana、logstash/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="木子">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/head.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="木子">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ElasticSearch、kibana、logstash</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-10T23:20:51+08:00">
+                2020-01-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  4.9k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  20
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Elasticsearch是什么？既然它是英文的，我们不妨借助有道从<code>Elasticsearch</code>这几个字母出发来看看其字面上所表达的意思吧。其分为elastic和search两个独立的单词，既然如此，我们无脑有道一波，得到的解释如下：<br>从有道的解释来看，我们可以简单的对其理解为：<font color="red">Elasticsearch是及其具有弹性的、灵活的、像松紧带一样的且可供搜寻检索的一款工具。</font>o(*≧▽≦)ツ┏━┓</p>
+<p>百度百科对其解释如下：</p>
+<blockquote>
+<p>ElasticSearch是一个基于Lucene的搜索服务器。它提供了一个分布式多用户能力的全文搜索引擎，基于RESTful web接口。Elasticsearch是用Java语言开发的，并作为Apache许可条款下的开放源码发布，是一种流行的企业级搜索引擎。ElasticSearch用于云计算中，能够达到实时搜索，稳定，可靠，快速，安装使用方便。官方客户端在Java、.NET（C#）、PHP、Python、Apache、Groovy、Ruby和许多其他语言中都是可用的。根据DB-Engines的排名显示，Elasticsearch是最受欢迎的企业搜索引擎，其次是Apache Solr，也是基于Lucene。</p>
+</blockquote>
+<p>从如上信息我们可以得知，Elasticsearch是一款实时、分布式存储的搜索引擎，在实际开发过程中，我们常常会把数据放在Elasticsearch搜索引擎中，然后从引擎中去实际需要的数据。而且在实际搜索过程中，我们也会有许多的Api支持来对数据进行检索，比如排序、条件查询等，其中在Elasticsearch中最为强大之处就是他的模糊检索功能。讲到这，可能有些Mysql经验但没接触过Elasticsearch的朋友可能会有个疑问，Mysql大法不是无敌么，其中的<code>like</code>语句不能模糊查询么？<code>where and</code>不能条件检索么？<code>orderby</code>不能对数据进行排序么？我随随便便就信手拈来一个Sql语句不就能实现业务的需求么：</p>
+<center><img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=21287732,2992447167&fm=26&gp=0.jpg"></center>
+
+<a id="more"></a>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> department_name, <span class="built_in">count</span>(*) 员工个数</span><br><span class="line"><span class="keyword">from</span> departments d, employees <span class="built_in">e</span></span><br><span class="line"><span class="keyword">where</span> d.department_id = <span class="built_in">e</span>.department_id</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> d.department_id</span><br><span class="line"><span class="keyword">having</span> <span class="built_in">count</span>(*)&gt;<span class="number">5</span></span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> <span class="built_in">count</span>(*) <span class="keyword">desc</span>;</span><br></pre></td></tr></table></figure>
+<p>是这样没错，以上SQL代码的确能够实现实际需求，但是当我们的业务逐渐变得复杂、庞大，我们的用户量越来越多，我们就不得不站在用户的角度来想想了。试想一下，假设哪些淘宝er每天打开淘宝搜索自己想要的数据时都要等个几十秒，那会是怎样的一种画面。又比如，在打开我们常见文件来检索我们需要数据的时候，比如txt、word、excel，我们一般都能迅速打开，那是因为这些文件占用实际空间都太小，这些文件大多就几kb，假设我们打开一个以G为单位的日志文件，此时的系统还能像以往那样正常么？换言之，Elasticsearch采用的是索引搜索，能够具有强大的搜索能力，能够达到实时搜索，稳定，可靠，快速，安装的效用。</p>
+<p>另外，Elasticsearch在处理日志的过程中，其常常与数据收集和日志解析引擎Logstash以及名为Kibana的分析和可视化平台配合使用，也就是常说的<code>ELK</code>系统。文本将主要介绍以下几个方面的内容</p>
+<ul>
+<li>基于Docker容器来搭建ELK系统</li>
+<li>Elasticsearch集群的搭建</li>
+<li>在Elasticsearch中引入IK分词器插件</li>
+<li>重点讲解基于<code>SpringData Es</code>来对Elasticsearch进行操作</li>
+<li>最后基于本小程序中数据库中的数据来熟练操作Elasticsearch</li>
+</ul>
+<h2 id="ELK系统的搭建"><a href="#ELK系统的搭建" class="headerlink" title="ELK系统的搭建"></a>ELK系统的搭建</h2><blockquote>
+<p>Elasticsearch是实时全文搜索和分析引擎，提供搜集、分析、存储数据三大功能；是一套开放REST和JAVA API等结构提供高效搜索功能，可扩展的分布式系统。它构建于Apache Lucene搜索引擎库之上。</p>
+<p>Logstash是一个用来搜集、分析、过滤日志的工具。它支持几乎任何类型的日志，包括系统日志、错误日志和自定义应用程序日志。它可以从许多来源接收日志，这些来源包括 syslog、消息传递（例如 RabbitMQ）和JMX，它能够以多种方式输出数据，包括电子邮件、websockets和Elasticsearch。<br>1<br>Kibana是一个基于Web的图形界面，用于搜索、分析和可视化存储在 Elasticsearch指标中的日志数据。它利用Elasticsearch的REST接口来检索数据，不仅允许用户创建他们自己的数据的定制仪表板视图，还允许他们以特殊的方式查询和过滤数据</p>
+</blockquote>
+<center><img src="http://img4.mukewang.com/5afc1f4800018b1205000265.jpg"></center>
+<center>注：图片来源网络</center>
+
+<p>总结就是Elasticsearch用于搜索，Kibana用于可视化，Logstash用于搜集。下面我们来基于Docker来搭建一下ELK系统，关于Docker的安装及基本使用，前面的文章已经有过记录了，此处不再过多的介绍。另外，值得注意的是这三者之间的版本关系，（如果使用其他版本的工具，则按照如下方式搭建可能会产生其他问题）：</p>
+<ul>
+<li>Elasticsearch:5.6.8</li>
+<li>Kibana:5.6.8</li>
+<li>Logstash:lastest</li>
+</ul>
+<h3 id="Elasticsearch的安装"><a href="#Elasticsearch的安装" class="headerlink" title="Elasticsearch的安装"></a>Elasticsearch的安装</h3><ul>
+<li><p>Docker拉取Elasticsearch镜像</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">docker</span> <span class="selector-tag">pull</span> <span class="selector-tag">elasticsearch</span><span class="selector-pseudo">:5.6.8</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在本地创建elasticsearch容器所映射的配置文件以及data目录</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在centos本地创建配置文件，并配置</span></span><br><span class="line">mkdir -p /resources/elasticsearch<span class="built_in">/config </span>       # 创建config目录</span><br><span class="line">mkdir -p /resources/elasticsearch/data             # 创建data目录</span><br><span class="line"><span class="comment"># 将http.host配置为0.0.0.0的授权对象，将配置写入config目录下的elasticsearch.yml配置文件中</span></span><br><span class="line">echo <span class="string">"http.host: 0.0.0.0"</span> &gt;&gt; /resources/elasticsearch/config/elasticsearch.yml</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建一个elasticsearch容器，并开机自运行</p>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># 创建容器并开机运行（single-node表示单节点模式，后面会介绍集群方式下elasticsearch的搭建）</span></span><br><span class="line"><span class="meta"># 注意：在docker中\表示换行</span></span><br><span class="line">docker run --name elasticsearch -p <span class="number">9200</span>:<span class="number">9200</span> \</span><br><span class="line">-e <span class="string">"discovery.type=single-node"</span> \</span><br><span class="line">-e ES_JAVA_OPTS=<span class="string">"-Xms256m -Xmx256m"</span> \</span><br><span class="line">-v /resources/elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml \</span><br><span class="line">-v /resources/elasticsearch/data:/usr/share/elasticsearch/data -d elasticsearch:<span class="number">5.6</span><span class="number">.8</span></span><br><span class="line"><span class="meta"># 参数介绍：</span></span><br><span class="line"><span class="meta"># --name：为容器起一个别名</span></span><br><span class="line"><span class="meta"># -p：将容器的运行端口映射到本地端口</span></span><br><span class="line"><span class="meta"># -e "discovery.type=single-node"：表示单节点模式下创建，后文将介绍集群模式的搭建</span></span><br><span class="line"><span class="meta"># -v：表示将容器中的配置文件和data文件映射到上文本地所创建的文件，方便后面的配置</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># 将elasticsearch容器设置为开机自启动</span></span><br><span class="line">docker update <span class="keyword">new</span>-elasticsearch --restart=always</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>这样一来，我们便安装好elasticsearch了，我们可以使用<code>curl</code>命令来测试一下：<br><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># 使用curl来访问elasticsearch的运行端口</span></span><br><span class="line">curl localhost:<span class="number">9200</span></span><br><span class="line"><span class="meta"># 运行输出结果如下则成功安装</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"name"</span> : <span class="string">"XwmNOpR"</span>,</span><br><span class="line">  <span class="string">"cluster_name"</span> : <span class="string">"elasticsearch"</span>,</span><br><span class="line">  <span class="string">"cluster_uuid"</span> : <span class="string">"yB3VNHxmQzevk1vXUQTkcg"</span>,</span><br><span class="line">  <span class="string">"version"</span> : &#123;</span><br><span class="line">    <span class="string">"number"</span> : <span class="string">"5.6.8"</span>,</span><br><span class="line">    <span class="string">"build_hash"</span> : <span class="string">"688ecce"</span>,</span><br><span class="line">    <span class="string">"build_date"</span> : <span class="string">"2018-02-16T16:46:30.010Z"</span>,</span><br><span class="line">    <span class="string">"build_snapshot"</span> : <span class="literal">false</span>,</span><br><span class="line">    <span class="string">"lucene_version"</span> : <span class="string">"6.6.1"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"tagline"</span> : <span class="string">"You Know, for Search"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>当然了，我们也可以使用浏览器来对其进行访问，访问方式为<code>http://[ip]:9200</code>，端口为虚拟机ip，同样可以得到对应的结果，另外如果使用的是阿里云或腾讯云服务器，则需要在控制台中配置相应的安全组，否则无法访问<br><img></p>
+<h3 id="安装kibana"><a href="#安装kibana" class="headerlink" title="安装kibana"></a>安装kibana</h3><ul>
+<li><p>Docker拉取Kibana镜像</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Docker拉取Kibana镜像</span></span><br><span class="line"><span class="attribute">docker</span> pull kibana:<span class="number">5</span>.<span class="number">6</span>.<span class="number">8</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建容器并设置开机自启动</p>
+<figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建容器kibana容器，对应的参数如上，另外需要指定elasticsearch的地址</span></span><br><span class="line">docker run --name kibana -e ELASTICSEARCH_URL=http://[ip]:9200 -p 5601:5601 \</span><br><span class="line">-d kibana:5.6.8</span><br><span class="line"><span class="comment"># 配置开机自启动</span></span><br><span class="line">docker update<span class="built_in"> new-kibana </span>--restart=always</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>安装完成之后，我们便可curl一下kibana的地址，或在浏览器访问<code>http://[ip]:5601</code>即可：<br><figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[root@iZm5eei156c9h3hrdjpe77Z ~]<span class="comment"># curl localhost:5601</span></span><br><span class="line">&lt;script&gt;<span class="keyword">var</span> hashRoute = <span class="string">'/app/kibana'</span>;</span><br><span class="line"><span class="keyword">var</span> defaultRoute = <span class="string">'/app/kibana'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> hash = <span class="built_in">window</span>.location.hash;</span><br><span class="line"><span class="keyword">if</span> (hash.length) &#123;</span><br><span class="line">  <span class="built_in">window</span>.location = hashRoute + hash;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="built_in">window</span>.location = defaultRoute;</span><br><span class="line">&#125;&lt;/script&gt;[root@iZm5eei156c9h3hrdjpe77Z ~]<span class="comment">#</span></span><br></pre></td></tr></table></figure></p>
+<p><img></p>
+<h3 id="安装logstash"><a href="#安装logstash" class="headerlink" title="安装logstash"></a>安装logstash</h3><ul>
+<li><p>拉取Logstash镜像</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 拉取镜像</span></span><br><span class="line"><span class="attribute">docker</span> pull logstash</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建一个配置文件，并进行input和output的配置</p>
+<figure class="highlight puppet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在/resources/logstash中创建logstash.conf文件，并使用vim来对其进行编辑</span></span><br><span class="line">mkdir /resources/logstash</span><br><span class="line"><span class="comment"># 使用vim编辑</span></span><br><span class="line">vim logstash.conf</span><br><span class="line"><span class="comment"># 配置文件内容如下，更换为自己Elasticsearch的ip即可</span></span><br><span class="line"><span class="keyword">input</span> &#123;</span><br><span class="line">    tcp &#123;</span><br><span class="line">        <span class="attr">port</span> =&gt; <span class="number">4560</span></span><br><span class="line">        <span class="attr">codec</span> =&gt; json_lines</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">output&#123;</span><br><span class="line">  <span class="keyword">elasticsearch</span> &#123; </span><br><span class="line">  <span class="attr">hosts</span> =&gt; [<span class="string">"[ip]:9200"</span>] </span><br><span class="line">  <span class="attr">index</span> =&gt; <span class="string">"applog"</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">stdout</span> &#123; <span class="attr">codec</span> =&gt; rubydebug &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建容器并开机自启动</p>
+<figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建容器，这里需要指明Elasticsearch来进行链接</span></span><br><span class="line">docker run -d -p 4560:4560 \</span><br><span class="line">-v /resources/logstash/logstash.conf:/etc/logstash.conf \</span><br><span class="line">--link elasticsearch:elasticsearch \</span><br><span class="line">--name logstash logstash \</span><br><span class="line">logstash -f /etc/logstash.conf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 开机自启动</span></span><br><span class="line">docker update<span class="built_in"> new-logstash </span>--restart=always</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>以上便是Logstash的安装过程，我们可以进入Logstash容器内来简单的使用以下</p>
+</li>
+</ul>
+<p>进入Logstash容器，并cd到bin目录<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it logstash <span class="regexp">/bin/</span>bash</span><br><span class="line">cd <span class="regexp">/usr/</span>share<span class="regexp">/logstash/</span>bin</span><br></pre></td></tr></table></figure></p>
+<p>执行logstash命令<br><figure class="highlight xl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 注意：需要这里需要指定--<span class="built_in">path</span>.<span class="keyword">data</span>参数，否则在运行的过程会出错</span><br><span class="line">logstash -e <span class="string">'input &#123; stdin &#123; &#125; &#125; output &#123; stdout &#123;&#125; &#125;'</span> --<span class="built_in">path</span>.<span class="keyword">data</span>=/root/</span><br></pre></td></tr></table></figure></p>
+<p>运行之后，我们在控制台输入hello world，即会出现以下结果<br><img src=""></p>
+<h2 id="基于Logstash对Elasticsearch索引库中数据的导入和导出"><a href="#基于Logstash对Elasticsearch索引库中数据的导入和导出" class="headerlink" title="基于Logstash对Elasticsearch索引库中数据的导入和导出"></a>基于Logstash对Elasticsearch索引库中数据的导入和导出</h2><p>应用需求：在192.168.220.201主机中的es中并没有info索引库，而192.168.220.202中的es有info索引库，此时我们可以尝试借助logstash来先将skuinfo索引库从192.168.220.202导出成一个json文件，然后将该文件借助logstash导入到192.168.220.201的es索引库中。</p>
+<h3 id="使用logstash将es数据从索引库中导出"><a href="#使用logstash将es数据从索引库中导出" class="headerlink" title="使用logstash将es数据从索引库中导出"></a>使用logstash将es数据从索引库中导出</h3><p>创建一个临时的文件夹，用于保存导出的数据以及配置文件<br><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> /resources/mydata/logstash_temp</span><br></pre></td></tr></table></figure></p>
+<p>使用vim来创建一个export.conf配置文件，并对其进行配置<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">vim</span> export.<span class="keyword">conf</span></span><br></pre></td></tr></table></figure></p>
+<p>export.conf文件内容如下<br><figure class="highlight puppet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#  将192.168.220.202 Elasticsearch中info索引库导出为一个info.json文件</span></span><br><span class="line">input&#123;</span><br><span class="line">     <span class="keyword">elasticsearch</span> &#123;</span><br><span class="line">        <span class="attr">hosts</span> =&gt; [<span class="string">"192.168.220.202:9200"</span>]   <span class="comment"># 指定Elasticsearch的地址，该地址中含有目标数据</span></span><br><span class="line">                <span class="attr">index</span> =&gt; <span class="string">"info"</span>             <span class="comment"># 指定需要导出的索引库</span></span><br><span class="line">                <span class="attr">size</span> =&gt; <span class="number">200</span>                 <span class="comment"># 指定每次导出数据每批次的大小，注意不能设置太大，否则会出错</span></span><br><span class="line">            <span class="attr">scroll</span> =&gt; <span class="string">"5m"</span></span><br><span class="line">                <span class="attr">docinfo</span> =&gt; <span class="keyword">false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">output&#123;</span><br><span class="line">   <span class="keyword">file</span> &#123;</span><br><span class="line">     <span class="attr">path</span> =&gt; <span class="string">"skuinfo.json"</span>                 <span class="comment"># 指定保存的数据路径和json文件的名称</span></span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
+<p>使用<code>docker cp</code>命令将该导出的配置文件复制的logstash容器的bin目录中<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 将<span class="meta">export</span>.conf文件<span class="meta">cp</span>到logstash容器中</span><br><span class="line"><span class="symbol">docker</span> <span class="meta">cp</span> ./<span class="meta">export</span>.conf logstash:/usr/share/logstash/<span class="keyword">bin</span></span><br></pre></td></tr></table></figure></p>
+<p>进入logstash容器，并执行配置文件<br><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入logstash，然后执行配置文件</span></span><br><span class="line">docker exec -it logstash <span class="string">/bin/bash</span></span><br><span class="line"><span class="keyword">cd</span> <span class="string">/usr/share/logstash/bin</span></span><br><span class="line"><span class="string">./logstash</span> -f <span class="string">./export.conf</span> <span class="params">--path</span>.data=<span class="string">/root/</span> <span class="comment"># 务必要指定path.data属性，不然会报错</span></span><br></pre></td></tr></table></figure></p>
+<p>执行完成之后便会在当前目录下产生一个info.json文件，将该数据文件导出到centos中<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 执行完成之后就会在当前目录下产生一个info.json文件，将该文件导出到centos中</span></span><br><span class="line">docker cp logstash:<span class="regexp">/usr/</span>share<span class="regexp">/logstash/</span>bin<span class="regexp">/info.json /</span>resources<span class="regexp">/mydata/</span></span><br></pre></td></tr></table></figure></p>
+<p>即可完成将索引库中的数据导出成一个json文件，该文件存在于/resources/mydata/info.json </p>
+<h3 id="logstash对Elasticsearch索引库中数据的导入"><a href="#logstash对Elasticsearch索引库中数据的导入" class="headerlink" title="logstash对Elasticsearch索引库中数据的导入"></a>logstash对Elasticsearch索引库中数据的导入</h3><ul>
+<li><p>完成json数据的导入及conf文件的配置</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># <span class="number">1.</span> 将<span class="number">192.168</span><span class="number">.220</span><span class="number">.202</span>中的info.json文件使用xftp工具导入到windows本地</span><br><span class="line"># <span class="number">2.</span> 将该文件通过xftp工具导入到<span class="number">192.168</span><span class="number">.220</span><span class="number">.201</span> /resources/mydata/logstash_temp中</span><br><span class="line">cd /mydata/mysources/logstash_temp</span><br><span class="line"># 使用vim对import.conf进行配置</span><br><span class="line">vim import.conf</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>import.conf的配置文件如下</p>
+<figure class="highlight puppet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 读取json文件</span></span><br><span class="line"><span class="keyword">input</span> &#123;</span><br><span class="line">  file &#123;</span><br><span class="line">    <span class="comment"># 设置json文件路径，多个文件路径可设置成数组[]，模糊匹配用*</span></span><br><span class="line">    <span class="attr">path</span> =&gt; <span class="string">"/root/skuinfo.json"</span></span><br><span class="line">    <span class="attr">start_position</span> =&gt; <span class="string">"beginning"</span></span><br><span class="line">    <span class="comment"># 设置编码</span></span><br><span class="line">    <span class="attr">codec</span> =&gt; json &#123;<span class="attr">charset</span> =&gt; <span class="string">"UTF-8"</span>&#125;</span><br><span class="line">    # 当存在多个文件的时候可使用type指定输入输出路径</span><br><span class="line">    type =&gt; <span class="string">"json_index"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 过滤格式化数据</span></span><br><span class="line"><span class="keyword">filter</span> &#123;</span><br><span class="line">    mutate&#123;</span><br><span class="line">        <span class="comment">#删除无效的字段</span></span><br><span class="line">        <span class="attr">remove_field</span> =&gt; [<span class="string">"@version"</span>,<span class="string">"message"</span>,<span class="string">"host"</span>,<span class="string">"path"</span>]</span><br><span class="line">    &#125;</span><br><span class="line">    # 新增timestamp字段，将@timestamp时间增加8小时</span><br><span class="line">    <span class="keyword">ruby</span> &#123; <span class="attr">code</span> =&gt; <span class="string">"event.set('timestamp', event.get('@timestamp').time.localtime + 8*60*60)"</span> &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据输出到ES</span></span><br><span class="line"><span class="keyword">output</span> &#123;</span><br><span class="line">    <span class="comment">#日志输出格式，json_lines;rubydebug等</span></span><br><span class="line">    stdout &#123;</span><br><span class="line">        <span class="attr">codec</span> =&gt; rubydebug</span><br><span class="line">    &#125;</span><br><span class="line">    #输出到es</span><br><span class="line">    if[type] == <span class="string">"json_index"</span>&#123;</span><br><span class="line">        <span class="comment">#无法解析的json不记录到elasticsearch中</span></span><br><span class="line">        if <span class="string">"_jsonparsefailure"</span> not in [tags] &#123;</span><br><span class="line">            <span class="keyword">elasticsearch</span> &#123;</span><br><span class="line">                <span class="comment">#es地址ip端口</span></span><br><span class="line">                <span class="attr">hosts</span> =&gt; <span class="string">"192.168.220.201:9200"</span></span><br><span class="line">                <span class="comment"># 配置数据转入到es中的</span></span><br><span class="line">                <span class="attr">index</span> =&gt; <span class="string">"info"</span></span><br><span class="line">                <span class="comment">#类型</span></span><br><span class="line">                <span class="attr">document_type</span> =&gt; <span class="string">"skuinfo"</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>完成import.conf文件的配置之后，我们即可来真正实现数据导入</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将import.conf文件和info.json文件导入到logstash容器中</span></span><br><span class="line">docker cp <span class="string">./import.conf</span> logstash:<span class="string">/usr/share/logstash/bin</span>    <span class="comment"># 导入conf配置文件</span></span><br><span class="line">docker cp <span class="string">./skuinfo.json</span> logstash:<span class="string">/root/</span>                    <span class="comment"># 导入json数据文件，导入的路径注意与conf配置文件中的配置路径保持一致</span></span><br><span class="line"><span class="comment"># 进入到logstash容器中，并执行logstash命令完成数据的导入</span></span><br><span class="line">docker exec -it logstash <span class="string">/bin/bash</span></span><br><span class="line"><span class="keyword">cd</span> <span class="string">/usr/share/logstash/bin</span></span><br><span class="line"><span class="string">./logstash</span> -f <span class="string">./import.conf</span> <span class="params">--path</span>.data=<span class="string">/root/</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>等待执行完成之后访问192.168.220.201:5601即可访问到info索引库中的数据<br><img></p>
+<h2 id="安装ik中文分词器"><a href="#安装ik中文分词器" class="headerlink" title="安装ik中文分词器"></a>安装ik中文分词器</h2><h3 id="ik中文分词器插件的安装"><a href="#ik中文分词器插件的安装" class="headerlink" title="ik中文分词器插件的安装"></a>ik中文分词器插件的安装</h3><p>坑一：我们安装ik分词器的时候，一般是在github中来下载zip文件，然后传送到centos中，最后再上传到elasticserch容器中，但是github中标明的版本与实际版本根本不相同。另一方面，在我们下载不同版本的elasticsearch时，有的版本容器运行会出错，有些正常。所以我们以后我们搭建elk的时候就同一安装5.6.8版本（一定要注意）</p>
+<p>坑二：我们一般在github上下载zip文件（无论什么文件）的时候会非常非常的慢（不是一般的慢），所以我们以后在使用github来下载的时候可以借助gitee（码云）来下载，在码云中创建一个仓库的时候，选择导入已有的仓库，然后将原github的git连接复制粘贴上去，最后create。一旦创建，我们就可以借助码云中来间接下载github仓库的任何文件，且下载的速度会大大加快</p>
+<p>ik分词器链接：<a href="https://gitee.com/tianxingjian123/elasticsearch-analysis-ik" target="_blank" rel="noopener">https://gitee.com/tianxingjian123/elasticsearch-analysis-ik</a></p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ik分词器链接：https://gitee.com/tianxingjian123/elasticsearch-analysis-ik</span></span><br><span class="line"><span class="comment"># 下载5.6.8的ik分词器之后，我们需要使用maven将其打包</span></span><br><span class="line">cd <span class="symbol">C:</span>\Users\M\Desktop\code-demo\elasticsearch-analysis-ik</span><br><span class="line">mvn package -Pdist,native -DskipTests -Dtar</span><br><span class="line"><span class="comment"># 使用maven打包完成之后，即可生成一个target文件夹，里面有./releases/elasticsearch-analysis-ik-5.6.8.zip</span></span><br><span class="line"><span class="comment"># 在虚拟机中创建一个ik文件夹</span></span><br><span class="line">mkdir ik</span><br><span class="line"><span class="comment"># 之后使用xftp将该zip文件上传到ik文件夹中，然后使用unzip命令解压该zip文件，解压之后删除zip文件</span></span><br><span class="line">unzip elasticsearch-analysis-ik-<span class="number">5.6</span>.<span class="number">8</span>.zip</span><br><span class="line">rm -rf elasticsearch-analysis-ik-<span class="number">5.6</span>.<span class="number">8</span>.zip</span><br><span class="line"><span class="comment"># 之后使用docker将该ik文件夹传到elasticsearch容器的plugins中</span></span><br><span class="line">docker cp ./ik <span class="symbol">elasticsearch:</span>/usr/share/elasticsearch/plugins</span><br><span class="line"><span class="comment"># 进入elasticsearch容器</span></span><br><span class="line">docker exec -it new-elasticsearch /bin/bash</span><br><span class="line"><span class="comment"># 之后如下命令可查看是否成功上传ik文件夹</span></span><br><span class="line">root<span class="variable">@78f36ce60b3f</span><span class="symbol">:/usr/share/elasticsearch</span><span class="comment"># cd plugins/</span></span><br><span class="line">root<span class="variable">@78f36ce60b3f</span><span class="symbol">:/usr/share/elasticsearch/plugins</span><span class="comment"># ls</span></span><br><span class="line">ik</span><br><span class="line">root<span class="variable">@78f36ce60b3f</span><span class="symbol">:/usr/share/elasticsearch/plugins</span><span class="comment"># cd ik</span></span><br><span class="line">root<span class="variable">@78f36ce60b3f</span><span class="symbol">:/usr/share/elasticsearch/plugins/ik</span><span class="comment"># ls</span></span><br><span class="line">commons-codec-<span class="number">1.9</span>.jar        httpclient-<span class="number">4.5</span>.<span class="number">2</span>.jar</span><br><span class="line">commons-logging-<span class="number">1.2</span>.jar        httpcore-<span class="number">4.4</span>.<span class="number">4</span>.jar</span><br><span class="line">config             plugin-descriptor.properties</span><br><span class="line">elasticsearch-analysis-ik-<span class="number">5.6</span>.<span class="number">8</span>.jar</span><br><span class="line">root<span class="variable">@78f36ce60b3f</span><span class="symbol">:/usr/share/elasticsearch/plugins/ik</span><span class="comment"># </span></span><br><span class="line"><span class="comment"># 之后进入到bin目录下，并查看已经安装的ik分词器插件</span></span><br><span class="line">root<span class="variable">@78f36ce60b3f</span><span class="symbol">:cd</span> /usr/share/elasticsearch/bin</span><br><span class="line">root<span class="variable">@78f36ce60b3f</span><span class="symbol">:/usr/share/elasticsearch/bin</span><span class="comment"># elasticsearch-plugin list</span></span><br><span class="line">ik</span><br></pre></td></tr></table></figure>
+<p>以上操作完成之后，就算是完成了在Elasticsearch中引入ik中文分词器插件了，注意：以上步骤务必需要完全一致，否则会造成各种问题。</p>
+<h3 id="分词结果测试"><a href="#分词结果测试" class="headerlink" title="分词结果测试"></a>分词结果测试</h3><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># 打开chrom浏览器，访问：http:<span class="comment">//192.168.220.201:5601/，若出现kibana界面，说明kibana安装正常</span></span></span><br><span class="line"><span class="meta"># 进入kibana的Dev Tools界面，然后使用如下测试ik中文分词器插件是否正常安装</span></span><br><span class="line">GET bank/_analyze</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"text"</span>: <span class="string">"现在是大年三十凌晨一点三十分，有点冷，我写完这篇文章就睡觉！"</span>,</span><br><span class="line">  <span class="string">"analyzer"</span>: <span class="string">"ik_smart"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行之后，测试ik中文分词结果如下，可见已经完成了对中文句子的分词<br><img></p>
+<h2 id="Elasticsearch集群的搭建"><a href="#Elasticsearch集群的搭建" class="headerlink" title="Elasticsearch集群的搭建"></a>Elasticsearch集群的搭建</h2><h3 id="创建集群所需要的配置文件及数据文件，以便容器的映射"><a href="#创建集群所需要的配置文件及数据文件，以便容器的映射" class="headerlink" title="创建集群所需要的配置文件及数据文件，以便容器的映射"></a>创建集群所需要的配置文件及数据文件，以便容器的映射</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mkdir /mydata</span><br><span class="line">cd /mydata</span><br><span class="line">mkdir elasticsearch1</span><br><span class="line">cd elasticsearch1</span><br><span class="line">mkdir data # 注意要确保data目录下为空，否则在实际运行过程中会出错</span><br><span class="line">mkdir config</span><br><span class="line">cd conf</span><br><span class="line">vim elasticsearch.yml</span><br><span class="line"><span class="comment"># elasticsearch.yml文件配置信息如下</span></span><br></pre></td></tr></table></figure>
+<p>elasticsearch.yml文件的配置信息：<br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 开启跨域，为了让es-head可以访问，此处需要额外安装header插件</span></span><br><span class="line">http.cors.enabled: <span class="literal">true</span></span><br><span class="line">http.cors.allow-origin: <span class="string">"*"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 集群的名称（一样）</span></span><br><span class="line">cluster.name: elasticsearch</span><br><span class="line"><span class="comment"># 节点的名称（不一样，根据别名来配置）</span></span><br><span class="line"><span class="keyword">node</span>.name:<span class="title"> es1</span></span><br><span class="line"><span class="comment"># 指定该节点是否有资格被选举成为master节点，默认是true，es是默认集群中的第一台机器为master，如果这台机挂了就会重新选举master</span></span><br><span class="line"><span class="keyword">node</span>.master:<span class="title"> true</span></span><br><span class="line"><span class="comment"># 允许该节点存储数据(默认开启)</span></span><br><span class="line"><span class="keyword">node</span>.data:<span class="title"> true</span></span><br><span class="line"><span class="comment"># 允许任何ip访问</span></span><br><span class="line">network.host: <span class="number">0.0</span>.<span class="number">0.0</span></span><br><span class="line"><span class="comment"># 通过这个ip列表进行节点发现，我这里配置的是各个容器的ip</span></span><br><span class="line">discovery.zen.ping.unicast.hosts: [<span class="string">"192.168.220.200:9300"</span>,<span class="string">"192.168.220.200:9301"</span>,<span class="string">"192.168.220.200:9302"</span>]</span><br><span class="line"><span class="comment">#如果没有这种设置,遭受网络故障的集群就有可能将集群分成两个独立的集群 – 导致脑裂 - 这将导致数据丢失</span></span><br><span class="line">discovery.zen.minimum_master_nodes: <span class="number">2</span></span><br></pre></td></tr></table></figure></p>
+<p>第一个elasticsearch配置文件创建好后，同理创建其他两个节点<br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置es2</span></span><br><span class="line">cd /mydata</span><br><span class="line">cp -r ./elasticsearch1 ./elasticsearch2</span><br><span class="line"><span class="comment"># 将其中的conf/elasticsearch.yml中配置修改一处信息</span></span><br><span class="line"><span class="keyword">node</span>.<span class="title">name</span>=es2</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置es3</span></span><br><span class="line">cd /mydata</span><br><span class="line">cp -r ./elasticsearch1 ./elasticsearch3</span><br><span class="line"><span class="comment"># 将其中的conf/elasticsearch.yml中配置修改一处信息</span></span><br><span class="line"><span class="keyword">node</span>.<span class="title">name</span>=es3</span><br></pre></td></tr></table></figure></p>
+<h3 id="创建elasticsearch容器并启动"><a href="#创建elasticsearch容器并启动" class="headerlink" title="创建elasticsearch容器并启动"></a>创建elasticsearch容器并启动</h3><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># 创建es1容器并启动</span></span><br><span class="line">docker run --name es1 -p <span class="number">9200</span>:<span class="number">9200</span> -p <span class="number">9300</span>:<span class="number">9300</span> \</span><br><span class="line">-e ES_JAVA_OPTS=<span class="string">"-Xms256m -Xmx256m"</span> \</span><br><span class="line">-v <span class="meta-keyword">/mydata/</span>elasticsearch1<span class="meta-keyword">/config/</span>elasticsearch.yml:<span class="meta-keyword">/usr/</span>share<span class="meta-keyword">/elasticsearch/</span>config/elasticsearch.yml \</span><br><span class="line">-v <span class="meta-keyword">/mydata/</span>elasticsearch1/data:<span class="meta-keyword">/usr/</span>share<span class="meta-keyword">/elasticsearch/</span>data -d elasticsearch:<span class="number">5.6</span><span class="number">.8</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># 引入ik分词器</span></span><br><span class="line">docker cp ./ik es1:<span class="meta-keyword">/usr/</span>share<span class="meta-keyword">/elasticsearch/</span>plugins</span><br><span class="line"></span><br><span class="line"><span class="meta"># 创建es2容器并启动</span></span><br><span class="line">docker run --name es2 -p <span class="number">9201</span>:<span class="number">9200</span> -p <span class="number">9301</span>:<span class="number">9300</span> \</span><br><span class="line">-e ES_JAVA_OPTS=<span class="string">"-Xms256m -Xmx256m"</span> \</span><br><span class="line">-v <span class="meta-keyword">/mydata/</span>elasticsearch2<span class="meta-keyword">/config/</span>elasticsearch.yml:<span class="meta-keyword">/usr/</span>share<span class="meta-keyword">/elasticsearch/</span>config/elasticsearch.yml \</span><br><span class="line">-v <span class="meta-keyword">/mydata/</span>elasticsearch2/data:<span class="meta-keyword">/usr/</span>share<span class="meta-keyword">/elasticsearch/</span>data -d elasticsearch:<span class="number">5.6</span><span class="number">.8</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># 创建es3容器并启动</span></span><br><span class="line">docker run --name es3 -p <span class="number">9202</span>:<span class="number">9200</span> -p <span class="number">9302</span>:<span class="number">9300</span> \</span><br><span class="line">-e ES_JAVA_OPTS=<span class="string">"-Xms256m -Xmx256m"</span> \</span><br><span class="line">-v <span class="meta-keyword">/mydata/</span>elasticsearch3<span class="meta-keyword">/config/</span>elasticsearch.yml:<span class="meta-keyword">/usr/</span>share<span class="meta-keyword">/elasticsearch/</span>config/elasticsearch.yml \</span><br><span class="line">-v <span class="meta-keyword">/mydata/</span>elasticsearch3/data:<span class="meta-keyword">/usr/</span>share<span class="meta-keyword">/elasticsearch/</span>data -d elasticsearch:<span class="number">5.6</span><span class="number">.8</span></span><br></pre></td></tr></table></figure>
+<p>至此，完成以上操作即可实现了Elasticsearch集群的搭建</p>
+<ul>
+<li>分别访问<code>http://192.168.220.200:9200、http://192.168.220.200:9201、http://192.168.220.200:9202</code>，即可发现已经搭建完成，并显示了各个es节点的对应信息。</li>
+<li>访问<code>http://192.168.220.200:9200/_cat/nodes</code>可查看集群节点。</li>
+<li>访问<code>http://192.168.220.200:9200//_cat/health</code>查看健康状况（green，yellow、red）</li>
+</ul>
+<p><img></p>
+<h3 id="所遇问题"><a href="#所遇问题" class="headerlink" title="所遇问题"></a>所遇问题</h3><ul>
+<li><p>实例化容器之后，可能会受到进程数的限制，我们需要提高虚拟机的进程数</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sysctl.conf</span><br><span class="line"><span class="comment"># 添加如下一条配置</span></span><br><span class="line">vm.<span class="attribute">max_map_count</span>=655360</span><br><span class="line"><span class="comment"># 退出后重启配置</span></span><br><span class="line">sysctl -p</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>当实例化以上三个es容器之后，可能会存在一定的内存问题，这个时候，我们需要提高虚拟机的内存</p>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># 实例化以上三个es容器之后，查看当前可用内存</span></span><br><span class="line">free -m</span><br><span class="line"><span class="meta"># 运行以上命令之后，可能会发现当前可用配置只有50多，而且当我们访问http://192.168.220.200:9200的时候也会发现请求失败这个时候我们打开对应虚拟机的设置，将内存设置3GB即可，不一会儿重新进入虚拟机，使用free -m命令即可发现此时内存还剩1000多可用</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># 完成上述配置之后，我们重启三个es容器</span></span><br><span class="line">docker restart es1 es2 es3 || docker start es1 es2 es3</span><br><span class="line"></span><br><span class="line"><span class="meta"># 等待容器重启之后，使用chrom浏览器访问es</span></span><br><span class="line">http:<span class="comment">//192.168.220.200:9200</span></span><br><span class="line">http:<span class="comment">//192.168.220.200:9201</span></span><br><span class="line">http:<span class="comment">//192.168.220.200:9202</span></span><br><span class="line"><span class="meta"># 可发现已经搭建完成，且显示了各个es节点的对应信息</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># 在kibana的dev tools下查看集群节点</span></span><br><span class="line">GET /_cat/nodes</span><br><span class="line"><span class="meta"># 查看健康状况（green，yellow、red）</span></span><br><span class="line">GET /_cat/health</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:18px;">-------------━┳━　━┳━ 本文结束<i class="fa fa-paw"></i>感谢您的阅读 ━┳━　━┳━-------------</div>
+    
+</div>
+      
+    </div>
+
+
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>版权描述:</span>创作不易，尊重作者，欢迎转载，转载请保留原文链接及作者于醒目之处。</p>
+  <p><span>本文标题:</span><a href="/2020/01/10/ElasticSearch、kibana、logstash/">ElasticSearch、kibana、logstash</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 木子 的个人博客">木子</a></p>
+  <p><span>发布时间:</span>2020年01月10日 - 23:01</p>
+  <p><span>最后更新:</span>2020年02月21日 - 11:02</p>
+  <p><span>原始链接:</span><a href="/2020/01/10/ElasticSearch、kibana、logstash/" title="ElasticSearch、kibana、logstash">https://muzimz.cn/2020/01/10/ElasticSearch、kibana、logstash/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://muzimz.cn/2020/01/10/ElasticSearch、kibana、logstash/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+
+      
+    </div>
+
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/wechatpay.png" alt="木子 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/alipay.png" alt="木子 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/01/03/一文入门Docker容器技术/" rel="next" title="一文入门Docker容器技术">
+                <i class="fa fa-chevron-left"></i> 一文入门Docker容器技术
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!--MOB SHARE BEGIN-->
+<div class="-mob-share-ui-button -mob-share-open">分享</div>
+<div class="-mob-share-ui" -mob-share-ui-theme="" -mob-share-ui-theme-slide-bottom="" style="display: none">
+<ul class="-mob-share-list">
+    <li class="-mob-share-weixin"><p>微信</p></li>
+    <li class="-mob-share-qzone"><p>QQ空间</p></li>
+    <li class="-mob-share-weibo"><p>新浪微博</p></li>
+    <li class="-mob-share-facebook"><p>Facebook</p></li>
+    <li class="-mob-share-twitter"><p>Twitter</p></li>
+    <li class="-mob-share-pocket"><p>Pocket</p></li>
+    <li class="-mob-share-tumblr"><p>Tumblr</p></li>
+    <li class="-mob-share-google"><p>Google+</p></li>
+    <li class="-mob-share-linkedin"><p>Linkedin</p></li>
+    <li class="-mob-share-qq"><p>QQ好友</p></li>
+    <li class="-mob-share-tencentweibo"><p>腾讯微博</p></li>
+    <li class="-mob-share-renren"><p>人人网</p></li>
+    <li class="-mob-share-douban"><p>豆瓣</p></li>
+    <li class="-mob-share-youdao"><p>有道云笔记</p></li>
+    <li class="-mob-share-instapaper"><p>Instapaper</p></li>
+</ul>
+<div class="-mob-share-close">取消</div>
+</div>
+<div class="-mob-share-ui-bg"></div>
+<script id="-mob-share" src="http://f1.webshare.mob.com/code/mob-share.js?appkey="></script>
+<!--MOB SHARE END-->
+      
+    </div>
+    
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+   <div id="gitalk-container"></div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/uploads/head.png" alt="木子">
+            
+              <p class="site-author-name" itemprop="name">木子</p>
+              <p class="site-description motion-element" itemprop="description">Jack of all trades and master of none.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/JackLXJ" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:26647879@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://wpa.qq.com/msgrd?v=3&uin=26647879&site=qq&menu=yes" target="_blank" title="QQ">
+                      
+                        <i class="fa fa-fw fa-qq"></i>QQ</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://y.qq.com/portal/profile.html#stat=y_new.top.user_pic" target="_blank" title="music">
+                      
+                        <i class="fa fa-fw fa-music"></i>music</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ELK系统的搭建"><span class="nav-number">2.</span> <span class="nav-text">ELK系统的搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Elasticsearch的安装"><span class="nav-number">2.1.</span> <span class="nav-text">Elasticsearch的安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装kibana"><span class="nav-number">2.2.</span> <span class="nav-text">安装kibana</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装logstash"><span class="nav-number">2.3.</span> <span class="nav-text">安装logstash</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于Logstash对Elasticsearch索引库中数据的导入和导出"><span class="nav-number">3.</span> <span class="nav-text">基于Logstash对Elasticsearch索引库中数据的导入和导出</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用logstash将es数据从索引库中导出"><span class="nav-number">3.1.</span> <span class="nav-text">使用logstash将es数据从索引库中导出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#logstash对Elasticsearch索引库中数据的导入"><span class="nav-number">3.2.</span> <span class="nav-text">logstash对Elasticsearch索引库中数据的导入</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装ik中文分词器"><span class="nav-number">4.</span> <span class="nav-text">安装ik中文分词器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ik中文分词器插件的安装"><span class="nav-number">4.1.</span> <span class="nav-text">ik中文分词器插件的安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分词结果测试"><span class="nav-number">4.2.</span> <span class="nav-text">分词结果测试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Elasticsearch集群的搭建"><span class="nav-number">5.</span> <span class="nav-text">Elasticsearch集群的搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建集群所需要的配置文件及数据文件，以便容器的映射"><span class="nav-number">5.1.</span> <span class="nav-text">创建集群所需要的配置文件及数据文件，以便容器的映射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建elasticsearch容器并启动"><span class="nav-number">5.2.</span> <span class="nav-text">创建elasticsearch容器并启动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#所遇问题"><span class="nav-number">5.3.</span> <span class="nav-text">所遇问题</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      <div align="center"><a href="http://www.amazingcounters.com"><img border="0" src="http://cc.amazingcounters.com/counter.php?i=3229922&c=9690079" alt="AmazingCounters.com"></a></div>
+
+
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">木子</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">97.9k</span>
+  
+</div>
+
+
+  <div class="powered-by">
+    <i class="fa fa-user-md"></i>
+
+    <span id="busuanzi_container_site_uv">
+      The site's UV:<span id="busuanzi_value_site_uv"></span>
+    </span>
+
+    <span id="busuanzi_container_site_pv">
+      The site's PV:<span id="busuanzi_value_site_pv"></span>
+    </span>
+  </div>
+
+ 
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">本站共97.9k字</span>
+</div>
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+  <script src="/js/src/md5.min.js"></script>
+
+  <script type="text/javascript">
+    var gitalk = new Gitalk({
+      clientID: 'a22cf34e389580514647',
+      clientSecret: '4fb159dd5362d7a3c4c98d565abcad8d53014004',
+      repo: 'JackLXJ.github.io',
+      owner: 'JackLXJ',
+      admin: ['JackLXJ'],
+      id: md5(location.pathname),
+      distractionFreeMode: 'true'
+    })
+    gitalk.render('gitalk-container')
+  </script>
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+
+
+  <link rel="stylesheet" href="/dist/APlayer.min.css">
+  <div id="aplayer"></div>
+  <script type="text/javascript" src="/dist/APlayer.min.js"></script>
+  <script type="text/javascript" src="/dist/music.js"></script>
+  
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+
+<!--崩溃欺骗-->
+<!-- <script type="text/javascript" src="/js/src/crash_cheat.js"></script> -->

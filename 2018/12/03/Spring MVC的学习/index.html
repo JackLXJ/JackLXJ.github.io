@@ -1,0 +1,1586 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/
+pace-theme-flash.css" rel="stylesheet">
+
+
+
+<meta name="theme-color" content="#222">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "86c69b95"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/uploads/head.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/uploads/head.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/uploads/head.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Java,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="木子" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="Spring MVC的学习1. Spring MVC环境搭建1.1 创建SpringMVCDemo项目并添加Spring支持1.2 修改applicationContext.xml文件在namespace中添加context和mvc，如此一来就支持了Spring MVC 123456&amp;lt;context:annotation-config/&amp;gt;&amp;lt;context:component-sc">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring MVC的学习">
+<meta property="og:url" content="https://muzimz.cn/2018/12/03/Spring MVC的学习/index.html">
+<meta property="og:site_name" content="木子">
+<meta property="og:description" content="Spring MVC的学习1. Spring MVC环境搭建1.1 创建SpringMVCDemo项目并添加Spring支持1.2 修改applicationContext.xml文件在namespace中添加context和mvc，如此一来就支持了Spring MVC 123456&amp;lt;context:annotation-config/&amp;gt;&amp;lt;context:component-sc">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-02-21T03:05:46.351Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Spring MVC的学习">
+<meta name="twitter:description" content="Spring MVC的学习1. Spring MVC环境搭建1.1 创建SpringMVCDemo项目并添加Spring支持1.2 修改applicationContext.xml文件在namespace中添加context和mvc，如此一来就支持了Spring MVC 123456&amp;lt;context:annotation-config/&amp;gt;&amp;lt;context:component-sc">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://muzimz.cn/2018/12/03/Spring MVC的学习/">
+
+
+
+
+
+<script>
+    
+    window.onload = function(){
+        var path = 'https://muzimz.cn'; //这里要改成你博客的地址
+        var localhostItem = String(window.location).split(path)[1];
+        var LiNode = document.querySelectorAll('#menu > li > a')
+        
+        for(var i = 0; i< LiNode.length;i++){
+            var item = String(LiNode[i].href).split(path)[1];
+            if(item == localhostItem && item != undefined){
+                LiNode[i].setAttribute('style','border-bottom:1px solid black');
+            }
+        }
+    };
+
+</script>
+  <title>Spring MVC的学习 | 木子</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/JackLXJ" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">木子</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+            
+            日程表
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://muzimz.cn/2018/12/03/Spring MVC的学习/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="木子">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/head.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="木子">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Spring MVC的学习</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-03T18:35:13+08:00">
+                2018-12-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  4.1k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  20
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Spring-MVC的学习"><a href="#Spring-MVC的学习" class="headerlink" title="Spring MVC的学习"></a><strong><center>Spring MVC的学习</center></strong></h1><h2 id="1-Spring-MVC环境搭建"><a href="#1-Spring-MVC环境搭建" class="headerlink" title="1. Spring MVC环境搭建"></a><strong>1. Spring MVC环境搭建</strong></h2><h3 id="1-1-创建SpringMVCDemo项目并添加Spring支持"><a href="#1-1-创建SpringMVCDemo项目并添加Spring支持" class="headerlink" title="1.1 创建SpringMVCDemo项目并添加Spring支持"></a><strong>1.1 创建SpringMVCDemo项目并添加Spring支持</strong></h3><h3 id="1-2-修改applicationContext-xml文件"><a href="#1-2-修改applicationContext-xml文件" class="headerlink" title="1.2 修改applicationContext.xml文件"></a><strong>1.2 修改applicationContext.xml文件</strong></h3><p>在namespace中添加context和mvc，如此一来就支持了Spring MVC</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">context:annotation-config</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"com.tianxingjian"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 定义Spring MVC的处理 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mvc:annotation-driven</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mvc:default-servlet-handler</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-3-修改web-xml文件"><a href="#1-3-修改web-xml文件" class="headerlink" title="1.3 修改web.xml文件"></a><strong>1.3 修改web.xml文件</strong></h3><ul>
+<li>最好的MVC设计，所有的控制器的处理依然是Servlet完成，而Spring MVC</li>
+<li>Servlet类：org.springframework.web.servlet.DispatcherServlet</li>
+</ul>
+<p>web.xml文件完整代码如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">web-app</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="attr">xmlns</span>=<span class="string">"http://xmlns.jcp.org/xml/ns/javaee"</span> <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"</span> <span class="attr">version</span>=<span class="string">"3.1"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">display-name</span>&gt;</span>SpringMVCDemo<span class="tag">&lt;/<span class="name">display-name</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">&lt;!-- 此部分的操作是负责整个Spring容器启动的，即便使用了Spring MVC也不能缺少 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">listener</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">listener-class</span>&gt;</span>org.springframework.web.context.ContextLoaderListener<span class="tag">&lt;/<span class="name">listener-class</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">listener</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">context-param</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:applicationContext.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">context-param</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">&lt;!-- 配置Spring MVC之中要使用的控制器 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>springmvc<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>org.springframework.web.servlet.DispatcherServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">  		<span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">  		<span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:applicationContext.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>springmvc<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>*.action<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="2-实现Spring-MVC程序"><a href="#2-实现Spring-MVC程序" class="headerlink" title="2. 实现Spring MVC程序"></a><strong>2. 实现Spring MVC程序</strong></h2><h3 id="2-1-建立Message-java和Type-java类"><a href="#2-1-建立Message-java和Type-java类" class="headerlink" title="2.1 建立Message.java和Type.java类"></a><strong>2.1 建立Message.java和Type.java类</strong></h3><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">package com.tianxingjian.vo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.Serializable;</span><br><span class="line"><span class="keyword">import</span> java.sql.<span class="built_in">Date</span>;</span><br><span class="line"></span><br><span class="line">@SuppressWarnings(<span class="string">"serial"</span>)</span><br><span class="line"><span class="keyword">public</span> class Message implements Serializable&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="built_in">Integer</span> mid;</span><br><span class="line">	<span class="keyword">private</span> <span class="built_in">String</span> title;</span><br><span class="line">	<span class="keyword">private</span> Double price;</span><br><span class="line">	<span class="keyword">private</span> <span class="built_in">Date</span> <span class="built_in">date</span>;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">Type</span> <span class="keyword">type</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> <span class="built_in">Integer</span> getMid() &#123;</span><br><span class="line">		<span class="keyword">return</span> mid;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="literal">void</span> setMid(<span class="built_in">Integer</span> mid) &#123;</span><br><span class="line">		this.mid = mid;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="built_in">String</span> getTitle() &#123;</span><br><span class="line">		<span class="keyword">return</span> title;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="literal">void</span> setTitle(<span class="built_in">String</span> title) &#123;</span><br><span class="line">		this.title = title;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> Double getPrice() &#123;</span><br><span class="line">		<span class="keyword">return</span> price;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="literal">void</span> setPrice(Double price) &#123;</span><br><span class="line">		this.price = price;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="built_in">Date</span> getDate() &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="built_in">date</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="literal">void</span> setDate(<span class="built_in">Date</span> <span class="built_in">date</span>) &#123;</span><br><span class="line">		this.<span class="built_in">date</span> = <span class="built_in">date</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">Type</span> getType() &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">type</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="literal">void</span> setType(<span class="keyword">Type</span> <span class="keyword">type</span>) &#123;</span><br><span class="line">		this.<span class="keyword">type</span> = <span class="keyword">type</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	@Override</span><br><span class="line">	<span class="keyword">public</span> <span class="built_in">String</span> toString() &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">"Message [mid="</span> + mid + <span class="string">", title="</span> + title + <span class="string">", price="</span> + price + <span class="string">", date="</span> + <span class="built_in">date</span> + <span class="string">", type="</span> + <span class="keyword">type</span></span><br><span class="line">				+ <span class="string">"]"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.tianxingjian.vo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Type</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> String title;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getTitle</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> title;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setTitle</span><span class="params">(String title)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.title = title;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">"Type [title="</span> + title + <span class="string">"]"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-2-定义MessageAction-java"><a href="#2-2-定义MessageAction-java" class="headerlink" title="2.2 定义MessageAction.java"></a><strong>2.2 定义MessageAction.java</strong></h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">package</span> <span class="selector-tag">com</span><span class="selector-class">.tianxingjian</span><span class="selector-class">.action</span>;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">import</span> <span class="selector-tag">org</span><span class="selector-class">.springframework</span><span class="selector-class">.stereotype</span><span class="selector-class">.Controller</span>;</span><br><span class="line"><span class="selector-tag">import</span> <span class="selector-tag">org</span><span class="selector-class">.springframework</span><span class="selector-class">.web</span><span class="selector-class">.bind</span><span class="selector-class">.annotation</span><span class="selector-class">.RequestMapping</span>;</span><br><span class="line"><span class="selector-tag">import</span> <span class="selector-tag">org</span><span class="selector-class">.springframework</span><span class="selector-class">.web</span><span class="selector-class">.bind</span><span class="selector-class">.annotation</span><span class="selector-class">.RequestMethod</span>;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">import</span> <span class="selector-tag">com</span><span class="selector-class">.tianxingjian</span><span class="selector-class">.vo</span><span class="selector-class">.Message</span>;</span><br><span class="line"></span><br><span class="line">@<span class="keyword">Controller</span> // 现在这里定义了控制器</span><br><span class="line">@Request    Mapping(<span class="string">"/pages/back/message/*"</span>) // 整体的 访问路径</span><br><span class="line">public class MessageAction &#123;</span><br><span class="line">	@<span class="keyword">RequestMapping</span>(<span class="keyword">value</span>="<span class="keyword">hello_demo</span>", method=RequestMethod.GET)  // 为这个demo方法定义映射子路径以及请求类型</span><br><span class="line">	public void demo(Message msg) &#123;</span><br><span class="line">		<span class="selector-tag">System</span><span class="selector-class">.out</span><span class="selector-class">.println</span>(<span class="selector-tag">msg</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code>    启动服务器之后访问路径：http://localhost:8080/SpringMVCDemo/pages/back/message/hello_demo.action?title=tianxingjian&amp;Type.title=LITAO即可见相应的输出
+</code></pre><p>定义一个pages/forward.jsp文件</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    	<span class="built_in">window</span>.alert(<span class="string">"$&#123;msg&#125;"</span>);</span></span><br><span class="line"><span class="javascript">    	<span class="built_in">window</span>.location = <span class="string">"&lt;%=basePath%&gt;$&#123;url&#125;"</span>;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-3-Spring-MVC解析"><a href="#2-3-Spring-MVC解析" class="headerlink" title="2.3 Spring MVC解析"></a><strong>2.3 Spring MVC解析</strong></h3><h4 id="2-3-1-org-springframework-web-servlet-ModelAndView"><a href="#2-3-1-org-springframework-web-servlet-ModelAndView" class="headerlink" title="2.3.1 org.springframework.web.servlet.ModelAndView"></a><strong>2.3.1 org.springframework.web.servlet.ModelAndView</strong></h4><pre><code>    如果现在由一个控制器跳转到forward.jsp页面，那么至少需要一下内容：
+</code></pre><ul>
+<li>控制器需要知道forward.jsp的路劲</li>
+<li><p>控制器需要传递若干个request属性</p>
+<pre><code>  正因为很多的开发者都会面临同样的问题，所以在Spring MVC中有个类org.springframework.web.servlet.ModelAndView，这个类里含有以下几个操作方法：
+</code></pre></li>
+<li><p>构造方法：public ModelAndView();</p>
+</li>
+<li>构造方法：public ModelAndView(String viewName), 跳转的路径地址</li>
+<li>保存属性：public ModelAndView addObject(String attributeName, Object attributeValue)</li>
+</ul>
+<p><strong>修改MessageAction.java类来进行跳转功能：</strong></p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping(<span class="keyword">value</span>=<span class="string">"hello_demo"</span>, method=RequestMethod.GET)  <span class="comment">// 为这个demo方法定义映射子路径以及请求类型</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> ModelAndView <span class="title">demo</span>(<span class="params">Message msg</span>)</span> &#123;</span><br><span class="line">		ModelAndView mav = <span class="keyword">new</span> ModelAndView(<span class="string">"/pages/forward.jsp"</span>);</span><br><span class="line">		mav.addObject(<span class="string">"msg"</span>, <span class="string">"消息信息添加成功！"</span>);</span><br><span class="line">		mav.addObject(<span class="string">"url"</span>, <span class="string">"/index.jsp"</span>);</span><br><span class="line">		System.<span class="keyword">out</span>.println(msg);</span><br><span class="line">		<span class="keyword">return</span> mav;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>通过以上，我们可以看到Spring MVC的优势：</strong></p>
+<ul>
+<li>避免了过于复杂的页面跳转路径的操作</li>
+<li>避免了项目之中出现了过多的“.”作为参数的情况</li>
+</ul>
+<h4 id="2-3-2-内置对象"><a href="#2-3-2-内置对象" class="headerlink" title="2.3.2 内置对象"></a><strong>2.3.2 内置对象</strong></h4><pre><code>    在Spring MVC里面，所有的操作都是以方法的形式出现的，但是如果说在开发里面需要使用到的内置对象只有ServletContext、HttpServletRequest、HttpServletResponse、HttpSession四个内置对象。而这四个内置对象实际上只有两个HttpServletRequest、HttpServletResponse
+</code></pre><p><strong>在MessageAction.java里面添加inner方法</strong></p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(value=<span class="meta-string">"inner"</span>)</span></span><br><span class="line">	<span class="keyword">public</span> ModelAndView <span class="keyword">inner</span>(HttpServletRequest request, HttpServletResponse response) throws IOException &#123;</span><br><span class="line">		ServletContext application = request.getServletContext();</span><br><span class="line">		HttpSession session = request.getSession();</span><br><span class="line">		System.<span class="keyword">out</span>.println(<span class="string">"绝对路径:"</span> + application.getRealPath(<span class="string">"/"</span>));</span><br><span class="line">		System.<span class="keyword">out</span>.println(<span class="string">"session id："</span> + session.getId());</span><br><span class="line">		response.getWriter().print(<span class="string">"&lt;h1&gt;www.tianxingjian.com&lt;/h1&gt;"</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-3-3-定义安全访问"><a href="#2-3-3-定义安全访问" class="headerlink" title="2.3.3 定义安全访问"></a><strong>2.3.3 定义安全访问</strong></h4><pre><code>    在整个WEB项目里面WEB-INF目录是最安全的，但是如果按照原始的开发就会出现一个问题，每一个保存在WEB-INF目录下的JSP页面都需要编写一个映射，这样难度实在是太高了，所以在Spring里面考虑到了这类问题，提供了一个专门的类org.springframework.web.servlet.view.InternalResourceViewResolver，它需要在applicationContext.xml文件里面进行配置。
+    现在将保存在根目录下的pages目录直接保存在WEB-INF目录下。
+</code></pre><p>配置applicationContext.xml文件：</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean <span class="built_in">class</span>=<span class="string">"org.springframework.web.servlet.view.InternalResourceViewResolver"</span>&gt;</span><br><span class="line">		&lt;<span class="keyword">property</span> <span class="built_in">name</span>=<span class="string">"prefix"</span> value=<span class="string">"/WEB-INF/pages"</span>/&gt;</span><br><span class="line">		&lt;<span class="keyword">property</span> <span class="built_in">name</span>=<span class="string">"suffix"</span> value=<span class="string">".jsp"</span>/&gt;</span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+<p>这样设置之后，在以后程序使用ModelAndView设置跳转路劲的时候就不再需要这些前缀和后缀了(/WEB-INF/pages和.jsp)，例如一下例子：</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(value=<span class="string">"message_insertPre"</span>)</span><br><span class="line">	<span class="keyword">public</span> <span class="function">ModelAndView <span class="title">insertPre</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		ModelAndView mav = <span class="keyword">new</span> ModelAndView(<span class="string">"/back/message/message_insert"</span>);</span><br><span class="line">		<span class="keyword">return</span> mav;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p>这样写之后，完整路径是/WEB-INF/pages/back/message/message_insertPre.jsp</p>
+<h4 id="2-3-4-资源文件"><a href="#2-3-4-资源文件" class="headerlink" title="2.3.4 资源文件"></a><strong>2.3.4 资源文件</strong></h4><pre><code>    在Spring里面同样可以实现国际化的资源文件的读取。
+</code></pre><ul>
+<li>建立两个文件Message_zh_CN.properties和Pages.properties文件</li>
+</ul>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">info.<span class="attribute">msg</span>=欢迎访问：&#123;0&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">message<span class="selector-class">.insert</span><span class="selector-class">.action</span>=/pages/back/message/message_action.action</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果我们要想实现资源文件的读取，则需要使用一个专门的资源文件读取类：org.springframework.context.support.ResourceBundleMssageSource</li>
+</ul>
+<p>在applicationContext.xml文件里面配置资源文件的读取</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"messageSource"</span> <span class="attr">class</span>=<span class="string">"org.springframework.context.support.ResourceBundleMessageSource"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"basenames"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">array</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">value</span>&gt;</span>Message<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">value</span>&gt;</span>Pages<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">array</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code>    资源文件的访问核心永远是ResourceBundle类，所以访问的时候一定不要加上后缀并且不需要指定local数据。随后可以在需要它的Action上使用依赖注入的方式进行对象的设置。
+</code></pre><ul>
+<li>在MessageAction.java里面注入Source对象：</li>
+</ul>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Resource</span></span><br><span class="line"><span class="keyword">private</span> MessageSource messageSource;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>随后在MessageAction.java里更改如下</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(value=<span class="meta-string">"message_insertPre"</span>)</span></span><br><span class="line">	<span class="keyword">public</span> ModelAndView insertPre() &#123;</span><br><span class="line">		System.<span class="keyword">out</span>.println(<span class="string">"属性内容："</span> + <span class="keyword">this</span>.messageSource.getMessage(<span class="string">"info.msg"</span>, new Object [] &#123;<span class="string">"www.tianxingjian.com"</span>&#125;, Locale.getDefault()));</span><br><span class="line">		System.<span class="keyword">out</span>.println(<span class="string">"属性内容："</span> + <span class="keyword">this</span>.messageSource.getMessage(<span class="string">"message.insert.action"</span>, <span class="literal">null</span>, <span class="literal">null</span>));</span><br><span class="line">		ModelAndView mav = new ModelAndView(<span class="string">"/pages/back/message/message_insert"</span>);</span><br><span class="line">		<span class="keyword">return</span> mav;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-3-5-文件上传"><a href="#2-3-5-文件上传" class="headerlink" title="2.3.5 文件上传"></a><strong>2.3.5 文件上传</strong></h4><pre><code>    在Spring MVC里面对于文件的上传操作依然使用了FileUpload组件（几乎所有的MVC开发框架都是用这个组件）。如果要想使用Spring MVC的文件上传，则需要使用org.springframework.web.multipart.commons.CommonsMultipartFile类来进行处理，这个类里含有如下方法：
+    |- 取得上传文件的MIME类型：public String getContentType();
+    |- 判断是否有上传文件：public boolean isEmpty();
+    |- 取得上传文件的长度：public long getSize();
+    |- 取得上传文件的输入流：public InputStream getInputStream() throws IOException;
+</code></pre><ul>
+<li>在applicationContext.xml文件里定义上传操作类</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 设置上传工具限制类 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"multipartResolver"</span> <span class="attr">class</span>=<span class="string">"org.springframework.web.multipart.commons.CommonsMultipartResolver"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"maxUploadSize"</span> <span class="attr">value</span>=<span class="string">"5242880"</span>/&gt;</span>  <span class="comment">&lt;!-- 上传文件的最大值 5M --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"maxInMemorySize"</span> <span class="attr">value</span>=<span class="string">"2097152"</span>/&gt;</span>  <span class="comment">&lt;!-- 占用内存的最大值  2M --&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>随后需要实现文件上传操作，在接受处理的方法上使用一个类即可：<br>  |- 接受上传文件：org.springframework.web.multipart.MultipartFile;</p>
+</li>
+<li><p>定义UploadAction.java实现文件的接受</p>
+</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@RequestMapping(<span class="meta-string">"/pages/*"</span>)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UploadAction</span> </span>&#123;</span><br><span class="line">    <span class="meta">@RequestMapping(value=<span class="meta-string">"insert"</span>)</span></span><br><span class="line">	<span class="keyword">public</span> ModelAndView insert(Type type, MultipartFile pic) throws IOException &#123;</span><br><span class="line">		System.<span class="keyword">out</span>.println(<span class="string">"类型名称："</span> + type.getTitle());</span><br><span class="line">		System.<span class="keyword">out</span>.println(<span class="string">"文件类型："</span> + pic.getContentType());</span><br><span class="line">		System.<span class="keyword">out</span>.println(<span class="string">"文件大小："</span> + pic.getSize());</span><br><span class="line">		System.<span class="keyword">out</span>.println(<span class="string">"是否为空："</span> + pic.isEmpty());</span><br><span class="line">		System.<span class="keyword">out</span>.println(<span class="string">"数据流："</span> + pic.getInputStream());</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>定义表单type_insert.jsp实现文件上传</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 配置上传文件工具限制类--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"multipartResolver"</span> <span class="attr">class</span>=<span class="string">"org.springframework.web.multipart.commons.CommonsMultipartResolver"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"maxUploadSize"</span> <span class="attr">value</span>=<span class="string">"5242880"</span>/&gt;</span>  <span class="comment">&lt;!-- 上传文件的最大值 5M --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"maxInMemorySize"</span> <span class="attr">value</span>=<span class="string">"2097152"</span>/&gt;</span>  <span class="comment">&lt;!-- 占用内存的最大值  2M --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这个时候可能会出现错误，只需要导入commons-io的jar包就行了。但是这里还有一个问题，就是如果上传的文件超出了设定的大小怎么办呢？我们可以由一下方法进行解决：</p>
+<ol>
+<li>在applicationContext.xml文件处理错误信息</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 处理错误信息配置 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"exceptionMapping"</span> <span class="attr">class</span>=<span class="string">"org.springframework.web.portlet.handler.SimpleMappingExceptionResolver"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"exceptionMappings"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">props</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">prop</span> <span class="attr">key</span>=<span class="string">"org.springframework.web.multipart.MaxUploadSizeExceededException"</span>&gt;</span></span><br><span class="line">				errors			</span><br><span class="line">			<span class="tag">&lt;/<span class="name">prop</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">props</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>2.在WEB-INF/pages下建立errors.jsp页面</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span></span><br><span class="line">	对不起，程序出现错误，请按照规定重新访问！！！</span><br><span class="line"><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>3.当访问的时候，如果上传的文件大小超出设定值，则会自动跳转到errors.jsp页面</p>
+<h4 id="2-3-5-拦截器"><a href="#2-3-5-拦截器" class="headerlink" title="2.3.5 拦截器"></a><strong>2.3.5 拦截器</strong></h4><blockquote>
+<p>在Spring里面提供了一个专门的拦截器实现接口：org.springframework.web.servlet.HandlerInterceptor，在这里面提供如下三个方法：</p>
+</blockquote>
+<ul>
+<li>操作执行前拦截：public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception;</li>
+<li>操作执行时拦截：public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler ,ModelAndView modelAndView) throws Exception;</li>
+<li>操作执行后拦截：public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception;</li>
+</ul>
+<blockquote>
+<p>大部分情况下都会在preHandle()方法里进行拦截，因为拦截器主要处理的就是执行前的操作。</p>
+</blockquote>
+<h5 id="2-3-5-1-定义一个MyHandler-java类"><a href="#2-3-5-1-定义一个MyHandler-java类" class="headerlink" title="2.3.5.1 定义一个MyHandler.java类"></a><strong>2.3.5.1 定义一个MyHandler.java类</strong></h5><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.tianxingjian.interceptor;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.web.servlet.HandlerInterceptor;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.servlet.ModelAndView;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyHandler</span> <span class="keyword">implements</span> <span class="title">HandlerInterceptor</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">boolean</span> preHandle(HttpServletRequest request, </span><br><span class="line">			HttpServletResponse response, Object <span class="keyword">handler</span>) <span class="keyword">throws</span> Exception&#123;</span><br><span class="line">		System.out.println(<span class="string">"*********执行前拦截***********"</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> postHandle(HttpServletRequest request, HttpServletResponse response, Object <span class="keyword">handler</span> ,</span><br><span class="line">			ModelAndView modelAndView) <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">		System.out.println(<span class="string">"*********执行时拦截***********"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> afterCompletion(HttpServletRequest request, </span><br><span class="line">			HttpServletResponse response, Object <span class="keyword">handler</span>, Exception ex) <span class="keyword">throws</span> Exception&#123;</span><br><span class="line">		System.out.println(<span class="string">"*********执行处理完毕***********"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="2-3-5-2-定义一个HelloAction-java类"><a href="#2-3-5-2-定义一个HelloAction-java类" class="headerlink" title="2.3.5.2 定义一个HelloAction.java类"></a><strong>2.3.5.2 定义一个HelloAction.java类</strong></h5><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">package</span> <span class="selector-tag">com</span><span class="selector-class">.tianxingjian</span><span class="selector-class">.action</span>;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">import</span> <span class="selector-tag">org</span><span class="selector-class">.springframework</span><span class="selector-class">.stereotype</span><span class="selector-class">.Controller</span>;</span><br><span class="line"><span class="selector-tag">import</span> <span class="selector-tag">org</span><span class="selector-class">.springframework</span><span class="selector-class">.web</span><span class="selector-class">.bind</span><span class="selector-class">.annotation</span><span class="selector-class">.RequestMapping</span>;</span><br><span class="line"><span class="selector-tag">import</span> <span class="selector-tag">org</span><span class="selector-class">.springframework</span><span class="selector-class">.web</span><span class="selector-class">.servlet</span><span class="selector-class">.ModelAndView</span>;</span><br><span class="line"></span><br><span class="line">@<span class="keyword">Controller</span></span><br><span class="line">@<span class="keyword">RequestMapping</span>("/<span class="keyword">pages</span>/<span class="keyword">hello</span>/*")</span><br><span class="line"><span class="keyword">public</span> class HelloAction &#123;</span><br><span class="line">	@<span class="keyword">RequestMapping</span>(<span class="keyword">value</span>="<span class="keyword">insert</span>")</span><br><span class="line">	public ModelAndView insert() throws Exception &#123;</span><br><span class="line">		<span class="selector-tag">System</span><span class="selector-class">.out</span><span class="selector-class">.println</span>("******<span class="selector-tag">hello</span> <span class="selector-tag">world</span>********");</span><br><span class="line">		<span class="selector-tag">return</span> <span class="selector-tag">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="2-3-5-3-在applicationContext-xml里定义拦截器的使用"><a href="#2-3-5-3-在applicationContext-xml里定义拦截器的使用" class="headerlink" title="2.3.5.3 在applicationContext.xml里定义拦截器的使用"></a><strong>2.3.5.3 在applicationContext.xml里定义拦截器的使用</strong></h5><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 配置拦截器的使用 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mvc:interceptors</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">mvc:interceptor</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">mvc:mapping</span> <span class="attr">path</span>=<span class="string">"/pages/**/*.action"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"com.tianxingjian.interceptor.MyHandler"</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">mvc:interceptor</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mvc:interceptors</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code>    此处表示对pages下的所有的*.action进行拦截。在整个拦截器的处理过程中，将处理的步骤拆分的非常的细，拦截器重点操作是在preHandler方法下，如果返回true则继续向下执行，返会false则不执行后续操作。启动tomcat后访问/pages/hello/insert.action可见拦截结果。
+    而preHandler最主要是在Object参数下，Object即org.springframework.web.method.HandlerMethod，在整个类里面有如下一些操作：
+</code></pre><ul>
+<li>触发拦截器的程序类(Action)：public Object getBean();</li>
+<li>取得处理的方法：public Method getMethod();</li>
+<li>取得方法的参数数据：public MethodParameter[] getMethodParameters();<br>|- 取得方法：public Method getMethod();<br>|- 取得参数名称：public String getParameterName();<br>|- 取得参数类型：public Class&lt;?&gt; getParameterType(); </li>
+</ul>
+<h3 id="2-4-利用Spring-MVC实现CRUD"><a href="#2-4-利用Spring-MVC实现CRUD" class="headerlink" title="2.4 利用Spring MVC实现CRUD"></a><strong>2.4 利用Spring MVC实现CRUD</strong></h3><h4 id="2-4-1-定义IMessageService-java业务层接口"><a href="#2-4-1-定义IMessageService-java业务层接口" class="headerlink" title="2.4.1 定义IMessageService.java业务层接口"></a><strong>2.4.1 定义IMessageService.java业务层接口</strong></h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.tianxingjian.service;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.tianxingjian.vo.Message;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IMessageService</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">insert</span><span class="params">(Message vo)</span> <span class="keyword">throws</span> Exception</span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">update</span><span class="params">(Message vo)</span> <span class="keyword">throws</span> Exception</span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">delete</span><span class="params">(Set&lt;Integer&gt; ids)</span> <span class="keyword">throws</span> Exception</span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Message <span class="title">get</span><span class="params">(<span class="keyword">int</span> id)</span> <span class="keyword">throws</span> Exception</span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Map&lt;String, Object&gt; <span class="title">list</span><span class="params">(String column, String keyWord,</span></span></span><br><span class="line"><span class="function"><span class="params">			Integer currentPage, Integer lineSize)</span> <span class="keyword">throws</span> Exception</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-4-2-定义接口的实现类MessageServiceImpl-java"><a href="#2-4-2-定义接口的实现类MessageServiceImpl-java" class="headerlink" title="2.4.2 定义接口的实现类MessageServiceImpl.java"></a><strong>2.4.2 定义接口的实现类MessageServiceImpl.java</strong></h4><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">package com.tianxingjian.service.impl;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.<span class="built_in">Date</span>;</span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.<span class="built_in">List</span>;</span><br><span class="line"><span class="keyword">import</span> java.util.<span class="built_in">Map</span>;</span><br><span class="line"><span class="keyword">import</span> java.util.<span class="built_in">Set</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Service;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.tianxingjian.service.IMessageService;</span><br><span class="line"><span class="keyword">import</span> com.tianxingjian.vo.Message;</span><br><span class="line"><span class="keyword">import</span> com.tianxingjian.vo.<span class="keyword">Type</span>;</span><br><span class="line"></span><br><span class="line">@Service</span><br><span class="line"><span class="keyword">public</span> class MessageServiceImpl implements IMessageService&#123;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	<span class="keyword">public</span> <span class="built_in">boolean</span> insert(Message vo) throws Exception &#123;</span><br><span class="line">		System.out.println(<span class="string">"*******添加信息*******"</span> + vo);</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	<span class="keyword">public</span> <span class="built_in">boolean</span> update(Message vo) throws Exception &#123;</span><br><span class="line">		System.out.println(<span class="string">"*******修改信息*******"</span> + vo);</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	<span class="keyword">public</span> <span class="built_in">boolean</span> delete(<span class="built_in">Set</span>&lt;<span class="built_in">Integer</span>&gt; ids) throws Exception &#123;</span><br><span class="line">		System.out.println(<span class="string">"*******删除信息系*******"</span> + ids);</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	<span class="keyword">public</span> Message get(int id) throws Exception &#123;</span><br><span class="line">		System.out.println(<span class="string">"*******根据id查询数据*******"</span> + id);</span><br><span class="line">		Message msg = <span class="literal">new</span> Message();</span><br><span class="line">		msg.setMid(<span class="number">10</span>);</span><br><span class="line">		msg.setDate(<span class="literal">new</span> <span class="built_in">Date</span>());</span><br><span class="line">		msg.setPrice(<span class="number">1000.1</span>);</span><br><span class="line">		msg.setTitle(<span class="string">"title"</span>);</span><br><span class="line">		<span class="keyword">Type</span> <span class="keyword">type</span> = <span class="literal">new</span> <span class="keyword">Type</span>();</span><br><span class="line">		<span class="keyword">type</span>.setTitle(<span class="string">"new title!"</span>);</span><br><span class="line">		msg.setType(<span class="keyword">type</span>);</span><br><span class="line">		<span class="keyword">return</span> msg;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	<span class="keyword">public</span> <span class="built_in">Map</span>&lt;<span class="built_in">String</span>, Object&gt; <span class="built_in">list</span>(<span class="built_in">String</span> column, <span class="built_in">String</span> <span class="built_in">keyWord</span>, <span class="built_in">Integer</span> currentPage, <span class="built_in">Integer</span> lineSize)</span><br><span class="line">			throws Exception &#123;</span><br><span class="line">		<span class="built_in">Map</span>&lt;<span class="built_in">String</span>, Object&gt; <span class="built_in">map</span> = <span class="literal">new</span> HashMap&lt;<span class="built_in">String</span>, Object&gt;();</span><br><span class="line">		<span class="built_in">List</span>&lt;Message&gt; <span class="literal">all</span> = <span class="literal">new</span> ArrayList&lt;Message&gt;();</span><br><span class="line">		for (int x=(currentPage<span class="number">-1</span>)*lineSize;x&lt;currentPage*lineSize; x++) &#123;</span><br><span class="line">			Message msg = <span class="literal">new</span> Message();</span><br><span class="line">			msg.setMid(<span class="number">100</span> + x);</span><br><span class="line">			msg.setDate(<span class="literal">new</span> <span class="built_in">Date</span>());</span><br><span class="line">			msg.setPrice(<span class="number">1000.1</span> + x);</span><br><span class="line">			msg.setTitle(<span class="string">"title"</span> + x);</span><br><span class="line">			<span class="keyword">Type</span> <span class="keyword">type</span> = <span class="literal">new</span> <span class="keyword">Type</span>();</span><br><span class="line">			<span class="keyword">type</span>.setTitle(<span class="string">"new title!"</span> + x);</span><br><span class="line">			msg.setType(<span class="keyword">type</span>);			</span><br><span class="line">			<span class="literal">all</span>.add(msg);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">map</span>.put(<span class="string">"allMsg"</span>, <span class="literal">all</span>);</span><br><span class="line">		<span class="built_in">map</span>.put(<span class="string">"msgCount"</span>, <span class="number">8888</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="built_in">map</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-4-3-修改MessageAction-java类"><a href="#2-4-3-修改MessageAction-java类" class="headerlink" title="2.4.3 修改MessageAction.java类"></a><strong>2.4.3 修改MessageAction.java类</strong></h4><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.tianxingjian.action;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.text.SimpleDateFormat;</span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"><span class="keyword">import</span> java.util.HashSet;</span><br><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.<span class="keyword">annotation</span>.Resource;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.propertyeditors.CustomDateEditor;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Controller;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.WebDataBinder;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.<span class="keyword">annotation</span>.RequestMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.servlet.ModelAndView;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.tianxingjian.service.IMessageService;</span><br><span class="line"><span class="keyword">import</span> com.tianxingjian.vo.Message;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Controller</span> <span class="comment">// 现在这里定义了控制器</span></span><br><span class="line"><span class="meta">@RequestMapping(<span class="meta-string">"/pages/back/message/*"</span>)</span> <span class="comment">// 整体的 访问路径</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MessageAction</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Resource</span></span><br><span class="line">	<span class="keyword">private</span> IMessageService messageService;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@RequestMapping(value=<span class="meta-string">"message_insert"</span>)</span></span><br><span class="line">	<span class="keyword">public</span> ModelAndView insert(Message msg) throws Exception &#123;</span><br><span class="line">		ModelAndView mav = new ModelAndView(<span class="string">"/pages/forward.jsp"</span>);</span><br><span class="line">			System.<span class="keyword">out</span>.println(<span class="keyword">this</span>.messageService.insert(msg));</span><br><span class="line">		mav.addObject(<span class="string">"msg"</span>, <span class="string">"消息添加成功"</span>);</span><br><span class="line">		mav.addObject(<span class="string">"url"</span>, <span class="string">"/pages/back/message/message_insert.jsp"</span>);</span><br><span class="line">		<span class="keyword">return</span> mav;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@RequestMapping(value=<span class="meta-string">"message_update"</span>)</span></span><br><span class="line">	<span class="keyword">public</span> ModelAndView update(Message msg) throws Exception &#123;</span><br><span class="line">		ModelAndView mav = new ModelAndView(<span class="string">"/pages/forward.jsp"</span>);</span><br><span class="line">		System.<span class="keyword">out</span>.println(<span class="keyword">this</span>.messageService.update(msg));</span><br><span class="line">		mav.addObject(<span class="string">"msg"</span>, <span class="string">"消息更新成功"</span>);</span><br><span class="line">		mav.addObject(<span class="string">"url"</span>, <span class="string">"/index.jsp"</span>);</span><br><span class="line">		<span class="keyword">return</span> mav;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@RequestMapping(value=<span class="meta-string">"message_delete"</span>)</span></span><br><span class="line">	<span class="keyword">public</span> ModelAndView delete(String ids) throws Exception &#123;</span><br><span class="line">		ModelAndView mav = new ModelAndView(<span class="string">"/pages/forward.jsp"</span>);</span><br><span class="line">		Set&lt;Integer&gt; <span class="keyword">set</span> = new HashSet&lt;Integer&gt;();</span><br><span class="line">		String result [] = ids.split(<span class="string">"_"</span>);</span><br><span class="line">		<span class="keyword">for</span> (int x=<span class="number">0</span>; x&lt;result.length; x++) &#123;</span><br><span class="line">			<span class="keyword">set</span>.add(Integer.parseInt(result[x]));</span><br><span class="line">		&#125;</span><br><span class="line">		System.<span class="keyword">out</span>.println(<span class="keyword">this</span>.messageService.delete(<span class="keyword">set</span>));</span><br><span class="line">		mav.addObject(<span class="string">"msg"</span>, <span class="string">"消息删除成功"</span>);</span><br><span class="line">		mav.addObject(<span class="string">"url"</span>, <span class="string">"/index.jsp"</span>);</span><br><span class="line">		<span class="keyword">return</span> mav;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@RequestMapping(value=<span class="meta-string">"message_get"</span>)</span></span><br><span class="line">	<span class="keyword">public</span> ModelAndView <span class="keyword">get</span>(Integer id) throws Exception &#123;</span><br><span class="line">		ModelAndView mav = new ModelAndView(<span class="string">"/pages/forward.jsp"</span>);</span><br><span class="line">		System.<span class="keyword">out</span>.println(<span class="keyword">this</span>.messageService.<span class="keyword">get</span>(id));</span><br><span class="line">		mav.addObject(<span class="string">"msg"</span>, <span class="string">"消息查询成功"</span>);</span><br><span class="line">		mav.addObject(<span class="string">"url"</span>, <span class="string">"/index.jsp"</span>);</span><br><span class="line">		<span class="keyword">return</span> mav;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@RequestMapping(value=<span class="meta-string">"message_list"</span>)</span></span><br><span class="line">	<span class="keyword">public</span> ModelAndView list(String column, String keyWord, int currentPage, int lineSize) throws Exception &#123;</span><br><span class="line">		ModelAndView mav = new ModelAndView(<span class="string">"/pages/forward.jsp"</span>);</span><br><span class="line">		System.<span class="keyword">out</span>.println(<span class="keyword">this</span>.messageService.list(column, keyWord, currentPage, lineSize));</span><br><span class="line">		mav.addObject(<span class="string">"msg"</span>, <span class="string">"消息查询所有成功"</span>);</span><br><span class="line">		mav.addObject(<span class="string">"url"</span>, <span class="string">"/index.jsp"</span>);</span><br><span class="line">		<span class="keyword">return</span> mav;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@InitBinder</span></span><br><span class="line">	<span class="keyword">public</span> void initBinder(WebDataBinder binder) &#123;</span><br><span class="line">		SimpleDateFormat sdf = new SimpleDateFormat(<span class="string">"yyyy-MM-dd"</span>);</span><br><span class="line">		<span class="comment">// 注册一个专门的日期转换器的操作类，并且允许输入的数据为空</span></span><br><span class="line">		binder.registerCustomEditor(Date.<span class="keyword">class</span>, new CustomDateEditor(sdf, <span class="literal">true</span>));</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line"><span class="comment">//	@RequestMapping(value="hello_demo", method=RequestMethod.GET)  // 为这个demo方法定义映射子路径以及请求类型</span></span><br><span class="line"><span class="comment">//	public ModelAndView demo(Message msg) &#123;</span></span><br><span class="line"><span class="comment">//		ModelAndView mav = new ModelAndView("/pages/forward.jsp");</span></span><br><span class="line"><span class="comment">//		mav.addObject("msg", "消息信息添加成功！");</span></span><br><span class="line"><span class="comment">//		mav.addObject("url", "/index.jsp");</span></span><br><span class="line"><span class="comment">//		System.out.println(msg);</span></span><br><span class="line"><span class="comment">//		return mav;</span></span><br><span class="line"><span class="comment">//	&#125;</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-4-4-定义-pages-back-message-message-insert-jsp和message-update页面"><a href="#2-4-4-定义-pages-back-message-message-insert-jsp和message-update页面" class="headerlink" title="2.4.4 定义/pages/back/message/message_insert.jsp和message_update页面"></a><strong>2.4.4 定义/pages/back/message/message_insert.jsp和message_update页面</strong></h4><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">form</span> action=<span class="string">"pages/back/message/message_insert.action"</span> method=<span class="string">"post"</span>&gt;</span><br><span class="line">	消息编号：&lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"text"</span> id=<span class="string">"mid"</span> name=<span class="string">"mid"</span> value=<span class="string">"46546"</span>/&gt;&lt;<span class="keyword">br</span>/&gt;</span><br><span class="line">	消息名称：&lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"text"</span> id=<span class="string">"title"</span> name=<span class="string">"title"</span> value=<span class="string">"lt"</span>/&gt;&lt;<span class="keyword">br</span>/&gt;</span><br><span class="line">	消息价格：&lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"text"</span> id=<span class="string">"price"</span> name=<span class="string">"price"</span> value=<span class="string">"453.4534"</span>/&gt;&lt;<span class="keyword">br</span>/&gt;</span><br><span class="line">	消息日期：&lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"text"</span> id=<span class="string">"date"</span> name=<span class="string">"date"</span> value=<span class="string">"2014-11-11"</span>/&gt;&lt;<span class="keyword">br</span>/&gt;</span><br><span class="line">	消息类型：&lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"text"</span> id=<span class="string">"type.title"</span> name=<span class="string">"type.title"</span> value=<span class="string">"今日热点"</span>/&gt;&lt;<span class="keyword">br</span>/&gt;</span><br><span class="line">	&lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"submit"</span> value=<span class="string">"提交"</span>/&gt;</span><br><span class="line">	&lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"reset"</span>, value=<span class="string">"重置"</span>/&gt;</span><br><span class="line">&lt;/<span class="keyword">form</span>&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">form</span> action=<span class="string">"pages/back/message/message_update.action"</span> method=<span class="string">"post"</span>&gt;</span><br><span class="line">	消息编号：&lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"text"</span> id=<span class="string">"mid"</span> name=<span class="string">"mid"</span> value=<span class="string">"98"</span>/&gt;</span><br><span class="line">	消息名称：&lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"text"</span> id=<span class="string">"title"</span> name=<span class="string">"title"</span> value=<span class="string">"tianxingjian"</span>/&gt;</span><br><span class="line">	消息价格：&lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"text"</span> id=<span class="string">"price"</span> name=<span class="string">"price"</span> value=<span class="string">"9999.999"</span>/&gt;</span><br><span class="line">	消息日期：&lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"text"</span> id=<span class="string">"date"</span> name=<span class="string">"date"</span> value=<span class="string">"1111-11-11"</span>/&gt;</span><br><span class="line">	消息类型：&lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"text"</span> id=<span class="string">"type.title"</span> name=<span class="string">"type.title"</span> value=<span class="string">"新闻头条"</span>/&gt;</span><br><span class="line">	&lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"submit"</span> value=<span class="string">"提交"</span>/&gt;</span><br><span class="line">	&lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"reset"</span>, value=<span class="string">"重置"</span>/&gt;</span><br><span class="line">&lt;/<span class="keyword">form</span>&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="2-4-5-解决乱码问题"><a href="#2-4-5-解决乱码问题" class="headerlink" title="2.4.5 解决乱码问题"></a><strong>2.4.5 解决乱码问题</strong></h4><p>解决乱码问题一般有两种方法：</p>
+<ul>
+<li>方式一：建立一个过滤器</li>
+<li>方式二：使用spring的专属过滤器</li>
+</ul>
+<p><strong>这里使用方式二：</strong></p>
+<ol>
+<li>在web.xml文件里配置过滤器</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 添加Spring编码过滤器配置 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>encodingFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>org.springframework.web.filter.CharacterEncodingFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">param-name</span>&gt;</span>encoding<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">param-value</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>encodingfilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:18px;">-------------━┳━　━┳━ 本文结束<i class="fa fa-paw"></i>感谢您的阅读 ━┳━　━┳━-------------</div>
+    
+</div>
+      
+    </div>
+
+
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>版权描述:</span>创作不易，尊重作者，欢迎转载，转载请保留原文链接及作者于醒目之处。</p>
+  <p><span>本文标题:</span><a href="/2018/12/03/Spring MVC的学习/">Spring MVC的学习</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 木子 的个人博客">木子</a></p>
+  <p><span>发布时间:</span>2018年12月03日 - 18:12</p>
+  <p><span>最后更新:</span>2020年02月21日 - 11:02</p>
+  <p><span>原始链接:</span><a href="/2018/12/03/Spring MVC的学习/" title="Spring MVC的学习">https://muzimz.cn/2018/12/03/Spring MVC的学习/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://muzimz.cn/2018/12/03/Spring MVC的学习/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+
+      
+    </div>
+
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/wechatpay.png" alt="木子 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/alipay.png" alt="木子 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/13/DOS命令/" rel="next" title="DOS命令">
+                <i class="fa fa-chevron-left"></i> DOS命令
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/14/渗透攻击/" rel="prev" title="渗透攻击">
+                渗透攻击 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!--MOB SHARE BEGIN-->
+<div class="-mob-share-ui-button -mob-share-open">分享</div>
+<div class="-mob-share-ui" -mob-share-ui-theme="" -mob-share-ui-theme-slide-bottom="" style="display: none">
+<ul class="-mob-share-list">
+    <li class="-mob-share-weixin"><p>微信</p></li>
+    <li class="-mob-share-qzone"><p>QQ空间</p></li>
+    <li class="-mob-share-weibo"><p>新浪微博</p></li>
+    <li class="-mob-share-facebook"><p>Facebook</p></li>
+    <li class="-mob-share-twitter"><p>Twitter</p></li>
+    <li class="-mob-share-pocket"><p>Pocket</p></li>
+    <li class="-mob-share-tumblr"><p>Tumblr</p></li>
+    <li class="-mob-share-google"><p>Google+</p></li>
+    <li class="-mob-share-linkedin"><p>Linkedin</p></li>
+    <li class="-mob-share-qq"><p>QQ好友</p></li>
+    <li class="-mob-share-tencentweibo"><p>腾讯微博</p></li>
+    <li class="-mob-share-renren"><p>人人网</p></li>
+    <li class="-mob-share-douban"><p>豆瓣</p></li>
+    <li class="-mob-share-youdao"><p>有道云笔记</p></li>
+    <li class="-mob-share-instapaper"><p>Instapaper</p></li>
+</ul>
+<div class="-mob-share-close">取消</div>
+</div>
+<div class="-mob-share-ui-bg"></div>
+<script id="-mob-share" src="http://f1.webshare.mob.com/code/mob-share.js?appkey="></script>
+<!--MOB SHARE END-->
+      
+    </div>
+    
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+   <div id="gitalk-container"></div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/uploads/head.png" alt="木子">
+            
+              <p class="site-author-name" itemprop="name">木子</p>
+              <p class="site-description motion-element" itemprop="description">Jack of all trades and master of none.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/JackLXJ" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:26647879@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://wpa.qq.com/msgrd?v=3&uin=26647879&site=qq&menu=yes" target="_blank" title="QQ">
+                      
+                        <i class="fa fa-fw fa-qq"></i>QQ</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://y.qq.com/portal/profile.html#stat=y_new.top.user_pic" target="_blank" title="music">
+                      
+                        <i class="fa fa-fw fa-music"></i>music</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring-MVC的学习"><span class="nav-number">1.</span> <span class="nav-text">Spring MVC的学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Spring-MVC环境搭建"><span class="nav-number">1.1.</span> <span class="nav-text">1. Spring MVC环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-创建SpringMVCDemo项目并添加Spring支持"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1 创建SpringMVCDemo项目并添加Spring支持</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-修改applicationContext-xml文件"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.2 修改applicationContext.xml文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-修改web-xml文件"><span class="nav-number">1.1.3.</span> <span class="nav-text">1.3 修改web.xml文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-实现Spring-MVC程序"><span class="nav-number">1.2.</span> <span class="nav-text">2. 实现Spring MVC程序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-建立Message-java和Type-java类"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1 建立Message.java和Type.java类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-定义MessageAction-java"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2 定义MessageAction.java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-Spring-MVC解析"><span class="nav-number">1.2.3.</span> <span class="nav-text">2.3 Spring MVC解析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-1-org-springframework-web-servlet-ModelAndView"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">2.3.1 org.springframework.web.servlet.ModelAndView</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-2-内置对象"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">2.3.2 内置对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-3-定义安全访问"><span class="nav-number">1.2.3.3.</span> <span class="nav-text">2.3.3 定义安全访问</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-4-资源文件"><span class="nav-number">1.2.3.4.</span> <span class="nav-text">2.3.4 资源文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-5-文件上传"><span class="nav-number">1.2.3.5.</span> <span class="nav-text">2.3.5 文件上传</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-5-拦截器"><span class="nav-number">1.2.3.6.</span> <span class="nav-text">2.3.5 拦截器</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-3-5-1-定义一个MyHandler-java类"><span class="nav-number">1.2.3.6.1.</span> <span class="nav-text">2.3.5.1 定义一个MyHandler.java类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-3-5-2-定义一个HelloAction-java类"><span class="nav-number">1.2.3.6.2.</span> <span class="nav-text">2.3.5.2 定义一个HelloAction.java类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-3-5-3-在applicationContext-xml里定义拦截器的使用"><span class="nav-number">1.2.3.6.3.</span> <span class="nav-text">2.3.5.3 在applicationContext.xml里定义拦截器的使用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-利用Spring-MVC实现CRUD"><span class="nav-number">1.2.4.</span> <span class="nav-text">2.4 利用Spring MVC实现CRUD</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-1-定义IMessageService-java业务层接口"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">2.4.1 定义IMessageService.java业务层接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-2-定义接口的实现类MessageServiceImpl-java"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">2.4.2 定义接口的实现类MessageServiceImpl.java</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-3-修改MessageAction-java类"><span class="nav-number">1.2.4.3.</span> <span class="nav-text">2.4.3 修改MessageAction.java类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-4-定义-pages-back-message-message-insert-jsp和message-update页面"><span class="nav-number">1.2.4.4.</span> <span class="nav-text">2.4.4 定义/pages/back/message/message_insert.jsp和message_update页面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-5-解决乱码问题"><span class="nav-number">1.2.4.5.</span> <span class="nav-text">2.4.5 解决乱码问题</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      <div align="center"><a href="http://www.amazingcounters.com"><img border="0" src="http://cc.amazingcounters.com/counter.php?i=3229922&c=9690079" alt="AmazingCounters.com"></a></div>
+
+
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">木子</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">97.9k</span>
+  
+</div>
+
+
+  <div class="powered-by">
+    <i class="fa fa-user-md"></i>
+
+    <span id="busuanzi_container_site_uv">
+      The site's UV:<span id="busuanzi_value_site_uv"></span>
+    </span>
+
+    <span id="busuanzi_container_site_pv">
+      The site's PV:<span id="busuanzi_value_site_pv"></span>
+    </span>
+  </div>
+
+ 
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">本站共97.9k字</span>
+</div>
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+  <script src="/js/src/md5.min.js"></script>
+
+  <script type="text/javascript">
+    var gitalk = new Gitalk({
+      clientID: 'a22cf34e389580514647',
+      clientSecret: '4fb159dd5362d7a3c4c98d565abcad8d53014004',
+      repo: 'JackLXJ.github.io',
+      owner: 'JackLXJ',
+      admin: ['JackLXJ'],
+      id: md5(location.pathname),
+      distractionFreeMode: 'true'
+    })
+    gitalk.render('gitalk-container')
+  </script>
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+
+
+  <link rel="stylesheet" href="/dist/APlayer.min.css">
+  <div id="aplayer"></div>
+  <script type="text/javascript" src="/dist/APlayer.min.js"></script>
+  <script type="text/javascript" src="/dist/music.js"></script>
+  
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+
+<!--崩溃欺骗-->
+<!-- <script type="text/javascript" src="/js/src/crash_cheat.js"></script> -->
