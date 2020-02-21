@@ -157,21 +157,20 @@ pace-theme-flash.css" rel="stylesheet">
 
 
 
-<meta name="description" content="前言相信点进这篇文章的Coder，不管是在各大技术论坛上、技术交流群，亦或招聘网上，应该都有见到过Doker容器技术的面孔，随着社会节奏的加快以及迫于生活的压力，在计算机技术日新月异的今天，真正能够沉下心来学习一门技术的时间真的不多。为了不让新型冠状病毒迅速蔓延，全国人民都居家隔离，趁着这段空闲的时间，我也该是时候把过去学习时所积累的笔记沉淀一下了。本文主要是从是什么、为什么、怎么做的角度来介绍D">
+<meta name="description" content="前言相信点进这篇文章的Coder，不管是在各大技术论坛上、技术交流群，亦或招聘网上，应该都有见到过Doker容器技术的面孔，随着社会节奏的加快以及迫于生活的压力，在计算机技术日新月异的今天，真正能够沉下心来学习一门技术的时间真的不多。为了不让新型冠状病毒迅速蔓延，全国人民都居家隔离，趁着这段空闲的时间，我也该是时候把过去学习时所积累的笔记沉淀一下了。本文主要是从是什么、为什么、怎么做的角度来介">
 <meta name="keywords" content="Docker">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一文入门Docker容器技术">
 <meta property="og:url" content="https://muzimz.cn/2020/01/03/一文入门Docker容器技术/index.html">
 <meta property="og:site_name" content="木子">
-<meta property="og:description" content="前言相信点进这篇文章的Coder，不管是在各大技术论坛上、技术交流群，亦或招聘网上，应该都有见到过Doker容器技术的面孔，随着社会节奏的加快以及迫于生活的压力，在计算机技术日新月异的今天，真正能够沉下心来学习一门技术的时间真的不多。为了不让新型冠状病毒迅速蔓延，全国人民都居家隔离，趁着这段空闲的时间，我也该是时候把过去学习时所积累的笔记沉淀一下了。本文主要是从是什么、为什么、怎么做的角度来介绍D">
+<meta property="og:description" content="前言相信点进这篇文章的Coder，不管是在各大技术论坛上、技术交流群，亦或招聘网上，应该都有见到过Doker容器技术的面孔，随着社会节奏的加快以及迫于生活的压力，在计算机技术日新月异的今天，真正能够沉下心来学习一门技术的时间真的不多。为了不让新型冠状病毒迅速蔓延，全国人民都居家隔离，趁着这段空闲的时间，我也该是时候把过去学习时所积累的笔记沉淀一下了。本文主要是从是什么、为什么、怎么做的角度来介">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1581752085473&di=c4c4e3eda8cba3ae95fde0488ba1e44a&imgtype=0&src=http%3A%2F%2Fimg2018.cnblogs.com%2Fblog%2F1813823%2F201911%2F1813823-20191121223145795-1635208897.png">
 <meta property="og:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1581754676089&di=47e49e652b363c2d53b40f0b1e59b6f7&imgtype=0&src=http%3A%2F%2Fimg.xinxic.com%2Fimg%2F5060f3fe264ea289.jpg">
-<meta property="og:image" content="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2694523031,3340367047&fm=26&gp=0.jpg">
-<meta property="og:updated_time" content="2020-02-21T03:22:52.590Z">
+<meta property="og:updated_time" content="2020-02-21T05:03:06.578Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一文入门Docker容器技术">
-<meta name="twitter:description" content="前言相信点进这篇文章的Coder，不管是在各大技术论坛上、技术交流群，亦或招聘网上，应该都有见到过Doker容器技术的面孔，随着社会节奏的加快以及迫于生活的压力，在计算机技术日新月异的今天，真正能够沉下心来学习一门技术的时间真的不多。为了不让新型冠状病毒迅速蔓延，全国人民都居家隔离，趁着这段空闲的时间，我也该是时候把过去学习时所积累的笔记沉淀一下了。本文主要是从是什么、为什么、怎么做的角度来介绍D">
+<meta name="twitter:description" content="前言相信点进这篇文章的Coder，不管是在各大技术论坛上、技术交流群，亦或招聘网上，应该都有见到过Doker容器技术的面孔，随着社会节奏的加快以及迫于生活的压力，在计算机技术日新月异的今天，真正能够沉下心来学习一门技术的时间真的不多。为了不让新型冠状病毒迅速蔓延，全国人民都居家隔离，趁着这段空闲的时间，我也该是时候把过去学习时所积累的笔记沉淀一下了。本文主要是从是什么、为什么、怎么做的角度来介">
 <meta name="twitter:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1581752085473&di=c4c4e3eda8cba3ae95fde0488ba1e44a&imgtype=0&src=http%3A%2F%2Fimg2018.cnblogs.com%2Fblog%2F1813823%2F201911%2F1813823-20191121223145795-1635208897.png">
 
 
@@ -524,9 +523,9 @@ pace-theme-flash.css" rel="stylesheet">
       
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>相信点进这篇文章的Coder，不管是在各大技术论坛上、技术交流群，亦或招聘网上，应该都有见到过Doker容器技术的面孔，随着社会节奏的加快以及迫于生活的压力，在计算机技术日新月异的今天，真正能够沉下心来学习一门技术的时间真的不多。为了不让新型冠状病毒迅速蔓延，全国人民都居家隔离，趁着这段空闲的时间，我也该是时候把过去学习时所积累的笔记沉淀一下了。本文主要是从是什么、为什么、怎么做的角度来介绍Docker容器技术得入门，能让初次接触Docker容器技术的朋友更快的使用Docker。</p>
-<center><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1581752085473&di=c4c4e3eda8cba3ae95fde0488ba1e44a&imgtype=0&src=http%3A%2F%2Fimg2018.cnblogs.com%2Fblog%2F1813823%2F201911%2F1813823-20191121223145795-1635208897.png"></center>
+        <center><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1581752085473&di=c4c4e3eda8cba3ae95fde0488ba1e44a&imgtype=0&src=http%3A%2F%2Fimg2018.cnblogs.com%2Fblog%2F1813823%2F201911%2F1813823-20191121223145795-1635208897.png"></center>
 
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>相信点进这篇文章的Coder，不管是在各大技术论坛上、技术交流群，亦或招聘网上，应该都有见到过Doker容器技术的面孔，随着社会节奏的加快以及迫于生活的压力，在计算机技术日新月异的今天，真正能够沉下心来学习一门技术的时间真的不多。为了不让新型冠状病毒迅速蔓延，全国人民都居家隔离，趁着这段空闲的时间，我也该是时候把过去学习时所积累的笔记沉淀一下了。本文主要是从是什么、为什么、怎么做的角度来介绍Docker容器技术得入门，能让初次接触Docker容器技术的朋友更快的使用Docker。</p>
 <a id="more"></a>
 <h2 id="Docker是什么"><a href="#Docker是什么" class="headerlink" title="Docker是什么"></a>Docker是什么</h2><p>对于Docker，官方的介绍如下：</p>
 <blockquote>
@@ -542,7 +541,7 @@ pace-theme-flash.css" rel="stylesheet">
 </ul>
 </blockquote>
 <p>总之，Docker容器是现如今相当火热的一门技术。之前读到网上有着这么一句话：电脑如果有问题，没有是重装系统解决不了的。话虽如此，但是一旦重装系统之后，我们之前系统中所有保存资源都被消除了，我们需要使用QQ增进朋友之间的感情，则要到鹅厂中去下载、安装；需要网易云音乐来放松心情，则要到官网中安装、下载，以及需要下载并安装其他各大软件才能满足自己的实际需求，一个不小心还可能会绑架其他垃圾软件。当然有的朋友会在重装系统之前自己的资源备份以下，重装系统之后再直接使用，但依然免不了<font color="red">N个下一步</font>所带来的时间消耗。假如现在有这么一个容器，里面存放着我们需要的所有资源，在我们需要的时候只需要一行简单的<code>pull</code>命令即可迅速完成所有软件的下载安装步骤，这岂不美哉！</p>
-<center><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1581754676089&di=47e49e652b363c2d53b40f0b1e59b6f7&imgtype=0&src=http%3A%2F%2Fimg.xinxic.com%2Fimg%2F5060f3fe264ea289.jpg" width="300"> <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2694523031,3340367047&fm=26&gp=0.jpg" width="200"></center>
+<center><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1581754676089&di=47e49e652b363c2d53b40f0b1e59b6f7&imgtype=0&src=http%3A%2F%2Fimg.xinxic.com%2Fimg%2F5060f3fe264ea289.jpg" width="300"></center>
 
 <p>没错，Docker容器就是基于这么一个思想来解决我们各大烦恼。如果对于Docker容器技术的理解还不是特别清楚，可拜读一下：<a href="https://www.chainnews.com/articles/668418042258.htm" target="_blank" rel="noopener">漫画 | 从搬家到容器技术 Docker 应用场景解析</a>，这篇文章使用漫画的形式来给读者介绍Docker容器的优势。</p>
 <h2 id="Docker的安装及测试"><a href="#Docker的安装及测试" class="headerlink" title="Docker的安装及测试"></a>Docker的安装及测试</h2><h3 id="Docker的安装"><a href="#Docker的安装" class="headerlink" title="Docker的安装"></a>Docker的安装</h3><p>我们往往是使用Linux系统来安装Docker，在之前的文章也有过Linux系统的安装，这里就不多介绍了。下面我们就在CentOS Linux release 8.0.1905 (Core)系统下来安装一下Docker吧。</p>
@@ -640,7 +639,7 @@ pace-theme-flash.css" rel="stylesheet">
   <p><span>本文标题:</span><a href="/2020/01/03/一文入门Docker容器技术/">一文入门Docker容器技术</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 木子 的个人博客">木子</a></p>
   <p><span>发布时间:</span>2020年01月03日 - 22:01</p>
-  <p><span>最后更新:</span>2020年02月21日 - 11:02</p>
+  <p><span>最后更新:</span>2020年02月21日 - 13:02</p>
   <p><span>原始链接:</span><a href="/2020/01/03/一文入门Docker容器技术/" title="一文入门Docker容器技术">https://muzimz.cn/2020/01/03/一文入门Docker容器技术/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://muzimz.cn/2020/01/03/一文入门Docker容器技术/" aria-label="复制成功！"></i></span>
   </p>
