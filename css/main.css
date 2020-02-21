@@ -2123,7 +2123,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ddc6c2;
+  background: #aa941b;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3292,12 +3292,6 @@ span#inline-black {
   #live2dcanvas {
     display: none;
   }
-}
-body {
-  background: url("https://acg.toubiec.cn/random");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: 50% 50%;
 }
 .main-inner {
   margin-top: 80px;
