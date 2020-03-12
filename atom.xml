@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="hexo.muzimz.cn/"/>
+  <link href="blog.muzimz.cn/"/>
   <updated>2020-02-21T05:01:07.316Z</updated>
-  <id>hexo.muzimz.cn/</id>
+  <id>blog.muzimz.cn/</id>
   
   <author>
     <name>木子</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>ElasticSearch、kibana、logstash</title>
-    <link href="hexo.muzimz.cn/2020/01/10/ElasticSearch%E3%80%81kibana%E3%80%81logstash/"/>
-    <id>hexo.muzimz.cn/2020/01/10/ElasticSearch、kibana、logstash/</id>
+    <link href="blog.muzimz.cn/2020/01/10/ElasticSearch%E3%80%81kibana%E3%80%81logstash/"/>
+    <id>blog.muzimz.cn/2020/01/10/ElasticSearch、kibana、logstash/</id>
     <published>2020-01-10T15:20:51.000Z</published>
     <updated>2020-02-21T05:01:07.316Z</updated>
     
@@ -39,17 +39,17 @@
     
     </summary>
     
-      <category term="Java" scheme="hexo.muzimz.cn/categories/Java/"/>
+      <category term="Java" scheme="blog.muzimz.cn/categories/Java/"/>
     
     
-      <category term="Java" scheme="hexo.muzimz.cn/tags/Java/"/>
+      <category term="Java" scheme="blog.muzimz.cn/tags/Java/"/>
     
   </entry>
   
   <entry>
     <title>一文入门Docker容器技术</title>
-    <link href="hexo.muzimz.cn/2020/01/03/%E4%B8%80%E6%96%87%E5%85%A5%E9%97%A8Docker%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/"/>
-    <id>hexo.muzimz.cn/2020/01/03/一文入门Docker容器技术/</id>
+    <link href="blog.muzimz.cn/2020/01/03/%E4%B8%80%E6%96%87%E5%85%A5%E9%97%A8Docker%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/"/>
+    <id>blog.muzimz.cn/2020/01/03/一文入门Docker容器技术/</id>
     <published>2020-01-03T14:36:25.000Z</published>
     <updated>2020-02-21T05:03:06.578Z</updated>
     
@@ -63,17 +63,17 @@
     
     </summary>
     
-      <category term="Docker" scheme="hexo.muzimz.cn/categories/Docker/"/>
+      <category term="Docker" scheme="blog.muzimz.cn/categories/Docker/"/>
     
     
-      <category term="Docker" scheme="hexo.muzimz.cn/tags/Docker/"/>
+      <category term="Docker" scheme="blog.muzimz.cn/tags/Docker/"/>
     
   </entry>
   
   <entry>
     <title>Spring Boot如何学习？</title>
-    <link href="hexo.muzimz.cn/2019/10/01/Spring%20Boot%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0%EF%BC%9F/"/>
-    <id>hexo.muzimz.cn/2019/10/01/Spring Boot如何学习？/</id>
+    <link href="blog.muzimz.cn/2019/10/01/Spring%20Boot%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0%EF%BC%9F/"/>
+    <id>blog.muzimz.cn/2019/10/01/Spring Boot如何学习？/</id>
     <published>2019-10-01T13:56:35.000Z</published>
     <updated>2020-02-21T02:49:19.651Z</updated>
     
@@ -96,17 +96,17 @@
     
     </summary>
     
-      <category term="Java" scheme="hexo.muzimz.cn/categories/Java/"/>
+      <category term="Java" scheme="blog.muzimz.cn/categories/Java/"/>
     
     
-      <category term="Java" scheme="hexo.muzimz.cn/tags/Java/"/>
+      <category term="Java" scheme="blog.muzimz.cn/tags/Java/"/>
     
   </entry>
   
   <entry>
     <title>基于SpringData Es对Elasticsearch进行操作</title>
-    <link href="hexo.muzimz.cn/2019/08/03/%E5%9F%BA%E4%BA%8ESpringData%20Es%E5%AF%B9Elasticsearch%E8%BF%9B%E8%A1%8C%E6%93%8D%E4%BD%9C/"/>
-    <id>hexo.muzimz.cn/2019/08/03/基于SpringData Es对Elasticsearch进行操作/</id>
+    <link href="blog.muzimz.cn/2019/08/03/%E5%9F%BA%E4%BA%8ESpringData%20Es%E5%AF%B9Elasticsearch%E8%BF%9B%E8%A1%8C%E6%93%8D%E4%BD%9C/"/>
+    <id>blog.muzimz.cn/2019/08/03/基于SpringData Es对Elasticsearch进行操作/</id>
     <published>2019-08-03T01:31:23.000Z</published>
     <updated>2020-02-21T02:41:43.858Z</updated>
     
@@ -125,17 +125,17 @@
     
     </summary>
     
-      <category term="Java" scheme="hexo.muzimz.cn/categories/Java/"/>
+      <category term="Java" scheme="blog.muzimz.cn/categories/Java/"/>
     
     
-      <category term="Java" scheme="hexo.muzimz.cn/tags/Java/"/>
+      <category term="Java" scheme="blog.muzimz.cn/tags/Java/"/>
     
   </entry>
   
   <entry>
     <title>阿里数学预赛答卷</title>
-    <link href="hexo.muzimz.cn/2019/07/02/%E9%98%BF%E9%87%8C%E6%95%B0%E5%AD%A6%E9%A2%84%E8%B5%9B%E7%AD%94%E5%8D%B7/"/>
-    <id>hexo.muzimz.cn/2019/07/02/阿里数学预赛答卷/</id>
+    <link href="blog.muzimz.cn/2019/07/02/%E9%98%BF%E9%87%8C%E6%95%B0%E5%AD%A6%E9%A2%84%E8%B5%9B%E7%AD%94%E5%8D%B7/"/>
+    <id>blog.muzimz.cn/2019/07/02/阿里数学预赛答卷/</id>
     <published>2019-07-02T11:25:39.000Z</published>
     <updated>2020-02-21T02:59:34.554Z</updated>
     
@@ -150,17 +150,17 @@
     
     </summary>
     
-      <category term="笔记" scheme="hexo.muzimz.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="blog.muzimz.cn/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="笔记" scheme="hexo.muzimz.cn/tags/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="blog.muzimz.cn/tags/%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>随写录4（4.29-5.05）</title>
-    <link href="hexo.muzimz.cn/2019/05/06/%E9%9A%8F%E5%86%99%E5%BD%954%EF%BC%884.29-5.05%EF%BC%89/"/>
-    <id>hexo.muzimz.cn/2019/05/06/随写录4（4.29-5.05）/</id>
+    <link href="blog.muzimz.cn/2019/05/06/%E9%9A%8F%E5%86%99%E5%BD%954%EF%BC%884.29-5.05%EF%BC%89/"/>
+    <id>blog.muzimz.cn/2019/05/06/随写录4（4.29-5.05）/</id>
     <published>2019-05-06T14:43:35.000Z</published>
     <updated>2020-02-21T02:21:15.568Z</updated>
     
@@ -186,17 +186,17 @@
     
     </summary>
     
-      <category term="随写" scheme="hexo.muzimz.cn/categories/%E9%9A%8F%E5%86%99/"/>
+      <category term="随写" scheme="blog.muzimz.cn/categories/%E9%9A%8F%E5%86%99/"/>
     
     
-      <category term="随写" scheme="hexo.muzimz.cn/tags/%E9%9A%8F%E5%86%99/"/>
+      <category term="随写" scheme="blog.muzimz.cn/tags/%E9%9A%8F%E5%86%99/"/>
     
   </entry>
   
   <entry>
     <title>随写录3（4.22-4.28）</title>
-    <link href="hexo.muzimz.cn/2019/04/29/%E9%9A%8F%E5%86%99%E5%BD%953%EF%BC%884.22-4.28%EF%BC%89/"/>
-    <id>hexo.muzimz.cn/2019/04/29/随写录3（4.22-4.28）/</id>
+    <link href="blog.muzimz.cn/2019/04/29/%E9%9A%8F%E5%86%99%E5%BD%953%EF%BC%884.22-4.28%EF%BC%89/"/>
+    <id>blog.muzimz.cn/2019/04/29/随写录3（4.22-4.28）/</id>
     <published>2019-04-29T15:29:11.000Z</published>
     <updated>2020-02-21T02:20:32.616Z</updated>
     
@@ -222,17 +222,17 @@
     
     </summary>
     
-      <category term="随写" scheme="hexo.muzimz.cn/categories/%E9%9A%8F%E5%86%99/"/>
+      <category term="随写" scheme="blog.muzimz.cn/categories/%E9%9A%8F%E5%86%99/"/>
     
     
-      <category term="随写" scheme="hexo.muzimz.cn/tags/%E9%9A%8F%E5%86%99/"/>
+      <category term="随写" scheme="blog.muzimz.cn/tags/%E9%9A%8F%E5%86%99/"/>
     
   </entry>
   
   <entry>
     <title>随写录2（4.15-4.21）</title>
-    <link href="hexo.muzimz.cn/2019/04/21/%E9%9A%8F%E5%86%99%E5%BD%952%EF%BC%884.15-4.21%EF%BC%89/"/>
-    <id>hexo.muzimz.cn/2019/04/21/随写录2（4.15-4.21）/</id>
+    <link href="blog.muzimz.cn/2019/04/21/%E9%9A%8F%E5%86%99%E5%BD%952%EF%BC%884.15-4.21%EF%BC%89/"/>
+    <id>blog.muzimz.cn/2019/04/21/随写录2（4.15-4.21）/</id>
     <published>2019-04-21T13:33:23.000Z</published>
     <updated>2020-02-21T02:19:32.971Z</updated>
     
@@ -254,17 +254,17 @@
     
     </summary>
     
-      <category term="随写" scheme="hexo.muzimz.cn/categories/%E9%9A%8F%E5%86%99/"/>
+      <category term="随写" scheme="blog.muzimz.cn/categories/%E9%9A%8F%E5%86%99/"/>
     
     
-      <category term="随写" scheme="hexo.muzimz.cn/tags/%E9%9A%8F%E5%86%99/"/>
+      <category term="随写" scheme="blog.muzimz.cn/tags/%E9%9A%8F%E5%86%99/"/>
     
   </entry>
   
   <entry>
     <title>随写录1（4.8-4.14）</title>
-    <link href="hexo.muzimz.cn/2019/04/15/%E9%9A%8F%E5%86%99%E5%BD%951%EF%BC%884.8-4.14%EF%BC%89/"/>
-    <id>hexo.muzimz.cn/2019/04/15/随写录1（4.8-4.14）/</id>
+    <link href="blog.muzimz.cn/2019/04/15/%E9%9A%8F%E5%86%99%E5%BD%951%EF%BC%884.8-4.14%EF%BC%89/"/>
+    <id>blog.muzimz.cn/2019/04/15/随写录1（4.8-4.14）/</id>
     <published>2019-04-15T15:16:33.000Z</published>
     <updated>2020-02-21T02:19:34.800Z</updated>
     
@@ -294,17 +294,17 @@
     
     </summary>
     
-      <category term="随写" scheme="hexo.muzimz.cn/categories/%E9%9A%8F%E5%86%99/"/>
+      <category term="随写" scheme="blog.muzimz.cn/categories/%E9%9A%8F%E5%86%99/"/>
     
     
-      <category term="随写" scheme="hexo.muzimz.cn/tags/%E9%9A%8F%E5%86%99/"/>
+      <category term="随写" scheme="blog.muzimz.cn/tags/%E9%9A%8F%E5%86%99/"/>
     
   </entry>
   
   <entry>
     <title>Matlab常见的绘图Api</title>
-    <link href="hexo.muzimz.cn/2019/02/26/Matlab%E5%B8%B8%E8%A7%81%E7%9A%84%E7%BB%98%E5%9B%BEApi/"/>
-    <id>hexo.muzimz.cn/2019/02/26/Matlab常见的绘图Api/</id>
+    <link href="blog.muzimz.cn/2019/02/26/Matlab%E5%B8%B8%E8%A7%81%E7%9A%84%E7%BB%98%E5%9B%BEApi/"/>
+    <id>blog.muzimz.cn/2019/02/26/Matlab常见的绘图Api/</id>
     <published>2019-02-26T06:26:53.000Z</published>
     <updated>2020-02-21T03:08:03.062Z</updated>
     
@@ -319,17 +319,17 @@
     
     </summary>
     
-      <category term="笔记" scheme="hexo.muzimz.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="blog.muzimz.cn/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="笔记" scheme="hexo.muzimz.cn/tags/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="blog.muzimz.cn/tags/%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>12306自动化抢票</title>
-    <link href="hexo.muzimz.cn/2019/02/13/12306%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8A%A2%E7%A5%A8/"/>
-    <id>hexo.muzimz.cn/2019/02/13/12306自动化抢票/</id>
+    <link href="blog.muzimz.cn/2019/02/13/12306%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8A%A2%E7%A5%A8/"/>
+    <id>blog.muzimz.cn/2019/02/13/12306自动化抢票/</id>
     <published>2019-02-13T01:56:43.000Z</published>
     <updated>2019-04-22T08:48:18.190Z</updated>
     
@@ -345,19 +345,19 @@
     
     </summary>
     
-      <category term="爬虫" scheme="hexo.muzimz.cn/categories/%E7%88%AC%E8%99%AB/"/>
+      <category term="爬虫" scheme="blog.muzimz.cn/categories/%E7%88%AC%E8%99%AB/"/>
     
     
-      <category term="爬虫" scheme="hexo.muzimz.cn/tags/%E7%88%AC%E8%99%AB/"/>
+      <category term="爬虫" scheme="blog.muzimz.cn/tags/%E7%88%AC%E8%99%AB/"/>
     
-      <category term="12306" scheme="hexo.muzimz.cn/tags/12306/"/>
+      <category term="12306" scheme="blog.muzimz.cn/tags/12306/"/>
     
   </entry>
   
   <entry>
     <title>学习Redis的正确方式</title>
-    <link href="hexo.muzimz.cn/2019/02/13/%E5%AD%A6%E4%B9%A0Redis%E7%9A%84%E6%AD%A3%E7%A1%AE%E6%96%B9%E5%BC%8F/"/>
-    <id>hexo.muzimz.cn/2019/02/13/学习Redis的正确方式/</id>
+    <link href="blog.muzimz.cn/2019/02/13/%E5%AD%A6%E4%B9%A0Redis%E7%9A%84%E6%AD%A3%E7%A1%AE%E6%96%B9%E5%BC%8F/"/>
+    <id>blog.muzimz.cn/2019/02/13/学习Redis的正确方式/</id>
     <published>2019-02-13T01:56:43.000Z</published>
     <updated>2020-02-21T02:53:34.098Z</updated>
     
@@ -375,19 +375,19 @@
     
     </summary>
     
-      <category term="Java" scheme="hexo.muzimz.cn/categories/Java/"/>
+      <category term="Java" scheme="blog.muzimz.cn/categories/Java/"/>
     
     
-      <category term="Java" scheme="hexo.muzimz.cn/tags/Java/"/>
+      <category term="Java" scheme="blog.muzimz.cn/tags/Java/"/>
     
-      <category term="Redis" scheme="hexo.muzimz.cn/tags/Redis/"/>
+      <category term="Redis" scheme="blog.muzimz.cn/tags/Redis/"/>
     
   </entry>
   
   <entry>
     <title>网页爬虫之页面解析</title>
-    <link href="hexo.muzimz.cn/2019/01/01/%E7%BD%91%E9%A1%B5%E7%88%AC%E8%99%AB%E4%B9%8B%E9%A1%B5%E9%9D%A2%E8%A7%A3%E6%9E%90/"/>
-    <id>hexo.muzimz.cn/2019/01/01/网页爬虫之页面解析/</id>
+    <link href="blog.muzimz.cn/2019/01/01/%E7%BD%91%E9%A1%B5%E7%88%AC%E8%99%AB%E4%B9%8B%E9%A1%B5%E9%9D%A2%E8%A7%A3%E6%9E%90/"/>
+    <id>blog.muzimz.cn/2019/01/01/网页爬虫之页面解析/</id>
     <published>2018-12-31T16:18:51.000Z</published>
     <updated>2019-04-22T08:48:19.389Z</updated>
     
@@ -399,21 +399,21 @@
     
     </summary>
     
-      <category term="爬虫" scheme="hexo.muzimz.cn/categories/%E7%88%AC%E8%99%AB/"/>
+      <category term="爬虫" scheme="blog.muzimz.cn/categories/%E7%88%AC%E8%99%AB/"/>
     
     
-      <category term="Beautiful Soup" scheme="hexo.muzimz.cn/tags/Beautiful-Soup/"/>
+      <category term="Beautiful Soup" scheme="blog.muzimz.cn/tags/Beautiful-Soup/"/>
     
-      <category term="XPath" scheme="hexo.muzimz.cn/tags/XPath/"/>
+      <category term="XPath" scheme="blog.muzimz.cn/tags/XPath/"/>
     
-      <category term="pyquery" scheme="hexo.muzimz.cn/tags/pyquery/"/>
+      <category term="pyquery" scheme="blog.muzimz.cn/tags/pyquery/"/>
     
   </entry>
   
   <entry>
     <title>数据结构学习笔记&lt;/center&gt;</title>
-    <link href="hexo.muzimz.cn/2018/12/25/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    <id>hexo.muzimz.cn/2018/12/25/数据结构学习笔记/</id>
+    <link href="blog.muzimz.cn/2018/12/25/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>blog.muzimz.cn/2018/12/25/数据结构学习笔记/</id>
     <published>2018-12-25T12:36:24.000Z</published>
     <updated>2020-02-21T02:57:34.313Z</updated>
     
@@ -429,17 +429,17 @@
     
     </summary>
     
-      <category term="笔记" scheme="hexo.muzimz.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="blog.muzimz.cn/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="笔记" scheme="hexo.muzimz.cn/tags/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="blog.muzimz.cn/tags/%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>渗透攻击</title>
-    <link href="hexo.muzimz.cn/2018/12/14/%E6%B8%97%E9%80%8F%E6%94%BB%E5%87%BB/"/>
-    <id>hexo.muzimz.cn/2018/12/14/渗透攻击/</id>
+    <link href="blog.muzimz.cn/2018/12/14/%E6%B8%97%E9%80%8F%E6%94%BB%E5%87%BB/"/>
+    <id>blog.muzimz.cn/2018/12/14/渗透攻击/</id>
     <published>2018-12-14T12:58:35.000Z</published>
     <updated>2019-03-29T06:05:09.462Z</updated>
     
@@ -460,21 +460,21 @@
     
     </summary>
     
-      <category term="白帽子" scheme="hexo.muzimz.cn/categories/%E7%99%BD%E5%B8%BD%E5%AD%90/"/>
+      <category term="白帽子" scheme="blog.muzimz.cn/categories/%E7%99%BD%E5%B8%BD%E5%AD%90/"/>
     
     
-      <category term="Kali" scheme="hexo.muzimz.cn/tags/Kali/"/>
+      <category term="Kali" scheme="blog.muzimz.cn/tags/Kali/"/>
     
-      <category term="setoolkit" scheme="hexo.muzimz.cn/tags/setoolkit/"/>
+      <category term="setoolkit" scheme="blog.muzimz.cn/tags/setoolkit/"/>
     
-      <category term="exploit" scheme="hexo.muzimz.cn/tags/exploit/"/>
+      <category term="exploit" scheme="blog.muzimz.cn/tags/exploit/"/>
     
   </entry>
   
   <entry>
     <title>Spring MVC的学习</title>
-    <link href="hexo.muzimz.cn/2018/12/03/Spring%20MVC%E7%9A%84%E5%AD%A6%E4%B9%A0/"/>
-    <id>hexo.muzimz.cn/2018/12/03/Spring MVC的学习/</id>
+    <link href="blog.muzimz.cn/2018/12/03/Spring%20MVC%E7%9A%84%E5%AD%A6%E4%B9%A0/"/>
+    <id>blog.muzimz.cn/2018/12/03/Spring MVC的学习/</id>
     <published>2018-12-03T10:35:13.000Z</published>
     <updated>2020-02-21T03:05:46.351Z</updated>
     
@@ -489,17 +489,17 @@
     
     </summary>
     
-      <category term="Java" scheme="hexo.muzimz.cn/categories/Java/"/>
+      <category term="Java" scheme="blog.muzimz.cn/categories/Java/"/>
     
     
-      <category term="Java" scheme="hexo.muzimz.cn/tags/Java/"/>
+      <category term="Java" scheme="blog.muzimz.cn/tags/Java/"/>
     
   </entry>
   
   <entry>
     <title>DOS命令</title>
-    <link href="hexo.muzimz.cn/2018/11/13/DOS%E5%91%BD%E4%BB%A4/"/>
-    <id>hexo.muzimz.cn/2018/11/13/DOS命令/</id>
+    <link href="blog.muzimz.cn/2018/11/13/DOS%E5%91%BD%E4%BB%A4/"/>
+    <id>blog.muzimz.cn/2018/11/13/DOS命令/</id>
     <published>2018-11-13T14:06:39.000Z</published>
     <updated>2020-02-21T03:17:43.178Z</updated>
     
@@ -516,17 +516,17 @@
     
     </summary>
     
-      <category term="笔记" scheme="hexo.muzimz.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="blog.muzimz.cn/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="笔记" scheme="hexo.muzimz.cn/tags/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="blog.muzimz.cn/tags/%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>欢迎使用 Cmd Markdown 编辑阅读器</title>
-    <link href="hexo.muzimz.cn/2018/10/30/%E6%AC%A2%E8%BF%8E%E4%BD%BF%E7%94%A8%20Cmd%20Markdown%20%E7%BC%96%E8%BE%91%E9%98%85%E8%AF%BB%E5%99%A8/"/>
-    <id>hexo.muzimz.cn/2018/10/30/欢迎使用 Cmd Markdown 编辑阅读器/</id>
+    <link href="blog.muzimz.cn/2018/10/30/%E6%AC%A2%E8%BF%8E%E4%BD%BF%E7%94%A8%20Cmd%20Markdown%20%E7%BC%96%E8%BE%91%E9%98%85%E8%AF%BB%E5%99%A8/"/>
+    <id>blog.muzimz.cn/2018/10/30/欢迎使用 Cmd Markdown 编辑阅读器/</id>
     <published>2018-10-30T05:29:57.000Z</published>
     <updated>2020-02-21T03:17:50.227Z</updated>
     
@@ -543,17 +543,17 @@
     
     </summary>
     
-      <category term="笔记" scheme="hexo.muzimz.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="blog.muzimz.cn/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="笔记" scheme="hexo.muzimz.cn/tags/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="blog.muzimz.cn/tags/%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>WIFI破解</title>
-    <link href="hexo.muzimz.cn/2018/10/12/WIFI%E7%A0%B4%E8%A7%A3/"/>
-    <id>hexo.muzimz.cn/2018/10/12/WIFI破解/</id>
+    <link href="blog.muzimz.cn/2018/10/12/WIFI%E7%A0%B4%E8%A7%A3/"/>
+    <id>blog.muzimz.cn/2018/10/12/WIFI破解/</id>
     <published>2018-10-12T11:47:07.000Z</published>
     <updated>2019-03-05T12:22:31.116Z</updated>
     
@@ -577,23 +577,23 @@
     
     </summary>
     
-      <category term="白帽子" scheme="hexo.muzimz.cn/categories/%E7%99%BD%E5%B8%BD%E5%AD%90/"/>
+      <category term="白帽子" scheme="blog.muzimz.cn/categories/%E7%99%BD%E5%B8%BD%E5%AD%90/"/>
     
     
-      <category term="Kali" scheme="hexo.muzimz.cn/tags/Kali/"/>
+      <category term="Kali" scheme="blog.muzimz.cn/tags/Kali/"/>
     
-      <category term="Fluxion" scheme="hexo.muzimz.cn/tags/Fluxion/"/>
+      <category term="Fluxion" scheme="blog.muzimz.cn/tags/Fluxion/"/>
     
-      <category term="wifi" scheme="hexo.muzimz.cn/tags/wifi/"/>
+      <category term="wifi" scheme="blog.muzimz.cn/tags/wifi/"/>
     
-      <category term="airmon-ng" scheme="hexo.muzimz.cn/tags/airmon-ng/"/>
+      <category term="airmon-ng" scheme="blog.muzimz.cn/tags/airmon-ng/"/>
     
   </entry>
   
   <entry>
     <title>Kali基本操作</title>
-    <link href="hexo.muzimz.cn/2018/09/28/Kali%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/"/>
-    <id>hexo.muzimz.cn/2018/09/28/Kali基本操作/</id>
+    <link href="blog.muzimz.cn/2018/09/28/Kali%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/"/>
+    <id>blog.muzimz.cn/2018/09/28/Kali基本操作/</id>
     <published>2018-09-28T05:54:02.000Z</published>
     <updated>2019-02-02T16:36:08.405Z</updated>
     
@@ -611,7 +611,7 @@
     
     </summary>
     
-      <category term="白帽子" scheme="hexo.muzimz.cn/categories/%E7%99%BD%E5%B8%BD%E5%AD%90/"/>
+      <category term="白帽子" scheme="blog.muzimz.cn/categories/%E7%99%BD%E5%B8%BD%E5%AD%90/"/>
     
     
   </entry>
