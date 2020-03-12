@@ -164,7 +164,7 @@ pace-theme-flash.css" rel="stylesheet">
 <meta property="og:site_name" content="木子">
 <meta property="og:description" content="以下内容为博主学习《Kali Linux渗透测试的艺术》一书所记录的笔记，有点凌乱、还未整理，有时间再来弄。  一、换源并安装open-vm-tools1.1 打开sources.list文件1leafpad /etc/apt/sources.list 1.2 在文件中添加如下内容1234deb http://mirrors.edu.cn/kali sana main non-free cont">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-05T12:23:55.690Z">
+<meta property="og:updated_time" content="2020-03-06T10:55:18.596Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kali基本操作">
 <meta name="twitter:description" content="以下内容为博主学习《Kali Linux渗透测试的艺术》一书所记录的笔记，有点凌乱、还未整理，有时间再来弄。  一、换源并安装open-vm-tools1.1 打开sources.list文件1leafpad /etc/apt/sources.list 1.2 在文件中添加如下内容1234deb http://mirrors.edu.cn/kali sana main non-free cont">
@@ -641,7 +641,7 @@ pace-theme-flash.css" rel="stylesheet">
 <h2 id="七、SQLMAP注入，ASP、PHP网站渗透"><a href="#七、SQLMAP注入，ASP、PHP网站渗透" class="headerlink" title="七、SQLMAP注入，ASP、PHP网站渗透"></a>七、SQLMAP注入，ASP、PHP网站渗透</h2><h3 id="7-1-科普"><a href="#7-1-科普" class="headerlink" title="7.1 科普"></a>7.1 科普</h3><h4 id="7-1-1-ASP"><a href="#7-1-1-ASP" class="headerlink" title="7.1.1 ASP"></a>7.1.1 ASP</h4><p>ASP即Active Server Pages，是MicroSoft公司开发的服务器端脚本环境，可用来创建动态交互式网页并建立强大的web应用程序。当服务器收到对ASP文件的请求时，它会处理包含在用于构建发送给浏览器的HTML（Hyper Text Markup Language，超文本置标语言）网页文件中的服务器端脚本代码。除服务器端脚本代码外，ASP文件也可以包含文本、HTML（包括相关的客户端脚本）和com组件调用。 [1-2]<br>ASP简单、易于维护 ， 是小型页面应用程序的选择 ，在使用DCOM （Distributed Component Object Model）和 MTS（Microsoft Transaction Server）的情况下， ASP甚至可以实现中等规模的企业应用程序。 [3] </p>
 <h4 id="7-1-2-PHP"><a href="#7-1-2-PHP" class="headerlink" title="7.1.2 PHP"></a>7.1.2 PHP</h4><p>PHP（外文名:PHP: Hypertext Preprocessor，中文名：“超文本预处理器”）是一种通用开源脚本语言。语法吸收了C语言、Java和Perl的特点，利于学习，使用广泛，主要适用于Web开发领域。PHP 独特的语法混合了C、Java、Perl以及PHP自创的语法。它可以比CGI或者Perl更快速地执行动态网页。用PHP做出的动态页面与其他的编程语言相比，PHP是将程序嵌入到HTML（标准通用标记语言下的一个应用）文档中去执行，执行效率比完全生成HTML标记的CGI要高许多；PHP还可以执行编译后代码，编译可以达到加密和优化代码运行，使代码运行更快。</p>
 <h3 id="7-2-ASP渗透"><a href="#7-2-ASP渗透" class="headerlink" title="7.2 ASP渗透"></a>7.2 ASP渗透</h3><ul>
-<li>监测是否存在注入<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sqlmap</span> -u 网站</span><br></pre></td></tr></table></figure>
+<li>监测是否存在注入<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u 网站 <span class="comment">--dbs</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>如果该目标网站有注入，则会返回数据库的各种信息。</p>
@@ -840,7 +840,7 @@ pace-theme-flash.css" rel="stylesheet">
   <p><span>本文标题:</span><a href="/2018/09/28/Kali/">Kali基本操作</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 木子 的个人博客">木子</a></p>
   <p><span>发布时间:</span>2018年09月28日 - 13:09</p>
-  <p><span>最后更新:</span>2019年03月05日 - 20:03</p>
+  <p><span>最后更新:</span>2020年03月06日 - 18:03</p>
   <p><span>原始链接:</span><a href="/2018/09/28/Kali/" title="Kali基本操作">https://muzimz.cn/2018/09/28/Kali/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://muzimz.cn/2018/09/28/Kali/" aria-label="复制成功！"></i></span>
   </p>
